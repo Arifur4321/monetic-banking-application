@@ -1,0 +1,90 @@
+
+
+#imgleft{
+  
+    width: 40%;
+    height: 60%;
+   
+    border-radius: 50%;
+    margin-top: 80px;
+    margin-left: 150px;
+    background-size: cover;
+    display: block;
+ 
+
+}
+
+#imgleftside{
+  margin-top: 7vh;
+  margin-left: 10vh;
+  width: 90%;
+  height: 80%;
+}
+
+/*testing css */
+
+/* Header Section */
+#cpy-employees-header {
+    color: white;
+    overflow: hidden;
+  }
+
+  /* Main Section */
+  #cpy-employees-section {
+    margin-top:  73px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  
+  #tablepanel {
+    margin-left: 70px;
+     margin-top: 20px; 
+     width: 90%;
+     overflow: hidden;
+box-shadow: 3.4px 3.4px 3.4px 3.4px rgba(87, 87, 86, 0.6);
+ border-radius: 20px 20px 20px 20px;
+
+  }
+ 
+  /* for bigger screen size width 1900*/
+  @media  screen and  (min-width: 1900px)    {
+    
+    #cpy-employees-section {
+      margin-top:  109px; 
+      height: 120%;   
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    #wholerow{
+      margin-top: -6vh;
+    }
+    
+  }
+
+  @media  only screen and (min-width: 1536px)  and (max-width: 1650px)   {  
+    @media  screen and  (min-height: 960px) {
+    #cpy-employees-section {
+      margin-top:  113px; 
+      height: 120%;   
+      background-size: cover;
+      overflow: hidden;
+    }
+  }
+  }
+ 
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only 
+screen and (min-device-pixel-ratio : 1.5) { 
+
+  #cpy-employees-section {
+    margin-top:  113px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+
+}
+  

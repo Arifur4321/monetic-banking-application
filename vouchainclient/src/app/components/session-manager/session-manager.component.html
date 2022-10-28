@@ -1,0 +1,45 @@
+<section id="session-manager-section">
+
+  <!-- Website Border Images -->
+  <img class="img-fluid" id="top-image-login" src=""/>
+  <img class="img-fluid" id="bottom-image-login" src=""/>
+
+  <div class="container" id="session-manager-header">
+    <a href="{{ homepage }}">
+      <img class="img-fluid" id="imgSessionLogoRecoveryPsw" src="./assets/images/monethic logo.PNG "/>
+    </a>
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="session-manager-container">
+    <div class="session-manager-wrap" >
+
+      <p *ngIf="(sessionMessage || sessionMessage === 'generic_server_error') && sessionMessage !== 'session_expired' && sessionMessage !== 'not_corresponding_session'">
+        {{ 'SESSION.ERROR_MESSAGE' | translate }}
+      </p>
+
+      <p *ngIf="sessionMessage === 'session_expired'">
+        {{ 'SESSION.EXPIRATION_MESSAGE' | translate }}
+      </p>
+
+      <p *ngIf="sessionMessage === 'not_corresponding_session'">
+        {{ 'SESSION.ACCOUNT_NOTICE' | translate }}
+      </p>
+
+      <div class="text-center" id="RecoveryMessage">
+        <button class="btn btn-default btn-block" style="background-color:  rgb(199, 42, 199);" id="btn-backToHome" (click)="goToHome()">
+          {{ "BUTTON.BACK_TO_HOME" | translate }}
+        </button>
+      </div>
+     
+
+      <div class="text-center mt-3" id="RecoveryMessage" *ngIf="sessionMessage === 'not_corresponding_session'">
+        <button class="btn btn-default btn-block" style="background-color:  rgb(199, 42, 199);;" id="btn-backToHome" (click)="reconnect()">
+          {{ 'SESSION.RECONNECT' | translate }}
+        </button>
+      </div>
+      
+    </div>
+  </div>
+
+</section>

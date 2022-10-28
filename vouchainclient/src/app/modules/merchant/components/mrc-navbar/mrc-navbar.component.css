@@ -1,0 +1,177 @@
+#mrc-navbar {
+  background-color: #2c61f1;
+  color: white;
+  height: 7.2vh;
+  font-size: 1.3vw;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+#mrc-navbar-profile {
+  font-size: 1.3vw;
+}
+
+#imgMrcLogo {
+  width: 60%;
+}
+
+#imgMrcProfile {
+  width: 20%;
+}
+
+#mrc-brand {
+  font-size: 1.7rem;
+  display: inline;
+}
+
+.mrc-dropdown-item {
+  color: #2d2e83 !important;
+}
+
+.mrc-dropdown-item:hover {
+  background-color: #2c61f1 !important;
+}
+
+.navbar a {
+  color: white;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #2d2e83;
+}
+
+.active-link {
+  border-bottom: 3px solid white;
+  border-radius: 5px 0px;
+  box-shadow: 0px 1px #000000;
+  color: #ffffff !important;
+  padding-bottom: 0px;
+  text-shadow: 1px 1px #000000;
+}
+
+@media screen and (max-width: 768px) {
+  #mrc-navbar {
+    background-color: #2d2e83;
+    font-size: 1rem;
+    height: unset;
+    padding: 1rem 0;
+  }
+
+  #mrc-navbar-profile {
+    font-size: 1rem;
+  }
+
+  #mrc-brand {
+    font-size: 1.3rem;
+    margin: 0;
+    display: inline;
+  }
+
+  #navbarSupportedContent {
+    background-color: #2d2e83;
+  }
+
+  .dropdown-menu {
+    background-color: #2d2e83;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    margin-bottom: 0.5rem;
+  }
+
+  .mrc-dropdown-item {
+    color: #ffffff !important;
+  }
+
+  .dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .navbar {
+    padding: unset;
+  }
+
+  .navbar a {
+    margin-right: 0.3rem;
+   }
+
+  #imgMrcLogo {
+    width: 55%;
+  }
+
+  .active-link {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1280px) {
+  #mrc-navbar {
+    font-size: 1.4vw;
+  }
+
+  #imgMrcProfile {
+    width: 30%;
+  }
+
+  #imgMrcLogo {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  #mrc-navbar {
+    background-color: #2d2e83;
+    font-size: 1.3rem;
+    height: unset;
+    padding: 1rem 0;
+  }
+
+  #imgMrcLogo {
+    width: 40%;
+  }
+
+  #mrc-brand {
+    font-size: 1.7rem;
+    margin-right: -5rem;
+  }
+
+  #navbarSupportedContent {
+    background-color: #2d2e83;
+  }
+
+  .dropdown-menu {
+    background-color: #2d2e83;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    margin-bottom: 0.5rem;
+  }
+
+  .mrc-dropdown-item {
+    color: #ffffff !important;
+  }
+
+  .dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .navbar {
+    padding: unset;
+  }
+
+  #imgMrcProfile {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #imgMrcLogo {
+    width: 80%;
+  }
+
+  #imgMrcLogo{
+    width: 80%;
+  }
+
+  #mrc-navbar-display {
+    display: flex;
+  }
+}

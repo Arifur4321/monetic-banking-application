@@ -1,0 +1,246 @@
+/* Main Section */
+#emp-login-section {
+  position: fixed;
+  background-color: #2c61f1;
+  height: 100%;
+  width: 100%;
+}
+
+/* Border Images */
+#top-image-login {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+#bottom-image-login {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+/* Header Text */
+#emp-login-header {
+  margin: auto;
+  padding-top: 3vh;
+  position: absolute;
+  margin-left: 8%;
+}
+
+.link-homepage {
+  font-size: 0.9rem;
+  padding: 0rem;
+}
+
+#emp-title-vouchain {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+}
+
+#emp-title-vouchain a {
+  color: inherit;
+}
+
+#emp-title-vouchain a:hover {
+  text-decoration: none;
+}
+
+/* logo */
+#imgEmpLogoInvitCode {
+  width: 20%;
+  opacity: 0.5; 
+}
+
+/* Login Page Link */
+#emp-login-anchor {
+  font-size: 1.5rem;
+  font-family: "GraphikMedium";
+}
+
+/* Signup Page Link */
+#emp-signup-anchor {
+  font-size: 1.5rem;
+  color: #575756;
+}
+
+#emp-signup-anchor:hover {
+  color: #2c61f1;
+  text-decoration: none;
+}
+
+#emp-signup-anchor:visited {
+  color: #575756;
+}
+
+#emp-anchor-pipe {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+/* FORM */
+
+.emp-login-container {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.emp-login-wrap {
+  width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5.25rem 5rem 4.75rem;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+#errorDescription {
+  font-family: "GraphikSemibold";
+  height: 3rem;
+  margin-bottom: -3rem;
+}
+
+/* --- MEDIA QUERIES */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  @media screen and (max-height: 700px) {
+    
+  .emp-login-container {
+    margin-top: 14%;
+  }
+  
+  }
+
+  #emp-login-header {
+    margin-left: 4rem;
+    margin-top: 2%;
+  }
+
+
+  #emp-login-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  #emp-login-header {
+    margin-left: 2rem;
+    margin-top: 2%;
+  }
+
+  .emp-login-container {
+    margin-top: 15%;
+  }
+
+  #emp-login-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  #emp-login-header {
+    margin-left: 0.1rem;
+    margin-top: 25%;
+  }
+
+  #emp-title-vouchain {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .emp-login-container {
+    min-height: 120vh;
+    margin-top: -15%;
+  }
+
+  .emp-login-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+  
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+
+@media screen and (max-height: 900px) and (min-height: 700px) {
+
+
+}
+
+@media screen and (max-height: 699px){
+
+
+}

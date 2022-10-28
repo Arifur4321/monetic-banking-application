@@ -1,0 +1,505 @@
+#mrc-invoice-header {
+  color: white;
+  overflow: hidden;
+}
+
+#mrc-invoice {
+  margin: -35vh 0 3rem;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* Table Container */
+.mrc-invoice-container-table {
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Section Title */
+#mrc-wrap-title {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+  margin-bottom: 2rem;
+}
+
+#mrc-invoice-container {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+#mrc-wrap-invoice {
+  background-color: #a8dbff;
+  margin-top: 4rem;
+  width: 100%;
+  padding: 0;
+  border-radius: 10px;
+}
+
+#mrc-wrap-invoice-past {
+  background-color: #a8dbff;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0;
+  border-radius: 10px;
+}
+
+#mrc-invoice-overview-table {
+  background-color: #ededed;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  margin-bottom: 2vh;
+  border-radius: 10px;
+}
+
+.mrc-invoice-content-wrap-tables {
+  background: #ededed;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+.mrc-invoice-icons {
+  width: 3.5vw;
+  margin: 1rem;
+}
+
+.mrc-content-wrap {
+  width: 100%;
+  background: #ededed;
+  border-radius: 10px;
+  padding: 4rem;
+  padding-bottom: 1rem;
+  margin: auto;
+
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+.mrc-invoice-container-table-title {
+  padding: 2vh 1vw;
+  color: #2d2e83;
+  font-family: "GraphikMedium";
+}
+
+.mrc-invoice-table-reload-buttons {
+  color: #2d2e83;
+  font-size: 1.5rem;
+}
+
+table {
+  background: white;
+  border-collapse: collapse;
+  border-spacing: 1;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+table * {
+  position: relative;
+}
+
+table td,
+table th {
+  padding-left: 8px;
+  text-align: left;
+}
+
+table thead tr {
+  background: #a8dbff;
+  height: 5vh;
+}
+
+table tbody tr {
+  height: 4vh;
+}
+
+table tbody tr:last-child {
+  border: 0;
+}
+
+.mrc-invoice-table-head th {
+  color: #2d2e83;
+  font-family: "GraphikMedium";
+  font-size: 1.5vw;
+  font-weight: unset;
+  height: 60px;
+  line-height: 1.2;
+}
+
+.mrc-invoice-table-subhead th {
+  color: #2c61f1;
+  font-family: "GraphikMedium";
+  font-size: 16px;
+  font-weight: unset;
+  height: 30px;
+  line-height: 1.2;
+  width: 7rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+tbody tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+table tfoot tr {
+  height: 60px;
+  background: #a8dbff;
+}
+
+tfoot tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+/* form */
+.inner .form-holder {
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 0.2rem;
+  position: relative;
+}
+
+.inner {
+  position: relative;
+}
+
+.inner .form-holder fieldset {
+  border: 2px solid #2c61f1;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  padding: 0 20px;
+}
+.inner .form-holder legend {
+  font-family: "GraphikSemibold";
+  color: #2c61f1;
+  font-size: 1rem;
+  width: auto;
+  margin-bottom: 0;
+}
+.inner .form-holder input,
+.inner .form-holder select {
+  width: 100%;
+  padding: 0.2rem 0rem 0.2rem;
+  border: none;
+  appearance: unset;
+  -moz-appearance: unset;
+  -webkit-appearance: unset;
+  -o-appearance: unset;
+  -ms-appearance: unset;
+  outline: none;
+  -moz-outline: none;
+  -webkit-outline: none;
+  -o-outline: none;
+  -ms-outline: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+}
+.inner .form-holder input {
+  color: #2d2e83;
+  font-size: 1rem;
+  font-family: "GraphikRegular";
+}
+.inner .form-holder select {
+  color: #2d2e83;
+  font-size: 1rem;
+  font-family: "GraphikRegular";
+}
+
+.inner .form-holder .input-border {
+  border: 2px solid #e5e5e5;
+  padding: 11px 20px;
+  margin-top: 8px;
+}
+.inner .form-holder select {
+  float: left;
+  margin-right: 15px;
+}
+
+/* Error Alert Messages */
+.mrc-invoice-error-alert {
+  color: red;
+  font-size: 0.7rem;
+}
+
+/* vvv MEDIA QUERIES vvv */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1441px) {
+  @media screen and (max-height: 900px) {
+    /* Table Header */
+    .mrc-invoice-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .mrc-invoice-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.3vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+     /* Table Body Rows */
+     tbody tr {
+      font-size: 1vw;
+    }
+
+    
+    /* Table Header */
+    .mrc-invoice-table-head th {
+      font-size: 1.5vw;
+    }
+
+    /* Table Subheader */
+    .mrc-invoice-table-subhead th {
+      font-size: 1.2vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #mrc-invoice {
+    margin: -45vh 0 3vh;
+  }
+
+  #mrc-invoice-container {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  #mrc-invoice {
+    margin: -20vh 0 3vh;
+  }
+  /* Table Header */
+  .mrc-invoice-table-head th {
+    font-size: 3vw;
+  }
+
+  /* Table Subheader */
+  .mrc-invoice-table-subhead th {
+    font-size: 2vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1vw;
+  }
+
+  #mrc-invoice-container {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+
+  .mrc-invoice-icons {
+    width: 6vw;
+    margin: 2vw;
+  }
+
+  ejs-daterangepicker {
+    width: 40vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #mrc-invoice {
+    margin: -50vh 0 3vh;
+  }
+
+  #mrc-invoice-container {
+    padding-left: 9vw;
+    padding-right: 9vw;
+  }
+
+  @media screen and (max-height: 599px) {
+    /* Table Header */
+    .mrc-invoice-table-head th {
+      font-size: 7vh;
+    }
+
+    /* Table Subheader */
+    .mrc-invoice-table-subhead th {
+      font-size: 4.6vh;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 4.3vh;
+    }
+
+    .mrc-invoice-icons {
+      width: 8vw;
+      margin: 2vw;
+    }
+
+    ejs-daterangepicker {
+      width: 40vw;
+    }
+  }
+
+  @media screen and (min-height: 600px) {
+    /* Table Header */
+    .mrc-invoice-table-head th {
+      font-size: 3vh;
+    }
+
+    /* Table Subheader */
+    .mrc-invoice-table-subhead th {
+      font-size: 2vh;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.6vh;
+    }
+
+    ejs-daterangepicker {
+      width: 30vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  #mrc-invoice {
+    margin: -80vh 0 3rem;
+  }
+
+  #mrc-invoice-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .mrc-invoice-table-head th {
+    font-size: 4vw;
+  }
+
+  /* Table Subheader */
+  .mrc-invoice-table-subhead th {
+    font-size: 1.9vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.9vw;
+  }
+
+  .mrc-invoice-icons {
+    width: 8vw;
+    margin: 2vw;
+  }
+
+  ejs-daterangepicker {
+    width: 30vw;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  #mrc-invoice {
+    margin: -30vh 0 3rem;
+  }
+
+  #mrc-invoice-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .mrc-invoice-table-head th {
+    font-size: 5vw;
+  }
+
+  /* Table Subheader */
+  .mrc-invoice-table-subhead th {
+    font-size: 4vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 3.5vw;
+  }
+
+  .mrc-invoice-icons {
+    width: 8vw;
+    margin: 2vw;
+  }
+
+  ejs-daterangepicker {
+    width: 65vw;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) {
+}

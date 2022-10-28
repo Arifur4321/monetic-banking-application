@@ -1,0 +1,156 @@
+<section id="emp-viewProfile-header">
+    <img id="emp-profile-image-dashboard" class="img-fluid" src="./assets/images/vouchain_dashboard_top_prova04.png" />
+</section>
+<!-- Email profile -->
+<section id="emp-overview">
+    <h1 class="text-center" id="emp-view-profile-title" style="color:white"><b>{{ 'EMPLOYEES.PROFILE_OF' | translate }}:
+            <span style="color:#a8dbff">{{ email }}</span></b></h1>
+    <!-- Container -->
+    <div class="container">
+        <div id="wrap-profile" class="content-wrap">
+            <!-- Form -->
+            <form (ngSubmit)="onFormSubmit()" autocomplete="off">
+                <div id="emp-view-profile-body-header" class="row justify-content-center">
+                    <!-- Icon profile-->
+                    <div class="row justify-content-center">
+                        <img id="emp-view-profile-icon" src="./assets/images/icons/employee_dark_icon.png"
+                            class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="row pt-4">
+                    <div class="col-lg-4 col-md-12 mb-2">
+                        <!-- Tablist -->
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+
+                            <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill"
+                                href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                aria-selected="true">{{ 'EMPLOYEES.PROFILE_DATA' | translate }}</a>
+
+                        </div>
+
+                    </div> <!-- End first column -->
+
+                    <div class="col-lg-8 col-md-12">
+
+
+                        <div class="tab-content" id="v-pills-tabContent">
+
+                            <!-- First TAB Referente Form Inputs -->
+
+                            <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                                aria-labelledby="v-pills-profile-tab">
+
+
+                                <!-- First Name Ref Input -->
+                                <div class="inner first-name-input">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline emp-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.FIRST_NAME_REF' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top"
+                                                        name="firstNameRef"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.FIRST_NAME_REF' | translate }}"
+                                                        type="text" (input)="checkFirstNameRef();checkModify()"
+                                                        [(ngModel)]="firstNameRef" class="readonly form-control"
+                                                        required />
+                                                </fieldset>
+                                                <a (click)="modifyField('firstNameRef')"><img
+                                                        class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="emp-signup-error-alert" *ngIf="firstNameRefOk">&nbsp;</label>
+                                            <label class="emp-signup-error-alert" *ngIf="!firstNameRefOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Last Name Ref Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline emp-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.LAST_NAME_REF' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="lastNameRef"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.LAST_NAME_REF' | translate }}"
+                                                        type="text" (input)="checkLastNameRef();checkModify()"
+                                                        [(ngModel)]="lastNameRef" class="readonly form-control"
+                                                        required />
+                                                </fieldset>
+                                                <a (click)="modifyField('lastNameRef')"><img
+                                                        class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="emp-signup-error-alert" *ngIf="lastNameRefOk">&nbsp;</label>
+                                            <label class="emp-signup-error-alert" *ngIf="!lastNameRefOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Matricola Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline emp-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.NUMBER' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="matricola"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.NUMBER' | translate }}" type="text"
+                                                        (input)="checkModify()" [(ngModel)]="matricola"
+                                                        class="readonly form-control" required />
+                                                </fieldset>
+                                                <a (click)="modifyField('matricola')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="emp-signup-error-alert">&nbsp;</label>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div> <!-- End Tab -->
+
+
+                        </div> <!-- End tab-content -->
+
+
+                    </div> <!-- End second column -->
+
+                </div> <!-- End Row column -->
+                <div class="row">
+                    <!-- Undo Modify Button -->
+                    <div class="col-sm-6">
+                        <button id="emp-mod-profile-btn-annulla" type="button" class="btn btn-secondary btn-block"
+                            (click)="undoModify()" disabled>{{ 'EMPLOYEES.DISCARD_CHANGES' | translate }}</button>
+
+                    </div>
+                    <!-- Apply Modify Button -->
+                    <div class="col-sm-6">
+                        <button id="emp-mod-profile-btn-apply" type="submit" class="btn btn-primary btn-block"
+                            disabled>{{ 'EMPLOYEES.APPLY_CHANGES' | translate }}</button>
+                    </div>
+
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <!-- Errors Alerts -->
+                    <div class="alert alert-warning text-center" id="emp-modify-error-description" role="alert"
+                        *ngIf="isNotModified">
+                        {{ 'EMPLOYEES.NO_CHANGES_HAVE_BEEN_MADE' | translate }}
+                    </div>
+                </div>
+            </form> <!-- End form -->
+
+        </div> <!-- End wrap -->
+    </div> <!-- End container -->
+</section>

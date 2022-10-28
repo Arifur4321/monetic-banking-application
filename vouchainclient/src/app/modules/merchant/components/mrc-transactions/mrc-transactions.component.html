@@ -1,0 +1,316 @@
+<section id="mrc-transactions-header">
+
+  <!-- Top Border Image -->
+  <img class="float-right img-fluid" id="mrc-transactions-top-image"
+    src="./assets/images/vouchain_dashboard_top_prova04.png" />
+
+</section>
+
+<!-- Main Website Content -->
+<section id="mrc-transactions-section">
+
+  <!-- Section Title -->
+  <h1 class="text-center" id="mrc-transactions-title">
+    <b>{{ 'TRANSACTION.SECTION_TITLE' | translate }}</b>
+  </h1>
+
+  <!-- Main Section Content -->
+  <div class="container-fluid" id="mrc-transactions-container">
+
+    <!-- Date Range Picker -->
+    <div class="row justify-content-center">
+      <ejs-daterangepicker format="dd/MM/yyyy" placeholder="{{ 'DATE_RANGE_PICKER.SELECT_AN_INTERVAL' | translate }}"
+        [firstDayOfWeek]="1" [max]="maxDate" [(endDate)]="endDate" [(startDate)]="startDate" locale="it"
+        (change)="showTransactionsList(1)"></ejs-daterangepicker>
+    </div>
+
+    <!-- Transactions Table Wrapper and Container -->
+    <div class="mrc-transactions-content-wrap-tables" id="mrc-transactions-wrap-table">
+      <div class="mrc-transactions-container-table table-responsive">
+        <div class="w-100">
+
+          <!-- Transactions Table -->
+          <table>
+
+            <!-- Transactions Table Header -->
+            <thead>
+
+              <!-- Transactions Table Head -->
+              <tr class="mrc-transactions-table-head">
+
+                <!-- Transactions Table Icon and Reload Button -->
+                <th colspan="3">
+                  <img class="img-fluid" id="mrc-transactions-table-icon"
+                    src="./assets/images/icons/storico_icon2.png" /><span
+                    style="display: inline;">{{ 'OVERVIEW.TRANSACTION.TRANSACTION_HISTORY' | translate }}</span>
+
+                  <button class="btn btn-link" id="mrc-transactions-table-reload-button" type="button"
+                    (click)="showTransactionsList(1)" data-toggle="tooltip" data-placement="top"
+                    title="{{ 'TOOLTIPS.RELOAD' | translate }}">
+                    <fa-icon [icon]="fasSyncAlt"></fa-icon>
+                  </button>
+
+                </th>
+
+                <!-- Transactions Table Export Button -->
+                <th class="pr-3 text-right" colspan="2">
+
+                  <button class="btn btn-primary" type="button" [disabled]="tableEmpty || tableLoading"
+                    (click)="exportTransactions()">
+                    <fa-icon [icon]="fasDownload"></fa-icon> {{ 'TRANSACTION.EXPORT_HISTORICAL' | translate }}
+                  </button>
+
+                </th>
+
+              </tr>
+
+              <!-- Transactions Table Subhead -->
+              <tr class="mrc-transactions-table-subhead">
+
+                <th class="pr-3 text-right">{{ 'OVERVIEW.TRANSACTION.DATE' | translate }}</th>
+                <th class="pl-3">{{ 'TRANSACTION.NUMBER_OF_TRANSACTION' | translate }}</th>
+                <th class="pl-3">{{ 'OVERVIEW.TRANSACTION.DESCRIPTION' | translate }}</th>
+                <th class="pr-3 text-right">{{ 'OVERVIEW.WALLET.AMOUNT' | translate }}</th>
+                <th class="text-center">{{ 'TRANSACTION.DETAIL' | translate }}</th>
+
+              </tr>
+
+            </thead>
+
+            <!-- Transactions Table Body -->
+            <tbody>
+
+              <!-- Loading Table Row -->
+              <tr *ngIf="tableLoading">
+                <td class="text-center" colspan="5" style="height: 10rem;">
+                  <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+                </td>
+              </tr>
+
+              <!-- Empty Table Row -->
+              <tr *ngIf="tableEmpty">
+                <td class="text-center" colspan="5" style="height: 10rem;">
+                  <h1>{{ msgTableBody }}</h1>
+                </td>
+              </tr>
+
+              <!-- Transactions Table Row(s) -->
+              <tr
+                *ngFor="let transaction of transactions | paginate: { itemsPerPage: 5, currentPage: selectedPage, totalItems: totalTransactions }">
+
+                <!-- Transaction Date -->
+                <td class="numericPagination pr-3">
+                  {{ transaction.trcDate }}
+                </td>
+
+                <!-- Transaction ID -->
+                <td class="pl-3">{{ transaction.trcId }}</td>
+
+                <!--  Transaction Type Full Description -->
+                <td class="pl-3" *ngIf="transaction.trcType === 'SPS'">
+                  {{ getTrcTypeFullDescription(transaction.trcType) }} {{ transaction.usrIdDaString }}
+                </td>
+
+                <!--  Transaction Type Full Description -->
+                <td class="pl-3" *ngIf="transaction.trcType === 'RED'">
+                  {{ getTrcTypeFullDescription(transaction.trcType) }}
+                </td>
+
+                <!-- Transaction Value -->
+                <td class="numericPagination pr-3">
+                  {{ transaction.trcValue | currency: "EUR":"symbol":"":"it-IT" }}
+                </td>
+
+                <!-- Transaction Details Icon -->
+                <td class="text-center">
+                  <a data-toggle="tooltip" data-placement="top" title="{{ 'TOOLTIPS.SHOW_DETAILS' | translate }}"
+                    (click)="showTransactionDetails(transaction)">
+                    <img src="./assets/images/icons/details.png" />
+                  </a>
+                </td>
+
+              </tr>
+
+            </tbody>
+
+            <!-- Transactions Table Footer -->
+            <tfoot>
+
+              <tr>
+
+                <!-- Transactions Table Pagination -->
+                <td class="pl-0 pt-3 text-center" colspan="5" *ngIf="!tableEmpty && !tableLoading">
+                  <pagination-controls class="vouchainPagination" maxSize="7"
+                    nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                    previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" responsive="true"
+                    (pageChange)="showTransactionsList($event)"></pagination-controls>
+                </td>
+
+                <!-- Transactions Table Empty Footer Row -->
+                <td class="p-4" colspan="5" *ngIf="tableEmpty || tableLoading"></td>
+
+              </tr>
+
+            </tfoot>
+
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Transactions Details Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="mrc-transactions-modal-transaction-detail" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" id="mrc-transactions-modal-transaction-detail-header"
+        style="background-color: #2c61f1; color: white;">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title" id="cpy-transaction-modal-allocation-header-title">
+          {{ 'TRANSACTION.TRANSACTION_NUMBER_DETAIL' | translate }}
+          <span class="numericPagination">{{ transactionToDetail.trcId }}</span>
+          {{ 'TRANSACTION.OF_DATE' | translate }}
+          <span class="numericPagination">{{ transactionToDetail.trcDate }}</span>
+        </h4>
+
+        <!-- Modal Header Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="mrc-transactions-modal-transaction-detail-body">
+
+        <!-- Transaction Recipient (if available) -->
+        <div *ngIf="transactionToDetail.trcType === 'SPS'">
+
+          <!-- Transaction Recipient Title -->
+          <div class="text-center">
+            <h4 style="color: #2d2e83; font-family: GraphikSemibold;">
+              {{ 'TRANSACTION.SENDER_BENEFICIARY' | translate }}
+            </h4>
+          </div>
+
+          <!-- Transaction Recipient Table Wrapper and Container -->
+          <div class="mrc-transactions-content-wrap-tables" id="mrc-transactions-wrap-table">
+            <div class="mrc-transactions-container-table table-responsive">
+              <div class="w-100">
+
+                <!-- Transaction Recipient Table -->
+                <table>
+
+                  <!-- Transaction Recipient Table Header -->
+                  <thead>
+
+                    <!-- Transaction Recipient Table Subhead -->
+                    <tr class="mrc-transactions-table-subhead" style="height: 2.5rem;">
+                      <th style="font-size: 1.15rem;">Nome</th>
+                      <th style="font-size: 1.15rem;">Cognome</th>
+                      <th style="font-size: 1.15rem;">Email</th>
+                    </tr>
+
+                  </thead>
+
+                  <!-- Transaction Recipient Table Body -->
+                  <tbody>
+
+                    <!-- Transaction Recipient Table Body Row(s) -->
+                    <tr>
+                      <td>{{ transactionSender.empFirstName }}</td>
+                      <td>{{ transactionSender.empLastName }}</td>
+                      <td>{{ transactionSender.usrEmail }}</td>
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Transaction Vouchers -->
+        <div class="mt-3 text-center">
+          <h4 style="color: #2d2e83; font-family: GraphikSemibold;">
+            {{ 'MODALS.BODY.VOUCHERS.GENERIC.SELECTED_VOUCHERS' | translate }}
+          </h4>
+        </div>
+
+        <!-- Transaction Vouchers Table Wrapper and Container -->
+        <div class="mrc-transactions-content-wrap-tables" id="mrc-transactions-wrap-table">
+          <div class="mrc-transactions-container-table table-responsive">
+            <div class="w-100">
+
+              <!-- Transaction Vouchers Table -->
+              <table>
+
+                <!-- Transaction Vouchers Table Header -->
+                <thead>
+
+                  <!-- Transaction Vouchers Table Subhead -->
+                  <tr class="mrc-transactions-table-subhead" style="height: 2.5rem;">
+                    <th style="font-size: 1.15rem; width: 40%;">{{ 'OVERVIEW.WALLET.VOUCHER' | translate }}</th>
+                    <th class="text-right" style="font-size: 1.15rem; width: 20%;">
+                      {{ 'TABLES.VOUCHERS.VALUE' | translate }}
+                    </th>
+                    <th class="text-right" style="font-size: 1.15rem; width: 20%;">
+                      {{ 'OVERVIEW.WALLET.QUANTITY' | translate }}
+                    </th>
+                    <th class="pr-3 text-right" style="font-size: 1.15rem; width: 20%;">
+                      {{ 'OVERVIEW.WALLET.AMOUNT' | translate }}
+                    </th>
+                  </tr>
+
+                </thead>
+
+                <!-- Transaction Vouchers Table Body -->
+                <tbody>
+
+                  <!-- Transaction Vouchers Table Body Row(s) -->
+                  <tr *ngFor="let voucher of transactionToDetail.voucherList">
+                    <td>
+                      {{ validatorService.readableVoucherName(voucher.vchName) }}
+                    </td>
+                    <td class="numericPagination">
+                      {{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}
+                    </td>
+                    <td class="numericPagination">{{ voucher.vchQuantity }}</td>
+                    <td class="numericPagination pr-3">
+                      {{ numeric.parseFloat(voucher.vchValue) * numeric.parseInt(voucher.vchQuantity) | currency: "EUR":"symbol":"":"it-IT" }}
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" id="modal-test-footer-button" type="button">
+          {{ 'EMPLOYEES.MODAL.INVITE_CLOSE' | translate }}
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

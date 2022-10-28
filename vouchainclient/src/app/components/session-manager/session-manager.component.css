@@ -1,0 +1,298 @@
+/* Main Section */
+#session-manager-section {
+  position: fixed;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+}
+
+/* Border Images */
+#top-image-login {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+#bottom-image-login {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+/* logo */
+#imgSessionLogoRecoveryPsw {
+  width: 15%;
+  height: 10%;
+  border-radius: 20px;
+}
+
+/* Header Text */
+#session-manager-header {
+  position: absolute;
+  margin-top: 5rem;
+  margin-left: 12rem;
+}
+
+/* VouChain Title */
+#title-vouchain {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+}
+
+/* VouChain Title Link */
+#title-vouchain a {
+  color: inherit;
+}
+
+#title-vouchain a:hover {
+  text-decoration: none;
+}
+
+/* Login Page Link */
+#upr-anchor-passrecovery {
+  font-size: 1.5rem;
+  font-family: "GraphikMedium";
+}
+
+/* Login Page Link */
+#upr-anchor-login {
+  font-size: 1.5rem;
+  color: #575756;
+}
+
+#upr-anchor-login:hover {
+  color: #2c61f1;
+  text-decoration: none;
+}
+
+#upr-anchor-login:visited {
+  color: #575756;
+}
+
+#upr-anchor-pipe {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+/* FORM */
+
+.session-manager-container {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.session-manager-wrap {
+  width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5.25rem 5rem 4.75rem;
+
+ 
+                 box-shadow: 2px 2px 2px 2px #808080;  
+  
+}
+
+#errorDescription {
+  font-family: "GraphikSemibold";
+  height: 3rem;
+  margin-bottom: -3rem;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Schermo Tipo Ipad orizzontale */
+@media screen and (min-width: 960px) and (max-width: 1140px) and (max-height: 960px) {
+  #session-manager-header {
+    margin-top: 12%;
+  }
+
+  .session-manager-container {
+    margin-top: 5%;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+/* Schermo Ipad pro verticale */
+@media screen and (min-width: 960px) and (max-width: 1140px) and (min-height: 961px) {
+  #session-manager-header {
+    margin-top: 30%;
+  }
+}
+
+/* Tipo iphone x orizzontale */
+@media screen and (min-width: 768px) and (max-width: 960px) and (max-height: 930px) {
+  #session-manager-header {
+    margin-left: 4rem;
+    margin-top: 2%;
+  }
+
+  .session-manager-container {
+    margin-top: 7%;
+  }
+
+  /* TODO: Verificare */
+  #session-manager-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+/* Tipo ipad verticale */
+@media screen and (min-width: 768px) and (max-width: 960px) and (min-height: 931px) {
+  /* Header Text */
+  #session-manager-header {
+    margin-left: 6rem;
+    margin-top: 30%;
+  }
+}
+
+/* Schermi tipo galaxy s5 / iphone 6/7/8 orizzontale */
+@media screen and (min-width: 576px) and (max-width: 767px) and (max-height: 600px) {
+  /* Header Text */
+  #session-manager-header {
+    margin-left: 2rem;
+    margin-top: 2%;
+  }
+
+  .session-manager-container {
+    margin-top: 9%;
+  }
+
+  /* TODO: Verificare */
+  #session-manager-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #imgSessionLogoRecoveryPsw{
+    width: 60%;
+  }
+}
+
+/* Schermi tipo galaxy s5 / iphone 6/7/8 */
+@media screen and (min-width: 576px) and (max-width: 767px) and (min-height: 601px) {
+  /* Header Text */
+  #session-manager-header {
+    margin-left: 4rem;
+    margin-top: 15%;
+  }
+
+  #imgSessionLogoRecoveryPsw{
+    width: 60%;
+  }
+}
+
+/* Schermi tipo iphone x verticale */
+@media screen and (max-width: 576px) and (min-height: 812px) {
+  /* Header Text */
+  #session-manager-header {
+    margin-left: 0.1rem;
+    margin-top: 55%;
+  }
+
+  #upr-title-vouchain {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  /* Form Container */
+  .session-manager-container {
+    min-height: 120vh;
+    margin-top: -15%;
+  }
+
+  /* Form Wrap */
+  .session-manager-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  #imgSessionLogoRecoveryPsw{
+    width: 60%;
+  }
+}
+
+/* Schermi tipo iphone 5 verticale */
+@media screen and (max-width: 576px) and (max-height: 811px) and (min-height: 501px) {
+  /* Header Text */
+  #session-manager-header {
+    margin-left: 0.1rem;
+    margin-top: 30%;
+  }
+
+  #upr-title-vouchain {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  /* Form Container */
+  .session-manager-container {
+    min-height: 120vh;
+    margin-top: -15%;
+  }
+
+  /* Form Wrap */
+  .session-manager-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+  #imgSessionLogoRecoveryPsw{
+    width: 60%;
+  }
+}
+
+/* Schermi tipo iphone 5 orizzontale */
+@media screen and (max-width: 576px) and (max-height: 500px) {
+  /* Header Text */
+  #session-manager-header {
+    margin-left: 2rem;
+    margin-top: 2%;
+  }
+
+  #upr-title-vouchain {
+    font-size: 1.8rem;
+  }
+
+  /* Form Container */
+  .session-manager-container {
+    min-height: 120vh;
+    margin-top: 9%;
+  }
+
+  /* Form Wrap */
+  .session-manager-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  /* TODO: Verificare */
+  #session-manager-section {
+    overflow: scroll;
+  }
+
+  #imgSessionLogoRecoveryPsw{
+    width: 60%;
+  }
+
+  img {
+    width: 50%;
+  }
+}

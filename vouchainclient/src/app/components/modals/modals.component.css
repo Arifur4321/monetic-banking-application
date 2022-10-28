@@ -1,0 +1,14 @@
+#vouchain-modal-errors-header {
+    background-color: #e7362d;
+    color: white;
+}
+
+#vouchain-modal-info-header {
+    background-color: #2c61f1;
+    color: white;
+}
+
+#vouchain-modal-success-header {
+    background-color: #0fb94a;
+    color: white;
+}

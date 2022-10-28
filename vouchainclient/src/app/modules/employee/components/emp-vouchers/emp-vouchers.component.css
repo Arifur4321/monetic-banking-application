@@ -1,0 +1,312 @@
+/* Header Section */
+#emp-vouchers-header {
+  background-color: #2c61f1;
+  color: white;
+  overflow: hidden;
+}
+
+/* Border Images */
+#emp-vouchers-top-image {
+  z-index: 1;
+}
+
+/* Main Section */
+#emp-vouchers-section {
+  margin: -35vh 0 3vh;
+}
+
+/* Section Title */
+#emp-vouchers-title {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+  margin-bottom: 2rem;
+}
+
+#btn-alloca-voucher {
+  margin-bottom: 1rem;
+}
+
+.emp-input-qselector {
+  width: 4rem;
+}
+
+#emp-vouchers-container {
+  padding-left: 25vw;
+  padding-right: 25vw;
+}
+
+/* Selected Employee Buttons */
+.btn-info {
+  background-color: #a8dbff;
+  border-color: #a8dbff;
+  color: #2c61f1;
+}
+
+/* Selected Employee Cards */
+.card {
+  background-color: #a8dbff;
+  color: #2c61f1;
+  font-family: "GraphikSemibold";
+  margin: auto;
+  max-width: 35%;
+  padding: 1rem;
+}
+
+/* Selected Employee Cards Lists */
+.list-group-item {
+  background-color: inherit;
+}
+
+/* vvv VOUCHERS TABLE vvv */
+
+/* Table Wrapper */
+.emp-vouchers-content-wrap-tables {
+  background: #ededed;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+/* Table Container */
+.emp-vouchers-container-table {
+  align-items: center;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  width: 100%;
+
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+}
+
+/* Table Header */
+.emp-vouchers-table-head th {
+  color: #2d2e83;
+  font-family: "GraphikSemibold";
+  font-size: 1.5rem;
+  font-weight: unset;
+  height: 60px;
+  line-height: 1.2;
+}
+
+/* Table Subheader */
+.emp-vouchers-table-subhead th {
+  color: #2c61f1;
+  font-family: "GraphikMedium";
+  font-size: 1rem;
+  font-weight: unset;
+  height: 2rem;
+  line-height: 1.2;
+}
+
+
+/* Table Generic */
+table {
+  background: white;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-spacing: 1;
+  margin: 0 auto;
+  /*  overflow: hidden; */
+  position: relative;
+  width: 100%;
+}
+
+/* Table Elements Positions */
+table * {
+  position: relative;
+}
+
+/* Table Cells */
+table td,
+table th {
+  padding-left: 1rem;
+  text-align: left;
+}
+
+/* Table Header Rows */
+table thead tr {
+  background: #a8dbff;
+}
+
+/* Table Body Rows */
+table tbody tr {
+  height: 50px;
+}
+
+/* Last Table Body Row */
+table tbody tr:last-child {
+  border: 0;
+}
+
+/* Table Body Rows */
+tbody tr {
+  color: #808080;
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  font-weight: unset;
+  line-height: 1.2;
+}
+
+/* Even Table Body Rows */
+tbody tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+/* Table Footer Rows */
+table tfoot tr {
+  background: #a8dbff;
+  height: 40px;
+}
+
+/* Table Footer Rows */
+tfoot tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  font-weight: unset;
+  line-height: 1.2;
+}
+
+#idEmpVoucherIcon {
+  width: 80%;
+}
+
+/* ^^^ VOUCHERS TABLE ^^^ */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #emp-vouchers-container {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    #emp-vouchers-container {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+#emp-vouchers-section {
+  margin-top: -20rem;
+}
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+
+  #emp-vouchers-section {
+  margin-top: -15rem;
+}
+
+  #idEmpVoucherIcon {
+    width: 100%;
+  }
+
+  #emp-vouchers-container {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+
+  .emp-vouchers-table-head th {
+    color: #2d2e83;
+    font-family: "GraphikSemibold";
+    font-size: 4vw;
+    font-weight: unset;
+    height: 60px;
+    line-height: 1.2;
+  }
+
+  /* Table Subheader */
+  .emp-vouchers-table-subhead th {
+    color: #2c61f1;
+    font-family: "GraphikMedium";
+    font-size: 3vw;
+    font-weight: unset;
+    height: 2rem;
+    line-height: 1.2;
+  }
+
+  #btn-affiliato {
+    font-size: 0.8rem;
+  }
+
+
+  .vouchainPagination {
+    font-size: 4vw;
+  }
+
+  .emp-input-qselector {
+    font-size: 0.8rem;
+    width: 2rem;
+  }
+
+  #btn-alloca-voucher {
+    font-size: 0.8rem;
+  }
+
+  tbody tr {
+    color: #808080;
+    font-family: "GraphikSemibold";
+    font-size: 0.7rem;
+    font-weight: unset;
+    line-height: 1.2;
+  }
+
+  tfoot tr {
+    font-family: "GraphikSemibold";
+    font-size: 15px;
+    font-weight: unset;
+    line-height: 1.2;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+
+@media screen and (max-height: 699px) {
+}

@@ -1,0 +1,66 @@
+#imgEmpLogo {
+    width: 40%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+#emp-navbar {
+    background-color: white;
+    color: white;
+    height: 19vh;
+    font-size: 1.3vw;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+button.mat-raised-button:hover{ 
+  color:  black;
+}
+
+button.mat-raised-button {
+    background-color: white;
+    border-color: white; 
+    border-block: white;
+    color:#993399 ;
+}
+
+
+#button_parla {
+
+  margin-left: -10vh;
+ font-size: 20px;
+}
+
+#button_test {
+  font-size: 20px;
+
+}
+
+
+
+/*  bigger screen height 950px and 1400px  */
+@media  screen and  (min-height: 950px)  {
+  @media  screen and  (min-width: 1400px)  {
+    #imgEmpLogo {
+      width: 40%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+
+  }
+}     
+
+/*  small screen size lower than height 900px and width 1200px  */
+
+@media  screen and  (max-height: 950px)  {
+  @media  screen and  (max-width: 1200px)  {
+    #imgEmpLogo {
+      width: 20%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+  }
+}  
+  
+

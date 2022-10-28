@@ -1,0 +1,447 @@
+/* Header Section */
+#emp-merchants-header {
+  background-color: #2c61f1;
+  color: white;
+  overflow: hidden;
+}
+
+/* Border Images */
+#emp-merchants-top-image {
+  z-index: 1;
+}
+
+/* Main Section */
+#emp-merchants-section {
+  margin: -20rem 0 3rem;
+}
+
+/* Section Title */
+#emp-merchants-title {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+  margin-bottom: 2rem;
+}
+
+/* Vouchers Modal */
+
+#emp-wrap-vouchers-available {
+  background-color: #a8dbff;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+}
+
+.emp-content-wrap {
+  width: 100%;
+  background: #ededed;
+  border-radius: 10px;
+  padding: 4rem;
+  padding-bottom: 1rem;
+  margin: auto;
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+/* vvv MERCHANTS TABLE vvv */
+
+/* Table Wrapper */
+.emp-merchants-content-wrap-tables {
+  background: white ;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+/* Table Container */
+.emp-merchants-container-table {
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+}
+
+/* Table Header */
+.emp-merchants-table-head th {
+  color:   white ;
+  font-family: "GraphikSemibold";
+  font-size: 24px;
+  font-weight: unset;
+  height: 60px;
+  line-height: 1.2;
+  width: 7rem;
+}
+
+/* Table Subheader */
+.emp-merchants-table-subhead th {
+  color:  black;
+  font-family: "GraphikMedium";
+  font-size: 16px;
+  font-weight: unset;
+  height: 2rem;
+  line-height: 1.2;
+  width: 7rem;
+  background-color:  white ;
+}
+
+/* Table Container Title */
+.emp-merchants-container-table-title {
+  padding: 2vh 1vw;
+  color: #2c61f1;
+  font-family: "GraphikMedium";
+  font-size: 1.5vw;
+}
+
+#emp-container {
+  padding-left: 25vw;
+  padding-right: 25vw;
+ margin-top: 30vw;
+}
+
+/* Table Generic */
+table {
+  background: white;
+  border-collapse: collapse;
+  border-spacing: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Table Elements Positions */
+table * {
+  position: relative;
+}
+
+/* Table Cells */
+table td,
+table th {
+  padding-left: 8px;
+  text-align: left;
+}
+
+.emp-invoice-table-head th {
+  font-family: "GraphikMedium";
+  font-size: 1.2vw;
+  color: #2c61f1;
+  line-height: 1.2;
+  font-weight: unset;
+  text-align: center;
+}
+
+/* Table Header Rows */
+table thead tr {
+  background: #a8dbff;
+}
+
+/* Table Body Rows */
+table tbody tr {
+  height: 50px;
+}
+
+/* Last Table Body Row */
+table tbody tr:last-child {
+  border: 0;
+}
+
+/* Table Body Rows */
+tbody tr {
+  color:  black;
+  font-family: "GraphikSemibold";
+  font-size: 1rem;
+  font-weight: unset;
+  line-height: 1.2;
+  background-color: white;
+}
+
+/* Even Table Body Rows */
+tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+
+/* Table Footer Rows */
+table tfoot tr {
+  background: #a8dbff;
+}
+
+/* First Table Footer Row */
+table tfoot tr {
+  font-family: "GraphikSemibold";
+  font-size: 1vw;
+}
+
+#emp-invoice-modal-qselector {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#emp-merchants-pagination {
+  height: 60px;
+  background: white;
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: unset;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/* ^^^ MERCHANTS TABLE ^^^ */
+
+/* vvv MEDIA QUERIES vvv */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1441px) {
+  @media screen and (max-height: 900px) {
+
+
+    /* Table Header */
+    .emp-merchants-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .emp-merchants-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.3vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+
+      #emp-container {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+
+    /* Table Header */
+    .emp-merchants-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .emp-merchants-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  #emp-container {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+
+  /* Table Header */
+  .emp-merchants-table-head th {
+    font-size: 1.6vw;
+  }
+
+  /* Table Subheader */
+  .emp-merchants-table-subhead th {
+    font-size: 1.3vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.3vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  #emp-merchants-section {
+    margin-top: -30vh;
+  }
+
+  #emp-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .emp-merchants-table-head th {
+    font-size: 3vw;
+  }
+
+  /* Table Subheader */
+  .emp-merchants-table-subhead th {
+    font-size: 2vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.6vw;
+  }
+
+  table tfoot tr {
+    font-size: 1.8vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #emp-merchants-section {
+    margin: -50vh 0 3rem;
+  }
+
+  #emp-container {
+    padding-left: 12vw;
+    padding-right: 12vw;
+  }
+
+  /* Table Header */
+  .emp-merchants-table-head th {
+    font-size: 2vw;
+  }
+
+  /* Table Subheader */
+  .emp-merchants-table-subhead th {
+    font-size: 1.5vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.5vw;
+  }
+
+  table tfoot tr {
+    font-size: 1.6vw;
+  }
+
+  #emp-merchants-pagination {
+    font-size: 2vw;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  
+   #emp-merchants-section {
+    margin-top: -100vh;
+  }
+  #emp-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .emp-merchants-table-head th {
+    font-size: 3vw;
+  }
+
+  /* Table Subheader */
+  .emp-merchants-table-subhead th {
+    font-size: 2vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 2vw;
+  }
+
+  table tfoot tr {
+    font-size: 2.5vw;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+
+   #emp-merchants-section {
+    margin-top: -35vh;
+  }
+  /* Table Header */
+  .emp-merchants-table-head th {
+    font-size: 5.5vw;
+  }
+
+  /* Table Subheader */
+  .emp-merchants-table-subhead th {
+    font-size: 4vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 4vw;
+  }
+
+  #emp-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  table tfoot tr {
+    font-size: 3.5vw;
+  }
+
+  #emp-merchants-pagination {
+    font-size: 2vw;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) {
+
+
+  #emp-merchants-pagination {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+}
+/* ^^^ MEDIA QUERIES ^^^ */
+/*   arifur sample component     */
+
+

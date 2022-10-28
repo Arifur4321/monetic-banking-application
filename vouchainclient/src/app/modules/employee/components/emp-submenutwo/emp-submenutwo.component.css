@@ -1,0 +1,18 @@
+#emp-navbar {
+    
+    color: white;
+    height: 7.2vh;
+    font-size: 1.6vw;   
+    width: 70%;
+    z-index: 999;
+    margin-top: 60px;  
+    margin-left: 15vh;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#storicotransaction{
+
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+
+}

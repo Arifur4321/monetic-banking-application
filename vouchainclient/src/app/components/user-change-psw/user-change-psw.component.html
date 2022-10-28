@@ -1,0 +1,145 @@
+<section id="cpy-login-section">
+
+    <!-- Website Border Images -->
+    <img class="img-fluid" id="cpy-login-top-image" src="./assets/images/vouchain_loginTop.png"/>
+    <img class="img-fluid" id="cpy-login-bottom-image" src="./assets/images/vouchain_loginBottom.png"/>
+  
+    <!-- VouChain Title Header -->
+    <div id="cpy-login-header" class="container">
+      <a *ngIf="profile ==='company'" href="{{ homepage }}">
+        <img id="imgCpyLogoRecoveryPsw" class="img-fluid" src="./assets/images/cpyNavbar_logoBianco.png" />
+      </a>
+      <a *ngIf="profile ==='employee'" href="{{ homepage }}">
+        <img id="imgCpyLogoRecoveryPsw" class="img-fluid" src="./assets/images/monethic logo.PNG" />
+      </a>
+      <a *ngIf="profile ==='merchant'" href="{{ homepage }}">
+        <img id="imgCpyLogoRecoveryPsw" class="img-fluid" src="./assets/images/monethic logo.PNG" />
+      </a>
+    </div>
+  
+    <!-- Main Website Content -->
+    <div class="cpy-login-container">
+      <div class="cpy-login-wrap">
+  
+        <!-- Change psw Form -->
+        <form class="text-center" (ngSubmit)="onSubmitChangePswForm()" ngNativeValidate>
+  
+          <!-- title -->
+          <div style="margin-bottom: 2rem;">
+            <a id="cpy-login-anchor-login">{{ "SECTION_LABELS.CHANGE_PSW" | translate }}</a>
+          </div>
+  
+          <!-- Old password -->
+          <div class="form-group mb-0 text-left">
+            <input class="form-control" name="password" placeholder="{{ 'PLACEHOLDER.OLD_PASSWORD' | translate }}" type="password" [(ngModel)]="oldPassword" (input)="checkOldPassword()" required/>
+            <label class="cpy-changePsw-error-alert" *ngIf="oldPasswordOk">&nbsp;</label>
+            <label class="cpy-changePsw-error-alert" *ngIf="!oldPasswordOk">
+                <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.PASSWORD' | translate}}
+            </label>
+          </div>
+  
+          <!-- New Password Input -->
+          <div class="form-group mb-0 text-left">
+            <input class="form-control" data-toggle="tooltip" data-placement="top" name="password" placeholder="{{ 'PLACEHOLDER.NEW_PASSWORD' | translate }}" title="{{ 'SIGNUP.TOOLTIPS.PASSWORD' | translate }}" type="password" [(ngModel)]="newPassword" (input)="checkNewPassword()" required/>
+            <label class="cpy-changePsw-error-alert" *ngIf="newPasswordOk">&nbsp;</label>
+            <label class="cpy-changePsw-error-alert" *ngIf="!newPasswordOk">
+              <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.PASSWORD' | translate}}
+            </label>
+            <label class="cpy-changePsw-error-alert" *ngIf="!oldPassMatchNewPasswordOk">
+              <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.OLD_NEW_MATCH' | translate}}
+            </label>
+          </div>
+
+          <!-- Retype New Password Input -->
+          <div class="form-group mb-0  text-left">
+            <input class="form-control" name="password" placeholder="{{ 'PLACEHOLDER.RE_NEW_PASSWORD' | translate }}" type="password" [(ngModel)]="reNewPassword" (input)="checkPasswordRetype()" required/>
+            <label class="cpy-signup-error-alert" *ngIf="reNewPasswordOk">&nbsp;</label>
+                  <label class="cpy-changePsw-error-alert" *ngIf="!reNewPasswordOk">
+                    <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.PASSWORD_RETYPE' | translate}}
+                  </label>
+          </div>
+  
+          <!-- Submit Button -->
+          <button class="btn btn-primary btn-block" type="submit">{{ "BUTTON.CONFIRM" | translate }}</button>
+
+          <!-- Login Link -->
+          <p class="mt-2 mb-0">{{ "GENERIC.GO_TO" | translate}} <a routerLink="{{ uriLogin}}">{{ 'BUTTON.LOGIN' | translate }}</a>.</p>
+
+          <!-- Dashboard Link -->
+          <p class="mb-0">{{ "GENERIC.GO_TO_F" | translate}} <a routerLink="{{ uriDashboard }}">{{ 'USER_CHANGE_PASSWORD.DASHBOARD' | translate }}</a>.</p>
+
+          <!-- Password Recovery Link -->
+          <p class="mb-0">{{ "LOGIN.FORGOT_YOUR" | translate }} <a [routerLink]="['/usrForgotPass']" [queryParams]="{ profile_code: profile}">{{ 'PLACEHOLDER.PASSWORD' | translate }}</a>?</p>
+  
+  
+          <!-- Errors Alert -->
+          <div class="alert alert-danger" id="cpy-login-error-description" role="alert" *ngIf="changePswFail">
+            {{ "ERRORS.INCORRECT_EMAIL_OR_PASSWORD" | translate }}
+          </div>
+          <div class="alert alert-danger" id="cpy-login-error-description" role="alert" *ngIf="errorGeneric">
+              {{ "ERRORS.GENERIC" | translate }}
+            </div>
+          
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Error Messages Bootstrap Modal -->
+<div class="modal fade" data-refresh="true" id="modalModifyErrors" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header" style="background-color:#e7362d; color:white">
+          <h4 class="modal-title">{{ 'EMPLOYEES.ERROR_EDIT_PROFILE' | translate }}</h4>
+          <button class="btn btn-default" data-dismiss="modal" type="button">X</button>
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body" id="modalBody">
+          <p innerHtml="{{ errorMsg }}">
+          </p>
+        </div>  
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">{{ 'EMPLOYEES.MODAL.INVITE_CLOSE' | translate }}</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- OK Messages Bootstrap Modal -->
+<div class="modal fade" data-refresh="true" id="modalModifyOK" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <!-- TODO: cambiare in etichette per traduzione -->
+        <div class="modal-header" style="background-color:#0fb94a; color:white">
+          <h4 class="modal-title">{{ 'USER_CHANGE_PASSWORD.OUTCOME_EDIT_PASSWORD' | translate }}</h4>
+          <!-- <button class="btn btn-default" data-dismiss="modal" type="button">X</button> -->
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body" id="modalBody">
+          <p innerHtml="{{ okMsg }}">
+          </p>
+        </div>  
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+            <button class="btn btn-outline-success" data-dismiss="modal" type="button" (click)="logout()">{{ "BUTTON.BACK_TO_HOME" | translate }}</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  

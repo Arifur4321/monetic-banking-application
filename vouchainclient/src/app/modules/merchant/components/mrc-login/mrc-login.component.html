@@ -1,0 +1,81 @@
+<section id="mrc-login-section">
+  <!-- Website Border Images -->
+  <img src="./assets/images/vouchain_loginTop.png" id="mrc-top-image-login" class="img-fluid" />
+  <img src="./assets/images/vouchain_loginBottom.png" id="mrc-bottom-image-login" class="img-fluid" />
+
+  <div class="container-fluid">
+    <div class="row">
+      <div id="col1-1">
+
+        <!-- VouChain Title Header -->
+        <div id="mrc-login-header">
+          <a href="{{ homepage }}">
+            <img id="imgMrcLogoLogin" class="img-fluid" src="./assets/images/monethic logo.PNG" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="col1-2"></div>
+    <div id="col1-3"></div>
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="mrc-login-container">
+    <div class="mrc-login-wrap">
+
+      <!-- Login Form -->
+      <form class="text-center" (ngSubmit)="checkLoginFormMrc()" ngNativeValidate>
+        <div style="margin-bottom: 2rem;">
+          <a id="mrc-login-anchor">{{ "LOGIN.LOGIN_LABEL" | translate }}</a>
+          <span id="mrc-anchor-pipe"> | </span>
+          <a id="mrc-signup-anchor" routerLink="/merchant/mrcSignup">{{ "LOGIN.SIGN_UP_LINK" | translate }}</a>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-group">
+          <input class="form-control" data-toggle="tooltip" data-placement="top" name="email" type="email"
+            aria-describedby="emailHelp" placeholder="Email" title="{{ 'SIGNUP.TOOLTIPS.EMAIL' | translate }}"
+            (input)="checkEmail()" [(ngModel)]="email" required />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-group">
+          <input class="form-control" data-toggle="tooltip" data-placement="top" name="password" type="password"
+            placeholder="Password" title="{{ 'SIGNUP.TOOLTIPS.PASSWORD_REQUIRED' | translate }}" [(ngModel)]="password"
+            (input)="checkPassword()" required />
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block">{{ "LOGIN.LOGIN_LABEL" | translate }}</button>
+
+        <!-- Password Recovery Link -->
+        <p class="mt-2 mb-0">
+          {{ "LOGIN.FORGOT_YOUR" | translate }} <a routerLink="/usrForgotPass"
+            [queryParams]="{ profile_code: 'merchant' }">Password</a>?
+        </p>
+
+        <!-- Signup New Account Link -->
+        <p class="mb-0">
+          {{ "LOGIN.CREATE_NEW" | translate }} <a routerLink="/merchant/mrcSignup">Account</a>?
+        </p>
+
+        <!-- Go To Homepage Link -->
+        <div class="btn btn-block ">
+          <p>
+            Torna alla <a href="{{ homepage }}">Homepage</a>.
+          </p>
+        </div>
+
+        <!-- Errors Alerts -->
+        <div class="alert alert-danger" id="mrc-login-error-description" role="alert" *ngIf="loginFail">
+          {{ "ERRORS.INCORRECT_EMAIL_OR_PASSWORD" | translate }}
+        </div>
+        <div class="alert alert-danger" id="mrc-login-error-description-generic" role="alert" *ngIf="errorGeneric">
+          {{ "ERRORS.GENERIC" | translate }}
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>

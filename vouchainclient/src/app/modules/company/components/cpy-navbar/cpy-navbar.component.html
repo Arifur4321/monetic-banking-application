@@ -1,0 +1,201 @@
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<div id="emp-navbar" class="navbar navbar-expand-lg navbar-dark">
+  <!--  Testing Menu   -->
+    <div class="col-lg-3 col-xl-3 col-md-3 col-sm-3" id="emp-navbar-display">
+      <a id="emp-brand" class="navbar-brand col-sx-10" >
+        <img id="imgEmpLogo" class="img-fluid" src="./assets/images/Logo2.PNG" />
+      </a>
+        <button class="navbar-toggler float-right col-sx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: center; width: 120%;">
+          
+      <!--new menu style start here inside nav menu  -->
+
+     <div class="col-xl-8 col-lg-10">
+      <ul class="navbar-nav justify-content-center" style="display: -webkit-inline-box">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/company/cpyDashboard/overview"  routerLinkActive="active-link">
+             <img id="movement" class="img-fluid" src="./assets/images/icons/wallet-32.png" /> 
+             Conto 
+            </a>
+        </li>
+        <li class="nav-item" id="movementimage">
+          <a class="nav-link"  routerLink="/company/cpyDashboard/movimenti" routerLinkActive="active-link" >
+           <!--<img id="movimentiicon" class="img-fluid" src="./assets/images/icons/storico_iconm.png" />--> 
+           <i class='fa fa-list-alt'></i>       
+           Movimenti
+          </a>
+        </li>
+        <li class="nav-item" id="carteimage">
+          <a class="nav-link" routerLink="/company/cpyDashboard/carte" routerLinkActive="active-link">
+            <!--  <img id="carte" class="img-fluid" src="./assets/images/icons/card.png" />  -->    
+            <i class='fa fa-credit-card'></i>
+            Carte
+          </a>
+        </li>
+        <li class="nav-item" id="bonificiimage">
+          <a class="nav-link"  routerLink="/company/cpyDashboard/bonifici" routerLinkActive="active-link">
+           <!--    <img id="paper" class="img-fluid" src="./assets/images/icons/papernew.png" /> -->    
+            <i class='fa fa-paper-plane-o'> </i>
+            Bonifici  
+          </a>
+        </li>
+      </ul>
+    </div>
+      <div class="col-xl-2 col-lg-1"></div>
+      <div class="col-xl-2">
+        <ul class="navbar-nav mr-auto">
+          <!-- first profile icon  -->
+          <li class="dropdown nav-item">
+            <a id="emp-navbar-profile" class="btn btn-default dropdown-toggle thumbnail "
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+             <!--<img id="imgEmpProfile" class="img-circle img-fluid" src="./assets/images/630740-200.png" />--> 
+              <i class='fa fa-user'></i>
+              
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <a class="dropdown-item emp-dropdown-item"
+                routerLink="/company/cpyDashboard/profile">Profile</a>
+              <!--
+              <a class="dropdown-item emp-dropdown-item"
+                routerLink="/company/cpyDashboard/modifyProfile">{{ "NAVBAR.SHOW" | translate }}</a>
+              <a class="dropdown-item emp-dropdown-item" routerLink="/changePsw"
+                [state]="{ profile: 'company' }">{{ "NAVBAR.MODIFY" | translate }}</a>
+               -->
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item emp-dropdown-item" (click)="logout()">Logout</a>
+            </div>
+          </li>
+
+           <!-- second home icon  -->
+
+          <li class="nav-item dropdown show">
+            <a id="emp-navbar-profile" class="btn btn-link" routerLink="/company/cpyDashboard/"   data-toggle="tooltip"   title="Home">
+             <!--<img id="imghomeicon" class="img-fluid" src="./assets/images/homeNEW.png" />  --> 
+             <i class="fa fa-home" id="homeicon" ></i>
+            </a>
+         </li>
+
+           <!-- third notification  icon  -->  
+            <li class="nav-item dropdown show">
+              <a id="emp-navbar-profile" class="btn btn-default  thumbnail text-white"  data-toggle="tooltip" title="Notification"  >
+                 <!-- <img id="notificationicon" class="img-fluid" src="./assets/images/noticon.png" />--> 
+                <i class="fa fa-bell" style="color: white; size:15px"></i>
+                
+              </a>
+            </li>
+
+              <!--
+                <ul class="dropdown-menu show">
+                  <li class="head text-light bg-dark">
+                    <div class="row">
+                      <div class="col-lg-12 col-sm-12 col-12">
+                        <span>Notifications (3)</span>
+                        <a href="" class="float-right text-light">Mark all as read</a>
+                      </div>
+                  </div></li>
+                  <li class="notification-box">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-3 col-3 text-center">
+                        <img src="" class="w-50 rounded-circle">
+                      </div>    
+                      <div class="col-lg-8 col-sm-8 col-8">
+                        <strong class="text-info">David John</strong>
+                        <div>
+                          Lorem ipsum dolor sit amet, consectetur
+                        </div>
+                        <small class="text-warning">27.11.2015, 15:00</small>
+                      </div>    
+                    </div>
+                  </li>
+                  <li class="notification-box bg-gray">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-3 col-3 text-center">
+                        <img src="" class="w-50 rounded-circle">
+                      </div>    
+                      <div class="col-lg-8 col-sm-8 col-8">
+                        <strong class="text-info">David John</strong>
+                        <div>
+                          Lorem ipsum dolor sit amet, consectetur
+                        </div>
+                        <small class="text-warning">27.11.2015, 15:00</small>
+                      </div>    
+                    </div>
+                  </li>
+                  <li class="notification-box">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-3 col-3 text-center">
+                        <img src="" class="w-50 rounded-circle">
+                      </div>    
+                      <div class="col-lg-8 col-sm-8 col-8">
+                        <strong class="text-info">David John</strong>
+                        <div>
+                          Lorem ipsum dolor sit amet, consectetur
+                        </div>
+                        <small class="text-warning">27.11.2015, 15:00</small>
+                      </div>    
+                    </div>
+                  </li>
+                  <li class="footer bg-dark text-center">
+                    <a href="" class="text-light">View All</a>
+                  </li>
+                </ul>
+                -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!--
+company dashboard navbar 
+<div id="cpy-navbar" class="navbar navbar-expand-lg navbar-dark">
+  <div class="col-lg-4" id="cpy-navbar-display">
+    <a id="cpy-brand" class="navbar-brand col-sx-10" routerLink="/company/cpyDashboard">
+      <img id="imgCpyLogo" class="img-fluid" src="./assets/images/cpyNavbar_logoBianco.png" />
+    </a>
+    <button class="navbar-toggler float-right col-sx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: center;">
+    <div class="col-xl-6 col-lg-8">
+      <ul class="navbar-nav justify-content-center" style="display: -webkit-inline-box">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/company/cpyDashboard/employees" routerLinkActive="active-link">{{ "NAVBAR.REGISTRIES" | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/company/cpyDashboard/wallet" routerLinkActive="active-link">Wallet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/company/cpyDashboard/orders" routerLinkActive="active-link">{{ "NAVBAR.ORDER" | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/company/cpyDashboard/transactions" routerLinkActive="active-link">{{ "NAVBAR.HISTORY_TRANSACTIONS" | translate }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xl-3 col-lg-1"></div>
+
+    <div class="col-xl-3">
+      <ul class="navbar-nav mr-auto">
+        <li class="dropdown nav-item">
+          <a id="cpy-navbar-profile" class="btn btn-default dropdown-toggle thumbnail text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <img id="imgCpyProfile" class="img-circle img-fluid" src="./assets/images/cpy_icon.png" />
+            <span class="caret text-white">{{ "NAVBAR.PROFILE" | translate }}</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a class="dropdown-item cpy-dropdown-item" routerLink="/company/cpyDashboard/modifyProfile" >{{ "NAVBAR.SHOW" | translate }}</a>
+            <a class="dropdown-item cpy-dropdown-item" routerLink="/changePsw"
+              [state]="{ profile: 'company' }" >{{ "NAVBAR.MODIFY" | translate }}</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item cpy-dropdown-item" (click)="logout()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+-->

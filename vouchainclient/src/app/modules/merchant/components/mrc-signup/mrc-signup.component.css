@@ -1,0 +1,394 @@
+/* Main Section */
+#mrc-signup-section {
+  background-color: #2c61f1;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  position: fixed;
+}
+
+/* Border Images */
+#mrc-signup-top-image {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+#mrc-signup-bottom-image {
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  z-index: -1;
+}
+
+/* Header Text */
+#mrc-signup-header {
+  margin-left: 8%;
+  padding-top:3vh;
+  position: absolute;
+}
+
+/* logo */
+#imgMrcLogoSignup {
+  width: 16%;
+}
+
+.link-homepage {
+  font-size: 0.9rem;
+  padding: 0rem;
+}
+
+/* Login Page Link */
+#mrc-signup-anchor-signup {
+  font-family: "GraphikMedium";
+  font-size: 1.5rem;
+}
+
+/* Signup Page Link */
+#mrc-signup-anchor-login {
+  color: #575756;
+  font-size: 1.5rem;
+}
+
+#mrc-signup-anchor-login:hover {
+  color: #2c61f1;
+  text-decoration: none;
+}
+
+#mrc-signup-anchor-login:visited {
+  color: #575756;
+}
+
+#mrc-signup-anchor-pipe {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+/* --- FORM --- */
+.mrc-signup-form-label {
+  font-family: "GraphikSemibold";
+  color: #2c61f1;
+}
+
+.inner .form-holder {
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.inner .form-holder fieldset {
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 2px solid #e5e5e5;
+}
+.inner .form-holder legend {
+  color: #2c61f1;
+  font-family: "GraphikSemibold";
+  font-size: 1rem;
+  margin-bottom: 0;
+  margin-left: 20px;
+  position: relative;
+  width: auto;
+}
+.inner .form-holder input,
+.inner .form-holder select {
+  -moz-appearance: unset;
+  -moz-border-radius: 4px;
+  -moz-box-sizing: border-box;
+  -moz-outline: none;
+  -ms-appearance: unset;
+  -ms-border-radius: 4px;
+  -ms-box-sizing: border-box;
+  -ms-outline: none;
+  -o-appearance: unset;
+  -o-border-radius: 4px;
+  -o-box-sizing: border-box;
+  -o-outline: none;
+  -webkit-appearance: unset;
+  -webkit-border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -webkit-outline: none;
+  appearance: unset;
+  border-radius: 4px;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 46px;
+  margin-top: -11px;
+  outline: none;
+  padding: 0 20px;
+}
+
+.inner .form-holder input {
+  color: #575756;
+  font-size: 1rem;
+}
+
+.inner .form-holder .input-border {
+  border: 2px solid #e5e5e5;
+  padding: 11px 20px;
+  margin-top: 8px;
+}
+.inner-date .form-holder select {
+  float: left;
+  width: 20.6%;
+}
+
+/* Nav link */
+
+.nav-tabs a {
+  color: #575756;
+}
+
+.nav-tabs .nav-link.active {
+  color: #2c61f1;
+}
+
+#nav-bank {
+  margin: 0 3rem;
+}
+
+/* Form Container */
+.mrc-signup-container {
+  margin-top: 8rem;
+  align-items: flex-start;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+  width: 100%;
+}
+
+/* Form Wrap */
+.mrc-signup-wrap {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 5.25rem 5rem 3rem;
+  width: 800px;
+
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Error Alert Messages */
+.mrc-signup-error-alert {
+  color: red;
+  font-size: 0.7rem;
+}
+
+/* Info Alert Messages */
+.mrc-signup-info-alert {
+  color: #2c61f1;
+  font-size: 0.7rem;
+}
+
+/* Bootstrap form-group class */
+.form-group {
+  margin-bottom: 0rem;
+}
+
+/* --- MEDIA QUERIES */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  @media screen and (max-height: 1000px) {
+    
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #mrc-signup-header {
+    margin-top: 0%;
+  }
+
+  .mrc-signup-container {
+    margin-top: 10%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .mrc-signup-wrap {
+    padding: 2.25rem 3rem 1.25rem;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #mrc-signup-header {
+    margin-left: 6rem;
+    margin-top: 2%;
+  }
+
+  .mrc-signup-container {
+    margin-top: 18%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .mrc-signup-wrap {
+    margin-top: 5%;
+    padding: 3.25rem 2rem 3.5rem;
+  }
+
+  #nav-bank {
+    margin: 0 6rem;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #mrc-signup-header {
+    margin-left: 4rem;
+    margin-top: 2%;
+  }
+
+  .mrc-signup-container {
+    margin-top: 14%;
+  }
+
+  #mrc-signup-section {
+    margin-top: -5vh;
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .mrc-signup-wrap {
+    margin-top: 0%;
+    padding: 2.25rem 2rem 1.75rem;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #mrc-signup-header {
+    margin-left: 2rem;
+    margin-top: 2%;
+  }
+
+  #imgMrcLogoSignup {
+    width: 40%;
+  }
+
+  /* Form Container */
+  .mrc-signup-container {
+    min-height: 120vh;
+    margin-top: 20%;
+  }
+
+  /* Form Wrap */
+  .mrc-signup-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  #mrc-signup-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #mrc-signup-header {
+    margin-left: 0.1rem;
+    margin-top: 14%;
+  }
+
+  /* Form Container */
+  .mrc-signup-container {
+    min-height: 120vh;
+    margin-top: 45%;
+  }
+
+  /* Form Wrap */
+  .mrc-signup-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .inner .form-holder fieldset {
+    padding: 0;
+  }
+
+  #nav-bank {
+    margin: 0;
+  }
+
+  #imgMrcLogoSignup {
+    width: 40%;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) {
+}
+
+@media screen and (min-height: 1250px) {
+  .mrc-signup-container {
+    margin-top: 30%;
+  }
+
+  #mrc-signup-header {
+    margin-left: 5%;
+    margin-top: 8%;
+  }
+}

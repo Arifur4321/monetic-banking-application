@@ -1,0 +1,94 @@
+<script src="https://js.stripe.com/v3/"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/server.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="/script.js" defer></script>
+<section id="cpy-employees-header">
+
+    <!-- Top Border Image -->
+    <img class="float-right img-fluid" id="cpy-employees-top-image" src=" "/>
+  
+  </section>
+  
+  <!-- Main Website Content -->
+  <section id="cpy-employees-section">
+  
+     
+    <div class="sr-root">
+        <div class="sr-main">
+          <h2> SEPA BANK TRANSFER (Testing Purpose)  </h2>
+          <form id="payment-form" class="sr-payment-form">
+            <div class="sr-combo-inputs-row">
+              <div class="col">
+                <label for="name">
+                  Name
+                </label>
+                <input id="name" name="name" placeholder="Jenny Rosen" required />
+              </div>
+              <div class="col">
+                <label for="email">
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="jenny.rosen@example.com"
+                  required
+                />
+              </div>
+            </div>
+  
+            <div class="col">
+              <label for="email">
+                Address
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="name"
+                placeholder=""
+                required
+              />
+            </div>
+  
+            <div class="sr-combo-inputs-row">
+              <div class="col">
+                <label for="iban-element">
+                  IBAN
+                </label>
+                <div id="iban-element">
+                  <!-- A Stripe Element will be inserted here. -->
+                </div>
+              </div>
+            </div>
+  
+            <!-- Used to display form errors. -->
+            <div id="error-message" class="sr-field-error" role="alert"></div>
+  
+            <!-- Display mandate acceptance text. -->
+            <div class="col" id="mandate-acceptance">
+                  Your Money Transfer will be done in few days successfully
+                  (Commented by ARIFUR)
+            </div>
+  
+            <button id="confirm-mandate">
+              <div disabled class="spinner hidden" id="spinner"></div>
+              <span id="button-text" style="color: black;"
+                >Confirm mandate and initiate debit for
+                <span id="order-amount"></span
+              ></span>
+            </button>
+          </form>
+          <div class="sr-result hidden">
+            <p>Payment processing<br /></p>
+            <pre>
+              <code></code>
+            </pre>
+          </div>
+        </div>
+      </div>
+
+  <section>
+
+ 

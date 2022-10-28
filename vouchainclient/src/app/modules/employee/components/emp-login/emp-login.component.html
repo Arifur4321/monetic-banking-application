@@ -1,0 +1,78 @@
+<app-emp-menu></app-emp-menu>
+
+<section id="emp-login-section"  class="sliding-background" >
+  <!-- Website Border Images -->
+  <img src="" id="top-image-login" class="img-fluid" />
+  
+  <ul class="cb-slideshow">
+    <li><span>Image 01</span><div></div></li>
+    <li><span>Image 02</span><div></div></li>
+    <li><span>Image 03</span><div></div></li>
+    <li><span>Image 04</span><div></div></li>
+    <li><span>Image 05</span><div></div></li>
+    <li><span>Image 06</span><div></div></li>
+</ul>
+
+
+  <!-- Main Website Content -->
+ 
+  <div class="emp-login-container">
+
+    <div class="emp-login-wrap"  >
+      <!-- Login Form -->
+      <form class="text-center" (ngSubmit)="onSubmitLoginForm()" ngNativeValidate>
+        <div style="margin-bottom: 2rem;">
+          <a id="emp-login-anchor">{{ "LOGIN.LOGIN_LABEL" | translate }}</a>
+          <span id="emp-anchor-pipe"> | </span>
+          <a id="emp-signup-anchor" routerLink="/employee/empInvitationCode">{{ "LOGIN.SIGN_UP_LINK" | translate }}</a>
+        </div>
+
+        <!-- Email Input -->
+        <div class="form-group">
+          <input class="form-control" data-toggle="tooltip" data-placement="top" name="email" placeholder="Email"
+            title="{{ 'SIGNUP.TOOLTIPS.EMAIL' | translate }}" type="email" (input)="checkEmail()" [(ngModel)]="email"
+            required />
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+          <input class="form-control" data-toggle="tooltip" data-placement="top" name="password" placeholder="Password"
+            title="{{ 'SIGNUP.TOOLTIPS.PASSWORD_REQUIRED' | translate }}" type="password" (input)="checkPassword()"
+            [(ngModel)]="password" required />
+        </div>
+
+        <button type="submit" id="button_entra" class="btn btn-block btn-block">{{ "LOGIN.LOGIN_LABEL" | translate }}</button>
+
+        <!-- Password Recovery Link -->
+        <p class="mt-2 mb-0">
+          {{ "LOGIN.FORGOT_YOUR" | translate }} <a routerLink="/usrForgotPass"
+            [queryParams]="{ profile_code: 'employee' }">Password</a>?
+        </p>
+
+        <!-- Signup New Account Link -->
+        <p class="mb-0">
+          {{ "LOGIN.CREATE_NEW" | translate }} <a routerLink="/employee/empInvitationCode">Account</a>?
+        </p>
+
+        <!-- Go To Homepage Link -->
+        <div class="btn btn-block">
+          <p>Torna alla <a href="{{ homepage }}">Homepage</a>.</p>
+        </div>
+        
+        <!-- Error alert -->
+        <div *ngIf="loginFail" id="errorDescription" class="alert alert-danger" role="alert">
+          {{ "ERRORS.INCORRECT_EMAIL_OR_PASSWORD" | translate }}</div>
+        <div class="alert alert-danger" id="mrc-login-error-description-generic" role="alert" *ngIf="errorGeneric">
+          {{ "ERRORS.GENERIC" | translate }}
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+

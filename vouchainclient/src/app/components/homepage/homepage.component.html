@@ -1,0 +1,63 @@
+<section id="homepage-section">
+
+  <!-- Website Border Images -->
+  <img class="img-fluid" id="home-top-image" src="./assets/images/vouchain_app01bis.png"/>
+  <img class="img-fluid" id="home-bottom-image" src="./assets/images/vouchain_app02bis.png"/>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="col1-1"></div>
+      <div id="col1-2">
+          <div class="container" id="home-header">
+              <h1 class="home-subheading">{{ "HOME.WELCOME" | translate }}</h1>
+              <a href="{{ homepage }}">
+                <img class="img-fluid home-img" id="home-vouchain-logo" src="./assets/images/monethic logo.PNG" />
+              </a>
+            </div>
+      </div>
+      <div id="col1-3"></div>
+      <div id="col1-4"></div>
+    </div>
+
+    <div class="row">
+      <div id="col2-1"></div>
+      <div id="col2-2"></div>
+      <div id="col2-3">
+         <!-- Profile Selection -->
+      <div class="container text-center" id="home-profile-selection">
+          <!-- Select Profile Text -->
+          <p class="home-subheading">{{ "HOME.PROFILE_SELECTION" | translate }}</p>
+
+          <!-- "Divider" -->
+          <div class="row" style="border-top: 2px solid #575756;"></div>
+
+          <!-- Select Profile Images -->
+          <div class="container-fluid" style="margin-top: 2rem;">
+            <div class="row" id="home-link-group">
+
+              <!-- Company Profile Image -->
+              <div style="width:33%" >
+                <a routerLink="/company"><img class="img-fluid home-img" id="home-cpy-icon" src="./assets/images/icon1.png"/></a>
+                <p class="home-profile-text">{{ "HOME.COMPANY" | translate }}</p>
+              </div>
+
+              <!-- Employee Profile Image -->
+              <div style="width:33%">
+                <a routerLink="/employee"><img class="img-fluid home-img" id="home-emp-icon" src="./assets/images/icon2.png"/></a>
+                <p class="home-profile-text">{{ "HOME.EMPLOYEE" | translate }}</p>
+              </div>
+
+              <!-- Merchants Profile Image -->
+              <div style="width:33%">
+                <a routerLink="/merchant"><img class="img-fluid home-img" id="home-mrc-icon" src="./assets/images/icon3.png"/></a>
+                <p class="home-profile-text">{{ "HOME.MERCHANT" | translate }}</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div id="col2-4"></div>
+    </div>
+  </div>
+</section>

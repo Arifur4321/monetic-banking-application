@@ -1,0 +1,610 @@
+<section id="cpy-wallet-header">
+
+  <!-- Top Border Image -->
+  <img class="float-right img-fluid" id="cpy-wallet-top-image"
+    src="./assets/images/vouchain_dashboard_top_prova04.png" />
+
+</section>
+
+<!-- Main Website Content -->
+<section id="cpy-wallet-section">
+
+  <!-- Section Title -->
+  <h1 id="cpy-wallet-title" class="text-center">
+    <b>Gestione Wallet</b>
+  </h1>
+
+  <!-- Main Section Content -->
+  <div class="container-fluid" id="cpy-wallet-container">
+    <div class="row">
+
+      <!-- Your Wallet Content -->
+      <div class="col-xl-6 col-md-12">
+
+        <!-- Active Vouchers Table Wrapper and Container -->
+        <div class="cpy-wallet-content-wrap-tables" id="cpy-wallet-wrap-table">
+          <div class="cpy-wallet-container-table table-responsive-sm" style="overflow-x:auto;">
+
+            <!-- Active Vouchers Table -->
+            <table>
+
+              <!-- Active Vouchers Table Header -->
+              <thead>
+
+                <!-- Active Vouchers Table Head -->
+                <tr class="cpy-wallet-table-head">
+
+                  <!-- Active Vouchers Image -->
+                  <th colspan="3">
+                    <img id="wallet-icon" src="./assets/images/icons/wallet_icon.png" style="margin: 1rem;" />
+                    <span> Il Tuo Wallet</span>
+
+                    <button class="btn btn-link cpy-wallet-table-reload-buttons" type="button" data-toggle="tooltip"
+                      data-placement="top" title="{{ 'TOOLTIPS.RELOAD' | translate }}" (click)="showActiveVouchers()">
+                      <fa-icon [icon]="fasSyncAlt"></fa-icon>
+                    </button>
+                  </th>
+
+                  <th style="width: 20%;" class="text-right pr-3" colspan="2"
+                    *ngIf="!activeTableEmpty && !activeTableLoading">
+                    <b>Totale: <span
+                        class="numericPagination">{{ totalActiveImport | currency: "EUR":"symbol":"":"it-IT" }}</span></b>
+                  </th>
+
+                  <th style="width: 20%;" colspan="2" *ngIf="activeTableEmpty || activeTableLoading"></th>
+
+                </tr>
+
+                <!-- Active Vouchers Table Subhead -->
+                <tr class="cpy-wallet-table-subhead">
+
+                  <!-- Active Vouchers Check-All Checkbox -->
+                  <!-- <th class="text-center"> -->
+                  <!-- <input class="form-check-input" id="cpy-wallet-active-vouchers-check-all" style="height: 1.25rem; width: 1.25rem;" type="checkbox"/> -->
+                  <!-- </th> -->
+
+                  <th colspan="2" class="pl-4" style="width: 50%;">Buono</th>
+                  <th class="pr-3 text-right" style="width: 15%;">Valore</th>
+                  <th class="pr-3 text-right" style="width: 20%;">Scadenza</th>
+                  <th class="pr-3 text-right" style="width: 15%;">Quantità</th>
+
+                </tr>
+
+              </thead>
+
+              <!-- Active Vouchers Table Body -->
+              <tbody>
+
+                <!-- Loading Table Row -->
+                <tr *ngIf="activeTableLoading">
+                  <td class="text-center" colspan="5" style="height: 10rem;">
+                    <div class="mb-3 spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;">
+                    </div>
+                    <h3>Caricamento del Tuo Wallet in corso...</h3>
+                  </td>
+                </tr>
+
+                <!-- Empty Table Row -->
+                <tr *ngIf="activeTableEmpty">
+                  <td class="text-center" colspan="5" style="height: 10rem;">
+                    <h1>{{ activeTableBodyMessage }}</h1>
+                  </td>
+                </tr>
+
+                <!-- Active Vouchers Table Row(s) -->
+                <tr
+                  *ngFor="let voucher of activeVouchers | paginate: { id: 'activePagination', itemsPerPage: 5, currentPage: activePage }">
+
+                  <!-- Active Voucher Name -->
+                  <td colspan="2" class="pl-4">
+                    {{ validatorService.readableVoucherName(voucher.vchName) }}
+                  </td>
+
+                  <!-- Active Voucher Value -->
+                  <td class="numericPagination pr-3">
+                    {{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}
+                  </td>
+
+                  <!-- Active Voucher Expire Date -->
+                  <td class="numericPagination pr-3">{{ voucher.vchEndDate | date: "dd/MM/y" }}</td>
+
+                  <!-- Active Voucher Quantity -->
+                  <td class="numericPagination pr-3">
+                    {{ voucher.vchQuantity }}
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+              <!-- Active Vouchers Table Footer -->
+              <tfoot>
+
+                <tr>
+
+                  <!-- Active Vouchers Pagination -->
+                  <td class="pl-0 text-center" colspan="5" *ngIf="!activeTableEmpty && !activeTableLoading">
+                    <pagination-controls class="pt-3 vouchainPagination" id="activePagination" maxSize="5"
+                      responsive="true" nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                      previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" (pageChange)="activePage = $event">
+                    </pagination-controls>
+                  </td>
+
+                  <td colspan="5" *ngIf="activeTableEmpty || activeTableLoading"></td>
+
+                </tr>
+
+              </tfoot>
+
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Purchasable Vouchers Content -->
+      <div class="col-xl-6 col-md-12">
+
+        <!-- Purchasable Vouchers Table Wrapper and Container -->
+        <div class="cpy-wallet-content-wrap-tables" id="cpy-wallet-wrap-table">
+          <div class="cpy-wallet-container-table table-responsive-sm" style="overflow-x:auto;">
+
+            <!-- Purchasable Vouchers Table -->
+            <table>
+
+              <!-- Purchasable Vouchers Table Header -->
+              <thead>
+
+                <!-- Purchasable Vouchers Table Head -->
+                <tr class="cpy-wallet-table-head">
+
+                  <!-- Purchasable Vouchers Image -->
+                  <th colspan="7">
+                    <img id="purchasable-icon" src="./assets/images/icons/voucher_icon.png" style="margin: 1rem;" />
+                    Buoni
+                    Acquistabili
+
+                    <button class="btn btn-link cpy-wallet-table-reload-buttons" type="button" data-toggle="tooltip"
+                      data-placement="top" title="{{ 'TOOLTIPS.RELOAD' | translate }}"
+                      (click)="showPurchasableVouchers()">
+                      <fa-icon [icon]="fasSyncAlt"></fa-icon>
+                    </button>
+                  </th>
+                </tr>
+
+                <!-- Purchasable Vouchers Table Subhead -->
+                <tr class="cpy-wallet-table-subhead">
+
+                  <th class="pl-4 text-right" style="width: 5%;">
+
+                    <!-- Purchasable Vouchers Check-All Checkbox -->
+                    <input class="form-check-input" id="cpy-wallet-purchasable-vouchers-check-all"
+                      style="height: 1.25rem; width: 1.25rem;" type="checkbox" hidden />
+
+                  </th>
+
+                  <th class="pl-3" colspan="2" style="width: 60%;">Buono</th>
+                  <th class="pr-3" style="width: 5%;">Valore</th>
+                  <th class="pr-3 text-right" style="width: 12.5%;">Scadenza</th>
+                  <th class="pr-3" style="width: 12.5%;">Quantità</th>
+                  <th class="pr-3" style="width: 5%;">Importo</th>
+
+                </tr>
+
+              </thead>
+
+              <!-- Purchasable Vouchers Table Body -->
+              <tbody>
+
+                <!-- Loading Table Row -->
+                <tr *ngIf="purchasableTableLoading">
+                  <td class="text-center" colspan="6" style="height: 10rem;">
+                    <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+                  </td>
+                </tr>
+
+                <!-- Empty Table Row -->
+                <tr *ngIf="purchasableTableEmpty">
+                  <td class="text-center" colspan="6" style="height: 10rem;">
+                    <h1>{{ purchasableTableBodyMessage }}</h1>
+                  </td>
+                </tr>
+                <!-- Purchasable Vouchers Table Row(s) -->
+                <tr
+                  *ngFor="let voucher of purchasableVouchers | paginate: { id: 'purchasablePagination', itemsPerPage: 5, currentPage: purchasablePage }">
+
+                  <!-- Purchasable Voucher checkbox -->
+                  <td class="pl-4 text-right">
+                    <input class="form-check-input"
+                      id="cpy-wallet-purchasable-voucher-checkbox-{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                      style="height: 1.25rem; width: 1.25rem;" type="checkbox"
+                      value="{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                      (click)="onClickPurchasableVoucherCheckbox(voucher)" />
+                  </td>
+
+                  <!-- Purchasable Voucher Name -->
+                  <td class="pl-3" colspan="2">{{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+
+                  <!-- Purchasable Voucher Value -->
+                  <td class="numericPagination pr-3">
+                    <input
+                      id="cpy-wallet-purchasable-voucher-value-{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                      value="{{ voucher.vchValue }}"
+                      hidden />{{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}
+                  </td>
+
+                  <!-- Purchasable Voucher Expire Date -->
+                  <td class="numericPagination pr-3">{{ voucher.vchEndDate | date: "dd/MM/y" }}</td>
+
+                  <!-- Purchasable Voucher Quantity -->
+                  <td>
+                    <input class="form-control pr-0"
+                      id="cpy-wallet-purchasable-voucher-quantity-{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                      min="1" style="width: 4rem;" type="number" value="0"
+                      (input)="onChangePurchasableVoucherQuantity(voucher)" disabled />
+                  </td>
+
+                  <!-- Purchasable Voucher Import (Value * Quantity) -->
+                  <td class="numericPagination pr-3">
+                    {{ purchasableVoucherImports.get(idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate)) | currency: "EUR":"symbol":"":"it-IT" }}
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+              <!-- Purchasable Vouchers Table Footer -->
+              <tfoot>
+
+                <tr style="height: 0;" *ngIf="!purchasableTableEmpty && !purchasableTableLoading">
+
+                  <td colspan="5"></td>
+
+                  <td class="pt-1 py-0" colspan="1">
+                    <h5>Totale: </h5>
+                  </td>
+
+                  <!-- Purchasable Vouchers Total Import -->
+                  <td class="numericPagination pr-3" colspan="1">
+                    {{ totalPurchasableImport | currency: "EUR":"symbol":"":"it-IT" }}
+                  </td>
+
+                </tr>
+
+                <tr style="height: 0;" *ngIf="!purchasableTableEmpty && !purchasableTableLoading">
+
+                  <!-- Purchasable Vouchers Pagination -->
+                  <td class="pl-0 text-center" colspan="7">
+                    <pagination-controls class="vouchainPagination" id="purchasablePagination" maxSize="5"
+                      responsive="true" nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                      previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}"
+                      (pageChange)="purchasablePage = $event; onPageChangePurchasable()"></pagination-controls>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td colspan="3">
+
+                    <!-- New Voucher Button -->
+                    <button class="btn btn-primary ml-2" type="button" [disabled]="purchasableTableLoading"
+                      (click)="onClickNewVoucher()">
+                      Nuovo Voucher
+                    </button>
+
+                  </td>
+
+                  <td class="text-right" colspan="4">
+
+                    <!-- Buy Voucher Button -->
+                    <button class="btn btn-primary mr-3" type="button" (click)="onClickBuyVoucher()"
+                      [disabled]="!selectedPurchasableVouchers.size">
+                      Acquista Voucher
+                    </button>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- New Voucher Type Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-wallet-modal-new-voucher" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header text-white" id="cpy-wallet-modal-new-voucher-header"
+        [ngStyle]="{'background-color':successNewVoucher ? '#0fb94a' : '#2c61f1'}"
+        [ngStyle]="{'background-color':errorNewVoucher ? '#e7362d' : '#2c61f1'}">
+
+        <h4 class="modal-title" id="cpy-wallet-modal-new-voucher-header-title"
+          *ngIf="!successNewVoucher && !errorNewVoucher">
+          Nuovo Tipo Voucher
+        </h4>
+
+        <!-- Success Header new voucher -->
+        <h4 class="modal-title" id="cpy-wallet-modal-new-voucher-header-title" *ngIf="successNewVoucher">
+          {{ "MODALS.HEADER.WALLET.SUCCESS.NEW_VOUCHER_TITLE" | translate }}
+        </h4>
+
+        <!-- Error Header new voucher -->
+        <h4 class="modal-title" id="cpy-wallet-modal-new-voucher-header-title" *ngIf="errorNewVoucher">
+          {{ "MODALS.HEADER.WALLET.ERRORS.NEW_VOUCHER_TITLE" | translate }}
+        </h4>
+
+        <button class="btn btn-default" (click)="closeModalNewVoucher()" id="cpy-wallet-modal-new-voucher-header-button"
+          type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-wallet-modal-new-voucher-body" *ngIf="!successNewVoucher && !errorNewVoucher">
+        <p>
+          Inserire le informazioni necessarie per la creazione di un nuovo tipo
+          di voucher.
+        </p>
+
+        <form class="container">
+
+          <!-- New Voucher Value Input -->
+          <div class="form-inline text-center">
+
+            <label class="mr-2" for="cpy-wallet-modal-new-voucher-value"
+              style="font-family: 'GraphikSemibold'; font-size: 1.25rem;">Valore</label>
+            <input class="form-control mr-3 w-25" id="cpy-wallet-modal-new-voucher-value" min="0.01" step="0.01"
+              type="number" value="1.00" (input)="lockMinValue($event)"
+              (change)="onChangeVoucherValueDecimal($event)" />
+
+            <label class="mr-2" for="cpy-wallet-modal-new-voucher-quantity"
+              style="font-family: 'GraphikSemibold'; font-size: 1.25rem;">Quantità</label>
+            <input class="form-control w-25" id="cpy-wallet-modal-new-voucher-quantity" min="1" type="number" value="1"
+              (input)="lockMinNewVoucherQuantity()" />
+
+            <label class="cpy-wallet-error-alert" *ngIf="newVoucherQuantityOk && newVoucherValueOk">&nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+
+            <label class="cpy-wallet-error-alert" *ngIf="!newVoucherQuantityOk">
+              <fa-icon [icon]="fasExclamationCircle"></fa-icon> &nbsp;
+              {{ 'MODALS.BODY.GENERIC.ERRORS.VOUCHERS_WRONG_MIN_INPUT_BODY' | translate }}
+            </label>
+
+            <label class="cpy-wallet-error-alert" *ngIf="!newVoucherValueOk">
+              <fa-icon [icon]="fasExclamationCircle"></fa-icon> &nbsp; Il valore del buono deve essere almeno di 0,01 €.
+            </label>
+
+          </div>
+
+        </form>
+
+      </div> <!-- Modal body -->
+
+      <!-- Modal body Success -->
+      <div class="modal-body" *ngIf="successNewVoucher">
+        <div style="font-family: 'GraphikSemibold';" class="text-center">
+          {{ "MODALS.BODY.INVOICES.SUCCESS.VOUCHERS_EXPORT_BODY" | translate }}
+        </div>
+      </div>
+
+      <!-- Modal body Error -->
+      <div class="modal-body" *ngIf="errorNewVoucher">
+        <div style="font-family: 'GraphikSemibold';" class="text-center">
+          {{ "ERRORS.GENERIC" | translate }}
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="justify-content-between modal-footer" id="cpy-wallet-modal-new-voucher-footer"
+        *ngIf="!successNewVoucher && !errorNewVoucher">
+
+        <!-- Cancel New Voucher Button -->
+        <button class="btn btn-secondary" data-dismiss="modal" id="cpy-wallet-modal-new-voucher-footer-cancel-button"
+          type="button">
+          Annulla
+        </button>
+
+        <!-- Create New Voucher Button -->
+        <button class="btn btn-primary" id="cpy-wallet-modal-new-voucher-footer-confirm-button" type="button"
+          [disabled]="!newVoucherQuantityOk || !newVoucherValueOk" *ngIf="newVoucherOk"
+          (click)="onClickCreateNewVoucher()">
+          Crea Nuovo Voucher
+        </button>
+
+        <!-- Loading New Voucher Button -->
+        <button class="btn btn-primary" type="submit" disabled *ngIf="!newVoucherOk">
+          <span class="spinner-border spinner-border-sm" role="status"></span> {{ "BUTTONS.LOADING" | translate }}
+        </button>
+
+      </div><!-- End Modal footer -->
+
+      <!-- Modal footer close -->
+      <div class="modal-footer d-block" *ngIf="successNewVoucher || errorNewVoucher">
+        <div class="row pb-4 pl-4 pr-4">
+          <div class="col-sm-4 mt-1"></div>
+          <div class="col-sm-4 mt-1"></div>
+          <div class=" col-sm-4 mt-1">
+            <button class="btn btn-secondary btn-block" id="mrc-invoice-close-modal" type="button"
+              (click)="closeModalNewVoucher()">
+              {{ "MODALS.FOOTER.CLOSE_BUTTON" | translate }}
+            </button>
+          </div>
+        </div>
+      </div> <!-- End Modal footer close -->
+
+    </div>
+  </div>
+
+</div>
+
+<!-- TEMP CONFIRM PURCHASE Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-wallet-modal-buy-voucher" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header text-white" id="cpy-wallet-modal-buy-voucher-header"
+        [ngStyle]="{'background-color':successBuyVoucher ? '#0fb94a' : '#2c61f1'}"
+        [ngStyle]="{'background-color':errorBuyVoucher ? '#e7362d' : '#2c61f1'}">
+
+        <!-- Modal header success -->
+        <h4 class="modal-title" id="cpy-wallet-modal-buy-voucher-header-title"
+          *ngIf="!successBuyVoucher && !errorBuyVoucher">
+          Riepilogo Ordine Buoni
+        </h4>
+
+        <!-- Modal header error -->
+        <h4 class="modal-title" id="cpy-wallet-modal-buy-voucher-header-title-success" *ngIf="successBuyVoucher">
+          {{ 'MODALS.HEADER.WALLET.SUCCESS.BUY_VOUCHER_TITLE' | translate}}
+        </h4>
+
+        <h4 class="modal-title" id="cpy-wallet-modal-buy-voucher-header-title-error" *ngIf="errorBuyVoucher">
+          {{ 'MODALS.HEADER.WALLET.ERRORS.BUY_VOUCHER_TITLE' | translate}}
+        </h4>
+
+        <button class="btn btn-default" (click)="closeModalBuyVoucher()" type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-wallet-modal-buy-voucher-body" *ngIf="!successBuyVoucher && !errorBuyVoucher">
+
+        <p>
+          Prima di procedere con l'acquisto, controllare che le informazioni
+          sotto riportate siano corrette.
+        </p>
+
+        <div class="text-center">
+          <h4 style="font-family: GraphikSemibold;">Buoni Selezionati</h4>
+        </div>
+
+        <!-- Order Summary Table -->
+        <div class="cpy-wallet-content-wrap-tables" id="cpy-wallet-wrap-table">
+          <div class="cpy-wallet-container-table table-responsive">
+
+            <table>
+
+              <thead>
+
+                <tr class="cpy-wallet-table-subhead">
+
+                  <th style="font-size: 1.15rem;">Buono</th>
+                  <th class="text-right" style="font-size: 1.15rem;">Valore</th>
+                  <th class="text-right" style="font-size: 1.15rem;">Scadenza</th>
+                  <th class="text-right" style="font-size: 1.15rem;">Quantità</th>
+                  <th class="pr-3 text-right" style="font-size: 1.15rem;">Importo</th>
+
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <tr *ngFor="let voucher of selectedPurchasableVouchers">
+
+                  <td>{{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+                  <td class="numericPagination">{{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}</td>
+                  <td class="numericPagination">{{ voucher.vchEndDate | date: "d/MM/y" }}</td>
+                  <td class="numericPagination">
+                    {{ selectedPurchasableQuantities.get(idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate)) }}
+                  </td>
+                  <td class="numericPagination pr-3">
+                    {{ purchasableVoucherImports.get(idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate)) | currency: "EUR":"symbol":"":"it-IT" }}
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+        </div>
+
+      </div> <!-- Modal body -->
+
+      <!-- Modal body Confirm -->
+      <div class="modal-body" *ngIf="successBuyVoucher">
+        <div style="font-family: 'GraphikSemibold';" class="text-center">
+          {{ "MODALS.BODY.WALLET.SUCCESS.BUY_VOUCHER_BODY" | translate }}
+        </div>
+      </div>
+
+      <!-- Modal body Error -->
+      <div class="modal-body" *ngIf="errorBuyVoucher">
+        <div style="font-family: 'GraphikSemibold';" class="text-center">
+          {{ "ERRORS.GENERIC" | translate }}
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer d-block" *ngIf="!successBuyVoucher && !errorBuyVoucher">
+
+        <div class="row justify-content-end pr-4">
+          <p style="font-family: 'GraphikSemibold'; font-size: 1.15rem;">
+            Totale Importo: {{ totalPurchasableImport | currency: "EUR":"symbol":"":"it-IT" }}
+          </p>
+        </div>
+
+        <div class="row pb-4 pl-4 pr-4">
+
+          <!-- Button close modal -->
+          <div class="col-sm-4 mt-1">
+            <button class="btn btn-secondary btn-block" data-dismiss="modal" id="modal-test-footer-button"
+              type="button">
+              Annulla
+            </button>
+          </div>
+
+          <div class="col-md-4 mt-1"></div>
+
+          <div class="col-sm-4 mt-1">
+            <!-- Confirm Purchase Button -->
+            <button class="btn btn-primary btn-block" id="modal-test-footer-button" type="button"
+              (click)="onClickConfirmPurchase()" *ngIf="purchaseOk">
+              Conferma
+            </button>
+
+            <!-- Loading Purchase Button -->
+            <button class="btn btn-primary btn-block" type="submit" disabled *ngIf="!purchaseOk">
+              <span class="spinner-border spinner-border-sm" role="status"></span> {{ "BUTTONS.LOADING" | translate }}
+            </button>
+
+          </div>
+
+        </div>
+
+      </div> <!-- End Modal footer -->
+
+      <!-- Modal footer close -->
+      <div class="modal-footer d-block" *ngIf="successBuyVoucher || errorBuyVoucher">
+        <div class="row pb-4 pl-4 pr-4">
+          <div class="col-sm-4 mt-1"></div>
+          <div class="col-sm-4 mt-1"></div>
+          <div class=" col-sm-4 mt-1">
+            <button class="btn btn-secondary btn-block" id="cpy-wallet-close-modal" type="button"
+              (click)="closeModalBuyVoucher()">
+              {{ "MODALS.FOOTER.CLOSE_BUTTON" | translate }}
+            </button>
+          </div>
+        </div>
+      </div> <!-- End Modal footer close -->
+
+    </div>
+  </div>
+
+</div>

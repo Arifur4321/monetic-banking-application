@@ -1,0 +1,311 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section id="emp-dashboard-header">
+    <img src=" " id="top-image-dashboard"
+        class="img-fluid float-right" />
+</section>
+
+
+
+<section id="emp-overview">
+  
+     
+     
+    <!-- submenu bar -->
+    <app-emp-submenu> </app-emp-submenu>
+
+    <!--  Middle div for saldo disponibile  -->
+    <div id='wrapper' style='text-align:center;'>    
+        <div style='border-radius: 10px; display: inline-block; vertical-align: top;;background-color: white;width:25% ; height: 80px; margin-top: 15px;'> 
+        <table>
+            <thead>
+                <!-- Active Vouchers Table Head -->
+                <tr class="emp-wallet-table-head">
+                    <th colspan="2"><img id="emp-wallet-icon"
+                            src="./assets/images/icons/profilo_icon.png" /> Saldo Disponibile   
+                    </th>
+
+                    <th class="pr-4 text-right" colspan="2" style="color: #2d2e83;">
+                        <button type="text" class="btn btn-default btn-sm"  (click)="toogleTag()"   *ngIf="showMeicon"  >
+                            <i  class="fa fa-eye" style="font-size:18px"></i> 
+                        </button>  
+                        
+                        <p *ngIf="showMe" id ="totalimport" (click)="toogleTag()"   style ="padding-left: 30px;  cursor:pointer !important;"> {{ totalImport | currency: "EUR":"symbol":"":"it-IT"}}</p>   
+                        
+                    </th>
+                 </tr>
+             
+            </thead>        
+        </table>
+             
+       </div>    
+        <div style='border-radius: 10px 10px 10px 10px; display: inline-block; vertical-align: top;background-color: white ;width:27% ; height: 80px; margin-top: 15px; '>   
+       <table>
+            <thead>
+                <!-- Active Vouchers Table Head -->
+                <tr class="emp-wallet-table-head">
+                    <th colspan="2"><img id="emp-wallet-icon"
+                            src="./assets/images/icons/profilo_icon.png" />il Tuo IBAN
+                    </th> 
+                    <th class="pr-2 text-right" colspan="2" style="color: #2d2e83;">
+
+                        <button type="text" class="btn btn-default btn-sm"  (click)="toogleTagaddress()"   *ngIf="showMematicon"   style="padding-left: 30px;" >
+                            <i  class="fa fa-eye" style="font-size:18px"></i> 
+                        </button>  
+                        
+                        <p  *ngIf="showMemat" id ="totalimport" (click)="toogleTagaddress()"   style ="padding-left: 30px;  cursor:pointer !important;"> {{this.empDto.empMatricola}}</p>   
+      
+                    </th>
+               </tr>
+           </thead>        
+         </table>
+        </div>
+    </div>
+    
+    <!--  submenu two  (click)="tooglewallet()"    -->
+
+    <div class="col-lg-6" style="float:none;margin:auto;">    
+
+        <div id="emp-navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+           
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: center;">
+              <div class="col-xl-12 col-lg-4">
+                <ul class="navbar-nav justify-content-center" style="display: -webkit-inline-box">
+                  <li class="nav-item">
+                    <a class="nav-link" (click)="tooglewallet()"  [ngStyle]="{'font-family': fontwallet}"  style="cursor: pointer !important;font-family: Helvetica,sans-serif; font-size: 20px;"> WALLET </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"  id="storicotransaction" (click)="tooglestorico()"  [ngStyle]="{'font-family': fontstorico}" style="cursor: pointer !important;  font-family: Helvetica,sans-serif;">Storico Transaction</a>
+                  </li>
+                 
+                  <li class="nav-item">
+                    <a class="nav-link"  (click)="toogleprofile()" [ngStyle]="{'font-family': fontprofile}"  style="cursor: pointer !important;font-family: Helvetica,sans-serif;"> Profile</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Title 
+    <h1 class="text-center  text-white" id="emp-overview-title"><b>{{ 'OVERVIEW.EVIDENCE' | translate }}</b></h1>
+    -->
+    <!-- Main container Starts after last menu   -->
+    <div class="container" >
+
+        <div class="row">
+
+          
+            <div class="col-lg-8" *ngIf="showMeprofile" style="float:none;margin:auto; margin-top: 30px;" >
+                <div class="row h-100">
+                   <!--
+                    <div id="emp-ow-wrap-profile" class="content-wrap my-auto text-center">
+                        <div class="row justify-content-end" id="emp-ow-profile-go-btn">
+                            <a routerLink="/employee/empDashboard/modifyProfile"><img
+                                    src="./assets/images/icons/profilo_go_icon.png"></a>
+                        </div>
+                        <div class="row">
+                            <img src="./assets/images/icons/profilo_icon2.png" class="img-fluid mx-auto">
+                        </div>
+                        <div class="emp-ow-profile-text-title">{{ 'OVERVIEW.PROFILE.FIRST_NAME' | translate }}</div>
+                        <div class="emp-ow-profile-text-subtitle">{{this.empDto.empFirstName}}</div>
+
+                        <div class="emp-ow-profile-text-title">{{ 'OVERVIEW.PROFILE.LAST_NAME' | translate }}</div>
+                        <div class="emp-ow-profile-text-subtitle">{{this.empDto.empLastName}}</div>
+
+                        <div class="emp-ow-profile-text-title">{{ 'OVERVIEW.PROFILE.NUMBER' | translate }}</div>
+                        <div class="emp-ow-profile-text-subtitle">{{this.empDto.empMatricola}}</div>
+
+                        <div class="emp-ow-profile-text-title">{{ 'PLACEHOLDER.EMAIL' | translate }}</div>
+                        <div class="emp-ow-profile-text-subtitle">{{this.empDto.usrEmail}}</div>
+                    </div>
+                   -->
+   
+                    <div class="card">
+                      
+                        <img src="./assets/images/icons/marco.png" alt="John" style="width:110px ; height: 110px; margin-left: 65px;border-radius: 50px; padding-top: 5px;">
+                    
+                    
+                    <div style="font-family: Helvetica,sans-serif; padding-top: 2px;" class="emp-ow-profile-text-title">{{ 'OVERVIEW.PROFILE.FIRST_NAME' | translate }} : {{this.empDto.empFirstName}}</div>
+                     
+                    
+                    <div style="font-family: Helvetica,sans-serif; padding-top: 2px;" class="emp-ow-profile-text-title">{{ 'OVERVIEW.PROFILE.LAST_NAME' | translate }} : {{this.empDto.empLastName}}</div>
+                    <div class="emp-ow-profile-text-subtitle"></div>
+                    
+                    <div  style="font-family: Helvetica,sans-serif; padding-top: 2px;" class="emp-ow-profile-text-title">{{ 'OVERVIEW.PROFILE.NUMBER' | translate }} : {{this.empDto.empMatricola}}</div>
+                    <div class="emp-ow-profile-text-subtitle"></div>
+                    
+                    <div style="font-family: Helvetica,sans-serif; padding-top: 2px; font-size: medium;" class="emp-ow-profile-text-title">{{ 'PLACEHOLDER.EMAIL' | translate }} : {{this.empDto.usrEmail}}</div>
+                          
+                      <div style="margin: 24px 0;">
+                        <a href="#"><i class="fa fa-dribbble"></i></a> 
+                        <a href="#"><i class="fa fa-twitter"></i></a>  
+                        <a href="#"><i class="fa fa-linkedin"></i></a>  
+                        <a href="#"><i class="fa fa-facebook"></i></a> 
+                      </div>
+                      <button id="profilebutton" >Contact</button>
+                    </div>               
+                </div>
+            </div>
+
+            <!-- wallet panel -->
+
+            <div class="col-lg-12"  id ="wallettable"  *ngIf="showMewallet" style="float:none;margin:auto; margin-top: -1px; " >
+                <div class="col-xl-12 p-2"   >
+           
+                    <div class="emp-ow-content-wrap-tables" id="emp-ow-content-wrap-table1">
+                        <div class="emp-overview-table-div">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="emp-overview-table-head">
+                                        <th class="pl-4" scope="col" style="width: 5%;"><img  img id="waleticon"
+                                                src="./assets/images/icons/wallet.jpg"></th>
+                                        <th scope="col" style="color: #696969; width: 25%;  font-family: Helvetica,sans-serif;">
+                                            {{ 'OVERVIEW.WALLET.YOUR_WALLET' | translate }}</th>
+                                        <th scope="col" style="width: 12%;"></th>
+                                        <th colspan="2" scope="col" style="color: #696969;  font-family:  Helvetica,sans-serif;">Totale:
+                                            {{ totalImport | currency: "EUR":"symbol":"":"it-IT" }}</th>
+                                        <th scope="col" style="width: 10%;">
+                                            <a routerLink="/employee/empDashboard/wallet"><img
+                                                    src="./assets/images/icons/profilo_go_icon.png"></a>
+                                        </th>
+                                    </tr>
+                                    <tr class="emp-overview-table-subhead">
+                                        <th class="pl-4" colspan="2" scope="col"  style="color: #696969 ;font-family: Helvetica,sans-serif;">
+                                            {{ 'OVERVIEW.WALLET.VOUCHER' | translate }}</th>
+                                        <th class="text-right" scope="col"  style="color: #696969 ;font-family: Helvetica,sans-serif ;">{{ 'OVERVIEW.WALLET.AMOUNT' | translate }}
+                                        </th>
+                                        <th class="text-right" scope="col" style=" color: #696969 ; width: 14%; font-family: Helvetica,sans-serif;">
+                                            {{ 'OVERVIEW.WALLET.EXPIRE' | translate }}</th>
+                                        <th class="text-right" scope="col" style="color: #696969 ; width: 12%;  font-family: Helvetica,sans-serif;"   >Quantità</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                <!--Loading Table Row-->   
+                                    <tr *ngIf="tableLoading">
+                                        <td class="text-center" colspan="6" style="height: 10rem;">
+                                            <div class="spinner-border text-primary" role="status"
+                                                style="height: 4rem; width: 4rem;"></div>
+                                        </td>
+                                    </tr>
+
+                                  <!--Empty Table Row-->  
+                                    <tr *ngIf="tableEmpty">
+                                        <td class="text-center" colspan="6" style="height: 10rem;color: #696969 ;">
+                                            <h1>{{ msgTableBody }}</h1>
+                                        </td>
+                                    </tr>
+
+                                    <tr  
+                                        *ngFor="let voucher of empVouchers | paginate: { itemsPerPage: 4, currentPage: selectedPage }; let i = index ">
+                                       
+                                        <td class="pl-4" colspan="2" scope="col" style=" color: #696969 ; font-family: Helvetica,sans-serif;">
+                                            {{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+                                        <td class="numericPagination"  style=" color: #696969 ;  font-family: Helvetica,sans-serif;">
+                                            {{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}</td>
+                                        <td class="numericPagination"  style=" color: #696969 ; font-family: Helvetica,sans-serif;">{{ voucher.vchEndDate | date:"dd/MM/y" }}</td>
+                                        <td class="numericPagination"  style="color: #696969 ;  font-family:Helvetica,sans-serif ;">{{ voucher.vchQuantity }}</td>
+                                        <td></td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                 
+            </div>
+         </div>
+
+                <!--  storico transaction panel -->
+        
+      <div   class="col-lg-12 col-md-12 col-sm-12 " style="float:none;margin:auto; "  *ngIf="showMestorico">   
+         
+            <div class="col-xl-12 p-2"   >
+                  <div class="row">
+                    <div class="emp-ow-content-wrap-tables" id="emp-ow-content-wrap-table2">
+                        <div class="container-table100">
+                            <table class="table table-borderedless">
+                                <thead>
+                                    <tr class="emp-overview-table-head" >
+                                        <th class="pl-6" scope="col" style="width: 5%; font-family: cursive;"><img id="waletimage"
+                                                src="./assets/images/icons/Transaction_History-512.png"></th>
+                                        <th scope="col" style="  padding-bottom: 25px;   color: #696969 ; width: 60%;font-family: 'Times New Roman', Times, serif; ">
+                                            {{ 'OVERVIEW.TRANSACTION.TRANSACTION_HISTORY' | translate }}
+
+                                            <button style=" color: #696969 ; " class="btn btn-link" id="emp-transactions-table-reload-button" type="button"
+                                            (click)="showTransactionsList()" data-toggle="tooltip" data-placement="top"
+                                             title="{{ 'TOOLTIPS.RELOAD' | translate }}">
+                                             <i class="fa fa-refresh" aria-hidden="true"></i>
+                                            </button>
+                                        </th>
+                                        <th scope="col" style="width: 10%;"></th>
+                                        <th scope="col" style="width: 10%;"></th>
+                                        <th scope="col" style="width: 10%;"><a
+                                                routerLink="/employee/empDashboard/transactions"><img
+                                                    src="./assets/images/icons/profilo_go_icon.png"></a></th>
+                                    </tr>
+                                    <tr class="emp-overview-table-subhead">
+                                        <th class="pr-6 text-right" scope="col"   style="color: #696969 ;font-family: Helvetica,sans-serif; margin-left: 30px;">
+                                            {{ 'OVERVIEW.TRANSACTION.DATE' | translate }}</th>
+                                        <th class="pl-6" scope="col" style="color: #696969 ;font-family: Helvetica,sans-serif;">
+                                            {{ 'OVERVIEW.TRANSACTION.DESCRIPTION' | translate }}</th>
+                                        <th class="pr-6 text-right" colspan="2" scope="col"  style="color: #696969 ; font-family: Helvetica,sans-serif;">
+                                            {{ 'OVERVIEW.WALLET.AMOUNT' | translate }}</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <!-- Loading Table Row -->
+                                    <tr *ngIf="transactionsTableLoading">
+                                        <td class="text-center" colspan="5" style="color: #696969 ; height: 10rem;">
+                                            <div class="mb-3 spinner-border text-primary" role="status"
+                                                style="  color: #696969 ;height: 4rem; width: 4rem;"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Empty Table Row -->
+                                    <tr *ngIf="transactionsTableEmpty">
+                                        <td class="text-center" colspan="5" style="color: #696969 ; height: 10rem;  font-family: Helvetica,sans-serif;">
+                                            <h1>{{ transactionsTableBodyMessage }}</h1>
+                                        </td>
+                                    </tr>
+
+                                    <tr *ngFor="let transaction of transactions">
+
+                                        <!-- Transaction Date -->
+                                        <td class="numericPagination px-0"  style="color: #696969 ;  padding-left: 10px;">
+                                            {{ transaction.trcDate }}
+                                        </td>
+
+                                        <!--  Transaction Type Full Description -->
+                                        <td class="pl-3" *ngIf="transaction.trcType === 'SPS'" style="color: #696969 ;">
+                                            {{ getTrcTypeFullDescription(transaction.trcType) }}
+                                            {{transaction.usrIdAString}}
+                                        </td>
+
+                                        <!--  Transaction Type Full Description -->
+                                        <td class="pl-3" *ngIf="transaction.trcType === 'ALL'"  style="color: #696969 ;">
+                                            {{ getTrcTypeFullDescription(transaction.trcType) }}
+                                        </td>
+
+                                        <!-- Transaction Value -->
+                                        <td class="numericPagination pr-3" colspan="2"  style="color: #696969 ;">
+                                            {{ transaction.trcValue | currency: "EUR":"symbol":"":"it-IT" }}
+                                        </td>
+                                        <!-- Transaction Details Icon -->
+                                        <td></td>
+                                   </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+               </div>
+            </div>
+           </div> 
+       </div>
+</section>

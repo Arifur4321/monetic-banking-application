@@ -1,0 +1,465 @@
+/* Header Section */
+#cpy-vouchers-header {
+  color: white;
+  overflow: hidden;
+}
+
+/* Border Images */
+#cpy-vouchers-top-image {
+  z-index: 1;
+}
+
+/* Main Section */
+#cpy-vouchers-section {
+  margin: -35vh 0 3vh;
+}
+
+/* Section Title */
+#cpy-vouchers-title {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+  margin-bottom: 2rem;
+}
+
+/* Main Section Content */
+#cpy-vouchers-container {
+  padding-left: 25vw;
+  padding-right: 25vw;
+}
+
+/* Selected Employees Button */
+#cpy-vouchers-selected-employees-button {
+  font-size: 1vw;
+}
+
+/* Allocate Vouchers Button */
+#cpy-vouchers-allocate-vouchers-button {
+  font-size: 1vw;
+}
+
+/* Allocation Summary Modal Header */
+#cpy-vouchers-modal-allocation-header {
+  background-color: #2c61f1;
+  color: white;
+}
+
+.cpy-vouchers-quantity {
+  width: 4rem;
+}
+
+/* vvv VOUCHERS TABLE vvv */
+
+/* Table Icon */
+#cpy-vouchers-table-icon {
+  height: 53px;
+  margin: 1rem;
+}
+
+/* Table Wrapper */
+.cpy-vouchers-content-wrap-tables {
+  background: #ededed;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+/* Table Container */
+.cpy-vouchers-container-table {
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+}
+
+/* Table Header */
+.cpy-vouchers-table-head th {
+  color: #2d2e83;
+  font-family: "GraphikSemibold";
+  font-size: 1.5rem;
+  font-weight: unset;
+  height: 60px;
+  line-height: 1.2;
+  width: 7rem;
+}
+
+/* Table Subheader */
+.cpy-vouchers-table-subhead th {
+  color: #2c61f1;
+  font-family: "GraphikMedium";
+  font-size: 1rem;
+  font-weight: unset;
+  height: 2rem;
+  line-height: 1.2;
+  width: 7rem;
+}
+
+/* Table Checkboxes (⚠ Bootstrap Class ⚠) */
+.form-check-input {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+/* Table Generic */
+table {
+  background: white;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-spacing: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Table Elements Positions */
+table * {
+  position: relative;
+}
+
+/* Table Cells */
+table td,
+table th {
+  padding-left: 8px;
+  text-align: left;
+}
+
+/* Table Header Rows */
+table thead tr {
+  background: #a8dbff;
+}
+
+/* Table Body Rows */
+table tbody tr {
+  height: 50px;
+}
+
+/* Last Table Body Row */
+table tbody tr:last-child {
+  border: 0;
+}
+
+/* Table Body Rows */
+tbody tr {
+  color: #808080;
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  font-weight: unset;
+  line-height: 1.2;
+}
+
+/* Even Table Body Rows */
+tbody tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+/* Table Footer Rows */
+table tfoot tr {
+  background: #a8dbff;
+  height: 60px;
+}
+
+/* Table Footer Rows */
+tfoot tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  font-weight: unset;
+  line-height: 1.2;
+}
+
+.cpy-vouchers-chechbox {
+  margin-left: 0.5rem;
+}
+
+/* ^^^ VOUCHERS TABLE ^^^ */
+
+/* vvv MEDIA QUERIES vvv */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1441px) {
+  @media screen and (max-height: 900px) {
+    /* Table Header */
+    .cpy-vouchers-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .cpy-vouchers-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.3vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+    /* Table Header */
+    .cpy-vouchers-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .cpy-vouchers-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #cpy-vouchers-section {
+    margin: -40vh 0 3rem;
+  }
+
+  #cpy-vouchers-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  /* Table Header */
+  .cpy-vouchers-table-head th {
+    font-size: 1.6vw;
+  }
+
+  /* Table Subheader */
+  .cpy-vouchers-table-subhead th {
+    font-size: 1.3vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.3vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  #cpy-vouchers-section {
+    margin: -20vh 0 3rem;
+  }
+
+  #cpy-vouchers-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  /* Table Header */
+  .cpy-vouchers-table-head th {
+    font-size: 2vw;
+  }
+
+  /* Table Subheader */
+  .cpy-vouchers-table-subhead th {
+    font-size: 1.5vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.5vw;
+  }
+
+  /*  table tfoot tr {
+    font-size: 1.8vw;
+  } */
+
+  #cpy-vouchers-selected-employees-button {
+    font-size: 1.5vw;
+  }
+
+  #cpy-vouchers-allocate-vouchers-button {
+    font-size: 2vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #cpy-vouchers-section {
+    margin: -45vh 0 3rem;
+  }
+
+  #cpy-vouchers-container {
+    padding-left: 12vw;
+    padding-right: 12vw;
+  }
+
+  /* Table Header */
+  .cpy-vouchers-table-head th {
+    font-size: 2vw;
+  }
+
+  /* Table Subheader */
+  .cpy-vouchers-table-subhead th {
+    font-size: 1.5vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.5vw;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  @media screen and (min-height: 320px) and (max-height: 400px) {
+    #cpy-vouchers-section {
+      margin: -85vh 0 3rem;
+    }
+  }
+
+  @media screen and (min-height: 401px) and (max-height: 414px) {
+    #cpy-vouchers-section {
+      margin: -70vh 0 3rem;
+    }
+  }
+
+  .vouchainPagination {
+    font-size: 1rem;
+  }
+
+  #cpy-vouchers-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .cpy-vouchers-table-head th {
+    font-size: 3vw;
+  }
+
+  /* Table Subheader */
+  .cpy-vouchers-table-subhead th {
+    font-size: 2.2vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 2.2vw;
+  }
+
+  #cpy-vouchers-invite-employee-title {
+    font-size: 3.5vw;
+  }
+
+  #cpy-vouchers-selected-employees-button {
+    font-size: 2vw;
+  }
+
+  #cpy-vouchers-allocate-vouchers-button {
+    font-size: 2.5vw;
+  }
+
+  .cpy-vouchers-quantity {
+    font-size: 0.8rem;
+    width: 2rem;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Table Header */
+  .cpy-vouchers-table-head th {
+    font-size: 5vw;
+  }
+
+  /* Table Subheader */
+  .cpy-vouchers-table-subhead th {
+    font-size: 4vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 3.5vw;
+  }
+
+  #cpy-vouchers-table-icon {
+    height: 60%;
+  }
+
+  #cpy-vouchers-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .vouchainPagination {
+    font-size: 1rem;
+  }
+
+  #cpy-vouchers-invite-employee-title {
+    font-size: 3.5vw;
+  }
+
+  #cpy-vouchers-send-voucher-button {
+    font-size: 2vw;
+  }
+
+  #cpy-vouchers-invite-employee-button .form-control::placeholder {
+    font-size: 3vw;
+  }
+
+  .form-control {
+    height: 2rem;
+  }
+
+  #cpy-vouchers-selected-employees-button {
+    font-size: 3vw;
+  }
+
+  #cpy-vouchers-allocate-vouchers-button {
+    font-size: 4vw;
+  }
+
+  .cpy-vouchers-quantity {
+    font-size: 0.8rem;
+    width: 2rem;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) {
+}
+
+@media screen and (max-width: 576px) {
+}
+
+/* ^^^ MEDIA QUERIES ^^^ */

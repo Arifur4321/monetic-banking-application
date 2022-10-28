@@ -1,0 +1,290 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section id="cpy-employees-header">
+
+    <!-- Top Border Image -->
+    <img class="float-right img-fluid" id="cpy-employees-top-image" src=" "/>
+  
+  </section>
+  
+  <!-- Main Website Content -->
+  <section id="cpy-employees-section">
+  
+  <!--
+   submenu bar 
+        <app-cpy-submenu> </app-cpy-submenu>
+  -->
+
+
+   
+    <div  class="container-fluid">
+
+        <div class="row">
+
+            <div class=" col-lg-6 col-xl-6 col-md-6 col-sm-6 " id="firstleftbox" >
+
+              <h2 style="font-size: 20px;" > {{this.cpyDto.cpyFirstNameRef}}  </h2>
+              <h2 style="font-size: 20px;" >{{this.cpyDto.cpyLastNameRef}}</h2>
+
+                <h5 style="font-size: 21px; "> Saldo Disponibile </h5> 
+                  
+                  <button type="text" class="btn btn-default btn-sm"  (click)="toogleTag()"   *ngIf="showMeicon"  style="margin-left: 170px;  margin-top: -60px;"  >
+                    <img id="eyesicon" class="img-fluid" 
+                    style="font-size: 20px; cursor:pointer !important; margin-top: -3px;"   
+                    src="./assets/images/icons/eyesico.png" />
+                    Mostra dati
+                 </button> 
+
+                 <button type="text" class="btn btn-default btn-sm"  (click)="toogleTag()"   *ngIf="showMe"  style="margin-left: 170px; margin-top: -60px; "  >
+                  <img id="eyesicon" class="img-fluid" 
+                  style="font-size: 20px; cursor:pointer !important; margin-top: -3px;"   
+                  src="./assets/images/icons/eyesico.png" />
+                  Nascondi dati
+               </button> 
+
+                 
+                <div  *ngIf="showMe" class="importvalue"  (click)="toogleTag()" style="font-size: 34px;cursor:pointer !important; margin-top: -35px;" >  2.716,25 € </div>
+                
+            </div>
+
+            <div class="col-lg-5 col-xl-5 col-md-5 col-sm-5" >
+
+                  <img src="./assets/images/movimentipage.png" alt="" id="movimentiimage"  >
+
+            </div>
+
+        </div>
+
+        <div  class="row"  >
+            <div  class="col-lg-12 col-xl-12 col-md-12 col-sm-12" style="background-color: #FFFFFF; ">
+                
+      <!--  storico transaction panel -->
+             
+      <div   class="col-lg-12 col-xl-12 col-md-12 col-sm-12" style ="float:none;" id="storicotable">   
+        <div class="col-xl-12 p-2">
+
+              <div class="row">
+                <div class="emp-ow-content-wrap-tables" id="emp-ow-content-wrap-table2">
+                    <div class="container-table100">
+                        <table class="table table-borderedless"  >
+                            <thead>
+                                <tr class="emp-overview-table-head" >
+                                    <th class="pl-6" scope="col" style="width: 8%; font-family: cursive;"><img id="waletimage"
+                                            src="./assets/images/icons/storico_icon2.png"></th>
+                                    <td scope="col" style="  padding-bottom: 25px;   width: 16%; font-size: 20px;">
+                                        {{ 'OVERVIEW.TRANSACTION.TRANSACTION_HISTORY' | translate }}
+
+                                        <button style=" color: #696969 ; " class="btn btn-link" id="emp-transactions-table-reload-button" type="button"
+                                        (click)="showTransactionsList()" data-toggle="tooltip" data-placement="top"
+                                         title="{{ 'TOOLTIPS.RELOAD' | translate }}">
+                                         <i class="fa fa-refresh" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                    <th scope="col" style="width: 22%;"></th>
+                                    <th scope="col" style="width: 17%;"></th>
+                                   
+                                    <th scope="col" style="width: 10%;"><a
+                                            ><img
+                                                src=""></a></th>
+                                </tr>
+                                <!--
+                                <tr class="emp-overview-table-subhead">
+                                    <th class="pr-6 text-right" scope="col"   style=" margin-left: 30px;">
+                                        {{ 'OVERVIEW.TRANSACTION.DATE' | translate }}</th>
+                                    <th class="pl-6" scope="col" style="">
+                                        {{ 'OVERVIEW.TRANSACTION.DESCRIPTION' | translate }}</th>
+                                    <th class="pr-6 text-right" colspan="2" scope="col"  style="">
+                                        {{ 'OVERVIEW.WALLET.AMOUNT' | translate }}</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                -->
+                                <tr>
+                                    <th style="font-size: 20px; font-family: GraphikRegular">
+                                        Transaction ID</th>
+                                    <th  style="font-size: 20px; font-family: GraphikRegular">
+                                        Date
+ 
+                                     </th>
+                                    
+                                    <th style="font-size: 20px; font-family: GraphikRegular">
+                                        Descrizione
+                                    </th >
+                                   
+                                    <th  style="font-size: 20px; font-family: GraphikRegular">
+                                        Beneficiario
+                                    </th>
+                                    
+                                    <th  style="font-size: 20px; font-family: GraphikRegular">
+                                        Importo
+                                    </th>
+                                  </tr>
+                                
+                            </thead>
+                            <tbody>
+
+                                <!-- Loading Table Row 
+                                <tr *ngIf="transactionsTableLoading">
+                                    <td class="text-center" colspan="5" style="color: #696969 ; height: 10rem;">
+                                        <div class="mb-3 spinner-border text-primary" role="status"
+                                            style="  color: #696969 ;height: 4rem; width: 4rem;"></div>
+                                    </td>
+                                </tr>
+                                -->
+                                <!-- Empty Table Row 
+                                <tr *ngIf="transactionsTableEmpty">
+                                    <td class="text-center" colspan="5" style=" height: 10rem;  font-family: GraphikRegular;">
+                                        <h4>{{ transactionsTableBodyMessage }}</h4>
+                                    </td>
+                                </tr>
+
+                                <tr *ngFor="let transaction of transactions">
+                                    -->
+                                    <!-- Transaction Date 
+                                    <td class="numericPagination pr-3">
+                                        {{ transaction.trcDate }}
+                                    </td>
+                                     -->  
+                                    <!--  Transaction Type Full Description 
+                                    <td class="pl-3" *ngIf="transaction.trcType === 'ALL'">
+                                        {{ getTrcTypeFullDescription(transaction.trcType) }}
+                                        {{ transaction.usrIdAString }}
+                                    </td>
+                                    -->
+                                    <!--  Transaction Type Full Description 
+                                    <td class="pl-3" *ngIf="transaction.trcType === 'ACV'">
+                                        {{ getTrcTypeFullDescription(transaction.trcType) }}
+                                    </td>
+
+                                    <!-- Transaction Value  
+                                    <td class="numericPagination pr-3" colspan="2">
+                                        {{ transaction.trcValue | currency: "EUR":"symbol":"":"it-IT" }}
+                                    </td>
+                                   -->
+                                    <!-- Transaction Details Icon
+                                    <td></td>
+                                    
+                               </tr>
+                               -->
+                               
+                               <tr>
+                                <td> 10 </td>   
+                                <td>15-Mag-2021</td>
+                               
+                                <td> Pagamento per Food</td>
+                                <td> 
+                                    Pizzeria Sapori di Casa </td>
+                               
+                                <td>30,60 €  </td>
+                              </tr>
+            
+                              <tr>
+                                <td> 09 </td>   
+                                <td>12-Mag-2021</td>
+                               
+                                <td> Pagamento per Scarpe</td>
+                                <td> Adidas  </td>
+                                 
+                                <td>140,60 € </td>          
+                              </tr>
+                              <tr>
+                                <td> 08 </td>   
+                                <td>06-Mag-2021</td>
+                               
+                                <td> Pagamento per Sport</td>
+                                <td>Centro Sportivo "Le Colonne" </td>
+                                 
+                                <td>30,90 € </td>
+                              </tr>
+                              <tr>
+                                <td> 07 </td>   
+                                <td>01-Mag-2021</td>
+                                
+                                <td> Pagamento per Laptop</td>
+                                <td> Euronics</td>
+                              
+                                <td>555,34 € </td>
+                              </tr>
+                              <tr>
+                                <td> 06</td> 
+                                <td>25-Apr-2021</td>
+                                  
+                                <td> Pagamento per Food</td>
+                                <td>McDonald's </td>
+                               
+                                <td>50,20 € </td>
+                              </tr>
+                              <tr>
+                                <td> 05 </td>  
+                                <td>14-Apr-2021</td>
+                           
+                                <td>Pagamento Supermercato</td>
+                                <td>Todis </td>
+                        
+                                <td>20,55 € </td>
+                              </tr>
+
+                              <tr>
+                                <td> 04</td>   
+                                <td>10-Apr-2021</td>
+                               
+                                <td> Pagamento per Food</td>
+                                <td>McDonald's </td>
+                            
+                                <td>30,30 €  </td>
+                              </tr>
+                              <tr>
+                                <td> 03 </td>   
+                                <td>19-Mar-2021</td>
+                               
+                                <td> Pagamento per Iphone</td>
+                                <td>Apple Store   </td>
+                             
+                                <td>1.100,60 €  </td>
+                              </tr>
+                              <tr>
+                                <td> 02  </td>   
+                                <td>11-Mar-2021</td>
+                              
+                                <td> Pagamento per Scarpe</td>
+                                <td> Saloon delle Scarpe</td>
+                               
+                                <td>173,60 €  </td>
+                              </tr>
+                              <tr>
+                                <td> 01 </td>  
+                                <td>05-Mar-2021</td>
+                                
+                                <td> Pagamento per Abbigliamento</td>
+                                <td> Cisalfa </td>
+                              
+                                <td>225,60 € </td>
+                              </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                  </div>
+                </div>
+           </div>
+        </div>           
+
+
+
+
+
+             
+            </div>
+        </div>
+        <!-- lower div -->
+        <div class="container"  id="bottomdiv" >
+
+        </div>
+     </div>
+  </section>
+  
+  
+
+
+
+
+    
+    
+    

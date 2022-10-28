@@ -1,0 +1,341 @@
+#emp-wallet-header {
+  color: white;
+  overflow: hidden;
+}
+
+#emp-wallet-section {
+  margin: -35vh 0 3rem;
+}
+
+#emp-wallet-container {
+  padding-left: 25vw;
+  padding-right: 25vw;
+}
+
+/* Section Title */
+#emp-wallet-title {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+  margin-bottom: 2rem;
+}
+
+.emp-wallet-table-head th {
+  color: #2d2e83;
+  font-family: "GraphikSemibold";
+  font-size: 24px;
+  font-weight: unset;
+  height: 60px;
+  line-height: 1.2;
+}
+
+/* Table Subheader */
+.emp-wallet-table-subhead th {
+  color: #2c61f1;
+  font-family: "GraphikMedium";
+  font-size: 16px;
+  font-weight: unset;
+  height: 2rem;
+  line-height: 1.2;
+}
+
+#emp-wrap-wallet {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+}
+
+.emp-wallet-content-wrap {
+  background: #a8dbff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+#emp-wallet-icon {
+  width: 4rem;
+  margin: 1rem;
+}
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+table * {
+  position: relative;
+}
+
+
+table thead tr {
+  background: #a8dbff;
+}
+
+table tbody tr {
+  height: 50px;
+}
+
+table tbody tr:last-child {
+  border: 0;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+tbody tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+#emp-wallet-pagination {
+  height: 60px;
+  background: #a8dbff;
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: unset;
+  text-align: center;
+}
+
+/* vvv MEDIA QUERIES vvv */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1441px) {
+  @media screen and (max-height: 900px) {
+    /* Table Header */
+    .emp-wallet-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .emp-wallet-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.3vw;
+    }
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+    /* Table Header */
+    .emp-wallet-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .emp-wallet-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1vw;
+    }
+  }
+
+  #emp-wallet-container {
+    padding-left: 25vw;
+    padding-right: 25vw;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #emp-wallet-section {
+    margin: -45vh 0 3rem;
+  }
+
+  /* Table Header */
+  .emp-wallet-table-head th {
+    font-size: 1.6vw;
+  }
+
+  /* Table Subheader */
+  .emp-wallet-table-subhead th {
+    font-size: 1.3vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.3vw;
+  }
+
+  #emp-wallet-container {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  #emp-wallet-section {
+    margin: -20vh 0 3rem;
+  }
+  /* Table Header */
+  .emp-wallet-table-head th {
+    font-size: 2vw;
+  }
+
+  /* Table Subheader */
+  .emp-wallet-table-subhead th {
+    font-size: 1.5vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.5vw;
+  }
+
+  #emp-wallet-container {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #emp-wallet-section {
+    margin: -40vh 0 3rem;
+  }
+
+  #emp-wallet-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  @media screen and (min-height: 700px) {
+    .emp-wallet-table-head th {
+      font-size: 2.5vw;
+    }
+  
+    .emp-wallet-table-subhead th {
+      font-size: 1.5vw;
+    }
+  
+    tbody tr {
+      font-size: 1.3vw;
+    }
+  }
+
+  @media screen and (max-height: 699px) {
+    .emp-wallet-table-head th {
+      font-size: 4vw;
+    }
+  
+    .emp-wallet-table-subhead th {
+      font-size: 2.2vw;
+    }
+  
+    table tbody tr {
+      font-size: 2vw;
+      height: 40px;
+    }
+  }
+
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  #emp-wallet-container {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+
+  /* Table Header */
+  .emp-wallet-table-head th {
+    font-size: 2.25vw;
+  }
+
+  /* Table Subheader */
+  .emp-wallet-table-subhead th {
+    font-size: 1.75vw;
+  }
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .emp-wallet-table-head th {
+    font-size: 4vw;
+  }
+
+  /* Table Subheader */
+  .emp-wallet-table-subhead th {
+    font-size: 3vw;
+    padding-left: 2vw;
+  }
+
+
+  .vouchainPagination {
+    font-size: 3vw;
+  }
+
+  #emp-wallet-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  #emp-wallet-icon {
+    width: 6vw;
+    margin: 2vw;
+  }
+
+  #emp-wallet-section {
+    margin-top: -35vh;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) {
+}
+
+@media screen and (max-width: 576px) {
+}

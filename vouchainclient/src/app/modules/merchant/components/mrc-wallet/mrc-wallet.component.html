@@ -1,0 +1,86 @@
+<section id="mrc-wallet-header">
+    <img src="./assets/images/vouchain_dashboard_top_prova04.png" id="top-image-dashboard"
+        class="img-fluid float-right" />
+</section>
+
+<section id="mrc-wallet-section">
+
+    <!-- Title -->
+    <h1 class="text-center" id="mrc-wallet-title"><b>{{ 'EMPLOYEES.WALLET_MANAGEMENT' | translate }}</b></h1>
+    
+    <div class="container-fluid" id="mrc-wallet-container">
+        <div id="mrc-wrap-wallet" class="mrc-wallet-content-wrap table-responsive">
+            
+            <table>
+
+                <!-- Table head -->
+                <thead>
+
+                    <!-- Icon and title -->
+                    <tr class="mrc-wallet-table-head">
+                        <th colspan="2"><img id="mrc-wallet-icon" src="./assets/images/icons/wallet_icon.png" />Il Tuo
+                            Wallet</th>
+
+                        <!-- Total import -->
+                        <th class="pr-4 text-right" colspan="2" *ngIf="!tableEmpty && !tableLoading">
+                            <h5 id="mrc-wallet-total-import"><b>{{ 'EMPLOYEES.LOWERCASE_TEXT_TOTAL' | translate }}:
+                                    {{ totalImports | currency: "EUR":"symbol":"":"it-IT" }}</b></h5>
+                        </th>
+
+                        <th colspan="2" *ngIf="tableEmpty || tableLoading"></th>
+
+                    </tr>
+
+                    <!-- Table subhead -->
+                    <tr class="mrc-wallet-table-subhead">
+                        <th class="text-left pl-3" style="width: 50%;">{{ 'OVERVIEW.WALLET.VOUCHER' | translate }}</th>
+                        <th class="text-right" style="width: 15%;">{{ 'TABLES.VOUCHERS.VALUE' | translate }}</th>
+                        <th class="text-right" style="width: 20%;">{{ 'OVERVIEW.WALLET.EXPIRE' | translate }}</th>
+                        <th class="text-right pr-3" style="width: 15%;">{{ 'OVERVIEW.WALLET.QUANTITY' | translate }}</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- Loading Table Row -->
+                    <tr *ngIf="tableLoading">
+                        <td class="text-center" colspan="4" style="height: 10rem;">
+                            <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;">
+                            </div>
+                            <h3>{{ 'MERCHANTS.LOADING_YOUR_WALLET' | translate }}</h3>
+                        </td>
+                    </tr>
+
+                    <!-- Empty Table Row -->
+                    <tr *ngIf="tableEmpty">
+                        <td class="text-center" colspan="4" style="height: 10rem;">
+                            <h1>{{ msgTableBody }}</h1>
+                        </td>
+                    </tr>
+
+                    <!-- Table body -->
+                    <tr
+                        *ngFor="let voucher of mrcVouchers | paginate: { itemsPerPage: 5, currentPage: selectedPage }; let i = index ">
+                        <td class="pl-3">{{validatorService.readableVoucherName(voucher.vchName)}}</td>
+                        <td class="numericPagination">{{voucher.vchValue | currency: "EUR":"symbol":"":"it-IT"}}</td>
+                        <td class="numericPagination">{{voucher.vchEndDate | date:"dd/MM/yyyy" }}</td>
+                        <td class="numericPagination pr-3">{{voucher.vchQuantity}}</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <td colspan="4" id="mrc-wallet-pagination">
+
+                        <!-- Pagination -->
+                        <pagination-controls class="pt-3 vouchainPagination"
+                            nextLabel="{{ 'PAGINATION.NEXT' | translate }}" maxSize="5"
+                            previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}"
+                            (pageChange)="selectedPage = $event"></pagination-controls>
+                    </td>
+
+                </tfoot>
+            </table>
+            
+        </div> <!-- End wrap -->
+    </div> <!-- End container -->
+</section>

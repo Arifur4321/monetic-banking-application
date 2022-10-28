@@ -1,0 +1,10 @@
+export const contractNotValid: string = 'contract_not_valid'; /* il contratto caricato non è valido */
+export const emailAlreadyExist: string = 'email_yet_system'; /* email già esistente */
+export const emailRecoveryNotFound: string = 'email_not_found'; /* Da ufficializzare!!! */
+export const emailRecoveryOk: string = 'email_sent'; /* Da ufficializzare!!! */
+export const genericError: string = 'generic_error'; /* errore generico */
+export const genericServerError: string = 'generic_server_error'; /* relativo alla sessione */
+export const loginNotValidated: string = 'login_not_validated'; /* se non passa la validazione del backend (email non valida password non corrispondente ai requisiti pec null etc) */
+export const noUserFound: string = 'no_user_found'; /* per nessuna corrispondenza con le credenziali inserite */
+export const notCorrespondingSession: string = 'not_corresponding_session'; /* sessione diversa */
+export const sessionExpired: string = 'session_expired'; /* sessione scaduta */

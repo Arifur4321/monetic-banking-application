@@ -1,0 +1,769 @@
+<section id="cpy-signup-section">
+
+  <!-- Website Border Images -->
+  <img class="img-fluid" id="cpy-signup-top-image" src="./assets/images/vouchain_loginTop.png" />
+  <img class="img-fluid" id="cpy-signup-bottom-image" src="./assets/images/vouchain_loginBottom.png" />
+
+  <!-- Website Title Header -->
+  <div id="cpy-signup-header">
+
+    <!-- Website Section Title/Logo -->
+    <a href="{{ homepage }}">
+      <img class="img-fluid" id="cpy-signup-cpy-logo" src="./assets/images/monethic logo.PNG" />
+    </a>
+
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="cpy-signup-container">
+    <div class="cpy-signup-wrap">
+
+      <!-- Login | Signup Links -->
+      <div class="text-center" style="margin-bottom: 2rem;">
+
+        <!-- Login Link -->
+        <a id="cpy-signup-anchor-login" routerLink="/company/cpyLogin">{{ "SIGNUP.LOGIN_LINK" | translate }}</a>
+
+        <span id="cpy-signup-anchor-pipe"> | </span>
+
+        <!-- Signup Label -->
+        <a id="cpy-signup-anchor-signup">{{ "SIGNUP.SIGNUP_LABEL" | translate }}</a>
+
+      </div>
+
+      <!-- Signup Form -->
+      <form (ngSubmit)="onFormSubmit()">
+
+        <!-- Row with Tab Headers -->
+        <div class="row">
+
+          <!-- Tab Navigation -->
+          <nav>
+
+            <!-- Tab Headers -->
+            <div class="nav nav-tabs" id="cpy-signup-nav-tab" role="tablist">
+
+              <!-- Authentication Tab Header -->
+              <a class="active nav-item nav-link" data-toggle="tab" href="#cpy-signup-nav-auth"
+                id="cpy-signup-nav-auth-tab" role="tab">1. {{ "SIGNUP.TAB_AUTH" | translate }}</a>
+
+              <!-- Company Tab Header -->
+              <a class="disabled nav-item nav-link" data-toggle="tab" href="#cpy-signup-nav-company"
+                id="cpy-signup-nav-company-tab" role="tab">2. {{ "SIGNUP.TAB_COMPANY" | translate }}</a>
+
+              <!-- Referent Tab Header -->
+              <a class="disabled nav-item nav-link" data-toggle="tab" href="#cpy-signup-nav-referent"
+                id="cpy-signup-nav-referent-tab" role="tab">3. {{ "SIGNUP.TAB_REF" | translate }}</a>
+
+              <!-- Contacts Tab Header -->
+              <a class="disabled nav-item nav-link" data-toggle="tab" href="#cpy-signup-nav-contacts"
+                id="cpy-signup-nav-contacts-tab" role="tab">4. {{ "SIGNUP.TAB_CONTACTS" | translate }}</a>
+
+            </div>
+
+          </nav>
+
+        </div>
+
+        <!-- Tabs Content Container -->
+        <div class="tab-content" id="cpy-signup-nav-tabs-content" style="margin-top: 1rem;">
+
+          <!-- [(1.) First Tab] Authentication Form Inputs -->
+          <div class="active fade show tab-pane" id="cpy-signup-nav-auth" role="tabpanel">
+
+            <!-- Email Input Container -->
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+
+                  <!-- Email Input -->
+                  <fieldset>
+
+                    <legend>{{ "SIGNUP.EMAIL" | translate }}</legend>
+
+                    <input class="form-control" data-placement="top" data-toggle="tooltip" name="email"
+                      title="{{ 'SIGNUP.TOOLTIPS.EMAIL' | translate }}" type="email" (input)="checkEmail()"
+                      [(ngModel)]="email" [ngClass]="{ 'is-valid': (email && emailOk), 'is-invalid': !emailOk }"
+                      required />
+
+                  </fieldset>
+
+                  <!-- Email Spacing Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="emailOk">&nbsp;</label>
+
+                  <!-- Email Error Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="!emailOk">
+                    <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.EMAIL" | translate }}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Password Input Container -->
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+
+                  <!-- Password Input -->
+                  <fieldset>
+
+                    <legend>{{ "SIGNUP.PASSWORD" | translate }}</legend>
+
+                    <input class="form-control" data-placement="top" data-toggle="tooltip" name="password"
+                      title="{{ 'SIGNUP.TOOLTIPS.PASSWORD' | translate }}" type="password"
+                      (change)="checkPasswordRetype()" (input)="checkPassword()" [(ngModel)]="password"
+                      [ngClass]="{ 'is-valid': (password && passwordOk), 'is-invalid': !passwordOk }" required />
+
+                  </fieldset>
+
+                  <!-- Password Spacing Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="passwordOk">&nbsp;</label>
+
+                  <!-- Password Error Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="!passwordOk">
+                    <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.PASSWORD" | translate }}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Retype Password Input Container -->
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+
+                  <!-- Retype Password Input -->
+                  <fieldset>
+
+                    <legend>{{ "SIGNUP.PASSWORD_RETYPE" | translate }}</legend>
+
+                    <input class="form-control" data-placement="top" data-toggle="tooltip" name="passwordRetype"
+                      title="{{ 'SIGNUP.TOOLTIPS.PASSWORD_RETYPE' | translate }}" type="password"
+                      (input)="checkPasswordRetype()" [(ngModel)]="passwordRetype"
+                      [ngClass]="{ 'is-valid': (passwordRetype && passwordRetypeOk), 'is-invalid': !passwordRetypeOk }"
+                      required/>
+
+                  </fieldset>
+
+                  <!-- Retype Password Spacing Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="passwordRetypeOk">&nbsp;</label>
+
+                  <!-- Retype Password Error Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="!passwordRetypeOk">
+                    <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.PASSWORD_RETYPE" | translate }}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Backward/Home/Forward Buttons -->
+            <div class="justify-content-center row" style="margin-bottom: 1rem;">
+
+              <div class="col-sm-4"></div>
+
+              <!-- Home Button  -->
+              <div class="col-sm-4">
+              </div>
+
+              <!-- Forward Button -->
+              <div class="col-sm-4">
+                <button class="btn btn-block m-1" type="button" (click)="goForwardTab()" [disabled]="checkAuthTab()"
+                  [ngClass]="{ 'btn-secondary': checkAuthTab(), 'btn-primary': !checkAuthTab() }">Avanti&nbsp;
+                  <fa-icon [icon]="fasArrowRight"></fa-icon>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- [(2.) Second Tab] Company Form Inputs -->
+          <div class="fade tab-pane" id="cpy-signup-nav-company" role="tabpanel" style="margin-top: 1rem;">
+
+            <!-- PEC Input Container -->
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+
+                  <!-- PEC Input -->
+                  <fieldset>
+
+                    <legend>{{ "SIGNUP.PEC" | translate }}</legend>
+
+                    <input class="form-control" data-placement="top" data-toggle="tooltip" name="pec"
+                      title="{{ 'SIGNUP.TOOLTIPS.PEC' | translate }}" type="email" (input)="checkPec()"
+                      [(ngModel)]="pec" [ngClass]="{ 'is-valid': (pec && pecOk), 'is-invalid': !pecOk }" required />
+
+                  </fieldset>
+
+                  <!-- PEC Spacing Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="pecOk">&nbsp;</label>
+
+                  <!-- PEC Error Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="!pecOk">
+                    <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.PEC" | translate }}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Company and Administration Row -->
+            <div class="row">
+
+              <!-- Company Column -->
+              <div class="col-sm-6">
+
+                <!-- Partita IVA Input Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- Partita IVA Input -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.P_IVA" | translate }}</legend>
+
+                        <input class="form-control" data-placement="top" data-toggle="tooltip" name="pIva"
+                          title="{{ 'SIGNUP.TOOLTIPS.P_IVA' | translate }}" type="text" (input)="checkPIVA()"
+                          [(ngModel)]="pIva" [ngClass]="{ 'is-valid': (pIva && pIvaOk), 'is-invalid': !pIvaOk }"
+                          required />
+
+                      </fieldset>
+
+                      <!-- Partita IVA Spacing Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="pIvaOk">&nbsp;</label>
+
+                      <!-- Partita IVA Error Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="!pIvaOk">
+                        <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.PIVA" | translate }}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Codice Fiscale Input Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- Codice Fiscale Input -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.C_FISCALE" | translate }}</legend>
+
+                        <input class="form-control text-uppercase" data-placement="top" data-toggle="tooltip"
+                          name="cFiscale" title="{{ 'SIGNUP.TOOLTIPS.C_FISCALE' | translate }}" type="text"
+                          (input)="checkCFiscale()" [(ngModel)]="cFiscale"
+                          [ngClass]="{ 'is-valid': (cFiscale && cFiscaleOk), 'is-invalid': !cFiscaleOk }" required />
+
+                      </fieldset>
+
+                      <!-- Codice Fiscale Spacing Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="cFiscaleOk">&nbsp;</label>
+
+                      <!-- Codice Fiscale Error Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="!cFiscaleOk">
+                        <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.CFISCALE" | translate }}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Administration Column -->
+              <div class="col-sm-6">
+
+                <!-- Ragione Sociale Input Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- Ragione Sociale Input -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.R_SOCIALE" | translate }}</legend>
+
+                        <input class="form-control" data-placement="top" data-toggle="tooltip" name="ragSociale"
+                          title="{{ 'SIGNUP.TOOLTIPS.R_SOCIALE' | translate }}" type="text" (input)="checkRagSociale()"
+                          [(ngModel)]="ragSociale"
+                          [ngClass]="{ 'is-valid': (ragSociale && ragSocialeOk), 'is-invalid': !ragSocialeOk }"
+                          required />
+
+                      </fieldset>
+
+                      <!-- Ragione Sociale Spacing Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="ragSocialeOk">&nbsp;</label>
+
+                      <!-- Ragione Sociale Error Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="!ragSocialeOk">
+                        <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.REQUIRED" | translate }}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Codice Univoco Input Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- Codice Univoco Input -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.CUU" | translate }}</legend>
+
+                        <input class="form-control" data-placement="top" data-toggle="tooltip" name="cuu"
+                          title="{{ 'SIGNUP.TOOLTIPS.CUU' | translate }}" type="text" (input)="checkCuu()"
+                          [(ngModel)]="cuu" [ngClass]="{ 'is-valid': (cuu && cuuOk), 'is-invalid': !cuuOk }" required />
+
+                      </fieldset>
+
+                      <!-- Codice Univoco Spacing Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="cuuOk">&nbsp;</label>
+
+                      <!-- Codice Univoco Error Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="!cuuOk">
+                        <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.CUU" | translate }}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Backward/Home/Forward Buttons -->
+            <div class="justify-content-center row" style="margin-bottom: 1rem;">
+
+              <!-- Backward Button -->
+              <div class="col-sm-4">
+                <button class="btn btn-block btn-primary  m-1" type="button" (click)="goBackwardTab()">
+                  <fa-icon [icon]="fasArrowLeft"></fa-icon>&nbsp;Indietro
+                </button>
+              </div>
+
+              <div class="col-sm-4">
+              </div>
+
+              <!-- Forward Button -->
+              <div class="col-sm-4">
+                <button class="btn btn-block m-1" type="button" (click)="goForwardTab()" [disabled]="checkCompanyTab()"
+                  [ngClass]="{ 'btn-secondary': checkCompanyTab(), 'btn-primary': !checkCompanyTab() }">Avanti&nbsp;
+                  <fa-icon [icon]="fasArrowRight"></fa-icon>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- [(3.) Third Tab] Referent Form Inputs -->
+          <div class="fade tab-pane" id="cpy-signup-nav-referent" role="tabpanel" style="margin-top: 1rem;">
+
+            <!-- Referent First Name Input Container -->
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+
+                  <!-- Referent First Name Input -->
+                  <fieldset>
+
+                    <legend>{{ "SIGNUP.FIRST_NAME_REF" | translate }}</legend>
+
+                    <input class="form-control" data-placement="top" data-toggle="tooltip" name="firstNameRef"
+                      title="{{ 'SIGNUP.TOOLTIPS.FIRST_NAME_REF' | translate }}" type="text"
+                      (input)="checkFirstNameRef()" [(ngModel)]="firstNameRef"
+                      [ngClass]="{ 'is-valid': (firstNameRef && firstNameRefOk), 'is-invalid': !firstNameRefOk }"
+                      required />
+
+                  </fieldset>
+
+                  <!-- Referent First Name Spacing Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="firstNameRefOk">&nbsp;</label>
+
+                  <!-- Referent First Name Error Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="!firstNameRefOk">
+                    <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.REQUIRED" | translate }}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Referent Last Name Input Container -->
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+
+                  <!-- Referent Last Name Input -->
+                  <fieldset>
+
+                    <legend>{{ "SIGNUP.LAST_NAME_REF" | translate }}</legend>
+
+                    <input class="form-control" data-placement="top" data-toggle="tooltip" name="lastNameRef"
+                      title="{{ 'SIGNUP.TOOLTIPS.LAST_NAME_REF' | translate }}" type="text" (input)="checkLastNameRef()"
+                      [(ngModel)]="lastNameRef"
+                      [ngClass]="{ 'is-valid': (lastNameRef && lastNameRefOk), 'is-invalid': !lastNameRefOk }"
+                      required />
+
+                  </fieldset>
+
+                  <!-- Referent Last Name Spacing Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="lastNameRefOk">&nbsp;</label>
+
+                  <!-- Referent Last Name Error Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="!lastNameRefOk">
+                    <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.REQUIRED" | translate }}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Referent Telephone Input Container -->
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+
+                  <!-- Referent Telephone Input -->
+                  <fieldset>
+
+                    <legend>{{ "SIGNUP.PHONE_REF" | translate }}</legend>
+
+                    <input class="form-control" data-placement="top" data-toggle="tooltip" name="phoneRef"
+                      title="{{ 'SIGNUP.TOOLTIPS.PHONE_REF' | translate }}" type="text" (input)="checkPhoneRef()"
+                      [(ngModel)]="phoneRef"
+                      [ngClass]="{ 'is-valid': (phoneRef && phoneRefOk), 'is-invalid': !phoneRefOk }" required />
+
+                  </fieldset>
+
+                  <!-- Referent Telephone Spacing Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="phoneRefOk">&nbsp;</label>
+
+                  <!-- Referent Telephone Error Alert -->
+                  <label class="cpy-signup-error-alert" *ngIf="!phoneRefOk">
+                    <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.REQUIRED" | translate }}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Backward/Home/Forward Buttons -->
+            <div class="justify-content-center row" style="margin-bottom: 1rem;">
+
+              <!-- Backward Button -->
+              <div class="col-sm-4">
+                <button class="btn btn-block btn-primary m-1" type="button" (click)="goBackwardTab()">
+                  <fa-icon [icon]="fasArrowLeft"></fa-icon>&nbsp;Indietro
+                </button>
+              </div>
+
+              <div class="col-sm-4">
+              </div>
+
+              <!-- Forward Button -->
+              <div class="col-sm-4">
+                <button class="btn btn-block m-1" type="button" (click)="goForwardTab()" [disabled]="checkReferentTab()"
+                  [ngClass]="{ 'btn-secondary': checkReferentTab(), 'btn-primary': !checkReferentTab() }">Avanti&nbsp;
+                  <fa-icon [icon]="fasArrowRight"></fa-icon>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- [(4.) Fourth Tab] Contacts Form Inputs -->
+          <div class="fade tab-pane" id="cpy-signup-nav-contacts" role="tabpanel" style="margin-top: 1rem;">
+
+            <div class="row">
+
+              <div class="col-sm-6">
+
+                <!-- Address Input Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- Address Input -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.ADDRESS" | translate }}</legend>
+
+                        <input class="form-control" data-placement="top" data-toggle="tooltip" name="address"
+                          title="{{ 'SIGNUP.TOOLTIPS.ADDRESS' | translate }}" type="text" [(ngModel)]="address" />
+
+                      </fieldset>
+
+                      <!-- Address Spacing Alert -->
+                      <label class="cpy-signup-error-alert">&nbsp;</label>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ZIP Code Input Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- ZIP Code Input -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.CAP" | translate }}</legend>
+
+                        <input class="form-control" data-placement="top" data-toggle="tooltip" name="cap"
+                          title="{{ 'SIGNUP.TOOLTIPS.CAP' | translate }}" type="text" (input)="checkCap()"
+                          [(ngModel)]="cap" [ngClass]="{ 'is-valid': (cap && capOk), 'is-invalid': !capOk }" />
+
+                      </fieldset>
+
+                      <!-- ZIP Code Spacing Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="capOk">&nbsp;</label>
+
+                      <!-- ZIP Code Error Alert -->
+                      <label class="cpy-signup-error-alert" *ngIf="!capOk">
+                        <fa-icon [icon]="fasExclamationCircle"></fa-icon> {{ "ERRORS.CAP" | translate }}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="col-sm-6">
+
+                <!-- Province Selection Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- Province Selection -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.PROVINCE" | translate }}</legend>
+
+                        <input class="form-control" data-placement="top" data-toggle="tooltip"
+                          list="cpy-signup-datalist-provinces" name="provSelect"
+                          title="{{ 'SIGNUP.TOOLTIPS.PROVINCE' | translate }}" (change)="checkSelectedProvince()"
+                          (focus)="getProvinces()" [(ngModel)]="provSelect" />
+
+                        <datalist id="cpy-signup-datalist-provinces">
+                          <option value="" selected></option>
+                          <option value="{{ prov.name }}, {{ prov.cod }}" *ngFor="let prov of provinces">
+                          </option>
+                        </datalist>
+
+                      </fieldset>
+
+                      <!-- Province Selection Spacing Alert -->
+                      <label class="cpy-signup-error-alert">&nbsp;</label>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- City Selection Container -->
+                <div class="inner">
+                  <div class="form-row">
+                    <div class="form-holder">
+
+                      <!-- City Selection -->
+                      <fieldset>
+
+                        <legend>{{ "SIGNUP.TOOLTIPS.CITY" | translate }}</legend>
+
+                        <input class="form-control" data-placement="top" data-toggle="tooltip"
+                          list="cpy-signup-datalist-cities" name="citySelect"
+                          title="{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}" (focus)="getCitiesByProvince()"
+                          [(ngModel)]="citySelect" [disabled]="cityOk" />
+
+                        <datalist id="cpy-signup-datalist-cities">
+                          <option value="" selected></option>
+                          <option [value]="city.name" *ngFor="let city of cities"></option>
+                        </datalist>
+
+                      </fieldset>
+
+                      <!-- City Selection Spacing Alert -->
+                      <label class="cpy-signup-info-alert" *ngIf="!cityOk">&nbsp;</label>
+
+                      <!-- City Selection Info Alert -->
+                      <label class="cpy-signup-info-alert" *ngIf="cityOk">
+                        <fa-icon [icon]="fasInfoCircle"></fa-icon> {{ "ERRORS.CITY_BYPROV" | translate }}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div> <!-- End second column -->
+
+            </div> <!-- End row -->
+
+            <!-- Terms & Conditions Checkbox -->
+            <div class="form-check" style="padding-bottom: 25px;">
+
+              <input class="form-check-input" data-placement="top" data-toggle="tooltip" id="cpy-singup-tndc-checkbox"
+                name="termsAndCondOk" title="{{ 'SIGNUP.TOOLTIPS.ACCEPT_T&C' | translate }}" type="checkbox"
+                [(ngModel)]="termsAndCondOk" required />
+
+              <label class="form-check-label" for="cpy-singup-tndc-checkbox" style="font-size: 0.8rem;">
+                {{ "SIGNUP.T&C_LABEL" | translate }} <a data-target="#cpy-signup-modal-tndc" data-toggle="modal"
+                  href="#terms-and-conditions">{{ "SIGNUP.T&C_LINK" | translate }}</a>.
+              </label>
+
+            </div>
+
+            <!-- Backward/Home/Signup Buttons -->
+            <div class="row justify-content-center">
+
+              <!-- Backward Button -->
+              <div class="col-sm-4">
+                <button class="btn btn-block btn-primary m-1" type="button" (click)="goBackwardTab()">
+                  <fa-icon [icon]="fasArrowLeft"></fa-icon>&nbsp;Indietro
+                </button>
+              </div>
+
+              <div class="col-sm-4">
+              </div>
+
+              <!-- Submit Button -->
+              <div class="col-sm-4">
+                <button class="btn btn-block btn-primary m-1" type="submit">
+                  {{ "SIGNUP.SIGNUP_LABEL" | translate }}
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Home button -->
+          <div class="btn btn-block link-homepage">
+            <p>Torna alla <a href="{{ homepage }}">Homepage</a>.</p>
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Terms & Conditions Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-signup-modal-tndc" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title">{{ "SIGNUP.MODAL.T&C_TITLE" | translate }}</h4>
+
+        <!-- Modal Header Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-signup-modal-tndc-body">
+
+        <!-- TODO: Inserire Termini e Condizioni veritiere -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla metus
+          enim, ullamcorper sed lorem quis, euismod mollis nisl. Nullam sapien
+          est, porttitor molestie feugiat sed, hendrerit vitae tortor.
+          Suspendisse non elit fringilla, porta orci sit amet, mattis erat.
+          Integer in posuere augue. Ut in porta quam. Aliquam lobortis congue
+          leo ut pellentesque. Etiam eget elementum erat. Phasellus id ultrices
+          neque, in lacinia sapien. Donec risus quam, viverra non tempor vel,
+          molestie at magna. Praesent imperdiet a tellus sed efficitur. Sed eu
+          est a massa tempor dapibus. Vestibulum ante ipsum primis in faucibus
+          orci luctus et ultrices posuere cubilia curae; Praesent posuere
+          viverra nunc, at posuere lacus vehicula in. Proin ut pretium leo, vel
+          semper lacus. Donec tortor velit, ullamcorper eu ex a, scelerisque
+          rutrum sapien.
+        </p>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+
+        <!-- Modal Footer Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button">
+          {{ "SIGNUP.MODAL.CLOSE" | translate }}
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Confirm Signup Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-signup-modal-confirm" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" style="background-color: #2c61f1; color: white;">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title">
+          {{ "SIGNUP.MODAL.RESPONSE_TITLE" | translate }}
+        </h4>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-signup-modal-confirm-body">
+
+        <!-- Modal Body Waiting for Signup... -->
+        <p *ngIf="!msgSignupBodyShow">
+          {{ "SIGNUP.MODAL.RESPONSE_BODY_WAIT" | translate }}
+        </p>
+
+        <!-- Modal Body Signup Confirmation -->
+        <p *ngIf="msgSignupBodyShow" innerHtml="{{ msgSignupBody }}"></p>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+
+        <!-- Modal Footer (Loading...) Button -->
+        <button class="btn btn-primary" id="cpy-signup-modal-confirm-footer-button" type="button" (click)="goLogin()"
+          disabled>
+          <span class="spinner-border spinner-border-sm" role="status"></span> {{ msgSignupButton }}
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

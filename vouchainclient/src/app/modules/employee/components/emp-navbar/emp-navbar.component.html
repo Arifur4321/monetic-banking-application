@@ -1,0 +1,56 @@
+<div id="emp-navbar" class="navbar navbar-expand-lg navbar-dark">
+<!--  Testing Menu   -->
+  <div class="col-lg-4" id="emp-navbar-display">
+    <a id="emp-brand" class="navbar-brand col-sx-10" routerLink="/home">
+      <img id="imgEmpLogo" class="img-fluid" src="./assets/images/monethic logo.PNG" />
+    </a>
+      <button class="navbar-toggler float-right col-sx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: center;">
+    <div class="col-xl-6 col-lg-8">
+       <!--
+      <ul class="navbar-nav justify-content-center" style="display: -webkit-inline-box">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/employee/empDashboard/wallet" routerLinkActive="active-link">Wallet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/employee/empDashboard/merchants" routerLinkActive="active-link">{{ 'NAVBAR.MERCHANTS_SHOWCASE' | translate }}</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" routerLinkActive="active-link">{{'NAVBAR.LISTA_HISTORY_TRANSACTIONS' | translate }}</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/employee/empDashboard/transactions" routerLinkActive="active-link">{{ 'NAVBAR.HISTORY_TRANSACTIONS' | translate }}</a>
+        </li>
+      </ul>
+    -->
+    </div>
+
+    <div class="col-xl-3 col-lg-1"></div>
+    <div class="col-xl-3">
+      <ul class="navbar-nav mr-auto">
+        <li class="dropdown nav-item">
+          <a id="emp-navbar-profile" class="btn btn-default dropdown-toggle thumbnail text-white"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <img id="imgEmpProfile" class="img-circle img-fluid" src="./assets/images/emp_icon.png" />
+            <span class="caret text-white"  id="profiletext">{{
+              "NAVBAR.PROFILE" | translate
+            }}</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a class="dropdown-item emp-dropdown-item"
+              routerLink="/employee/empDashboard/modifyProfile">{{ "NAVBAR.SHOW" | translate }}</a>
+            <a class="dropdown-item emp-dropdown-item" routerLink="/changePsw"
+              [state]="{ profile: 'employee' }">{{ "NAVBAR.MODIFY" | translate }}</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item emp-dropdown-item" (click)="logout()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

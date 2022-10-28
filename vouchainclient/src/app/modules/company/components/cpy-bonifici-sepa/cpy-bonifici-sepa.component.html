@@ -1,0 +1,206 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section id="cpy-employees-header">
+
+    <!-- Top Border Image -->
+    <img class="float-right img-fluid" id="cpy-employees-top-image" src=" "/>
+  
+  </section>
+  
+  <!-- Main Website Content -->
+  <section id="cpy-employees-section">
+  
+    <!--
+  submenu bar 
+
+    <app-cpy-submenu> </app-cpy-submenu>
+    -->
+   
+        <div class="container-fluid">
+           <div class="row"  >
+            <div class="col-lg-8 col-xl-8 col-md-8 col-sm-8" >
+                    <div class="row"   id="leftrow">      
+                        <h3 style="font-size: 40px;"> Inserici un nuovo bonifico    </h3>
+                      <!--  <h3 id="subheader" style="font-size: 15px;   margin-top: 70px; ">  Informazioni sul beneficiario  </h3>  --> 
+                        
+                        <form action="" style="margin-left: 10px;" >
+    
+                            <div class="row">
+                              
+                                <div class="col-lg-8 col-xl-8 col-md-8 col-sm-8">   
+                                    <h3 style="margin-top: 35px; font-size: 18px;" id="secondheader"><i class="fa fa-user text-info"></i>  Nome e Cognome del beneficiario o dell'impresa   </h3>
+                                    <input type="text" id="Importo" name="Importo"  placeholder="Inserire qui nome o cognome" style="width: 440px; height: 45px; margin-top: 5px;  border:solid 1px #ccc;
+                                    border-radius: 10px"><br>
+        
+                                </div>
+        
+                                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4">
+                                    <h3 style="margin-top: 50px; font-size:18px; margin-left: 80px;"> Categoria   </h3>
+     
+                                      <select class="custom-select" id="inputGroupSelect01" style=" margin-top: 18px; width: 200px; height: 40px; margin-left: 40px; border:solid 1px #ccc;">
+                                        
+                                        <option value="1"> Assicurazioni</option>
+                                        <option value="2">Cancelleria</option>
+                                        <option value="3">Finanza </option>
+                                        <option value="3"> Hotel & alloggi </option>
+                                        <option value="3"> Logistica </option>
+                                      </select>
+    
+                                </div>
+                                 
+                            </div>
+                           
+                           <!-- IBAN insertion  -->
+
+                            <h3 style="margin-top: 35px; font-size: 18px;" id="ibancol" > <i class="fa fa-pencil text-info"></i> IBAN del beneficiario   </h3>
+                            <input   class="ibaninput" type="text" id="Casuale" name="Casuale" placeholder="FR124 45678 4567 5678" 
+                            style=" width: 440px;height: 45px; margin-top: 5px;  border:solid 1px #ccc;
+                            border-radius: 10px"><br>
+                            
+                             <!--casuale and importo  -->
+                             <div class="row">
+                              
+                                <div class="col-lg-8 col-xl-8 col-md-8 col-sm-8">   
+                                    <h3 style="margin-top: 35px; font-size:18px;"><i class="fa fa-pencil text-info"></i>  Causale  </h3>
+                                    <input type="text" id="Importo" name="Importo"  placeholder="Inserire Casuale"
+                                     style="width: 440px; height: 45px; margin-top: 5px; border:solid 1px #ccc;
+                                     border-radius: 10px"><br>
+        
+                                </div>
+        
+                                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4">
+                                    <h3 style="margin-top: 40px; font-size: 18px; margin-left: 80px;"> Importo   </h3>
+                                      
+                                    <input type="text" id="Importo" name="Importo"  placeholder="Euro 0.00" 
+                                    style="width: 120px; height: 45px; margin-left: 80px; 
+                                     border:solid 1px #ccc;
+                                     border-radius: 10px" ><br>
+                                   
+    
+                                </div>
+                                 
+                            </div>
+
+
+                             <!--  check box  -->
+
+                            <div class="form-group form-check" style="margin-top: 45px;">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" style=" size:30px; margin-top:9px">
+                                <label class="form-check-label" for="exampleCheck1" style="font-size: 18px;">invia una conferma al beneficiario quando il bonifico verra eseguito</label>
+                              </div>
+                               
+                             <!--  drag and drop box-->
+
+                             <div class="file-upload-wrapper">
+                                 <h3 style="font-size: 18px; color: black; margin-top: 18px;"> Giustificativo (opzionale) </h3>
+                                <input type="file" id="input-file-now" class="file-upload" style="margin-top: 8px;" />
+                              </div>
+
+                              <h3 style="margin-top: 35px; font-size: 18px;"> <i class="fa fa-pencil text-info"></i> Nota (opzionale) </h3>
+                              <textarea type="text" id="Casuale" name="Casuale" placeholder="Aggiungi un nota" 
+                              style=" width: 440px;height: 95px; border:solid 1px #ccc;
+                              border-radius: 10px ">  </textarea>  <br>
+                             
+
+                              <button type="submit" class="btn btn-light"  id="anullabutton"  >Annula</button>  
+                              <button type="submit" class="btn btn-default" id="confermabutton" >Conferma</button>
+                          </form>     
+    
+                    </div>
+
+                  
+    
+              </div>
+             
+              <div  class="col-lg-4 col-xl-4 col-md-4 col-sm-4" style="margin-top: 100px; ">
+                
+                    <!--
+                 <div class="row" >
+
+                    <img class="float-right img-fluid" id="" alt="Admin"  width="200" style=" margin-top: 70px; margin-left: 120px; border-radius: 50%;"
+                    src="./assets/images/monethiclogolatest.png"/>
+
+                 </div>        
+               
+                     <div class="row">
+                          
+                        <h3 style=" font-size: 16px; margin-left: 140px; margin-top: 30px;"> i tuoi beneficiario  </h3>
+                     
+                    
+                         <h6 style="font-size: 14px; margin-left: 40px;"> 
+                           Qui trovi le coordinate dei conti dei tuoi
+                        beneficiari. Si salvano automaticamente 
+                        quando effettui un bonifico . puoi scegliere di
+                        aggiungere tutti i beneficiari uttilizando un file 
+                           CSV o un solo beneficiario  
+
+                         </h6>
+
+                         <a href="" style="margin-left: 80px; margin-top: 50px;"> Aggiungi dei beneficiari (CSV) </a>
+                          
+                        
+
+                          <a href=""  style="margin-top: 20px ; margin-left: 80px;"> Aggiungi un beneficiario  </a>
+                             
+                        </div>
+                     
+                   -->
+
+                
+                   <h3 id="rubricatitle" > 
+                     Rubrica  </h3>
+                  <!--  table column starts here  -->
+                    
+                   <table class="table" style="margin-left: 20px; margin-top: 20px; width: 95%;
+                    padding: 10px; box-shadow: 2px 2px  2px 2px #808080; ">
+                    <thead>
+                      <tr>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> 1 </td>
+                        <td>Marco</td>
+                        <td>Mugavero</td>
+                       
+                      </tr>
+                      <tr>
+                        <td> 2 </td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        
+                      </tr>
+                      <tr>
+                        <td> 3 </td>
+                        <td>Fabrizio</td>
+                        <td>Carifur</td>
+                      
+                      </tr>
+                      <tr>
+                        <td> 4 </td>
+                        <td>Marco</td>
+                        <td>loretuci</td>
+                      
+                      </tr>
+                      <tr>
+                        <td> 5 </td>
+                        <td>Cristian</td>
+                        <td>Maveric </td>                      
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- table finisehed here -->
+              </div>                       
+           </div>
+        </div>
+  </section>
+  
+  
+
+
+
+
+    
+    
+    

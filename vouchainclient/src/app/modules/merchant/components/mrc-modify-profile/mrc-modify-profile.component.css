@@ -1,0 +1,388 @@
+#mrc-viewProfile-header {
+  color: white;
+  overflow: hidden;
+}
+
+
+#mrc-view-profile-icon {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 70%;
+}
+
+#mrc-overview {
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+}
+
+/* Border Images */
+#mrc-profile-image-dashboard {
+  position: fixed;
+  right: 0px;
+  z-index: -1;
+}
+
+#wrap-profile {
+  background-color: #ededed;
+  color: white;
+  margin-top: 3rem;
+}
+
+.content-wrap {
+  width: 85%;
+  background: #ededed;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 4rem;
+  padding-bottom: 1rem;
+  margin: auto;
+
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+.profile-text-title {
+  font-family: "GraphikSemibold";
+  margin: 1rem 0rem 0rem;
+}
+
+.profile-text-subtitle {
+  font-family: "GraphikLight";
+}
+
+#mrc-view-profile-body-header {
+  margin-top: -4rem;
+  margin-right: -4rem;
+  margin-left: -4rem;
+  height: 80%;
+  background-color: #a8dbff;
+}
+
+
+#mrc-mod-profile-btn-apply {
+  margin-top: 1rem;
+  float: right;
+}
+
+
+#mrc-mod-profile-btn-annulla {
+   margin-top: 1rem;
+  float: left;
+}
+
+
+ a:hover {
+  cursor:pointer;
+ }
+
+ .pencil-icon {
+   width: 90%;
+   vertical-align: middle;
+   margin-top: 1vh;
+ }
+
+/* form */
+.inner .form-row .form-holder {
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 0.2rem;
+  position: relative;
+}
+
+.inner .form-row .form-row-inner {
+  position: relative;
+}
+
+.inner .form-row .form-holder fieldset {
+  border: 2px solid #2c61f1;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  margin-right: 1rem;
+  width: 85%;
+
+}
+.inner .form-row .form-holder legend {
+  font-family: "GraphikSemibold";
+  color: #2c61f1;
+  font-size: 1rem;
+  width: auto;
+  margin-bottom: 0;
+  margin-left: 20px;
+  position: relative;
+}
+.inner .form-row .form-holder input,
+.inner .form-row .form-holder select {
+  width: 100%;
+  border: none;
+  appearance: unset;
+  -moz-appearance: unset;
+  -webkit-appearance: unset;
+  -o-appearance: unset;
+  -ms-appearance: unset;
+  outline: none;
+  -moz-outline: none;
+  -webkit-outline: none;
+  -o-outline: none;
+  -ms-outline: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+   height: 46px;
+   margin-top: -11px
+}
+.inner .form-row .form-holder input {
+  color: #2d2e83;
+  font-size: 1rem;
+  font-family: "GraphikRegular";
+}
+.inner .form-row .form-holder select {
+  color: #2d2e83;
+  font-size: 1rem;
+  font-family: "GraphikRegular";
+}
+
+.inner .form-row .form-holder .input-border {
+  border: 2px solid #e5e5e5;
+  padding: 11px 20px;
+  margin-top: 8px;
+}
+.inner .form-row.form-row-date .form-holder select {
+  float: left;
+  width: 20.6%;
+  margin-right: 15px;
+}
+
+.readonly {
+  background-color: #ededed;
+}
+
+.modifiable {
+  background-color: white;
+}
+
+
+select option {
+  color: #2d2e83;
+}
+
+/* Error Alert Messages */
+.mrc-signup-error-alert {
+  color: red;
+  font-size: 0.7rem;
+}
+
+/* Info Alert Messages */
+.mrc-signup-info-alert {
+  color: #2c61f1;
+  font-size: 0.7rem;
+}
+
+#v-pills-tab {
+  margin-top: 0.7rem ;
+  color: #2c61f1;
+  font-size: 1rem;
+  font-family: "GraphikRegular";
+}
+
+.nav-link {
+  color: #2c61f1;
+  font-size: 1rem;
+  font-family: "GraphikRegular";
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #2c61f1;
+    
+}
+
+
+/* --- MEDIA QUERIES */
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+   
+
+#mrc-overview {
+  margin-top: 7rem;
+  margin-bottom: 3rem;
+}
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  
+#mrc-overview {
+  margin-top: 7rem;
+  margin-bottom: 3rem;
+}
+
+  
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+     #mrc-overview {
+    margin-top: 10rem;
+  }
+
+  #mrc-view-profile-title {
+    font-size: 2.5rem;
+  }
+
+  #mrc-view-profile-title span {
+    font-size: 2.2rem;
+  }
+  
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  @media screen and (min-height: 700px){
+
+    #mrc-overview {
+      margin-top: 5rem;
+    }
+
+  }
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+    #mrc-overview {
+    margin-top: 10rem;
+  }
+
+  #mrc-view-profile-title {
+    font-size: 1.75rem;
+  }
+
+  #mrc-view-profile-title span {
+    font-size: 1.25rem;
+  }
+
+  #mrc-view-profile-icon {
+    width: 60%;
+  }
+
+
+
+  #mrc-view-profile-btn-apply {
+    margin: auto;
+    margin-top: 1rem;
+  }
+
+  .content-wrap {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+    .inner .form-row .form-holder fieldset {
+    width: 80%;
+  }
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+      #mrc-overview {
+    margin-top: 7rem;
+  }
+  #mrc-view-profile-title {
+    font-size: 1.25rem;
+  }
+
+  #mrc-view-profile-title span {
+    font-size: 1rem;
+  }
+
+  #mrc-view-profile-icon {
+    width: 60%;
+  }
+
+ #mrc-mod-profile-btn-annulla {
+   margin: auto;
+   margin-top: 1rem;
+}
+
+  #mrc-view-profile-btn-apply {
+   margin: auto;
+   margin-top: 1rem;
+  }
+
+  .content-wrap {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .inner .form-row .form-holder fieldset {
+    width: 80%;
+  }
+
+  #wrap-profile {
+  margin-top: 1rem;
+}
+}
+
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+
+@media screen and (max-height: 900px) and (min-height: 700px) {
+
+}
+
+@media screen and (max-height: 699px){
+}
+

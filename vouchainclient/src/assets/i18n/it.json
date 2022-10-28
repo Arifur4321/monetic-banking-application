@@ -1,0 +1,445 @@
+{
+  "BUTTON": {
+    "BACK_TO_HOME": "Torna all'homepage",
+    "CONFIRM": "Conferma",
+    "LOGIN": "Login"
+  },
+  "BUTTONS": {
+    "GENERICS": {
+      "CANCEL": "Annulla",
+      "CLOSE": "Chiudi",
+      "CONFIRM": "Conferma"
+    },
+    "LOADING": "Loading..."
+  },
+  "CPY": {
+    "UPLOAD_CONTRACT": {
+      "CTR_SIGNED_DIGITALLY": "Carica il contratto firmato digitalmente",
+      "FILE_SELECTED": "Hai selezionato il file: <b>{{value}}</b>",
+      "SELECT_FILE": "Seleziona un file",
+      "SELECT_MESSAGE": "{{value}}"
+    }
+  },
+  "DATE_RANGE_PICKER": {
+    "SELECT_AN_INTERVAL": "Seleziona Intervallo",
+    "SELECT_START_DATE": "Seleziona Data Inizio",
+    "SELECT_END_DATE": "Seleziona Data Fine",
+    "APPLY_DATE_RANGE": "Applica",
+    "CANCEL_DATE_RANGE": "Annulla",
+    "SELECTED_DAYS": "Giorni Selezionati",
+    "DAYS": "Giorni",
+    "CUSTOM_RANGE": "Intervallo Personalizzato"
+  },
+  "EMPLOYEES": {
+    "EMAIL": "Email",
+    "EMPLOYEES_TITLE": "Gestione Anagrafiche e Trasferimenti",
+    "FILL_INPUTS": "Compilare i campi con i dati del nuovo beneficiario.",
+    "FIRST_NAME": "Nome",
+    "INVITE_BUTTON": "Invita",
+    "INVITE_EMP_TITLE": "Invita Beneficiario",
+    "LAST_NAME": "Cognome",
+    "MODAL": {
+      "INVITE_CLOSE": "Chiudi",
+      "INVITE_TITLE": "Errore Invito Beneficiario"
+    },
+    "SEND_VOUCHER_BUTTON": "Invia Voucher",
+    "SERIAL_NUMBER": "Matricola",
+    "STATUS": "Stato",
+    "TABLE_EMPTY": "Nessun beneficiario presente",
+    "TABLE_TITLE": "Lista Beneficiari",
+    "TOOLTIPS": {
+      "INSERT_EMAIL": "Inserire l'email del beneficiario.",
+      "INSERT_FIRST_NAME": "Inserire il nome del beneficiario.",
+      "INSERT_LAST_NAME": "Inserire il cognome del beneficiario.",
+      "INSERT_SERIAL_NUMBER": "Inserire la matricola del beneficiario."
+    },
+    "WALLET_MANAGEMENT": "Gestione Wallet",
+    "PROFILE_DATA": "Dati profilo",
+    "DISCARD_CHANGES": "Annulla Modifiche",
+    "APPLY_CHANGES": "Applica Modifiche",
+    "NO_CHANGES_HAVE_BEEN_MADE": "Non sono state effettuate modifiche!",
+    "ERROR_EDIT_PROFILE": "Errore Modifica Profilo",
+    "OUTCOME_EDIT_PROFILE": "Esito Modifica Profilo",
+    "VOUCHER_ALLOCATIONS": "Allocazione Buoni",
+    "VOUCHERS_AVAILABLE_IN_THE_WALLET": "Vouchers disponibili nel Wallet",
+    "SELECTED_AFFILIATE": "Affiliato Selezionato",
+    "AVAILABLE": "Disponibile",
+    "ALLOCATE_VOUCHER": "Alloca Voucher",
+    "OUTCOME_OF_THE_OPERATION": "Esito dell'operazione",
+    "AN_ERROR_OCCURRED_SUBMITTING_THE_FORM": "Si è verificato un errore nell'invio del modulo",
+    "ORDER_SUCCESSFULLY_MADE": "Ordine effettuato con successo!",
+    "LIST_OF_SELECTED_AFFILIATES": "Lista Affiliati Selezionati",
+    "NOMINATIVE": "Nominativo",
+    "AFFILIATES": "Affiliati",
+    "AFFILIATE_LIST": "Lista Affiliati",
+    "AVAILABILITY": "Disponibilità",
+    "SELECTED_QUANTITIES": "Quantità Selezionata",
+    "VOUCHER_LIST_AVAILABLE_IN_THE_WALLET": "Lista Voucher disponibili nel wallet",
+    "TOTAL": "TOTALE",
+    "TOTAL_AMOUNT": "Totale Importo",
+    "LOWERCASE_TEXT_TOTAL": "Totale",
+    "CONFIRM_SELECTION": "Conferma selezione",
+    "CANCEL_OPERATION": "Annulla operazione",
+    "DATA_REVISION_NOTICE": "Prima di procedere con l'acquisto, controllare che le informazioni sotto riportate siano corrette.",
+    "PROFILE_OF": "Profilo di",
+    "OFFICE": "Ufficio",
+    "FORWARD": "Avanti",
+    "BACKWARDS": "Indietro"
+  },
+  "ERRORS": {
+    "ACCESS_DENIED": "Accesso Negato",
+    "ACCESS_DENIED_BODY": "Non hai i permessi necessari per entrare nella pagina indicata. Controlla di aver effettuato l'accesso con l'utente corretto.",
+    "ALREADY_USED_INV_CODE": "Codice già utilizzato!",
+    "CAP": "CAP non valido!",
+    "CFISCALE": "Codice Fiscale non valido!",
+    "CITY_BYPROV": "Selezionare una provincia prima di poter selezionare la città!",
+    "CUU": "Codice Univoco non valido!",
+    "EMAIL": "Email non valida!",
+    "EMAIL_ALREADY_EXIST": "Spiacenti, ma la email risulta già nei nostri sistemi. Si prega di riprovare.",
+    "EMAIL_NOT_EXIST": "Email non presente!",
+    "EMAIL_SINTAX": "Email formalmente errata!",
+    "ERROR_UPLOAD_CONTRACT": "Non è stato selezionato alcun file!",
+    "ERROR_UPLOAD_CONTRACT_NOT_VALID": "Contratto non valido. Riprova.",
+    "GENERIC": "Si è verificato un errore, riprovare.",
+    "IBAN": "IBAN non valido!",
+    "INCORRECT_EMAIL_OR_PASSWORD": "Email e/o Password errati!",
+    "INCORRECT_INVITATION_CODE": "Codice non valido!",
+    "NO_EMP_SELECTED": "Non è stato selezionato alcun beneficiario. Selezionare almeno un beneficiario e riprovare.",
+    "NO_MRC_SELECTED": "Non è stato selezionato alcun affiliato. Selezionare almeno un affiliato e riprovare.",
+    "OLD_NEW_MATCH": "La nuova e la vecchia password non devono coincidere",
+    "PASSWORD": "Password non valida!",
+    "PASSWORD_RETYPE": "Password non corrisponde!",
+    "PASSWORD_SINTAX": "Password formalmente errata!",
+    "PEC": "PEC non valida!",
+    "PIVA": "Partita IVA non valida!",
+    "REQUIRED": "Campo obbligatorio!",
+    "RESET_CODE": "Reset code non valido!"
+  },
+  "GENERIC": {
+    "GO_TO": "Vai al ",
+    "GO_TO_F": "Vai alla "
+  },
+  "HOME": {
+    "COMPANY": "Azienda",
+    "EMPLOYEE": "Beneficiario",
+    "MERCHANT": "Affiliato",
+    "PROFILE_SELECTION": "Seleziona il profilo",
+    "WELCOME": "Benvenuti in"
+  },
+  "INV_CODE": {
+    "INVITATION_CODE": "Codice di Invito",
+    "SEND": "Invia"
+  },
+  "LOGIN": {
+    "CREATE_NEW": "Vuoi creare un",
+    "FORGOT_YOUR": "Dimenticato la",
+    "LOGIN_LABEL": "Entra",
+    "SIGN_UP_LINK": "Registrati"
+  },
+  "MERCHANTS": {
+    "TABLE_EMPTY": "Nessun affiliato presente",
+    "LOADING_YOUR_WALLET": "Caricamento del Tuo Wallet in corso...",
+    "IBAN": "IBAN"
+  },
+  "MODALS": {
+    "BODY": {
+      "GENERIC": {
+        "ERRORS": {
+          "VOUCHERS_WRONG_MAX_EMPLOYEES_INPUT_BODY": "La quantità selezionata è maggiore della quantità disponibile. Deve essere allocata equamente a tutti i beneficiari scelti. La quantità è stata automaticamente ridotta a: <b>{{value}}</b>.",
+          "VOUCHERS_WRONG_MAX_INPUT_BODY": "La quantità selezionata è maggiore della quantità disponibile.",
+          "VOUCHERS_WRONG_MIN_INPUT_BODY": "La quantità selezionata deve essere maggiore di 0."
+        }
+      },
+      "EMPLOYEES": {
+        "SUCCESS": {
+          "INV_EMP": "Beneficiario invitato con successo. È stata inviata una mail all'indirizzo specificato con un codice di invito, utile all'attivazione del profilo."
+       }
+      },
+      "GENERIC_TEXT": "Generic text, please change.",
+      "INVOICES": {
+        "ERRORS": {
+          "VOUCHERS_ERROR": "Voucher scaduto e Si è verificato un errore nell'invio del modulo",
+          "VOUCHERS_MAX": "La quantità selezionata è maggiore della quantità disponibile",
+          "VOUCHERS_MIN": "La quantità selezionata deve essere maggiore di 0"
+        },
+        "SUCCESS": {
+          "VOUCHERS_EXPORT_BODY": "L'operazione è andata a buon fine"
+        }
+      },
+      "VOUCHERS": {
+        "ERRORS": {
+          "VOUCHERS_ALLOCATION_BODY": "Non è stato selezionato alcun buono da allocare. Selezionare almeno un buono e riprovare."
+        },
+        "GENERIC": {
+          "LIMITED_QUANTITY_BODY": "Uno o più buoni non sono disponibili per questa operazione. Selezionare meno beneficiari o comprare più buoni.",
+          "SELECTED_VOUCHERS": "Buoni Selezionati",
+          "SUMMARY_TEXT": "Prima di procedere con l'acquisto, controllare che le informazioni sotto riportate siano corrette."
+        },
+        "SUCCESS": {
+          "VOUCHERS_ALLOCATION_BODY": "L'allocazione verso i beneficiari selezionati è andata a buon fine."
+        }
+      },
+      "WALLET": {
+        "ERRORS": {
+          "BUY_VOUCHER_BODY": "Non è stato selezionato alcun buono. Selezionare almeno un buono e riprovare."
+        },
+        "SUCCESS": {
+          "BUY_VOUCHER_BODY": "Ordine creato con successo. Controllare la lista degli ordini.",
+          "NEW_VOUCHER_BODY": "Il nuovo tipo di buono è stato creato con successo. Controllare la lista dei buoni acquistabili."
+        }
+      }
+    },
+    "FOOTER": {
+      "CLOSE_BUTTON": "Chiudi",
+      "VOUCHERS": {
+        "GENERIC": {
+          "SUMMARY_TOTAL_IMPORT": "Importo Totale:"
+        }
+      }
+    },
+    "HEADER": {
+      "EMPLOYEES": {
+        "ERRORS": {
+          "SEND_INVITE_TITLE": "Errore Invito Beneficiario",
+          "SEND_VOUCHERS_TITLE": "Errore Invio Vouchers"
+        },
+        "SUCCESS": {
+          "INV_EMP": "Invito Beneficiario"
+        }
+      },
+      "GENERIC": {
+        "ERRORS": {
+          "SESSION_GENERIC_TITLE": "Errore di Sessione",
+          "VOUCHERS_WRONG_INPUT_TITLE": "Errore Selezione Buoni"
+        }
+      },
+      "INVOICES": {
+        "ERRORS": {
+          "VOUCHERS_ERROR": "Errore nell'invio",
+          "VOUCHERS_WRONG_INPUT": "Errore Selezione Buoni"
+        },
+        "SUCCESS": {
+          "VOUCHERS_EXPORT": "Operazione riuscita"
+        }
+      },
+      "VOUCHERS": {
+        "ERRORS": {
+          "VOUCHERS_ALLOCATION_TITLE": "Errore Allocazione Buoni"
+        },
+        "GENERIC": {
+          "LIMITED_QUANTITY_TITLE": "Disponibilità Buoni Limitata",
+          "SELECTED_EMPLOYEES_TITLE": "Lista Beneficiari Selezionati",
+          "SUMMARY_TITLE": "Riepilogo Ordine Buoni"
+        },
+        "SUCCESS": {
+          "VOUCHERS_ALLOCATION_TITLE": "Allocazione Buoni Effettuata"
+        }
+      },
+      "WALLET": {
+        "ERRORS": {
+          "BUY_VOUCHER_TITLE": "Errore Acquisto Buoni",
+          "NEW_VOUCHER_TITLE": "Errore Creazione Buono"
+        },
+        "SUCCESS": {
+          "BUY_VOUCHER_TITLE": "Acquisto Buoni Effettuato",
+          "NEW_VOUCHER_TITLE": "Creazione Buono Effettuata"
+        }
+      }
+    }
+  },
+  "NAVBAR": {
+    "HISTORY_TRANSACTIONS": "Storico Transazioni",
+    "LISTA_HISTORY_TRANSACTIONS": "lista movimenti",
+    "INVITE_EMPLOYEE": "Invita Benificiario",
+    "MERCHANTS_SHOWCASE": "Vetrina Affiliati",
+    "MODIFY": "Modifica password",
+    "ORDER": "Ordini",
+    "PROFILE": " Profilo",
+    "REGISTRIES": "Anagrafiche",
+    "SHOW": "Visualizza/Modifica",
+    "VOUCHER": "Allocazione Voucher"
+  },
+  "OVERVIEW": {
+    "EVIDENCE": "In Evidenza",
+    "PROFILE": {
+      "ADDRESS": "Indirizzo",
+      "CODFIS": "Codice Fiscale",
+      "FIRST_NAME": "Nome",
+      "INVITATION_CODE": "Codice di Invito",
+      "LAST_NAME": "Cognome",
+      "NUMBER": "Matricola",
+      "PEC": "PEC",
+      "PIVA": "Partita IVA",
+      "R_SOCIALE": "Ragione Sociale"
+    },
+    "TRANSACTION": {
+      "DATE": "Data",
+      "DESCRIPTION": "Descrizione",
+      "STATUS": "Stato",
+      "TRANSACTION_HISTORY": "Storico Transazioni",
+      "USER": "Destinatario"
+    },
+    "WALLET": {
+      "AMOUNT": "Importo",
+      "EXPIRE": "Scadenza",
+      "LOADING": "Caricamento del Tuo Wallet in corso...",
+      "QUANTITY": "Quantità",
+      "TABLE_EMPTY": "Nessun voucher presente",
+      "VOUCHER": "Buono",
+      "YOUR_WALLET": "Il Tuo  Wallet",
+      "YOUR_WALLET_New": "Il Tuo  Current Balance"
+    }
+  },
+  "PAGINATION": {
+    "NEXT": "Successivo",
+    "PREVIOUS": "Precedente"
+  },
+  "PLACEHOLDER": {
+    "EMAIL": "Email",
+    "NEW_PASSWORD": "Nuova password",
+    "OLD_PASSWORD": "Vecchia password",
+    "PASSWORD": "Password",
+    "RE_NEW_PASSWORD": "Ripeti nuova password",
+    "RE_PASSWORD": "Ripeti password"
+  },
+  "RECOVERY_PASS": {
+    "BACK_TO": "Torna al ",
+    "MODIFY_MSG": "Password modificata con successo.",
+    "RECOVERY_MSG": "Ti abbiamo inoltrato una mail con la procedura di recupero password."
+  },
+  "SECTION_LABELS": {
+    "CHANGE_PSW": "Modifica password",
+    "RECOVERY_PSW": "Recupera password",
+    "RESET_PSW": "Reimposta password"
+  },
+  "SIGNUP": {
+    "ADDRESS": "Indirizzo",
+    "BANK": "Banca",
+    "CAP": "CAP",
+    "CITY": "Città",
+    "CUU": "Codice Univoco",
+    "C_FISCALE": "Codice Fiscale",
+    "EMAIL": "Email",
+    "FIRST_NAME_REF": "Nome Referente",
+    "LAST_NAME_REF": "Cognome Referente",
+    "LOGIN_LINK": "Entra",
+    "MODAL": {
+      "CLOSE": "Chiudi",
+      "GO_LOGIN": "Vai al login",
+      "LOADING_BUTTON": "Loading...",
+      "RESPONSE_BODY_EMP_OK": "La registrazione è andata a buon fine. Ti abbiamo inviato una mail con il riepilogo dei dati inseriti.",
+      "RESPONSE_BODY_OK": "La registrazione è andata a buon fine. Ti abbiamo inviato una mail con il contratto digitale. Allega il contratto firmato digitalmente al prossimo login.",
+      "RESPONSE_BODY_WAIT": "Registrazione in corso. Attendere.",
+      "RESPONSE_TITLE": "Esito Registrazione Utente",
+      "RETRY": "Riprova",
+      "T&C_BODY": "Lorem ipsum...",
+      "T&C_TITLE": "Termini e Condizioni del servizio"
+    },
+    "NUMBER": "Matricola",
+    "OFFICE_NAME": "Nome Ufficio",
+    "OWNER_IBAN": "Titolare",
+    "PASSWORD": "Password",
+    "PASSWORD_RETYPE": "Ripeti Password",
+    "PEC": "PEC",
+    "PHONE": "Telefono",
+    "PHONE_REF": "Telefono Referente",
+    "PROVINCE": "Provincia",
+    "P_IVA": "Partita IVA",
+    "REQUIRED_LABEL": "I campi sono obbligatori",
+    "REQ_LASTNAME": "Cognome richiedente",
+    "REQ_NAME": "Nome richiedente",
+    "REQ_ROLE": "Ruolo",
+    "R_SOCIALE": "Ragione Sociale",
+    "SIGNUP_LABEL": "Registrati",
+    "T&C_LABEL": "Ho letto e accetto i",
+    "T&C_LINK": "Termini e le Condizioni",
+    "TAB_AUTH": "Autenticazione",
+    "TAB_COMPANY": "Azienda",
+    "TAB_CONTACTS": "Contatti",
+    "TAB_OFFICE": "Sede",
+    "TAB_REF": "Referente",
+    "TOOLTIPS": {
+      "ACCEPT_T&C": "Accettare i termini e le condizioni.",
+      "ADDRESS": "Inserisci l'indirizzo.",
+      "BANK": "Inserici la banca.",
+      "CAP": "Inserisci il CAP.",
+      "CITY": "Seleziona la città.",
+      "CUU": "Il codice univoco deve essere di 7 caratteri alfanumerici (niente caratteri speciali).",
+      "C_FISCALE": "Inserisci il codice fiscale.",
+      "EMAIL": "Inserisci l'email.",
+      "FIRST_NAME_REF": "Inserisci il nome del referente.",
+      "IBAN": "Inserisci un Iban Valido. Lunghezza 27 caratteri, senza spazi.",
+      "INVITATION_CODE": "Inserisci il codice.",
+      "LAST_NAME_REF": "Inserisci il cognome del referente.",
+      "NUMBER": "Inserisci la matricola.",
+      "OFFICE_NAME": "Inserisci il nome ufficio.",
+      "OWNER_IBAN": "Inserisci il nome del titolare.",
+      "PASSWORD": "La password deve essere almeno 8 caratteri, contenere almeno una maiuscola e un numero.",
+      "PASSWORD_REQUIRED": "Inserisci la password.",
+      "PASSWORD_RETYPE": "Conferma la password.",
+      "PEC": "Inserisci la PEC.",
+      "PHONE": "Inserisci il numero di telefono.",
+      "PHONE_REF": "Inserisci il numero di telefono del referente.",
+      "PROVINCE": "Seleziona la provincia.",
+      "P_IVA": "Inserisci la partita IVA.",
+      "REQ_LASTNAME": "Inserisci il cognome.",
+      "REQ_NAME": "Inserisci il nome.",
+      "REQ_ROLE": "Iserisci il ruolo.",
+      "R_SOCIALE": "Inserisci la ragione sociale."
+    }
+  },
+  "TABLES": {
+    "GENERIC": {
+      "TOTAL_IMPORT": "Totale:",
+      "WALLET_LOADING": "Caricamento del Tuo Wallet in corso..."
+    },
+    "ORDERS": {
+      "EMPTY_TABLE": "Nessun ordine presente"
+    },
+    "VOUCHERS": {
+      "ALLOCATE_VOUCHERS": "Alloca Buoni",
+      "ALLOCATION_TITLE": "Elenco Buoni Trasferibili",
+      "EMPTY_TABLE": "Nessun buono presente",
+      "EXPIRE_DATE": "Scadenza",
+      "IMPORT": "Importo",
+      "QUANTITY": "Quantità",
+      "QUANTITY_AVAILABLE": "Quantità / Disponibilità",
+      "SELECTED_EMPLOYEES": "Beneficiari Selezionati",
+      "VALUE": "Valore",
+      "VOUCHER": "Buono"
+    }
+  },
+  "TRANSACTION": {
+    "DETAIL": "Dettaglio",
+    "EXPORT_HISTORICAL": "Esporta Storico",
+    "NUMBER_OF_TRANSACTION": "N. Transazione",
+    "OF_DATE": "del",
+    "RECIPIENT_BENEFICIARY": "Beneficiario Destinatario",
+    "RECIPIENT_AFFILIATE": "Affiliato Destinatario",
+    "SENDER_BENEFICIARY": "Beneficiario Mittente",
+    "SECTION_TITLE": "Gestione Transazioni",
+    "TRANSACTION_NUMBER_DETAIL": "Dettaglio Transazione N."
+  },
+  "VOUCHERS": {
+    "TITLE": "Gestione Allocazione Buoni"
+  },
+  "SESSION": {
+    "ERROR_MESSAGE": "Si è verificato un errore, riconnettersi.",
+    "EXPIRATION_MESSAGE": "La sessione è scaduta, riconnettersi.",
+    "ACCOUNT_NOTICE": "Un altro dispositivo è già collegato con il tuo account.",
+    "RECONNECT": "Riconnettiti"
+  },
+  "USER_CHANGE_PASSWORD": {
+    "VOUCHAIN_TITLE": "VouChain",
+    "DASHBOARD": "Dashboard",
+    "ACCOUNT": "Account",
+    "OUTCOME_EDIT_PASSWORD": "Esito Modifica Password"
+  },
+  "TOOLTIPS": {
+    "SHOW_DETAILS": "Mostra Dettaglio",
+    "DOWNLOAD_PDF": "Scarica Pdf",
+    "DOWNLOAD_XML": "Scarica Xml",
+    "DELETE_ORDER": "Cancella Ordine",
+    "RELOAD": "Aggiorna"
+  }
+}

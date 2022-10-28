@@ -1,0 +1,407 @@
+
+
+#imgleft{
+  
+    width: 40%;
+    height: 60%;
+   
+    border-radius: 50%;
+    margin-top: 80px;
+    margin-left: 150px;
+    background-size: cover;
+    display: block;
+ 
+
+}
+
+#firstleftbox{
+  margin-top: 95px; 
+  border: 5px solid white; 
+ border: 1px 1px 1px 1px solid white  ; 
+ height: 140px;
+ padding: 10px; 
+ box-shadow: 2px 2px 2px 2px #808080; 
+ border-radius: 20px;
+ margin-left: 8vh; 
+}
+
+ 
+
+/*testing css */
+
+
+/* Header Section */
+#cpy-employees-header {
+    color: white;
+    overflow: hidden;
+  }
+  
+
+  
+  /* Main Section */
+  #cpy-employees-section {
+    margin-top:  73px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+/*  another css  */
+
+#emp-dashboard-header {
+ 
+  overflow: hidden;
+  background-color: white;
+}
+
+
+#emp-overview {
+  margin-top:  73px; 
+  height: 120%;   
+  background-size: 100%;
+  overflow : hidden;
+   
+}
+
+#tablestorico  {
+  
+   margin-top: 0px;
+}
+
+#emp-transactions-table-reload-button {
+  color:  black;
+  font-size: 1.5rem;
+}
+
+#waletimage{
+    width: 60px;
+    height:60px;   
+}
+
+#waleticon{
+  width: 70px;
+  height:70px;
+ padding-left : 2px;
+}
+
+  
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 60px;
+  margin-left: 10px;
+  margin-top: -30px;
+  width: 100%;
+  height: 300px;
+}
+
+
+#emp-overview-title {
+  color: #ffffff;
+  font-family: 'GraphikSemibold';
+}
+
+/* Border Images  */
+#top-image-dashboard {
+  z-index: -1;
+  background-color: coral ;
+  
+}
+
+
+
+.content-wrap {
+  width: 100%;
+  background: #ededed;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5vw 5vh;
+  margin-top: -15px;
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+.emp-ow-content-wrap-tables {
+  width: 100%;
+  background: #ededed;
+  border-radius: 10px;
+  margin-top: 80px;
+  overflow: hidden;
+  box-shadow: 3.4px 3.4px 3.4px 3.4px rgba(87, 87, 86, 0.6);
+}
+
+#emp-ow-content-wrap-table1 {
+  margin-top: 0.5vh  ;
+
+}
+
+#emp-ow-content-wrap-table2 {
+  margin-top: 2.5vh;
+
+}
+
+.emp-ow-profile-text-title {
+  font-family: "GraphikSemibold";
+  margin: 1rem 0rem 0rem;
+}
+
+.emp-ow-profile-text-subtitle {
+  font-family: "GraphikLight";
+}
+
+#emp-ow-profile-go-btn {
+  margin-top: -3vh;
+  margin-right: -1vw;
+}
+
+/* Tables Stuff */
+.emp-overview-table-div {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+ 
+}
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  display: table;
+  width: 100%;
+  height:  70%;
+  margin: 0 auto;
+  position: relative;
+
+}
+
+table * {
+  position: relative;
+}
+
+table td{
+  padding-left: 10px;
+  text-align: left;
+    line-height: 0.5;
+    font-size: 1rem;
+    font-family: GraphikRegular ;
+}
+table th {
+  padding-left: 10px;
+  text-align: left;
+    line-height: 0.5;
+    font-size: 0.8rem;
+    font-family: GraphikRegular ;
+}
+
+table thead tr {
+  background: white ;
+ 
+}
+
+table tbody tr {
+  height: 50px;
+}
+table tbody tr:last-child {
+  border: 0;
+}
+table td,
+table th {
+  text-align: left;
+  line-height:0.5;
+}
+table td.l,
+table th.l {
+  text-align: right;
+}
+table td.c,
+table th.c {
+  text-align: center;
+}
+table td.r,
+table th.r {
+  text-align: center;
+}
+
+.emp-overview-table-head {
+  font-family: "GraphikMedium";
+  font-size: 24px;
+ 
+  line-height: 1.2;
+  font-weight: unset;
+  height: 10vh;
+}
+
+
+
+tbody {
+
+  height: 200px;
+
+}
+
+tbody tr:nth-child(even) {
+  background-color: lightgray;  	
+}
+
+tbody tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  background-color: white;
+   
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+
+
+#eyesicon{
+
+  width: 25px;
+  height: 20px;
+}
+
+#bottomdiv{
+  height: 60vh;
+}
+
+#movimentiimage{
+width: 80%;
+height: 70%;
+margin-top: 6vh;
+margin-left: 25vh;
+}
+ 
+/* for desktop bigger screen more than width 1920 */
+
+@media  screen and  (min-width: 1850px)  { 
+  
+  #cpy-employees-section {
+    margin-top:  55px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  #firstleftbox{
+    margin-top: 175px; 
+    border: 5px solid white; 
+   border: 1px 1px 1px 1px solid white  ; 
+   height: 160px;
+   padding: 10px; 
+   box-shadow: 2px 2px 2px 2px #808080; 
+   border-radius: 20px;
+   margin-left: 5vh; 
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 60px;
+    margin-left: 10px;
+    margin-top: -70px;
+    width: 100%;
+    height: 500px;
+  } 
+ 
+  .importvalue{
+    font-size: 40px;
+  }
+   /* lower div css  */
+  #bottomdiv{
+    height: 10vh;
+    margin-bottom: 10vh;
+  }
+
+  #movimentiimage{
+    width: 70%;
+    height: 60%;
+    margin-top: 11.5vh;
+    margin-left: 25vh;
+    }
+
+}
+
+@media  screen and (min-width: 1500px) and (max-width: 1650px)    {  
+  @media  screen and  (min-height: 960px) {
+  #cpy-employees-section {
+    margin-top:  116.5px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  #firstleftbox{
+    margin-top: 185px; 
+    border: 5px solid white; 
+   border: 1px 1px 1px 1px solid white  ; 
+   height: 160px;
+   padding: 10px; 
+   box-shadow: 2px 2px 2px 2px #808080; 
+   border-radius: 20px;
+   margin-left: 5vh; 
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 60px;
+    margin-left: 10px;
+    margin-top: -56px;
+    width: 100%;
+    height: 500px;
+  } 
+
+  #bottomdiv{
+    height: 8vh;
+    margin-bottom: 8vh;
+  }
+}
+}
+ 
+
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only 
+screen and (min-device-pixel-ratio : 1.5) { 
+
+
+ #cpy-employees-section {
+    margin-top:  113.5px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  #firstleftbox{
+    margin-top: 155px; 
+    border: 5px solid white; 
+   border: 1px 1px 1px 1px solid white  ; 
+   height: 160px;
+   padding: 10px; 
+   box-shadow: 2px 2px 2px 2px #808080; 
+   border-radius: 20px;
+   margin-left: 5vh; 
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 60px;
+    margin-left: 10px;
+    margin-top: -45px;
+    width: 100%;
+    height: 500px;
+  } 
+
+  #bottomdiv{
+    height: 8vh;
+    margin-bottom: 8vh;
+  }
+
+}
+
+ 

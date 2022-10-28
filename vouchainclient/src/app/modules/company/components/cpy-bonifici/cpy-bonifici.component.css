@@ -1,0 +1,257 @@
+
+  /* Main Section */
+  #cpy-employees-section {
+    margin-top:  73px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  /* Header Section */
+#cpy-employees-header {
+    color: white;
+    overflow: hidden;
+  }
+
+#leftimage{
+  
+     margin-top: 130px;
+     width: 90%;
+     height: 60%;
+     margin-right: -5vh;
+     
+  }
+  #firstleftrowheader {
+    margin-top: 40px; 
+    font-size: 30px;
+    
+  }
+
+  #firstleftrow{
+    border: 1px solid white; 
+    border-radius: 20px; 
+    padding: 10px; 
+    width: 80%;
+     box-shadow: 2px 2px 2px 2px #808080;
+      cursor: pointer;
+      margin-left: 10px;
+  }
+
+  #secondleftrow{
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 80%;  
+    margin-left: 10px;
+    box-shadow: 2px 2px  2px 2px #808080;
+  }
+
+  #firstthirdrow {
+    margin-top: 20px; 
+    cursor: pointer  ;   
+    border: 1px solid white; 
+    border-radius: 20px;
+    padding: 10px; 
+    width: 80%;
+    margin-left: 10px;
+    box-shadow: 2px 2px 2px 2px #808080;
+  }
+
+#secondcontainer{
+
+  margin-top: 30px;
+
+}
+
+  /* for bigger screen size width 1900*/
+  @media  screen and  (min-width: 1900px)  {
+
+    #cpy-employees-section {
+      margin-top:  109px; 
+      height: 120%;   
+      background-size: cover;
+      overflow: hidden;
+    }
+
+
+    #leftcoloumnrow{
+      margin-top:  20px;
+  
+        }
+  
+        #leftimage{
+    
+          margin-top: 130px;
+          width: 100%;
+          height: 70%;
+          margin-right: -5vh;
+          
+       }
+       #firstleftrowheader {
+         margin-top: 40px; 
+        
+       }
+     
+       #firstleftrow{
+         border: 1px solid white; 
+         border-radius: 20px; 
+         padding: 10px; 
+         width: 80%;
+         height: 25%;
+          box-shadow: 2px 2px 2px 2px #808080;
+           cursor: pointer;
+           margin-left: 10px;
+       }
+     
+       #secondleftrow{
+         margin-top: 20px;
+         cursor: pointer;
+         border: 1px solid white;
+         border-radius: 20px;
+         padding: 10px;
+         width: 80%; 
+         height: 25%; 
+         margin-left: 10px;
+         box-shadow: 2px 2px  2px 2px #808080;
+       }
+     
+       #firstthirdrow {
+         margin-top: 20px; 
+         cursor: pointer  ;   
+         border: 1px solid white; 
+         border-radius: 20px;
+         padding: 10px; 
+         width: 80%;
+         height: 25%;
+         margin-left: 10px;
+         box-shadow: 2px 2px 2px 2px #808080;
+       }
+   
+
+       #secondcontainer{
+         margin-top: 20vh;
+       }
+     
+
+  }  
+
+  
+  @media  only screen and (min-width: 1536px)  and (max-width: 1650px)   {  
+    @media  screen and  (min-height: 960px) {
+
+    #cpy-employees-section {
+      margin-top:  109px; 
+      height: 120%;   
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    #firstleftrowheader {
+      margin-top: 80px; 
+     
+    }
+    #firstleftrow{
+      border: 1px solid white; 
+      border-radius: 20px; 
+      margin-top: 20px;
+      padding: 10px; 
+      width: 80%;
+      height: 25%;
+       box-shadow: 2px 2px 2px 2px #808080;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+  
+    #secondleftrow{
+      margin-top: 20px;
+      cursor: pointer;
+      border: 1px solid white;
+      border-radius: 20px;
+      padding: 10px;
+      width: 80%; 
+      height: 25%; 
+      margin-left: 10px;
+      box-shadow: 2px 2px  2px 2px #808080;
+    }
+  
+    #firstthirdrow {
+      margin-top: 20px; 
+      cursor: pointer  ;   
+      border: 1px solid white; 
+      border-radius: 20px;
+      padding: 10px; 
+      width: 80%;
+      height: 25%;
+      margin-left: 10px;
+      box-shadow: 2px 2px 2px 2px #808080;
+    }
+
+
+    #secondcontainer{
+      margin-top: 14vh;
+    }
+  }
+  }
+
+
+  @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only 
+screen and (min-device-pixel-ratio : 1.5) { 
+
+  #cpy-employees-section {
+    margin-top:  113.5px; 
+    height: 120%;   
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  #firstleftrowheader {
+    margin-top: 80px; 
+ 
+  }
+  #firstleftrow{
+    border: 1px solid white; 
+    border-radius: 20px; 
+    margin-top: 20px;
+    padding: 10px; 
+    width: 80%;
+    height: 25%;
+     box-shadow: 2px 2px 2px 2px #808080;
+      cursor: pointer;
+      margin-left: 10px;
+  }
+
+  #secondleftrow{
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 80%; 
+    height: 25%; 
+    margin-left: 10px;
+    box-shadow: 2px 2px  2px 2px #808080;
+  }
+
+  #firstthirdrow {
+    margin-top: 20px; 
+    cursor: pointer  ;   
+    border: 1px solid white; 
+    border-radius: 20px;
+    padding: 10px; 
+    width: 80%;
+    height: 25%;
+    margin-left: 10px;
+    box-shadow: 2px 2px 2px 2px #808080;
+  }
+
+
+  #secondcontainer{
+    margin-top: 14vh;
+  }
+
+}
+
+
+   

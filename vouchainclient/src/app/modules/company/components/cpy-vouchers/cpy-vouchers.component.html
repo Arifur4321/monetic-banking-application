@@ -1,0 +1,484 @@
+<section id="cpy-vouchers-header">
+
+  <!-- Top Border Image -->
+  <img class="float-right img-fluid" id="cpy-vouchers-top-image" src="./assets/images/vouchain_dashboard_top_prova04.png"/>
+
+</section>
+
+<!-- Main Website Content -->
+<section id="cpy-vouchers-section">
+
+  <!-- Section Title -->
+  <h1 id="cpy-vouchers-title" class="text-center">
+    <b>{{ 'VOUCHERS.TITLE' | translate }}</b>
+  </h1>
+
+  <!-- Main Section Content -->
+  <div class="container-fluid" id="cpy-vouchers-container">
+
+    <!-- Vouchers Table Wrapper and Container -->
+    <div class="cpy-vouchers-content-wrap-tables" id="cpy-vouchers-wrap-table">
+      <div class="cpy-vouchers-container-table table-responsive">
+
+        <div class="d-block w-100">
+
+          <!-- Vouchers Table -->
+          <table>
+
+            <!-- Vouchers Table Header -->
+            <thead>
+
+              <!-- Vouchers Table Head -->
+              <tr class="cpy-vouchers-table-head">
+
+                <!-- Vouchers Table Icon -->
+              <th colspan="2" class="text-center">
+                <img id="cpy-vouchers-table-icon" src="./assets/images/icons/voucher_icon.png"/>
+              </th>
+
+              <!-- Vouchers Table Title -->
+              <th colspan="3">{{ 'TABLES.VOUCHERS.ALLOCATION_TITLE' | translate }}</th>
+
+                <!-- Selected Employees Button -->
+                <th class="text-right" colspan="2">
+                  <button class="btn btn-primary mr-4" id="cpy-vouchers-selected-employees-button" (click)="onClickShowSelectedEmployees()">
+                    <fa-icon [icon]="fasInfoCircle"></fa-icon> {{ 'TABLES.VOUCHERS.SELECTED_EMPLOYEES' | translate }} <span [hidden]="selectedEmployees.length === 1">({{ selectedEmployees.length }})</span>
+                  </button>
+                </th>
+
+              </tr>
+
+              <!-- Vouchers Table Subhead -->
+              <tr class="cpy-vouchers-table-subhead">
+
+                <!-- Check-All Checkbox -->
+                <th class="pl-4 text-right" style="width: 5%;">
+                  <input class="form-check-input" id="cpy-vouchers-check-all" type="checkbox" hidden/>
+                </th>
+
+                <!-- Vouchers Table Name Column -->
+                <th class="pl-3" colspan="2" style="width: 35%;">{{ 'TABLES.VOUCHERS.VOUCHER' | translate }}</th>
+
+                <!-- Vouchers Table Value Column -->
+                <th class="pr-3 text-right" style="width: 10%;">{{ 'TABLES.VOUCHERS.VALUE' | translate }}</th>
+
+                <!-- Vouchers Table Expire Date Column -->
+                <th class="pr-3 text-right" style="width: 15%;">{{ 'TABLES.VOUCHERS.EXPIRE_DATE' | translate }}</th>
+
+                <!-- Vouchers Table Quantity Column -->
+                <th class="pl-3" style="width: 23%;">{{ 'TABLES.VOUCHERS.QUANTITY_AVAILABLE' | translate }}</th>
+
+                <!-- Vouchers Table Import Column -->
+                <th class="pr-3 text-right" style="width: 12%;">{{ 'TABLES.VOUCHERS.IMPORT' | translate }}</th>
+
+              </tr>
+
+            </thead>
+
+            <!-- Vouchers Table Body -->
+            <tbody>
+
+              <!-- Loading Table Row -->
+              <tr *ngIf="tableLoading">
+                <td class="text-center" colspan="7" style="height: 10rem;">
+                  <div class="mb-3 spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+                  <h3>{{ 'TABLES.GENERIC.WALLET_LOADING' | translate }}</h3>
+                </td>
+              </tr>
+
+              <!-- Empty Table Row -->
+              <tr *ngIf="tableEmpty">
+                <td class="text-center" colspan="7" style="height: 10rem;">
+                  <h1>{{ msgTableBody }}</h1>
+                </td>
+              </tr>
+
+              <!-- Vouchers Table Row(s) -->
+              <tr *ngFor="let voucher of vouchers | paginate: { itemsPerPage: 5, currentPage: selectedPage }">
+                
+                <!-- Voucher Checkbox -->
+                <td class="pl-4 text-right">
+                  <input
+                    class="form-check-input cpy-vouchers-chechbox"
+                    id="cpy-vouchers-voucher-checkbox-{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                    type="checkbox"
+                    value="{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                    (click)="onClickVoucherCheckbox(voucher)"
+                  />
+                </td>
+
+                <!-- Voucher Name -->
+                <td class="pl-3" colspan="2">{{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+
+                <!-- Voucher Value -->
+                <td class="numericPagination pr-3">
+                  <input
+                    id="cpy-vouchers-voucher-value-{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                    value="{{ voucher.vchValue }}"
+                    hidden
+                  />{{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}
+                </td>
+
+                <!-- Voucher Expire Date -->
+                <td class="numericPagination pr-3">{{ voucher.vchEndDate | date: "dd/MM/y" }}</td>
+
+                <!-- Voucher Quantity -->
+                <td class="form-inline numericPagination pl-3">
+                  <span class="pt-1" [hidden]="selectedEmployees.length === 1">{{ selectedEmployees.length }} x &nbsp;</span>
+                  <input
+                    class="form-control mt-1 pr-0 cpy-vouchers-quantity"
+                    id="cpy-vouchers-voucher-quantity-{{ idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate) }}"
+                    max="{{ voucher.vchQuantity }}"
+                    min="1"
+                    type="number"
+                    value="0"
+                    (input)="onChangeVoucherQuantity(voucher)"
+                    disabled
+                  /> <span class="pt-1">&nbsp; / {{ voucher.vchQuantity }}</span>
+                </td>
+
+                <!-- Voucher Import (Value * Quantity) -->
+                <td class="numericPagination pr-3">
+                  <span [hidden]="selectedEmployees.length === 1">{{ selectedEmployees.length }} x </span>
+                  {{ voucherImports.get(idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate)) | currency: "EUR":"symbol":"":"it-IT" }}
+                </td>
+
+              </tr>
+
+            </tbody>
+
+            <!-- Vouchers Table Footer -->
+            <tfoot>
+
+              <tr style="height: 0;" *ngIf="!tableEmpty && !tableLoading">
+
+                <!-- Spacing Cell -->
+                <td colspan="5"></td>
+
+                <!-- Vochers Total Import Text -->
+                <td class="pt-1 py-0 text-right" colspan="1">
+                  <h5>{{ 'TABLES.GENERIC.TOTAL_IMPORT' | translate }} </h5>
+                </td>
+
+                <!-- Spacing Cell (visible if empty/loading table) -->
+                <td colspan="1" *ngIf="tableEmpty || tableLoading"></td>
+
+                <!-- Vochers Total Import Value -->
+                <td class="numericPagination pr-3" colspan="1">
+                  <span [hidden]="selectedEmployees.length === 1">{{ selectedEmployees.length }} x </span>
+                  {{ totalImport | currency: "EUR":"symbol":"":"it-IT" }}
+                </td>
+
+              </tr>
+
+              <tr style="height: 0;" *ngIf="!tableEmpty && !tableLoading">
+
+                <!-- Pagination -->
+                <td class="pl-0 text-center" colspan="7">
+                  <pagination-controls 
+                    class="vouchainPagination" 
+                    maxSize="5"
+                    nextLabel="{{ 'PAGINATION.NEXT' | translate }}" 
+                    previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" 
+                    (pageChange)="selectedPage = $event; onPageChange()">
+                  </pagination-controls>
+                </td>
+
+              </tr>
+
+              
+              <tr>
+
+                <!-- Voucher Allocation Button -->
+                <td class="text-right" colspan="7">
+                  <button class="btn btn-primary mr-4" id="cpy-vouchers-allocate-vouchers-button" type="button" (click)="onClickVoucherAllocation()" [disabled]="!selectedVouchers.size">
+                    {{ 'TABLES.VOUCHERS.ALLOCATE_VOUCHERS' | translate }}
+                  </button>
+                </td>
+                
+              </tr>
+
+            </tfoot>
+
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Voucher Allocation Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-vouchers-modal-allocation" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" id="cpy-vouchers-modal-allocation-header"
+        [ngStyle]="{'background-color':okMsg ? '#0fb94a' : '#2c61f1'}"
+        [ngStyle]="{'background-color':errorMsg ? '#e7362d' : '#2c61f1'}">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title" id="cpy-vouchers-modal-allocation-header-title" *ngIf="!errorMsg && !okMsg">
+          {{ 'MODALS.HEADER.VOUCHERS.GENERIC.SUMMARY_TITLE' | translate }}
+        </h4>
+
+        <h4 class="modal-title" id="cpy-vouchers-modal-allocation-header-title" *ngIf="errorMsg || okMsg">
+          Esito dell'operazione
+        </h4>
+
+        <!-- Modal Header Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button" [ngClass]="{ 'invisible': !allocationOk }">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-vouchers-modal-allocation-body" *ngIf="!errorMsg && !okMsg">
+
+        <!-- Modal Body Text -->
+        <p>
+          {{ 'MODALS.BODY.VOUCHERS.GENERIC.SUMMARY_TEXT' | translate }}
+        </p>
+
+        <!-- Selected Employees Title -->
+        <div class="text-center">
+          <h4 style="color: #2d2e83; font-family: GraphikSemibold;">
+            {{ 'TABLES.VOUCHERS.SELECTED_EMPLOYEES' | translate }}
+          </h4>
+        </div>
+
+        <!-- Selected Employees Table -->
+        <div class="cpy-vouchers-content-wrap-tables" id="cpy-vouchers-wrap-table">
+          <div class="cpy-vouchers-container-table table-responsive">
+            <div class="w-100">
+
+            <table>
+
+              <thead>
+
+                <!-- Selected Employees Table Headers -->
+                <tr class="cpy-vouchers-table-subhead" style="height: 2.5rem;">
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.FIRST_NAME' | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.LAST_NAME' | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.SERIAL_NUMBER' | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.EMAIL' | translate }}</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <!-- Selected Employees Table Body -->
+                <tr *ngFor="let employee of selectedEmployees">
+                  <td>{{ employee.empFirstName }}</td>
+                  <td>{{ employee.empLastName }}</td>
+                  <td>{{ employee.empMatricola }}</td>
+                  <td>{{ employee.usrEmail }}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary Title -->
+        <div class="mt-3 text-center">
+          <h4 style="color: #2d2e83; font-family: GraphikSemibold;">
+            {{ 'MODALS.BODY.VOUCHERS.GENERIC.SELECTED_VOUCHERS' | translate }}
+          </h4>
+        </div>
+
+        <!-- Order Summary Table -->
+        <div class="cpy-vouchers-content-wrap-tables" id="cpy-vouchers-wrap-table">
+          <div class="cpy-vouchers-container-table table-responsive">
+            <div class="w-100">
+
+            <table>
+
+              <thead>
+
+                <!-- Order Summary Table Headers -->
+                <tr class="cpy-vouchers-table-subhead" style="height: 2.5rem;">
+                  <th style="font-size: 1.15rem; width: 33%;">{{ 'TABLES.VOUCHERS.VOUCHER' | translate }}</th>
+                  <th class="text-right" style="font-size: 1.15rem;">{{ 'TABLES.VOUCHERS.VALUE' | translate }}</th>
+                  <th class="text-right" style="font-size: 1.15rem;">{{ 'TABLES.VOUCHERS.EXPIRE_DATE' | translate }}</th>
+                  <th class="text-right" style="font-size: 1.15rem;">{{ 'TABLES.VOUCHERS.QUANTITY' | translate }}</th>
+                  <th class="pr-3 text-right" style="font-size: 1.15rem;">{{ 'TABLES.VOUCHERS.IMPORT' | translate }}</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <!-- Order Summary Table Body -->
+                <tr *ngFor="let voucher of selectedVouchers">
+                  <td>{{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+                  <td class="numericPagination">{{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}</td>
+                  <td class="numericPagination">{{ voucher.vchEndDate | date: "dd/MM/y" }}</td>
+                  <td class="numericPagination">
+                    <span [hidden]="selectedEmployees.length === 1">{{ selectedEmployees.length }} x </span>
+                    {{ selectedQuantities.get(idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate)) }}
+                  </td>
+                  <td class="numericPagination pr-3">
+                    <span [hidden]="selectedEmployees.length === 1">{{ selectedEmployees.length }} x </span>
+                    {{ voucherImports.get(idifyVoucherValueAndEndDate(voucher.vchValue, voucher.vchEndDate)) | currency: "EUR":"symbol":"":"it-IT" }}
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Alert -->
+
+        <!-- Errors Alerts -->
+        <div class="modal-body" id="cpy-vouchers-error" *ngIf="errorMsg">
+          <div style="font-family: 'GraphikSemibold';" class="text-center" id="cpy-vouchers-error-description">
+            Si è verificato un errore nell'invio del modulo
+          </div>
+        </div>
+
+        <!-- Success Alerts -->
+        <div class="modal-body" id="cpy-vouchers-success" *ngIf="okMsg">
+          <div style="font-family: 'GraphikSemibold';" class="text-center" id="cpy-vouchers-success-description">
+            Ordine effettuato con successo!
+          </div>
+        </div>
+
+
+      <!-- Modal Footer -->
+      <div class="justify-content-between modal-footer" *ngIf="!errorMsg && !okMsg">
+
+        <button class="btn btn-secondary" data-dismiss="modal" id="cpy-vouchers-modal-allocation-footer-cancel-button" type="button" [ngClass]="{ 'invisible': !allocationOk }">{{ 'BUTTONS.GENERICS.CANCEL' | translate }}</button>
+
+        <!-- Order Summary Total Import -->
+        <p style="font-family: 'GraphikSemibold'; font-size: 1.15rem;">
+          {{ 'MODALS.FOOTER.VOUCHERS.GENERIC.SUMMARY_TOTAL_IMPORT' | translate }} <span class="numericPagination"><span [hidden]="selectedEmployees.length === 1">{{ selectedEmployees.length }} x </span>{{ totalImport | currency: "EUR":"symbol":"":"it-IT" }}</span>
+        </p>
+
+        <!-- Confirm Purchase Button -->
+        <button class="btn btn-primary" data-dismiss="modal" id="cpy-vouchers-modal-allocation-footer-confirm-button" type="button" (click)="onClickConfirmAllocation()" *ngIf="allocationOk">
+          {{ 'BUTTONS.GENERICS.CONFIRM' | translate }}
+        </button>
+
+        <!-- Loading Purchase Button -->
+        <button class="btn btn-primary" type="submit" disabled *ngIf="!allocationOk">
+          <span class="spinner-border spinner-border-sm" role="status"></span> {{ "BUTTONS.LOADING" | translate }}
+        </button>
+
+      </div>
+
+      <!-- Modal footer close -->
+            <div class="modal-footer d-block" *ngIf="errorMsg || okMsg">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-secondary" id="cpy-invoice-close-modal" type="button" (click)="closeModal()">
+                        {{ "MODALS.FOOTER.CLOSE_BUTTON" | translate }}
+                    </button>
+                </div>
+            </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Selected Employees Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-vouchers-modal-employees" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" id="cpy-vouchers-modal-employees-header" style="background-color: #2c61f1; color: white;">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title" id="cpy-vouchers-modal-employees-header-title">
+          {{ 'MODALS.HEADER.VOUCHERS.GENERIC.SELECTED_EMPLOYEES_TITLE' | translate }}
+        </h4>
+
+        <!-- Modal Header Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-vouchers-modal-employees-body">
+
+        <!-- Modal Body Text -->
+        <p>
+          {{ 'MODALS.BODY.VOUCHERS.GENERIC.SUMMARY_TEXT' | translate }}
+        </p>
+
+        <!-- Selected Employees Title -->
+        <div class="text-center">
+          <h4 style="color: #2d2e83; font-family: GraphikSemibold;">
+            {{ 'TABLES.VOUCHERS.SELECTED_EMPLOYEES' | translate }}
+          </h4>
+        </div>
+
+        <!-- Selected Employees Table -->
+        <div class="cpy-vouchers-content-wrap-tables" id="cpy-vouchers-wrap-table">
+          <div class="cpy-vouchers-container-table table-responsive">
+            <div class="w-100">
+
+            <table>
+
+              <thead>
+
+                <!-- Selected Employees Table Headers -->
+                <tr class="cpy-vouchers-table-subhead" style="height: 2.5rem;">
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.FIRST_NAME' | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.LAST_NAME' | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.SERIAL_NUMBER' | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.EMAIL' | translate }}</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <!-- Selected Employees Table Body -->
+                <tr *ngFor="let employee of selectedEmployees">
+                  <td>{{ employee.empFirstName }}</td>
+                  <td>{{ employee.empLastName }}</td>
+                  <td>{{ employee.empMatricola }}</td>
+                  <td>{{ employee.usrEmail }}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" id="modal-test-footer-button" type="button">{{ 'BUTTONS.GENERICS.CLOSE' | translate }}</button>
+      </div>
+
+    </div>
+  </div>
+</div>

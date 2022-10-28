@@ -1,0 +1,271 @@
+<section id="emp-signup-section">
+
+  <!-- Website Border Images -->
+  <img src="./assets/images/vouchain_loginTop.png" id="emp-signup-top-image" class="img-fluid" />
+  <img src="./assets/images/vouchain_loginBottom.png" id="emp-signup-bottom-image" class="img-fluid" />
+
+  <!-- Website Title Header -->
+  <div id="emp-signup-header">
+    <a href="{{ homepage }}">
+      <img id="imgEmpLogoSignup" class="img-fluid" src="./assets/images/monethic logo.PNG" />
+    </a>
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="emp-signup-container">
+    <div class="emp-signup-wrap">
+
+      <!-- Login | Signup Links -->
+      <div class="text-center" style="margin-bottom: 2rem;">
+        <a id="emp-signup-anchor-login" routerLink="/employee/empLogin">{{ 'SIGNUP.LOGIN_LINK' | translate }}</a>
+        <span id="emp-signup-anchor-pipe"> | </span>
+        <a id="emp-signup-anchor-signup">{{ 'SIGNUP.SIGNUP_LABEL' | translate }}</a>
+      </div>
+
+      <!-- Signup Form -->
+      <form id="emp-signup-form" (ngSubmit)="onFormSubmit()" autocomplete="off" ngNativeValidate>
+
+
+        <!-- Email Input -->
+        <div class="row">
+          <div class="col-sx-6 justify-content-center" style="margin: auto;">
+
+
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+                  <fieldset>
+                    <legend>{{ 'SIGNUP.EMAIL' | translate }}</legend>
+                    <input class="form-backend" value="{{this.employeeToSignup.usrEmail}}" readonly>
+                  </fieldset>
+                  <label class="emp-signup-error-alert">&nbsp;</label>
+                </div>
+              </div>
+            </div>
+            <!-- First Name Ref Input -->
+
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+                  <fieldset>
+                    <legend>{{ 'SIGNUP.FIRST_NAME_REF' | translate }}</legend>
+                    <input class="form-backend" value="{{this.employeeToSignup.empFirstName}}" readonly>
+                  </fieldset>
+                  <label class="emp-signup-error-alert">&nbsp;</label>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- End first column -->
+
+          <!-- Matricola -->
+
+          <div class="col-sx-6 justify-content-center" style="margin: auto;">
+
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+                  <fieldset>
+                    <legend>{{ 'SIGNUP.NUMBER' | translate}}</legend>
+                    <input class="form-backend" value="{{this.employeeToSignup.empMatricola}}" readonly>
+                  </fieldset>
+                  <label class="emp-signup-error-alert">&nbsp;</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Last Name Ref Input -->
+
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+                  <fieldset>
+                    <legend>{{ 'SIGNUP.LAST_NAME_REF' | translate }}</legend>
+                    <input class="form-backend" value="{{this.employeeToSignup.empLastName}}" readonly>
+                  </fieldset>
+                  <label class="emp-signup-error-alert">&nbsp;</label>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- End second column -->
+        </div> <!-- End upper row -->
+
+        <div class="row">
+          <div class="col-sx-6 justify-content-center" style="margin: auto;">
+
+            <!-- Password Input -->
+
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+                  <fieldset>
+                    <legend>{{ 'SIGNUP.PASSWORD' | translate }}</legend>
+                    <input class="form-control" data-toggle="tooltip" data-placement="top" name="password"
+                      placeholder="" title="{{ 'SIGNUP.TOOLTIPS.PASSWORD' | translate }}" type="password"
+                      [(ngModel)]="password" (input)="checkPassword()" (change)="checkPasswordRe()"
+                      [ngClass]="{ 'is-valid': (password && passOk), 'is-invalid': !passOk }" required />
+                  </fieldset>
+                  <label class="emp-signup-error-alert" *ngIf="passOk">&nbsp;</label>
+                  <label class="emp-signup-error-alert" *ngIf="!passOk">
+                    <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.PASSWORD' | translate}}
+                  </label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Retype Password Input -->
+
+          <div class="col-sx-6 justify-content-center" style="margin: auto;">
+
+            <div class="inner">
+              <div class="form-row">
+                <div class="form-holder">
+                  <fieldset>
+                    <legend>{{ 'SIGNUP.PASSWORD_RETYPE' | translate }}</legend>
+                    <input class="form-control" data-toggle="tooltip" data-placement="top" name="passwordRetype"
+                      placeholder="" title="{{ 'SIGNUP.TOOLTIPS.PASSWORD_RETYPE' | translate }}" type="password"
+                      [(ngModel)]="passwordRetype" (input)="checkPasswordRe()"
+                      [ngClass]="{ 'is-valid': (passwordRetype && passReOk), 'is-invalid': !passReOk }" required />
+                  </fieldset>
+                  <label class="emp-signup-error-alert" *ngIf="passReOk">&nbsp;</label>
+                  <label class="emp-signup-error-alert" *ngIf="!passReOk">
+                    <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.PASSWORD_RETYPE' | translate}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Terms & Conditions -->
+        <div class="row justify-content-center" style="margin-bottom: 1rem;">
+
+          <!-- Terms & Conditions Checkbox -->
+          <div class="form-check">
+            <input class="form-check-input" id="termsCheckbox" type="checkbox" (change)="onInputFieldsPasswords()"
+              required />
+            <label class="form-check-label" for="termsCheckbox"
+              style="font-size: 0.8rem;">{{ 'SIGNUP.T&C_LABEL' | translate }} <a data-toggle="modal"
+                data-target="#modalTermsAndCond"
+                href="#terms-and-conditions">{{ 'SIGNUP.T&C_LINK' | translate }}</a>.</label>
+          </div>
+        </div>
+
+
+        <!-- Submit Button -->
+        <div class="row justify-content-center">
+          <div class="col-sm-2"></div>
+
+          <div class="col-sm-8">
+            <button id="btn-emp-sign-submit" class="btn btn-block btn-secondary"
+              type="submit">{{ 'SIGNUP.SIGNUP_LABEL' | translate }}</button>
+          </div>
+
+          <div class="col-sm-2"></div>
+        </div>
+
+        <!-- Homepage Link -->
+        <div class="btn btn-block link-homepage">
+          <p>Torna alla <a href="{{ homepage }}">Homepage</a>.</p>
+        </div>
+
+      </form> <!-- End form -->
+      
+      <!-- Error -->
+      <div id="msgErrorAlert" class="text-center">
+        <p class="text-center"> {{ 'ERRORS.GENERIC' | translate }} </p>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+
+            <!-- Retry button -->
+            <button class="btn btn-primary btn-block" (click)="retry()">{{ 'SIGNUP.MODAL.RETRY' | translate }}</button>
+          </div>
+          <div class="col-sm-4"></div>
+        </div>
+      </div>
+
+    </div> <!-- End wrap -->
+  </div> <!-- End container -->
+</section> <!-- End section -->
+
+<!-- Terms & Conditions Bootstrap Modal -->
+<div class="modal fade" data-refresh="true" id="modalTermsAndCond" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{ 'SIGNUP.MODAL.T&C_TITLE' | translate }}</h4>
+        <button class="btn btn-default" data-dismiss="modal" type="button">X</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="modalBody">
+
+        <!-- TODO: Inserire Termini e Condizioni veritiere -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla metus
+          enim, ullamcorper sed lorem quis, euismod mollis nisl. Nullam sapien
+          est, porttitor molestie feugiat sed, hendrerit vitae tortor.
+          Suspendisse non elit fringilla, porta orci sit amet, mattis erat.
+          Integer in posuere augue. Ut in porta quam. Aliquam lobortis congue
+          leo ut pellentesque. Etiam eget elementum erat. Phasellus id ultrices
+          neque, in lacinia sapien. Donec risus quam, viverra non tempor vel,
+          molestie at magna. Praesent imperdiet a tellus sed efficitur. Sed eu
+          est a massa tempor dapibus. Vestibulum ante ipsum primis in faucibus
+          orci luctus et ultrices posuere cubilia curae; Praesent posuere
+          viverra nunc, at posuere lacus vehicula in. Proin ut pretium leo, vel
+          semper lacus. Donec tortor velit, ullamcorper eu ex a, scelerisque
+          rutrum sapien.
+        </p>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal"
+          type="button">{{ 'SIGNUP.MODAL.CLOSE' | translate }}</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Confirm Signup Bootstrap Modal -->
+<div class="modal fade" data-refresh="true" id="modalConfirmSignup" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header text-white" style="background-color:#2c61f1;">
+        <h4 class="modal-title">{{ 'SIGNUP.MODAL.RESPONSE_TITLE' | translate }}</h4>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="modalBody">
+        <p *ngIf="!msgSignupBodyShow">
+          {{ 'SIGNUP.MODAL.RESPONSE_BODY_WAIT' | translate }}
+        </p>
+        <p *ngIf="msgSignupBodyShow" innerHtml="{{ msgSignupBody }}">
+        </p>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button id="btn-modal-close" class="btn btn-primary" (click)="goLogin()" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {{ msgSignupButton }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

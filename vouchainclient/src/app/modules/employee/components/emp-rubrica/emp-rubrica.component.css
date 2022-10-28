@@ -1,0 +1,407 @@
+/* Header Section */
+#cpy-employees-header {
+    color: white;
+    overflow: hidden;
+  }
+  
+  /* Border Images */
+  #cpy-employees-top-image {
+    z-index: 1;
+  }
+  
+  /* Main Section */
+  #cpy-employees-section {
+    margin-top:  78px; 
+    height: 120%;   
+   /* background:url("/assets/images/bank2.jpg") no-repeat center center fixed;  */
+   
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  /* Section Title */
+  #cpy-employees-title {
+    color: black;
+    font-family: "GraphikSemibold";
+    margin-top: 5rem;
+  }
+  
+  #cpy-employees-container {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 0.5vw;
+    height: 80%;
+ 
+  }
+  
+  /* vvv EMPLOYEES TABLE vvv */
+  
+  #cpy-employees-invite-employee-title {
+    font-size: 2vw;
+    color: #2c61f1;
+  }
+  
+  /* Table Wrapper */
+  .cpy-employees-content-wrap-tables {
+    background: #a8dbff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+  }
+  
+  /* Table Container */
+  .cpy-employees-container-table {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+  }
+  
+  /* Table Header */
+  .cpy-employees-table-head th {
+    color:  black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5vw;
+    font-weight: unset;
+    height: 60px;
+    line-height: 1.2;
+  }
+  
+  /* Table Subheader */
+  .cpy-employees-table-subhead th {
+    color:  black;
+    font-family: fantasy;
+    font-size: 1vw;
+    font-weight: unset;
+    line-height: 1.2;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Table Checkboxes (⚠ Bootstrap Class ⚠) */
+  .form-check-input {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+  
+  /* Table Generic */
+  table {
+    background: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+    border-spacing: 1;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  /* main Table Elements Positions */
+  table * {
+    position: relative;
+  }
+  
+  /*  main Table Cells */
+  table td,
+  table th {
+    padding-left: 8px;
+    text-align: left;
+  }
+  
+  /* main  Table Header Rows */
+  table thead tr {
+    background: white;
+  }
+  
+  /* Table Body Rows */
+  table tbody tr {
+    height: 50px;
+  }
+  
+  /* Last Table Body Row */
+  table tbody tr:last-child {
+    border: 0;
+  }
+  
+  /* Table Body Rows */
+  tbody tr {
+    color: #808080;
+    font-family: "GraphikSemibold";
+    font-size: 1rem;
+    font-weight: unset;
+    line-height: 1.2;
+  }
+  
+  /* Even Table Body Rows */
+  tbody tr:nth-child(even) {
+    background-color: #ededed;
+  }
+  
+  /* Table Footer Rows */
+  table tfoot tr {
+    background: white;
+    height: 60px;
+  }
+  
+  /* Table Footer Rows */
+  tfoot tr {
+    font-family: "GraphikSemibold";
+    font-size: 15px;
+    font-weight: unset;
+    line-height: 1.2;
+  }
+
+
+
+  .btn-primary {
+    background-color:black;
+  }
+  
+  /* ^^^ EMPLOYEES TABLE ^^^ */
+  
+  /* vvv MEDIA QUERIES vvv */
+  
+  /* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+  */
+  @media (min-width: 1441px) {
+  
+    @media screen and (max-height: 900px) {
+      /* Table Header */
+      .cpy-employees-table-head th {
+        font-size: 1.6vw;
+      }
+  
+      /* Table Subheader */
+      .cpy-employees-table-subhead th {
+        font-size: 1.3vw;
+      }
+  
+      /* Table Body Rows */
+      tbody tr {
+        font-size: 1vw;
+      }
+    }
+  }
+  
+  /* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+  */
+  @media (min-width: 1281px) {
+  
+    @media screen and (max-height: 900px) {
+      /* Table Header */
+      .cpy-employees-table-head th {
+        font-size: 1.6vw;
+      }
+  
+      /* Table Subheader */
+      .cpy-employees-table-subhead th {
+        font-size: 1.3vw;
+      }
+  
+      /* Table Body Rows */
+      tbody tr {
+        font-size: 1vw;
+      }
+    }
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    #cpy-employees-section {
+      margin: -40vh 0 3rem;
+    }
+  
+    #cpy-employees-container {
+      padding-left: 10vw;
+      padding-right: 10vw;
+    }
+  
+    /* Table Header */
+    .cpy-employees-table-head th {
+      font-size: 1.6vw;
+    }
+  
+    /* Table Subheader */
+    .cpy-employees-table-subhead th {
+      font-size: 1.3vw;
+    }
+  
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.3vw;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    #cpy-employees-section {
+      margin: -25vh 0 3rem;
+    }
+  
+    #cpy-employees-container {
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+  
+    /* Table Header */
+    .cpy-employees-table-head th {
+      font-size: 3vw;
+    }
+  
+    /* Table Subheader */
+    .cpy-employees-table-subhead th {
+      font-size: 2vw;
+    }
+  
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 2vw;
+    }
+  
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #cpy-employees-section {
+      margin: -40vh 0 3rem;
+    }
+  
+    #cpy-employees-container {
+      padding-left: 12vw;
+      padding-right: 12vw;
+    }
+  
+    /* Table Header */
+    .cpy-employees-table-head th {
+      font-size: 2vw;
+    }
+  
+    /* Table Subheader */
+    .cpy-employees-table-subhead th {
+      font-size: 1.5vw;
+    }
+  
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.5vw;
+    }
+  
+  
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  @media (min-width: 481px) and (max-width: 767px) {
+   @media screen and (min-height: 320px) and (max-height: 400px) {
+       #cpy-employees-section {
+      margin: -85vh 0 3rem;
+    }
+    }
+  
+     @media screen and (min-height: 401px) and (max-height: 414px) {
+        #cpy-employees-section {
+      margin: -70vh 0 3rem;
+    }
+    }
+  
+    #cpy-employees-container {
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+  
+    /* Table Header */
+    .cpy-employees-table-head th {
+      font-size: 3vw;
+    }
+  
+    /* Table Subheader */
+    .cpy-employees-table-subhead th {
+      font-size: 2vw;
+    }
+  
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 2vw;
+    }
+  
+    #cpy-employees-invite-employee-title {
+      font-size: 2.7vw;
+    }
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+    #mrc-wallet-section {
+      margin: -30vh 0 3rem;
+    }
+      /* Table Header */
+    .cpy-employees-table-head th {
+      font-size: 5vw;
+    }
+  
+    /* Table Subheader */
+    .cpy-employees-table-subhead th {
+      font-size: 4vw;
+    }
+  
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 4vw;
+    }
+  
+    #cpy-employees-container {
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+  
+  
+    #cpy-employees-invite-employee-title {
+      font-size: 3.5vw;
+    }
+  
+    #cpy-employees-invite-employee-button  
+  
+    .form-control::placeholder {
+      font-size: 3vw;
+      
+    }
+  }
+  
+  /* 
+    ##Device = Between desktop and laptop
+    ##Screen = height < 900px
+  */
+  @media screen and (max-height: 900px) and (min-height: 700px) {
+  }
+  
+  @media screen and (max-height: 699px) {
+  }
+  
+  @media screen and (max-width: 576px) {
+  }
+  
+  /* ^^^ MEDIA QUERIES ^^^ */
+  

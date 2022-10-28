@@ -1,0 +1,551 @@
+<section id="mrc-invoice-header">
+    <img src="./assets/images/vouchain_dashboard_top_prova04.png" id="top-image-dashboard"
+        class="img-fluid float-right" />
+</section>
+
+<section id="mrc-invoice">
+    <!-- Title -->
+    <h1 class="text-center" id="mrc-wrap-title"><b>Gestione Ordini</b></h1>
+    <!-- Container -->
+    <div class="container-fluid" id="mrc-invoice-container">
+        <div class="row">
+            <!-- Past Orders Table -->
+            <div class="col-xl-6 col-md-12">
+                <div class="row justify-content-center">
+
+                    <!-- Data Picker -->
+                    <ejs-daterangepicker id='daterangepicker' format="dd/MM/yyyy"
+                        placeholder="{{ 'DATE_RANGE_PICKER.SELECT_AN_INTERVAL' | translate }}" [firstDayOfWeek]="1"
+                        [max]="maxDate" [(startDate)]='start1' [(endDate)]='end1' locale="it"
+                        (change)="showRedeemedOrderList(dateToString(start1), dateToString(end1))">
+                    </ejs-daterangepicker>
+                </div>
+                <div id="mrc-wrap-invoice-past" class="mrc-content-wrap">
+                    <div class="mrc-invoice-container-table table-responsive">
+                        <table id="mrc-invoice-table">
+                            <thead>
+                                <!-- Active Orders Table Head -->
+                                <tr class="mrc-invoice-table-head">
+
+                                    <!-- Active Vouchers Image -->
+                                    <th colspan="5" style="color: #2d2e83;">
+                                        <img class="mrc-invoice-icons" src="./assets/images/icons/storico_icon2.png" />
+                                        Ordini Processati
+
+                                        <button class="btn btn-link mrc-invoice-table-reload-buttons" type="button"
+                                            (click)="showRedeemedOrderList(dateToString(start1), dateToString(end1))"
+                                            data-toggle="tooltip" data-placement="top"
+                                            title="{{ 'TOOLTIPS.RELOAD' | translate }}">
+                                            <fa-icon [icon]="fasSyncAlt"></fa-icon>
+                                        </button>
+                                    </th>
+
+                                </tr>
+                                <!-- Active Orders Table Subhead -->
+                                <tr class="mrc-invoice-table-subhead">
+
+                                    <th class="pl-4" style="width: 30%;">Data</th>
+                                    <th style="width: 20%;">N. Ordine</th>
+                                    <th class="text-right" style="width: 15%;">Importo</th>
+                                    <th class="text-center" style="width: 20%;">Dettaglio</th>
+                                    <th class="text-center" style="width: 15%;">Pagamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- Loading Table Row -->
+                                <tr *ngIf="tableInvoicesLoading">
+                                    <td class="text-center" colspan="5" style="height: 10rem;">
+                                        <div class="spinner-border text-primary" role="status"
+                                            style="height: 4rem; width: 4rem;"></div>
+                                        <h3>Caricamento degli ordini passati in corso...</h3>
+                                    </td>
+                                </tr>
+
+                                <!-- Empty Table Row -->
+                                <tr *ngIf="tableInvoicesEmpty">
+                                    <td class="text-center" colspan="5" style="height: 10rem;">
+                                        <h1>{{ msgTableInvoicesBody }}</h1>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    *ngFor="let trc of redeemedTrc | paginate: { itemsPerPage: 5, currentPage: selectedPagePastInvoice, id: 'mrc-invoice-page-invoice' }; let i = index">
+
+                                    <!-- Date -->
+                                    <td class="pl-4">{{trc.trcDate }}</td>
+
+                                    <!-- Id -->
+                                    <td>{{ trc.trcId }}</td>
+
+                                    <!-- Value -->
+                                    <td class="numericPagination">
+                                        {{ trc.trcValue | currency: "EUR":"symbol":"":"it-IT" }}</td>
+
+                                    <!-- Details -->
+                                    <td class="text-center">
+                                        <a data-toggle="tooltip" data-placement="top"
+                                            title="{{ 'TOOLTIPS.SHOW_DETAILS' | translate }}"
+                                            (click)="showOrderDetails(trc)"><img
+                                                src="./assets/images/icons/details.png" /></a>
+                                    </td>
+
+                                    <!-- Status -->
+                                    <td *ngIf="trc.trcPayed === 'payed'" class="d-flex justify-content-center pt-1"><img
+                                            src="./assets/images/icons/ok_icon.png"></td>
+                                    <td *ngIf="trc.trcPayed === 'not_payed'" class="d-flex justify-content-center pt-1">
+                                        <img src="./assets/images/icons/clessidra_icon.png"></td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="text-center" colspan="5">
+                                        <!-- Pagination -->
+                                        <pagination-controls class="pt-3 pb-3 vouchainPagination"
+                                            nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                                            previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" maxSize="5"
+                                            (pageChange)="selectedPagePastInvoice = $event;"
+                                            id="mrc-invoice-page-invoice"></pagination-controls>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div> <!-- End container table -->
+                </div> <!-- End wrap table -->
+            </div> <!-- End first column -->
+
+            <!-- Table vouchers to redeem -->
+            <div class="col-xl-6 col-md-12">
+                <div id="mrc-wrap-invoice" class="mrc-content-wrap">
+
+                    <div class="mrc-invoice-container-table table-responsive">
+
+                        <table id="mrc-invoice-vouchers">
+                            <thead>
+                                <!-- Vouchers Table Head -->
+                                <tr class="mrc-invoice-table-head">
+
+                                    <!-- Active Vouchers Image -->
+                                    <th colspan="6" style="color: #2d2e83;">
+                                        <img class="mrc-invoice-icons" src="./assets/images/icons/wallet_icon.png" />
+                                        Voucher Riscattabili
+
+                                        <!-- Reload button -->
+                                        <button class="btn btn-link mrc-invoice-table-reload-buttons" type="button"
+                                            (click)="showVouchersAvailableList(); onKillVouchersSelection()"
+                                            data-toggle="tooltip" data-placement="top"
+                                            title="{{ 'TOOLTIPS.RELOAD' | translate }}">
+                                            <fa-icon [icon]="fasSyncAlt"></fa-icon>
+                                        </button>
+                                    </th>
+
+                                </tr>
+
+                                <!-- Vouchers Table Subhead -->
+                                <tr class="mrc-invoice-table-subhead" style="height: 2rem">
+                                    <th class="pl-4 text-right" style="width: 5%;"></th>
+                                    <th class="pl-3" style="width: 50%;">Buono</th>
+                                    <th class="text-right pr-3" style="width: 5%;">Valore</th>
+                                    <th class="text-right pr-3" style="width: 15%;">
+                                        {{ 'OVERVIEW.WALLET.EXPIRE' | translate }}</th>
+                                    <th class="pl-3" style="width: 20%;">Quantità / Disponibilità</th>
+                                    <th class="text-right pr-3" style="width: 5%;">Importo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- Loading Table Row -->
+                                <tr *ngIf="tableVouchersAvailableLoading">
+                                    <td class="text-center" colspan="6" style="height: 10rem;">
+                                        <div class="spinner-border text-primary" role="status"
+                                            style="height: 4rem; width: 4rem;"></div>
+                                        <h3>Caricamento del Tuo Wallet in corso...</h3>
+                                    </td>
+                                </tr>
+
+                                <!-- Empty Table Row -->
+                                <tr *ngIf="tableVouchersAvailableEmpty">
+                                    <td class="text-center" colspan="6" style="height: 10rem;">
+                                        <h1>{{ msgTableVoucherAvailableBody }}</h1>
+                                    </td>
+                                </tr>
+
+                                <tr
+                                    *ngFor="let voucher of mrcVouchers | paginate: { itemsPerPage: 5, currentPage: selectedPageVoucherAvailable, id: 'mrc-invoice-page-vouAvailable' }; let i = index ">
+
+                                    <!-- Checkbox -->
+                                    <td class="pl-4 text-right">
+                                        <input class="form-check-input"
+                                            style="height: 1.25rem; width: 1.25rem; margin: auto" type="checkbox"
+                                            value="{{ voucher.vchValue }}"
+                                            (click)="onSingleVoucherSelected(voucher.vchName)">
+                                    </td>
+
+                                    <!-- Voucher name -->
+                                    <td class="pl-3">{{ validatorService.readableVoucherName(voucher.vchName) }}<input
+                                            value="{{ voucher.vchName }}" hidden></td>
+
+                                    <td class="numericPagination pr-3">
+                                        {{voucher.vchValue | currency: "EUR":"symbol":"":"it-IT"}}<input
+                                            value="{{ voucher.vchValue }}" hidden></td>
+
+                                    <td class="numericPagination pr-3">{{voucher.vchEndDate | date:"dd/MM/yyyy" }}</td>
+
+                                    <!-- Quantity selection -->
+                                    <td class="form-inline pl-3">
+                                        <input class="form-control pr-0" id="mrc-invoice-modal-qselector"
+                                            max="{{ voucher.vchQuantity }}" min="1" style="width: 3rem;" type="number"
+                                            value="0"
+                                            (change)="getQuantitySelected($event, voucher.vchName, voucher.vchValue, voucher.vchQuantity)"
+                                            disabled /> / {{ voucher.vchQuantity }}
+                                    </td>
+                                    <!-- Total Selection -->
+                                    <td class="numericPagination pr-3" id="mrc-invoice-calc-quantity-selected">
+                                        {{ voucher.vchValue * quantitySelectedToMultiply(voucher.vchName, voucher.vchValue) | currency: "EUR":"symbol":"":"it-IT" }}
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr style="height: auto;">
+                                    <td colspan="4"></td>
+                                    <td colspan="1" class="text-right pt-1">
+                                        <h5>Totale: </h5>
+                                    </td>
+
+                                    <!-- Total -->
+                                    <td class="numericPagination pr-3" colspan="1">
+                                        {{ vouSelectedTotalPreview | currency: "EUR":"symbol":"":"it-IT" }}
+                                    </td>
+                                </tr>
+                                <tr style="height: auto;">
+                                    <td class="text-center" colspan="6">
+                                        <!-- Pagination -->
+                                        <pagination-controls class="pt-3 vouchainPagination"
+                                            nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                                            previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" maxSize="5"
+                                            (pageChange)="selectedPageVoucherAvailable = $event; onPageChange()"
+                                            id="mrc-invoice-page-vouAvailable">
+                                        </pagination-controls>
+                                    </td>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+
+                    <div class="row pb-4 pl-4 pr-4">
+
+                        <!-- Button kill selection -->
+                        <div class="col-sm-4 mt-1">
+                            <button class="btn btn-secondary btn-block" type="button"
+                                (click)="onKillVouchersSelection()">Annulla</button>
+                        </div>
+
+                        <div class="col-sm-4 mt-1"></div>
+
+                        <!-- Button confirm selection -->
+                        <div class="col-sm-4 mt-1">
+                            <button class="btn btn-primary btn-block" id="mrc-invoice-export-button" type="button"
+                                (click)="onClickExportInvoiceButton()"
+                                [disabled]="!mrcVouchersInPage.length">Riscatta</button>
+                        </div>
+
+
+                    </div>
+
+                </div> <!-- Fine lista voucher -->
+            </div> <!-- Fine seconda colonna -->
+        </div> <!-- Fine row -->
+    </div> <!-- Fine container -->
+
+</section>
+
+
+<!-- Modal Confirm selection -->
+<div class="fade modal" data-refresh="true" id="modalBankConfirm" role="dialog" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header text-white" id="mrc-invoice-modal-redeem-voucher-header"
+                [ngStyle]="{'background-color':successAlertModal ? '#0fb94a' : '#2c61f1'}"
+                [ngStyle]="{'background-color':errorAlertModal ? '#e7362d' : '#2c61f1'}">
+
+                <h4 class="modal-title" id="mrc-invoice-modal-redeem-voucher-header-title"
+                    *ngIf="!successAlertModal && !errorAlertModal">
+                    Riepilogo dei voucher selezionati
+                </h4>
+
+                <!-- Success or error header -->
+                <h4 class="modal-title" id="mrc-invoice-modal-redeem-voucher-header-title-result"
+                    *ngIf="successAlertModal || errorAlertModal">
+                    Esito dell'operazione
+                </h4>
+                <!--  X Close Button -->
+                <button class="btn btn-default" (click)="closeModal()" type="button" id="mrc-invoice-modal-button-x">
+                    X
+                </button>
+
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body" id="mrc-invoice-modal-redeem-voucher-body"
+                *ngIf="!successAlertModal && !errorAlertModal">
+
+                <p>
+                    Prima di procedere con l'acquisto, controllare che le informazioni
+                    sotto riportate siano corrette.
+                </p>
+
+                <div class="text-center">
+                    <h4 style="font-family: GraphikSemibold;">Conferma voucher selezionati</h4>
+                </div>
+
+                <!-- Order Summary Table -->
+                <div class="mrc-invoice-content-wrap-tables" id="mrc-invoice-wrap-table">
+                    <div class="mrc-invoice-container-table table-responsive">
+
+                        <table>
+
+                            <thead>
+                                <!-- Order Summary Subhead Table -->
+                                <tr class="mrc-invoice-table-subhead">
+
+                                    <th class="text-left" style="font-size: 1.15rem; width: 50%;">Buono</th>
+                                    <th class="text-right pr-1" style="font-size: 1.15rem; width: 10%">Valore</th>
+                                    <th class="text-right" style="font-size: 1.15rem; width: 15%">Scadenza</th>
+                                    <th class="text-right" style="font-size: 1.15rem; width: 15%">Quantità</th>
+                                    <th class="text-right pr-3" style="font-size: 1.15rem; width: 10%">Importo</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+
+                                <tr
+                                    *ngFor="let voucherRedeem of this.mrcVouchersSelectedToRedeem | paginate: { itemsPerPage: 5, currentPage: selectedPageVoucherSelected, id: 'mrc-invoice-page-modal' }; let i = index">
+                                    <td>{{ validatorService.readableVoucherName(voucherRedeem.vchName) }}</td>
+                                    <td class="numericPagination">
+                                        {{ voucherRedeem.vchValue | currency: "EUR":"symbol":"":"it-IT" }}</td>
+                                    <td class="numericPagination">{{ voucherRedeem.vchEndDate }}</td>
+                                    <td class="numericPagination">{{ voucherRedeem.vchQuantity }}</td>
+                                    <td class="numericPagination pr-3">
+                                        {{ voucherRedeem.vchValue * voucherRedeem.vchQuantity | currency: "EUR":"symbol":"":"it-IT" }}
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="text-center" colspan="5">
+                                        <!-- Pagination -->
+                                        <pagination-controls class="pt-3 vouchainPagination"
+                                            nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                                            previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" maxSize="5"
+                                            (pageChange)="selectedPageVoucherSelected = $event;"
+                                            id="mrc-invoice-page-modal">
+                                        </pagination-controls>
+                                    </td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <div class="text-center">
+                        <h4 style="font-family: GraphikSemibold;">Conferma dati bancari</h4>
+                    </div>
+
+                    <!-- IBAN -->
+                    <div class="inner">
+                        <div class="form-holder">
+                            <fieldset>
+                                <legend>IBAN</legend>
+                                <input data-toggle="tooltip" data-placement="top" name="iban"
+                                    id="mrc-invoice-iban-field" title="{{ 'SIGNUP.TOOLTIPS.IBAN' | translate }}"
+                                    type="text" (input)="checkIBAN()" [(ngModel)]="iban" required />
+                            </fieldset>
+                            <label class="mrc-invoice-error-alert" *ngIf="ibanOk">&nbsp;</label>
+                            <label class="mrc-invoice-error-alert" *ngIf="!ibanOk">
+                                <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.IBAN' | translate}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Holder -->
+                    <div class="inner">
+                        <div class="form-holder">
+                            <fieldset>
+                                <legend>Titolare</legend>
+                                <input data-toggle="tooltip" data-placement="top" name="accountHolder"
+                                    id="mrc-invoice-holder-field" title="Indicare il titolare del conto" type="text"
+                                    (input)="checkAccountHolder()" [(ngModel)]="accountHolder" required />
+                            </fieldset>
+                            <label class="mrc-invoice-error-alert" *ngIf="accountHolderOk">&nbsp;</label>
+                            <label class="mrc-invoice-error-alert" *ngIf="!accountHolderOk">
+                                <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal body Confirm -->
+            <div class="modal-body" id="mrc-invoice-modal-redeem-voucher-body-success" *ngIf="successAlertModal">
+                <div style="font-family: 'GraphikSemibold';" class="text-center" id="mrc-invoice-success-description">
+                    {{ "MODALS.BODY.INVOICES.SUCCESS.VOUCHERS_EXPORT_BODY" | translate }}
+                </div>
+            </div>
+
+            <!-- Modal body Error -->
+            <div class="modal-body" id="mrc-invoice-modal-redeem-voucher-body-error" *ngIf="errorAlertModal">
+                <div style="font-family: 'GraphikSemibold';" class="text-center" id="mrc-modify-error-description">
+                    {{ "MODALS.BODY.INVOICES.ERRORS.VOUCHERS_ERROR" | translate }}
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer d-block" *ngIf="!successAlertModal && !errorAlertModal">
+
+                <div class="row justify-content-end pr-4">
+                    <p style="font-family: 'GraphikSemibold'; font-size: 1.15rem;">
+                        Totale Importo: {{ vouSelectedTotalPreview | currency: "EUR":"symbol":"":"it-IT" }}
+                    </p>
+                </div>
+
+                <div class="row pb-4 pl-4 pr-4">
+
+                    <!-- Button close modal -->
+                    <div class="col-sm-4 mt-1">
+                        <button class="btn btn-secondary btn-block" data-dismiss="modal"
+                            id="modal-info-footer-button-cancel" type="button">
+                            Annulla
+                        </button>
+                    </div>
+
+                    <div class="col-sm-4 mt-1"></div>
+
+                    <!-- Button confirm selection -->
+                    <div class="col-sm-4 mt-1">
+                        <button class="btn btn-primary btn-block" id="modal-info-footer-button" type="button"
+                            (click)="sendInvoice()" *ngIf="purchaseOk" [disabled]="!checkBankData()">
+                            Conferma
+                        </button>
+
+                        <!-- Loading Purchase Button -->
+                        <button class="btn btn-primary btn-block" type="submit" disabled *ngIf="!purchaseOk">
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                            {{ "BUTTONS.LOADING" | translate }}
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div> <!-- End Modal footer -->
+
+            <!-- Modal footer close -->
+            <div class="modal-footer d-block" *ngIf="successAlertModal || errorAlertModal">
+                <div class="row pb-4 pl-4 pr-4">
+                    <div class="col-sm-4 mt-1"></div>
+                    <div class="col-sm-4 mt-1"></div>
+                    <div class=" col-sm-4 mt-1">
+                        <button class="btn btn-secondary btn-block" id="mrc-invoice-close-modal" type="button"
+                            (click)="closeModal()">
+                            {{ "MODALS.FOOTER.CLOSE_BUTTON" | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div> <!-- End Modal footer close -->
+
+        </div>
+    </div>
+
+</div> <!-- Modal confirm -->
+
+<!-- Order Vouchers Detail Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="mrc-invoice-modal-vouchers-detail" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header" id="mrc-invoice-modal-vouchers-detail-header"
+                style="background-color: #2c61f1; color: white;">
+
+                <!-- Modal Header Title -->
+                <h4 class="modal-title" id="cpy-vouchers-modal-allocation-header-title">
+                    Dettaglio dei buoni dell' ordine n. {{ transactionToDetail.trcId }} del
+                    {{ transactionToDetail.trcDate }}
+                </h4>
+
+                <!-- Modal Header Button -->
+                <button class="btn btn-default" data-dismiss="modal" type="button">
+                    X
+                </button>
+
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body" id="mrc-invoice-modal-vouchers-detail-body">
+
+                <!-- Order Summary Table -->
+                <div class="cpy-vouchers-content-wrap-tables" id="cpy-vouchers-wrap-table">
+                    <div class="cpy-vouchers-container-table table-responsive">
+
+                        <table>
+
+                            <thead>
+
+                                <!-- Order Summary Table Headers -->
+                                <tr class="cpy-vouchers-table-subhead" style="height: 2.5rem;">
+                                    <th style="font-size: 1.15rem; width: 33%;">Buono</th>
+                                    <th style="font-size: 1.15rem;" class="text-right pr-3">Valore</th>
+                                    <th style="font-size: 1.15rem;" class="text-right pr-3">Quantità</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <!-- Order Summary Table Body -->
+                                <tr *ngFor="let voucher of transactionToDetail.voucherList">
+                                    <td>{{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+                                    <td class="numericPagination pr-3">
+                                        {{ parseFloatStringValue(voucher.vchValue) | currency: "EUR":"symbol":"":"it-IT" }}
+                                    </td>
+                                    <td class="numericPagination pr-3">{{ voucher.vchQuantity }}</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div> <!-- End Order Summary Table -->
+                </div>
+
+            </div> <!-- End modal-content -->
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary" data-dismiss="modal" id="modal-test-footer-button"
+                    type="button">Chiudi</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,396 @@
+<section id="cpy-orders-header">
+
+  <!-- Top Border Image -->
+  <img class="img-fluid float-right" id="cpy-orders-top-image"
+    src="./assets/images/vouchain_dashboard_top_prova04.png" />
+
+</section>
+
+<!-- Main Website Content -->
+<section id="cpy-orders-section">
+
+  <!-- Section Title -->
+  <h1 id="cpy-orders-title" class="text-center"><b>Gestione Ordini</b></h1>
+
+  <!-- Main Section Content -->
+  <div class="container-fluid" id="cpy-orders-container">
+
+    <div class="row">
+      <!-- First table column -->
+      <div class="col-xl-6 col-lg-12">
+        <div class="row justify-content-center">
+          <ejs-daterangepicker id='daterangepicker1' format="dd/MM/yyyy" placeholder="{{ 'DATE_RANGE_PICKER.SELECT_AN_INTERVAL' | translate }}"
+            [firstDayOfWeek]="1" [max]="maxDate" [(startDate)]='start1' [(endDate)]='end1' locale="it"
+            (change)="showPayedOrders(dateToString(start1), dateToString(end1), 'payed')"></ejs-daterangepicker>
+        </div>
+
+        <!-- Employees Table Wrapper and Container -->
+        <div class="cpy-orders-content-wrap-tables" id="cpy-orders-wrap-table">
+          <div class="cpy-orders-container-table table-responsive">
+
+            <!-- Payed Orders Table -->
+            <table id="table1">
+
+              <!-- Payed Orders Table Header -->
+              <thead>
+                <!-- Payed Orders Table Head -->
+                <tr class="cpy-orders-table-head">
+
+                  <!-- Icon -->
+                  <th colspan="5">
+                    <img src="./assets/images/icons/storico_icon2.png" class="img-fluid pl-0" style="padding: 2vh ">
+                    Ordini conclusi
+
+                    <button class="btn btn-link cpy-orders-table-reload-buttons" type="button" data-toggle="tooltip"
+                      data-placement="top" title="{{ 'TOOLTIPS.RELOAD' | translate }}"
+                      (click)="showPayedOrders(dateToString(this.start1), dateToString(this.end1), 'payed')">
+                      <fa-icon [icon]="fasSyncAlt"></fa-icon>
+                    </button>
+                  </th>
+
+                </tr>
+                <tr class="cpy-orders-table-subhead">
+                  <!-- <th></th> -->
+                  <th>Data</th>
+                  <th>N. Ordine</th>
+                  <th class="text-right">Importo</th>
+                  <th class="text-center">Dettaglio</th>
+                  <th class="text-center">Fattura</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <!-- Loading Table Row -->
+                <tr *ngIf="tableLoading1">
+                  <td class="text-center" colspan="6" style="height: 10rem;">
+                    <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+                  </td>
+                </tr>
+
+                <!-- Empty Table Row -->
+                <tr *ngIf="tableEmpty1">
+                  <td class="text-center" colspan="6" style="height: 10rem;">
+                    <h1>{{ msgTableBody1}}</h1>
+                  </td>
+                </tr>
+
+                <!-- orders Table Row(s) -->
+                <tr
+                  *ngFor="let order of payedOrders | paginate: { id: 'pagination1', itemsPerPage: 5, currentPage: selectedPage1 }">
+                  <td>{{ order.trcDate }}</td>
+                  <td>{{ order.trcId }} </td>
+                  <td class="numericPagination text-right">
+                    {{ parseFloatStringValue(order.trcValue) | currency: "EUR":"symbol":"":"it-IT" }}</td>
+
+                  <!-- Dettaglio Ordine -->
+                  <td class="text-center">
+                    <a data-toggle="tooltip" data-placement="top" title="{{ 'TOOLTIPS.SHOW_DETAILS' | translate }}"
+                      (click)="showOrderDetails(order)"><img src="./assets/images/icons/details.png"
+                        class="cpyOrdersDetailsIcon"/></a>
+                  </td>
+
+                  <!-- Fattura Ordini pagati -->
+                  <td class="text-center" *ngIf="order.trcCancDate === null">
+                    <a data-toggle="tooltip" data-placement="top" title="{{ 'TOOLTIPS.DOWNLOAD_PDF' | translate }}"
+                      (click)="onClickDownloadInvoice('pdf', order.trcId, order.trcDate)"><img
+                        src="./assets/images/icons/invoice_icon2.png" class="cpyOrdersInvoiceIcon" /></a>
+                    <a data-toggle="tooltip" data-placement="top" title="{{ 'TOOLTIPS.DOWNLOAD_XML' | translate }}"
+                      (click)="onClickDownloadInvoice('xml', order.trcId, order.trcDate)"><img
+                        src="./assets/images/icons/invoice_icon3.png" class="cpyOrdersInvoiceIcon" /></a>
+                  </td>
+
+                  <!--  Ordini annullati -->
+                  <td class="text-center" *ngIf="order.trcCancDate">
+                    <img src="./assets/images/icons/deletedOrder_icon.png" style="width: 35%;" />
+                  </td>
+
+                </tr>
+              </tbody>
+
+              <tfoot>
+                <tr>
+                  <td colspan="5" class="text-center">
+                    <!-- Pagination -->
+                    <pagination-controls id="pagination1" class="pt-3 vouchainPagination" maxSize="5"
+                      nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                      previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" (pageChange)="selectedPage1 = $event">
+                    </pagination-controls>
+                  </td>
+                </tr>
+              </tfoot>
+
+            </table>
+            <!-- </div> -->
+
+          </div><!-- table container -->
+        </div><!-- table wrapper -->
+      </div><!-- first column -->
+
+      <!-- Second column -->
+      <div class="col-xl-6 col-lg-12">
+        <div class="row justify-content-center">
+          <ejs-daterangepicker id='daterangepicker2' format="dd/MM/yyyy" placeholder='Seleziona un intervallo'
+            [firstDayOfWeek]="1" [max]="maxDate" [(startDate)]='start2' [(endDate)]='end2' locale="it"
+            (change)="showNotPayedOrders(dateToString(start2), dateToString(end2), 'not_payed')"></ejs-daterangepicker>
+        </div>
+
+        <!-- Employees Table Wrapper and Container -->
+        <div class="cpy-orders-content-wrap-tables" id="cpy-orders-wrap-table">
+          <div class="cpy-orders-container-table table-responsive">
+
+            <!-- Payed Orders Table -->
+            <table id="table1">
+
+              <!-- Payed Orders Table Header -->
+              <thead>
+                <!-- Payed Orders Table Head -->
+                <tr class="cpy-orders-table-head">
+
+                  <!-- Icon -->
+                  <th colspan="5">
+                    <img src="./assets/images/icons/transaction_icon_not_payed.png" class="img-fluid pl-0"
+                      style="padding: 2vh ">
+                    Ordini in attesa di pagamento
+
+                    <button class="btn btn-link cpy-orders-table-reload-buttons" type="button" data-toggle="tooltip"
+                      data-placement="top" title="{{ 'TOOLTIPS.RELOAD' | translate }}"
+                      (click)="showNotPayedOrders(dateToString(this.start2), dateToString(this.end2), 'not_payed')">
+                      <fa-icon [icon]="fasSyncAlt"></fa-icon>
+                    </button>
+                  </th>
+                </tr>
+                <tr class="cpy-orders-table-subhead">
+                  <th>Data</th>
+                  <th>N. Ordine</th>
+                  <th class="text-right">Importo</th>
+                  <th class="text-center">Dettaglio</th>
+                  <th class="text-center">Annulla</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <!-- Loading Table Row -->
+                <tr *ngIf="tableLoading2">
+                  <td class="text-center" colspan="6" style="height: 10rem;">
+                    <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+                  </td>
+                </tr>
+
+                <!-- Empty Table Row -->
+                <tr *ngIf="tableEmpty2">
+                  <td class="text-center" colspan="6" style="height: 10rem;">
+                    <h1>{{ msgTableBody2 }}</h1>
+                  </td>
+                </tr>
+
+                <!-- orders Table Row(s) -->
+                <tr
+                  *ngFor="let order of notPayedOrders | paginate: { id: 'pagination2', itemsPerPage: 5, currentPage: selectedPage2 }">
+                  <td>{{ order.trcDate }}</td>
+                  <td>{{ order.trcId }} </td>
+                  <td class="numericPagination text-right">
+                    {{ parseFloatStringValue(order.trcValue) | currency: "EUR":"symbol":"":"it-IT" }}</td>
+
+                  <!-- Dettaglio Ordini in attesa di pagamento -->
+                  <td class="text-center">
+                    <a (click)="showOrderDetails(order)"><img src="./assets/images/icons/details.png" /></a>
+                  </td>
+
+                  <!--  Annulla ordine -->
+                  <td class="text-center">
+                    <a data-toggle="tooltip" data-placement="top" title="{{ 'TOOLTIPS.DELETE_ORDER' | translate }}"
+                      (click)="showOrderToDeleteDetails(order)"><img src="./assets/images/icons/trash_icon.png" /></a>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tfoot>
+                <tr>
+                  <td colspan="5" class="text-center">
+                    <!-- Pagination -->
+                    <pagination-controls id="pagination2" class="pt-3 vouchainPagination"
+                      nextLabel="{{ 'PAGINATION.NEXT' | translate }}"
+                      previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" (pageChange)="selectedPage2 = $event">
+                    </pagination-controls>
+                  </td>
+                </tr>
+              </tfoot>
+
+            </table>
+            <!-- </div> -->
+
+          </div><!-- table container -->
+        </div><!-- table wrapper -->
+      </div><!-- second column -->
+    </div><!-- row -->
+  </div><!-- container-fluid -->
+</section>
+
+
+
+<!-- Order Vouchers Detail Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-orders-modal-vouchers-detail" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div *ngIf="!isDeleted" class="modal-header" id="cpy-orders-modal-vouchers-detail-header"
+        style="background-color: #2c61f1; color: white;">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title" id="cpy-vouchers-modal-allocation-header-title">
+          Dettaglio dei buoni dell' ordine n. {{ transactionToDetail.trcId }} del {{ transactionToDetail.trcDate }}
+        </h4>
+
+        <!-- Modal Header Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button">
+          X
+        </button>
+
+      </div>
+
+       <!-- Modal Header Deleted Order -->
+       <div *ngIf="isDeleted" class="modal-header" id="cpy-orders-modal-vouchers-detail-header"
+       style="background-color: #e7362d; color: white;">
+
+       <!-- Modal Header Title -->
+       <h4 class="modal-title" id="cpy-vouchers-modal-allocation-header-title">
+         Dettaglio dei buoni dell' ordine n. {{ transactionToDetail.trcId }} del {{ transactionToDetail.trcDate }}
+       </h4>
+
+       <!-- Modal Header Button -->
+       <button class="btn btn-default" data-dismiss="modal" type="button">
+         X
+       </button>
+
+     </div>
+
+      
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-orders-modal-vouchers-detail-body">
+
+        <!-- Order Summary Table -->
+        <div class="cpy-vouchers-content-wrap-tables" id="cpy-vouchers-wrap-table">
+          <div class="cpy-vouchers-container-table table-responsive">
+
+            <table>
+
+              <thead>
+
+                <!-- Order Summary Table Headers -->
+                <tr class="cpy-vouchers-table-subhead" style="height: 2.5rem;">
+                  <th style="font-size: 1.15rem; width: 33%;">Buono</th>
+                  <th style="font-size: 1.15rem;">Valore</th>
+                  <th style="font-size: 1.15rem;">Quantità</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <!-- Order Summary Table Body -->
+                <tr *ngFor="let voucher of transactionToDetail.voucherList">
+                  <td>{{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+                  <td>{{ parseFloatStringValue(voucher.vchValue) | currency: "EUR":"symbol":"":"it-IT" }}</td>
+                  <td>{{ voucher.vchQuantity }}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+        <div *ngIf="isDeleted" class="row mt-4"><p class="mx-auto" style="font-family: GraphikBold;">ORDINE ANNULLATO</p></div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+
+        <button class="btn btn-secondary" data-dismiss="modal" id="modal-test-footer-button"
+          type="button">Chiudi</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Order Vouchers Detail Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-orders-modal-confirm-delete" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" id="cpy-orders-modal-confirm-delete-header"
+        style="background-color: #2c61f1; color: white;">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title" id="cpy-vouchers-modal-confirm-delete-title">
+          Dettaglio dei buoni dell' ordine n. {{ transactionToDetail.trcId }} del {{ transactionToDetail.trcDate }}
+        </h4>
+
+        <!-- Modal Header Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-orders-modal-confirm-delete-body">
+
+        <!-- Order Summary Table -->
+        <div class="cpy-vouchers-content-wrap-tables" id="cpy-vouchers-wrap-table">
+          <div class="cpy-vouchers-container-table table-responsive">
+
+            <table>
+
+              <thead>
+
+                <!-- Order Summary Table Headers -->
+                <tr class="cpy-vouchers-table-subhead" style="height: 2.5rem;">
+                  <th style="font-size: 1.15rem; width: 33%;">Buono</th>
+                  <th style="font-size: 1.15rem;">Valore</th>
+                  <th style="font-size: 1.15rem;">Quantità</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <!-- Order Summary Table Body -->
+                <tr *ngFor="let voucher of transactionToDetail.voucherList">
+                  <td>{{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+                  <td>{{ parseFloatStringValue(voucher.vchValue) | currency: "EUR":"symbol":"":"it-IT" }}</td>
+                  <td>{{ voucher.vchQuantity }}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+
+        <h4>Procedere con l'annullamento dell'ordine?</h4>
+
+        <button class="btn btn-secondary" data-dismiss="modal" id="modal-test-footer-button"
+          type="button">Annulla</button>
+
+        <button class="btn btn-primary" data-dismiss="modal" id="modal-test-footer-button" type="button"
+          (click)="deleteOrderById(transactionToDetail.trcId)">Corferma</button>
+
+      </div>
+    </div>
+  </div>
+</div>

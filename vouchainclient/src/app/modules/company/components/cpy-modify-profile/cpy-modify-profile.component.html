@@ -1,0 +1,486 @@
+<section id="cpy-viewProfile-header">
+    <img id="cpy-profile-image-dashboard" class="img-fluid" src="" />
+</section>
+
+<section id="cpy-overview">
+    <h1 class="text-center" id="cpy-view-profile-title" style="color:white"><b>Profilo di: <span
+                style="color:#a8dbff">{{ email }}</span></b></h1>
+    <div class="container">
+        <div id="wrap-profile" class="content-wrap">
+            <form (ngSubmit)="onFormSubmit()" autocomplete="off">
+                <div id="cpy-view-profile-body-header" class="row justify-content-center">
+
+                    <div class="row justify-content-center">
+                        <img id="cpy-view-profile-icon" src="./assets/images/icons/company_dark_icon.png"
+                            class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="row pt-4">
+
+                    <div class="col-lg-4 col-md-12 mb-2">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+
+
+                            <a class="nav-link active"  id="v-pills-profile-tab" data-toggle="pill" 
+                                href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true"
+                                (click)="cancelAlertNotModified()">Dati aziendali</a>
+
+                            <a class="nav-link" id="v-pills-ammin-tab" data-toggle="pill" href="#v-pills-ammin"
+                                role="tab" aria-controls="v-pills-ammin" aria-selected="false"
+                                (click)="cancelAlertNotModified()">Dati amministrativi</a>
+
+                            <a class="nav-link" id="v-pills-referente-tab" data-toggle="pill"
+                                href="#v-pills-referente" role="tab" aria-controls="v-pills-referente"
+                                aria-selected="false" (click)="cancelAlertNotModified()">Referente</a>
+
+                            <a class="nav-link" id="v-pills-contatti-tab" data-toggle="pill"
+                                href="#v-pills-contatti" role="tab" aria-controls="v-pills-contatti"
+                                aria-selected="false" (click)="cancelAlertNotModified()">Contatti</a>
+                        </div>
+
+                    </div> <!-- Fine prima colonna -->
+
+                    <div class="col-lg-8 col-md-12">
+
+                        <div class="tab-content" id="v-pills-tabContent">
+
+                            <!-- First TAB Referente Form Inputs -->
+
+                            <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                                aria-labelledby="v-pills-profile-tab">
+
+                                <!-- Ragione Sociale Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.R_SOCIALE' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="ragSociale"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.R_SOCIALE' | translate }}"
+                                                        type="text" [(ngModel)]="ragSociale"
+                                                        (input)="checkRagSociale();checkModify()"
+                                                        class="readonly form-control" required />
+                                                </fieldset>
+                                                <a (click)="modifyField('ragSociale')"><img
+                                                        class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+
+                                            <label class="cpy-signup-error-alert" *ngIf="ragSocialeOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!ragSocialeOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Partita IVA Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.P_IVA' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="pIva"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.P_IVA' | translate }}" type="text"
+                                                        [(ngModel)]="pIva" (input)="checkPIVA();checkModify()"
+                                                        class="readonly form-control" required />
+                                                </fieldset>
+                                                <a (click)="modifyField('pIva')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="pIvaOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!pIvaOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Codice Fiscale Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.C_FISCALE' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="cFiscale"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.C_FISCALE' | translate }}"
+                                                        type="text" [(ngModel)]="cFiscale"
+                                                        (input)="checkCFiscale();checkModify()"
+                                                        class="readonly form-control" required />
+                                                </fieldset>
+                                                <a (click)="modifyField('cFiscale')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="cFiscaleOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!cFiscaleOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4">
+
+                                    </div>
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-block btn-primary" type="button"
+                                            (click)="goForwardTab()">Avanti&nbsp;
+                                            <fa-icon [icon]="faArrowRight"></fa-icon>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Second TAB Referente Form Inputs -->
+
+                            <div class="tab-pane fade" id="v-pills-ammin" role="tabpanel"
+                                aria-labelledby="v-pills-ammin-tab">
+
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.PEC' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="pec"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.PEC' | translate }}" type="email"
+                                                        [(ngModel)]="pec" (input)="checkPec();checkModify()"
+                                                        class="readonly form-control" required />
+                                                </fieldset>
+                                                <a (click)="modifyField('pec')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="pecOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!pecOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.PEC' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Codice Univoco Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.CUU' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="cuu"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.CUU' | translate }}" type="text"
+                                                        [(ngModel)]="cuu" (input)="checkCuu();checkModify()"
+                                                        class="readonly form-control" required />
+                                                </fieldset>
+                                                <a (click)="modifyField('cuu')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="cuuOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!cuuOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.CUU' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goBackwardTab()">
+                                            <fa-icon [icon]="faArrowLeft"></fa-icon>&nbsp;Indietro
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goForwardTab()">Avanti&nbsp;
+                                            <fa-icon [icon]="faArrowRight"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Third TAB Referente Form Inputs -->
+
+                            <div class="tab-pane fade" id="v-pills-referente" role="tabpanel"
+                                aria-labelledby="v-pills-referente-tab">
+
+                                <!-- First Name Ref Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.FIRST_NAME_REF' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top"
+                                                        name="firstNameRef"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.FIRST_NAME_REF' | translate }}"
+                                                        type="text" (input)="checkFirstNameRef();checkModify()"
+                                                        [(ngModel)]="firstNameRef" class="readonly form-control"
+                                                        required />
+                                                </fieldset>
+                                                <a (click)="modifyField('firstNameRef')"><img
+                                                        class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="firstNameRefOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!firstNameRefOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Last Name Ref Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.LAST_NAME_REF' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="lastNameRef"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.LAST_NAME_REF' | translate }}"
+                                                        type="text" (input)="checkLastNameRef();checkModify()"
+                                                        [(ngModel)]="lastNameRef" class="readonly form-control"
+                                                        required />
+                                                </fieldset>
+                                                <a (click)="modifyField('lastNameRef')"><img
+                                                        class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="lastNameRefOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!lastNameRefOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Telephone Ref Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.PHONE_REF' | translate }} </legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="phoneRef"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.PHONE_REF' | translate }}"
+                                                        type="text" [(ngModel)]="phoneRef"
+                                                        (input)="checkPhoneRef();checkModify()"
+                                                        class="readonly form-control" required />
+                                                </fieldset>
+                                                <a (click)="modifyField('phoneRef')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="phoneRefOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!phoneRefOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goBackwardTab()">
+                                            <fa-icon [icon]="faArrowLeft"></fa-icon>&nbsp;Indietro
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goForwardTab()">Avanti&nbsp;
+                                            <fa-icon [icon]="faArrowRight"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div> <!-- End third tab -->
+
+                            <!-- Fourth TAB Referente Form Inputs -->
+                            <div class="tab-pane fade" id="v-pills-contatti" role="tabpanel"
+                                aria-labelledby="v-pills-contatti-tab">
+
+                                <!-- Address Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.ADDRESS' | translate }}</legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="address"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.ADDRESS' | translate }}" type="text"
+                                                        [(ngModel)]="address" class="readonly form-control"
+                                                        (input)="checkModify();checkAddress()" />
+                                                </fieldset>
+                                                <a (click)="modifyField('address')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="addressOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!addressOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Province Selection -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.PROVINCE' | translate }}</legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="provSelect"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.PROVINCE' | translate }}"
+                                                        (input)="checkProv()" [(ngModel)]="provSelect"
+                                                        (change)="checkSelectedProvince();checkModify()"
+                                                        (focus)="getProvinces()" class="readonly form-control"
+                                                        list="cpy-modify-datalist-provinces" />
+
+                                                    <datalist id="cpy-modify-datalist-provinces">
+                                                        <option value="{{ provSelect }}" label="{{ provSelect }}"
+                                                            selected>
+                                                        </option>
+                                                        <option [value]="prov.cod" *ngFor="let prov of provinces">
+                                                            {{ prov.name }}</option>
+                                                    </datalist>
+
+                                                </fieldset>
+                                                <a (click)="modifyField('provSelect')"><img
+                                                        class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="provOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!provOk">
+                                                <fa-icon [icon]="faInfoCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- City Selection -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}</legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="citySelect"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}"
+                                                        (input)="checkCity()" (change)="checkModify()"
+                                                        [(ngModel)]="citySelect" (focus)="getCitiesByProvince()"
+                                                        class="readonly form-control"
+                                                        list="cpy-modify-datalist-cities" />
+
+                                                    <datalist id="cpy-modify-datalist-cities">
+                                                        <option value="{{ citySelect }}" label="{{ citySelect }}"
+                                                            selected>
+                                                        </option>
+                                                        <option [value]="city.name" *ngFor="let city of cities">
+                                                            {{ city.name }}</option>
+                                                    </datalist>
+                                                </fieldset>
+                                                <a (click)="modifyField('citySelect')"><img
+                                                        class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="citySelectOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!citySelectOk">
+                                                <fa-icon [icon]="faInfoCircle"></fa-icon>
+                                                {{ 'ERRORS.REQUIRED' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ZIP Code Input -->
+                                <div class="inner">
+                                    <div class="form-row">
+                                        <div class="form-holder">
+                                            <div class="form-inline cpy-mod-input-div">
+                                                <fieldset>
+                                                    <legend>{{ 'SIGNUP.CAP' | translate }}</legend>
+                                                    <input data-toggle="tooltip" data-placement="top" name="cap"
+                                                        title="{{ 'SIGNUP.TOOLTIPS.CAP' | translate }}" type="text"
+                                                        [(ngModel)]="cap" (input)="checkCap();checkModify()"
+                                                        class="readonly form-control" />
+                                                </fieldset>
+                                                <a (click)="modifyField('cap')"><img class="img-fluid pencil-icon"
+                                                        src="./assets/images/icons/icon_pencil.png" /></a>
+                                            </div>
+                                            <label class="cpy-signup-error-alert" *ngIf="capOk">&nbsp;</label>
+                                            <label class="cpy-signup-error-alert" *ngIf="!capOk">
+                                                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                {{ 'ERRORS.CAP' | translate}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4">
+
+                                    </div>
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-default btn-primary mb-1" style="background-color:rgb(209, 35, 209) ;" type="button"
+                                            (click)="goBackwardTab()">
+                                            <fa-icon [icon]="faArrowLeft"></fa-icon>&nbsp;Indietro
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div> <!-- End fourth tab -->
+
+                        </div> <!-- Fine tab-content -->
+
+                    </div> <!-- Fine seconda colonna -->
+
+                </div> <!-- Fine riga colonna -->
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <button id="cpy-mod-profile-btn-annulla" type="button" class="btn btn-secondary btn-block"
+                            (click)="undoModify()" disabled>Annulla Modifiche</button>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <button id="cpy-mod-profile-btn-apply" type="submit" style="background-color: rgb(204, 29, 204);" class="btn btn-default btn-block"
+                            disabled>Applica
+                            Modifiche</button>
+                    </div>
+
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <!-- Errors Alerts -->
+                    <div class="alert alert-warning text-center" id="cpy-modify-error-description" role="alert"
+                        *ngIf="isNotModified">
+                        Non sono state effettuate modifiche!
+                    </div>
+                </div>
+            </form>
+
+        </div> <!-- Fine wrap -->
+    </div> <!-- Fine container -->
+</section>
+

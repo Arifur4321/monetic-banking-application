@@ -1,0 +1,816 @@
+<section id="mrc-viewProfile-header">
+    <img id="mrc-profile-image-dashboard" class="img-fluid float-right"
+        src="./assets/images/vouchain_dashboard_top_prova04.png" />
+</section>
+
+<section id="mrc-overview">
+    <!-- Email profile -->
+    <h1 class="text-center" id="mrc-view-profile-title" style="color:white"><b>{{ 'EMPLOYEES.PROFILE_OF' | translate }}:
+            <span style="color:#a8dbff">{{ email }}</span></b></h1>
+    <!-- Container -->
+    <div class="container">
+        <div id="wrap-profile" class="content-wrap" style="margin-top: 3rem;">
+            <form (ngSubmit)="onFormSubmit()" autocomplete="off">
+                <div id="mrc-view-profile-body-header" class="row justify-content-center">
+
+                    <!-- Profile Icon -->
+                    <div class="row justify-content-center">
+                        <img id="mrc-view-profile-icon" src="./assets/images/icons/merchant_dark_icon.png"
+                            class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="row pt-4">
+
+                    <!-- Tabs menu-->
+                    <div class="col-lg-2 col-md-12">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+
+
+                            <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill"
+                                href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true"
+                                (click)="cancelAlertNotModified()">{{ 'SIGNUP.TAB_COMPANY' | translate }}</a>
+
+                            <a class="nav-link" id="v-pills-ammin-tab" data-toggle="pill" href="#v-pills-ammin"
+                                role="tab" aria-controls="v-pills-ammin" aria-selected="false"
+                                (click)="cancelAlertNotModified()">{{ 'SIGNUP.TAB_OFFICE' | translate }}</a>
+
+                            <a class="nav-link" id="v-pills-referente-tab" data-toggle="pill" href="#v-pills-referente"
+                                role="tab" aria-controls="v-pills-referente" aria-selected="false"
+                                (click)="cancelAlertNotModified()">{{ 'EMPLOYEES.OFFICE' | translate }}</a>
+
+                            <a class="nav-link" id="v-pills-contatti-tab" data-toggle="pill" href="#v-pills-contatti"
+                                role="tab" aria-controls="v-pills-contatti" aria-selected="false"
+                                (click)="cancelAlertNotModified()">{{ 'SIGNUP.TAB_CONTACTS' | translate }}</a>
+
+                        </div>
+
+                    </div> <!-- End first column -->
+
+                    <div class="col-lg-10 col-md-12">
+
+
+                        <div class="tab-content" id="v-pills-tabContent">
+
+                            <!-- First TAB Referente Form Inputs -->
+
+                            <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                                aria-labelledby="v-pills-profile-tab">
+
+                                <div class="row">
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- Ragione Sociale Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.R_SOCIALE' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="ragSociale"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.R_SOCIALE' | translate }}"
+                                                                type="text" [(ngModel)]="ragSociale"
+                                                                (input)="checkRagSociale();checkModify()"
+                                                                class="readonly form-control" required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('ragSociale')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="ragSocialeOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!ragSocialeOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Partita IVA Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.P_IVA' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="pIva"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.P_IVA' | translate }}"
+                                                                type="text" [(ngModel)]="pIva"
+                                                                (input)="checkPIVA();checkModify()"
+                                                                class="readonly form-control" required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('pIva')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+
+                                                    <label class="mrc-signup-error-alert" *ngIf="pIvaOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!pIvaOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Codice Fiscale Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.C_FISCALE' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="codFis"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.C_FISCALE' | translate }}"
+                                                                type="text" [(ngModel)]="codFis"
+                                                                (input)="checkCodFis();checkModify()"
+                                                                class="readonly form-control" required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('codFis')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="codFisOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!codFisOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End first column -->
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- IBAN -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'MERCHANTS.IBAN' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="iban"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.IBAN' | translate }}"
+                                                                type="text" (input)="checkIBAN();checkModify()"
+                                                                [(ngModel)]="iban" class="readonly form-control"
+                                                                required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('iban')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert" *ngIf="ibanOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!ibanOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.IBAN' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- BANCA -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.BANK' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="bank"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.BANK' | translate }}"
+                                                                type="text" (input)="checkBank();checkModify()"
+                                                                [(ngModel)]="bank" class="readonly form-control"
+                                                                required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('bank')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert" *ngIf="bankOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!bankOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End second column -->
+
+                                </div> <!-- End Row -->
+
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <!-- Go forward button -->
+                                        <button class="btn btn-block btn-primary" type="button"
+                                            (click)="goForwardTab()">{{ 'EMPLOYEES.FORWARD' | translate }}&nbsp;
+                                            <fa-icon [icon]="faArrowRight"></fa-icon>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div> <!-- First tab end -->
+
+
+                            <!-- Second TAB headoffice Form Inputs -->
+
+                            <div class="tab-pane fade" id="v-pills-ammin" role="tabpanel"
+                                aria-labelledby="v-pills-ammin-tab">
+
+                                <div class="row">
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- Address Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.ADDRESS' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="address"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.ADDRESS' | translate }}"
+                                                                type="text" [(ngModel)]="address"
+                                                                class="readonly form-control"
+                                                                (input)="checkAddress();checkModify()" />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('address')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="addressOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!addressOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Province Selection -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline cpy-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.PROVINCE' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="province"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.PROVINCE' | translate }}"
+                                                                (input)="checkProv()" [(ngModel)]="province"
+                                                                (change)="checkModify()" (focus)="getProvinces()"
+                                                                class="readonly form-control"
+                                                                list="mrc-modify-datalist-provinces" />
+
+                                                            <datalist id="mrc-modify-datalist-provinces">
+                                                                <option value="{{ province }}" label="{{ province }}"
+                                                                    selected>
+                                                                </option>
+                                                                <option [value]="prov.cod"
+                                                                    *ngFor="let prov of provinces">
+                                                                    {{ prov.name }}</option>
+                                                            </datalist>
+
+                                                        </fieldset>
+                                                        <a (click)="modifyField('province')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert" *ngIf="provOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!provOk">
+                                                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- City Selection -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="city"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}"
+                                                                (input)="checkCity()" (change)="checkModify()"
+                                                                [(ngModel)]="city" (focus)="getCitiesByProvince()"
+                                                                class="readonly form-control"
+                                                                list="mrc-modify-datalist-cities" />
+
+                                                            <datalist id="mrc-modify-datalist-cities">
+                                                                <option value="{{ city }}" label="{{ city }}" selected>
+                                                                </option>
+                                                                <option [value]="city.name" *ngFor="let city of cities">
+                                                                    {{ city.name }}</option>
+                                                            </datalist>
+                                                        </fieldset>
+                                                        <a (click)="modifyField('city')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert" *ngIf="cityOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!cityOk">
+                                                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End first column -->
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- CAP Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.CAP' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top" name="cap"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.CAP' | translate }}"
+                                                                type="text" [(ngModel)]="cap"
+                                                                (input)="checkCap();checkModify()"
+                                                                class="readonly form-control" />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('cap')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert" *ngIf="capOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!capOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.CAP' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Telephone -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.PHONE_REF' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="telephone"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.PHONE_REF' | translate }}"
+                                                                type="text" [(ngModel)]="telephone"
+                                                                (input)="checkPhone();checkModify()"
+                                                                class="readonly form-control" required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('telephone')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="telephoneOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!telephoneOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End second column -->
+
+                                </div> <!-- End Row -->
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <!-- Go Back button -->
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goBackwardTab()">
+                                            <fa-icon [icon]="faArrowLeft"></fa-icon>
+                                            &nbsp;{{ 'EMPLOYEES.BACKWARDS' | translate }}
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- Go forward button -->
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goForwardTab()">{{ 'EMPLOYEES.FORWARD' | translate }}&nbsp;
+                                            <fa-icon [icon]="faArrowRight"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Third TAB Referente Form Inputs -->
+
+                            <div class="tab-pane fade" id="v-pills-referente" role="tabpanel"
+                                aria-labelledby="v-pills-referente-tab">
+
+                                <div class="row">
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- Office Name Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.OFFICE_NAME' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="officeName"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.OFFICE_NAME' | translate }}"
+                                                                type="text" [(ngModel)]="officeName"
+                                                                class="readonly form-control" (input)="checkModify()" />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('officeName')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert">&nbsp;</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Address Office -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.ADDRESS' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="addressOffice"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.ADDRESS' | translate }}"
+                                                                type="text" [(ngModel)]="addressOffice"
+                                                                class="readonly form-control"
+                                                                (input)="checkAddressOffice();checkModify()" />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('addressOffice')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!addressOfficeOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Province Office -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.PROVINCE' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="provOffice"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.PROVINCE' | translate }}"
+                                                                [(ngModel)]="provOffice" (input)="checkProvOffice()"
+                                                                (change)="checkModify()" (focus)="getProvincesOffice()"
+                                                                class="readonly form-control"
+                                                                list="mrc-modify-datalist-provinces-office" />
+
+                                                            <datalist id="mrc-modify-datalist-provinces-office">
+                                                                <option value="{{ provOffice }}"
+                                                                    label="{{ provOffice }}" selected>
+                                                                </option>
+                                                                <option [value]="prov.cod"
+                                                                    *ngFor="let prov of provincesOffice">
+                                                                    {{ prov.name }}</option>
+                                                            </datalist>
+
+                                                        </fieldset>
+                                                        <a (click)="modifyField('provOffice')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="provOfficeOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!provOfficeOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End first column -->
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- City Office -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}</legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="cityOffice"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}"
+                                                                [(ngModel)]="cityOffice"
+                                                                (focus)="getCitiesByProvinceOffice()"
+                                                                (input)="checkCityOffice()" (change)="checkModify()"
+                                                                class="readonly form-control"
+                                                                list="mrc-modify-datalist-cities-office" />
+                                                            <datalist id="mrc-modify-datalist-cities-office">
+                                                                <option value="{{ cityOffice }}"
+                                                                    label="{{ cityOffice }}" selected>
+                                                                </option>
+                                                                <option [value]="city.name"
+                                                                    *ngFor="let city of citiesOffice">
+                                                                    {{ city.name }}</option>
+                                                            </datalist>
+                                                        </fieldset>
+                                                        <a (click)="modifyField('cityOffice')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="cityOfficeOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!cityOfficeOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Telephone -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.PHONE_REF' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="phoneNoOffice"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.PHONE_REF' | translate }}"
+                                                                type="text" [(ngModel)]="phoneNoOffice"
+                                                                (input)="checkPhoneNoOffice();checkModify()"
+                                                                class="readonly form-control" required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('phoneNoOffice')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!phoneNoOfficeOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End second column -->
+
+                                </div> <!-- End Row -->
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <!-- Go back button -->
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goBackwardTab()">
+                                            <fa-icon [icon]="faArrowLeft"></fa-icon>
+                                            &nbsp;{{ 'EMPLOYEES.BACKWARDS' | translate }}
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- Go forward button -->
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goForwardTab()">{{ 'EMPLOYEES.FORWARD' | translate }}&nbsp;
+                                            <fa-icon [icon]="faArrowRight"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Fourth TAB Referente Form Inputs -->
+
+                            <div class="tab-pane fade" id="v-pills-contatti" role="tabpanel"
+                                aria-labelledby="v-pills-contatti-tab">
+
+                                <div class="row">
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- First Name Req Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.REQ_NAME' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="firstNameReq"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.REQ_NAME' | translate }}"
+                                                                type="text" (input)="checkFirstNameReq();checkModify()"
+                                                                [(ngModel)]="firstNameReq" class="readonly form-control"
+                                                                required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('firstNameReq')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="firstNameReqOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!firstNameReqOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Last Name req Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.REQ_LASTNAME' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="lastNameReq"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.REQ_LASTNAME' | translate }}"
+                                                                type="text" (input)="checkLastNameReq();checkModify()"
+                                                                [(ngModel)]="lastNameReq" class="readonly form-control"
+                                                                required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('lastNameReq')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="lastNameReqOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!lastNameReqOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Role req Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.REQ_ROLE' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="roleReq"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.REQ_ROLE' | translate }}"
+                                                                type="text" [(ngModel)]="roleReq"
+                                                                (input)="checkRoleReq();checkModify()"
+                                                                class="readonly form-control" required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('roleReq')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="roleReqOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!roleReqOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End first column -->
+
+                                    <div class="col-xl-6 col-lg-12">
+
+                                        <!-- First Name Ref Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.FIRST_NAME_REF' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="firstNameRef"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.FIRST_NAME_REF' | translate }}"
+                                                                type="text" (input)="checkFirstNameRef();checkModify()"
+                                                                [(ngModel)]="firstNameRef" class="readonly form-control"
+                                                                required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('firstNameRef')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="firstNameRefOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!firstNameRefOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Last Name Ref Input -->
+                                        <div class="inner">
+                                            <div class="form-row">
+                                                <div class="form-holder">
+                                                    <div class="form-inline mrc-mod-input-div">
+                                                        <fieldset>
+                                                            <legend>{{ 'SIGNUP.LAST_NAME_REF' | translate }} </legend>
+                                                            <input data-toggle="tooltip" data-placement="top"
+                                                                name="lastNameRef"
+                                                                title="{{ 'SIGNUP.TOOLTIPS.LAST_NAME_REF' | translate }}"
+                                                                type="text" (input)="checkLastNameRef();checkModify()"
+                                                                [(ngModel)]="lastNameRef" class="readonly form-control"
+                                                                required />
+                                                        </fieldset>
+                                                        <a (click)="modifyField('lastNameRef')"><img
+                                                                class="img-fluid pencil-icon"
+                                                                src="./assets/images/icons/icon_pencil.png" /></a>
+                                                    </div>
+                                                    <label class="mrc-signup-error-alert"
+                                                        *ngIf="lastNameRefOk">&nbsp;</label>
+                                                    <label class="mrc-signup-error-alert" *ngIf="!lastNameRefOk">
+                                                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                                                        {{ 'ERRORS.REQUIRED' | translate}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- End second column -->
+
+                                </div> <!-- End Row -->
+
+                                <div class="row justify-content-center" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4"> </div>
+                                    <div class="col-sm-4">
+                                        <!-- Go back button -->
+                                        <button class="btn btn-block btn-primary mb-1" type="button"
+                                            (click)="goBackwardTab()">
+                                            <fa-icon [icon]="faArrowLeft"></fa-icon>
+                                            &nbsp;{{ 'EMPLOYEES.BACKWARDS' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div> <!-- End fourth tab -->
+
+                        </div> <!-- End tab-content -->
+                    </div> <!-- End second internal column -->
+                </div> <!-- End row -->
+
+                <div class="row">
+                    
+                    <!-- Undo modify -->
+                    <div class="col-sm-6">
+                        <button id="mrc-mod-profile-btn-annulla" type="button" class="btn btn-secondary btn-block"
+                            (click)="undoModify()" disabled>{{ 'EMPLOYEES.DISCARD_CHANGES' | translate }}</button>
+                    </div>
+
+                    <!-- Apply modify -->
+                    <div class="col-sm-6">
+                        <button id="mrc-mod-profile-btn-apply" type="submit" class="btn btn-primary btn-block"
+                            disabled>{{ 'EMPLOYEES.APPLY_CHANGES' | translate }}</button>
+                    </div>
+
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <!-- Errors Alerts -->
+                    <div class="alert alert-warning text-center" id="mrc-modify-error-description" role="alert"
+                        *ngIf="isNotModified">
+                        {{ 'EMPLOYEES.NO_CHANGES_HAVE_BEEN_MADE' | translate }}
+                    </div>
+                </div>
+            </form>
+        </div> <!-- End wrap -->
+    </div> <!-- End container -->
+</section>

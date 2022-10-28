@@ -1,0 +1,14 @@
+.footer-wrap {
+    width: 50%;
+    background: #ededed;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0.4rem;
+    box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+footer {
+    position: relative;
+    bottom : 0;
+    width: 100%;
+}

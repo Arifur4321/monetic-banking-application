@@ -1,0 +1,34 @@
+#emp-navbar {
+ 
+    color:  black;
+    height: 7.2vh;
+    font-size: 1.7vw;   
+    width: 100%;
+    z-index: 999;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+
+
+
+#rubrica {
+ 
+    font-family: Helvetica,sans-serif;
+    color: #696969;  
+}
+
+#cashback{
+  font-family: Helvetica,sans-serif;
+  color: #696969;   
+}
+
+#vertina{
+  font-family: Helvetica,sans-serif;
+  color: #696969;  
+}
+
+#Appleplay{
+  font-family: Helvetica,sans-serif;
+  color: #696969;  
+}

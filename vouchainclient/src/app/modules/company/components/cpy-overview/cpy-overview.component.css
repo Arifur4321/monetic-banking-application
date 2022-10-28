@@ -1,0 +1,785 @@
+
+/* Header Section */
+#cpy-employees-header {
+  color: white;
+  overflow: hidden;
+}
+
+
+
+/* Main Section */
+#cpy-employees-section {
+  margin-top:  73px; 
+  height: 120%;   
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+#emp-dashboard-header {
+ 
+  overflow: hidden;
+  background-color: white;
+}
+
+
+#emp-overview {
+  margin-top:  73px; 
+  height: 120%;   
+  background-size: 100%;
+  overflow : hidden;
+   
+}
+
+#tablestorico  {
+  
+   margin-top: 0px;
+}
+
+
+#waletimage{
+    width: 60px;
+    height:60px;   
+}
+
+#firstleftbox{
+  margin-top: 70px;  
+ border: 1px 1px 1px 1px solid rgb(255, 255, 255)  ; 
+ height: 24vh;
+ padding: 10px; 
+ box-shadow: 2px 2px 2px 2px #808080; 
+ border-radius: 20px; 
+ margin-left: 20px;
+ 
+}
+
+#secondleftbox{
+  background-color: #FFFFFF;
+ border: 5px solid white; 
+  border: 1px solid white;
+ padding: 10px;
+box-shadow: 2px 2px 2px 2px #808080; 
+border-radius: 20px;
+ height: 230px;
+ margin-top: 15px;
+ margin-left: 20px;
+}
+
+#scaricabutton {
+  margin-left: 130px;
+   background-color: whitesmoke;
+   margin-top: -30px;
+}
+
+#bonificobutton {
+  margin-left: 20px; 
+  background-color: #09DCD5;
+  color: white;
+  margin-top: -30px;
+}
+
+#waleticon{
+  width: 70px;
+  height:70px;
+ padding-left : 2px;
+}
+
+ 
+
+
+
+ 
+#eyesicon{
+
+  width: 23px;
+  height: 20px;
+}
+
+#scaricabutton{
+  margin-left: 90px;
+  background-color: whitesmoke;
+}
+#fainunbonifico{
+  margin-left: 20px; 
+  background-color: #09DCD5; 
+  color: white;
+
+}
+
+
+
+
+/*  Chat box css start here   */
+
+
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 30px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #34e2a2;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: rgb(228, 161, 161);
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+#chatboxicon{
+ width: 130px;
+ height: 120px;
+ float: right;
+ border-radius: 50%;
+  margin-top: 10vh;
+  margin-right: -18vh;
+}
+
+/* chat box shaking image when mouse hover */ 
+
+#chatboxicon:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+#secondcontainer{
+
+
+
+
+
+}
+
+#mostrabutton{
+  margin-left: 170px; 
+  margin-top: -62px; 
+}
+
+#nascondibutton {
+  margin-left: 170px;
+  margin-top: -62px; 
+}
+
+#rightsideimage{
+  width: 80%;
+  height: 55%;
+  margin-top: -7vh;
+  margin-left: 16vh;
+}
+
+#importvaluebutton {
+  font-size: 29px;
+  cursor:pointer !important;
+  margin-top: -29px;
+}
+
+/*  chat box css */
+
+/* media screen less than 600 px min widhth 1920
+max width 3720  */
+
+
+  @media  screen and  (min-width: 1900px)  {
+   
+     
+
+    #cpy-employees-section {
+      margin-top:  109px; 
+      height: 120%;   
+      background-size: 120%;
+   
+       
+    }
+
+    #firstleftbox{
+      margin-top: 55px;  
+      border: 1px 1px 1px 1px solid rgb(255, 255, 255)  ; 
+      
+      width: 100%;
+      height: 16vh;
+      padding: 10px; 
+      box-shadow: 2px 2px 2px 2px #808080; 
+      border-radius: 20px; 
+  
+    }
+
+    #secondleftbox{
+      background-color: #FFFFFF;
+     border: 5px solid white; 
+      border: 1px solid white;
+     padding: 10px;
+    box-shadow: 2px 2px 2px 2px #808080; 
+    border-radius: 20px;
+     height: 240px;
+     margin-top: 70px;
+     width: 100%;
+     height: 30vh;
+    }
+  
+    #scaricabutton {
+      margin-left: 200px;
+       background-color: whitesmoke;
+       margin-top: -80px;
+    }
+
+    #bonificobutton {
+      margin-left: 80px; 
+      background-color: #09DCD5;
+      color: white;
+      margin-top: -80px;
+    }
+    
+    #chatboxicon{
+     
+        margin-top: 13vh;
+        margin-left: 7vh;
+      
+    }
+
+    
+    #secondcontainer{
+      
+      margin-top: 15vh;
+    }
+
+  
+
+    .chat-messages {
+      display: flex;
+      flex-direction: column;
+      max-height: 400px;
+     
+     overflow-x: scroll;
+      overflow-y: scroll
+    }
+
+    #rightsideimage{
+      width: 95%;
+      height:85%;
+      margin-top: -3vh;
+      margin-left: 15vh;
+    }
+
+  }
+
+
+  
+  @media  screen and (min-width: 1536px) and (max-width: 1650px)   { 
+    @media  screen and  (min-height: 900px) {
+    #cpy-employees-section {
+      margin-top:  112px; 
+      height: 120%;   
+      background-size: 100%;
+      overflow : hidden;
+       
+    }
+
+    #firstleftbox{
+      margin-top: 130px;  
+      border: 1px 1px 1px 1px solid rgb(255, 255, 255)  ; 
+      
+      width: 100%;
+      height: 15vh;
+      padding: 10px; 
+      box-shadow: 2px 2px 2px 2px #808080; 
+      border-radius: 20px; 
+  
+    }
+ 
+    #chatboxicon{
+     
+      margin-top: 12vh;
+      margin-right: -8vh;
+  }
+  
+  #secondleftbox{
+    background-color: #FFFFFF;
+   border: 5px solid white; 
+    border: 1px solid white;
+   padding: 10px;
+  box-shadow: 2px 2px 2px 2px #808080; 
+  border-radius: 20px;
+   height: 240px;
+   margin-top: 40px;
+   width: 100%;
+   height: 30vh;
+   }
+
+   }
+  }
+
+/*  for macbook 16 */
+
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only 
+screen and (min-device-pixel-ratio : 1.5) { 
+
+
+  #cpy-employees-section {
+    margin-top:  112px; 
+    height: 120%;   
+    background-size: 100%;
+    overflow : hidden;
+     
+  }
+
+  #firstleftbox{
+    margin-top: 90px;  
+    border: 1px 1px 1px 1px solid rgb(255, 255, 255)  ; 
+    
+    width: 100%;
+    height: 15vh;
+    padding: 10px; 
+    box-shadow: 2px 2px 2px 2px #808080; 
+    border-radius: 20px; 
+
+  }
+
+  #chatboxicon{
+   
+    margin-top: 22.5vh;
+    margin-right: -8vh;
+}
+
+#secondleftbox{
+  background-color: #FFFFFF;
+ border: 5px solid white; 
+  border: 1px solid white;
+ padding: 10px;
+box-shadow: 2px 2px 2px 2px #808080; 
+border-radius: 20px;
+ height: 240px;
+ margin-top: 30px;
+ width: 100%;
+ height: 30vh;
+}
+
+   
+#secondcontainer{
+      
+  margin-top: 15vh;
+}
+
+ }
+ 
+
+
+
+ /* testing chat box css  */
+
+ .container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+
+
+
+/* testing  apple pay button css   */
+
+
+apple-pay-button {
+  --apple-pay-button-width: 150px;
+  --apple-pay-button-height: 30px;
+  --apple-pay-button-border-radius: 3px;
+  --apple-pay-button-padding: 0px 0px;
+  --apple-pay-button-box-sizing: border-box;
+}
+
+
+/* testing sepa payment form css */
+
+
+/**
+* The CSS shown here will not be introduced in the Quickstart guide, but
+* shows how you can use CSS to style your Element's container.
+*/
+input,
+.StripeElement {
+  height: 40px;
+  padding: 10px 12px;
+
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+input:focus,
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+
+/* Layout */
+.sr-root {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 980px;
+  padding: 48px;
+  align-content: center;
+  justify-content: center;
+  height: auto;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+.sr-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: var(--form-width);
+  min-width: 450px;
+  align-self: center;
+  padding: 75px 50px;
+  background: var(--body-color);
+  border-radius: var(--radius);
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+}
+
+.sr-field-error {
+  color: var(--error-color);
+  text-align: left;
+  font-size: 13px;
+  line-height: 17px;
+  margin-top: 12px;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  outline: none;
+}
+.sr-input,
+input[type="text"] {
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius);
+  padding: 5px 12px;
+  height: 44px;
+  width: 100%;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+  background: white;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.sr-input:focus,
+input[type="text"]:focus,
+button:focus,
+.focused {
+  box-shadow: 0 0 0 1px rgba(50, 151, 211, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.07),
+    0 0 0 4px rgba(50, 151, 211, 0.3);
+  outline: none;
+  z-index: 9;
+}
+.sr-input::placeholder,
+input[type="text"]::placeholder {
+  color: var(--gray-light);
+}
+.sr-result {
+  height: 44px;
+  -webkit-transition: height 1s ease;
+  -moz-transition: height 1s ease;
+  -o-transition: height 1s ease;
+  transition: height 1s ease;
+  color: var(--font-color);
+  overflow: auto;
+}
+.sr-result code {
+  overflow: scroll;
+}
+.sr-result.expand {
+  height: 350px;
+}
+
+.sr-combo-inputs-row {
+  display: -ms-flexbox;
+  display: flex;
+}
+.sr-combo-inputs-row {
+  width: 100%;
+  margin-top: 20px;
+}
+.sr-combo-inputs-row:first-child {
+  margin-top: 0;
+}
+.sr-combo-inputs-row {
+  margin-top: 20px;
+}
+.sr-combo-inputs-row .col:not(:last-child) {
+  margin-right: 20px;
+}
+.sr-combo-inputs-row .col {
+  width: 100%;
+}
+
+/* Input labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 100%;
+  color: #6b7c93;
+}
+
+ 
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  filter: brightness(0.8);
+}
+
+a:active {
+  filter: brightness(0.5);
+}
+
+/* Code block */
+code,
+pre {
+  font-family: "SF Mono", "IBM Plex Mono", "Menlo", monospace;
+  font-size: 12px;
+}
+
+/* Stripe Element placeholder */
+.sr-element {
+  padding-top: 12px;
+}
+
+/* Responsiveness */
+@media (max-width: 720px) {
+  .sr-root {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 48px 20px;
+    min-width: 320px;
+  }
+
+  .sr-header__logo {
+    background-position: center;
+  }
+
+  .sr-payment-summary {
+    text-align: center;
+  }
+
+  .sr-content {
+    display: none;
+  }
+
+  .sr-main {
+    width: 100%;
+    height: 450px;
+    background: rgb(247, 250, 252);
+    box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+      0px 2px 5px 0px rgba(50, 50, 93, 0.1),
+      0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+  }
+}
+
+/* todo: spinner/processing state, errors, animations */
+
+.spinner,
+.spinner:before,
+.spinner:after {
+  border-radius: 50%;
+}
+.spinner {
+  color: #ffffff;
+  font-size: 22px;
+  text-indent: -99999px;
+  margin: 0px auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  box-shadow: inset 0 0 0 2px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.spinner:before,
+.spinner:after {
+  position: absolute;
+  content: "";
+}
+.spinner:before {
+  width: 10.4px;
+  height: 20.4px;
+  background: var(--accent-color);
+  border-radius: 20.4px 0 0 20.4px;
+  top: -0.2px;
+  left: -0.2px;
+  -webkit-transform-origin: 10.4px 10.2px;
+  transform-origin: 10.4px 10.2px;
+  -webkit-animation: loading 2s infinite ease 1.5s;
+  animation: loading 2s infinite ease 1.5s;
+}
+.spinner:after {
+  width: 10.4px;
+  height: 10.2px;
+  background: var(--accent-color);
+  border-radius: 0 10.2px 10.2px 0;
+  top: -0.1px;
+  left: 10.2px;
+  -webkit-transform-origin: 0px 10.2px;
+  transform-origin: 0px 10.2px;
+  -webkit-animation: loading 2s infinite ease;
+  animation: loading 2s infinite ease;
+}
+
+ 
+
+.checkbox,
+.radio {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.checkbox label,
+.radio label {
+  min-height: 20px;
+  padding-left: 20px;
+  margin: 20px 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"],
+.radio input[type="radio"],
+.radio-inline input[type="radio"] {
+  position: absolute;
+  margin-top: -12px;
+  margin-left: -20px;
+  box-shadow: none;
+}

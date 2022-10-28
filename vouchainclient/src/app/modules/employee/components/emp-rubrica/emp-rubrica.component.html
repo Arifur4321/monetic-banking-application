@@ -1,0 +1,273 @@
+
+<section id="cpy-employees-header">
+
+    <!-- Top Border Image -->
+    <img class="float-right img-fluid" id="cpy-employees-top-image" src=" "/>
+  
+  </section>
+  
+  <!-- Main Website Content -->
+  <section id="cpy-employees-section">
+  
+    <app-emp-submenu> </app-emp-submenu>
+   
+    <!-- Section Title -->
+    <h1 class="text-center" id="cpy-employees-title">
+      <b>   </b>
+    </h1>
+    <!-- Main Section Content -->
+    <div class="container-fluid" id="cpy-employees-container">
+  
+      <!-- Employees Table Wrapper and Container -->
+      <div class="cpy-employees-content-wrap-tables" id="cpy-employees-wrap-table">
+        <div class="cpy-employees-container-table table-responsive">
+        
+              <!-- Invite Form -->
+              <div class="w-100">
+  
+                <!-- Employees Table -->
+                <table   class="table table-borderedless">
+  
+                  <!-- Employees Table Header -->
+                  <thead>
+  
+                    <!-- Employees Table Head -->
+                    <tr class="cpy-employees-table-head">
+  
+                      <!-- Employees Table Dark Icon -->
+                      <th class="text-center">
+                        <img src="./assets/images/icons/profilo_icon2.png" style="margin-top: 1vh; width: 41px;"/>
+                      </th>
+  
+                      <!-- Employees Table Title -->
+                      <th colspan="5" style="color: #696969 ;  font-family: Helvetica,sans-serif  ;">{{ 'EMPLOYEES.TABLE_TITLE' | translate }}</th>
+  
+                    </tr>
+  
+                    <!-- Employees Table Subhead -->
+                    <tr class="cpy-employees-table-subhead">
+  
+                      <!-- Employees Table Check-All Checkbox -->
+                      <th class="pl-4 text-center" style="width: 5%;">
+                        <input class="form-check-input" id="cpy-employee-check-all" type="checkbox" hidden>
+                      </th>
+  
+                      <th style="width: 15%; color: #696969 ;  font-family: Helvetica,sans-serif  ;"  >{{ "EMPLOYEES.FIRST_NAME" | translate }}</th>
+  
+                      <th style="width: 15%; color: #696969 ;  font-family: Helvetica,sans-serif  ;">{{ "EMPLOYEES.LAST_NAME" | translate }}</th>
+  
+                      <th style="width: 10%; color: #696969 ;  font-family: Helvetica,sans-serif  ;">{{ "EMPLOYEES.SERIAL_NUMBER" | translate }}</th>
+  
+                      <th style="width: 20%; color: #696969 ;  font-family: Helvetica,sans-serif  ;">{{ "EMPLOYEES.EMAIL" | translate }}</th>
+  
+                      <th class="pr-2" style="width: 5%; color: #696969 ;  font-family: Helvetica,sans-serif  ;">{{ "EMPLOYEES.STATUS" | translate }}</th>
+  
+                    </tr>
+                  </thead>
+  
+                  <!-- Employees Table Body -->
+                  <tbody>
+  
+                    <!-- Loading Table Row -->
+                    <tr *ngIf="tableLoading">
+                      <td class="text-center" colspan="6" style="height: 10rem;">
+                        <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+                      </td>
+                    </tr>
+  
+                    <!-- Empty Table Row -->
+                    <tr *ngIf="tableEmpty">
+                      <td class="text-center" colspan="6" style="height: 10rem; color: #696969 ;  font-family: Helvetica,sans-serif  ; "  >
+                        <h1>{{ msgTableBody }}</h1>
+                      </td>
+                    </tr>
+  
+                    <!-- Employees Table Row(s) -->
+                    <tr *ngFor="let employee of employees | paginate: { itemsPerPage: 5, currentPage: selectedPage }">
+  
+                      <td class="pl-4 text-center">
+                        <input class="form-check-input" type="checkbox" value="{{ employee.usrId }}" (change)="onChangeEmployeeCheckbox($event, employee)" *ngIf="employee.empCheckedLogin === 'true'">
+                      </td>
+                      
+                      <td>{{ employee.empFirstName }}</td>
+                      <td>{{ employee.empLastName }}</td>
+                      <td>{{ employee.empMatricola }}</td>
+                      <td>{{ employee.usrEmail }}</td>
+  
+                      <!-- Employee Signup Done Status Cell -->
+                      <td *ngIf="employee.empCheckedLogin === 'true'">
+                        <img src="./assets/images/icons/ok_icon.png"/>
+                      </td>
+  
+                      <!-- Employee Signup Pending Status Cell -->
+                      <td *ngIf="employee.empCheckedLogin === 'false'">
+                        <img src="./assets/images/icons/clessidra_icon.png"/>
+                      </td>
+  
+                    </tr>
+  
+                  </tbody>
+  
+                  <!-- Employees Table Footer -->
+                  <tfoot>
+  
+                    <tr *ngIf="employees && employees.length">
+  
+                      <!-- Pagination -->
+                      <td class="pt-3 text-center" colspan="6">
+                        <pagination-controls class="vouchainPagination" maxSize="5" nextLabel="{{ 'PAGINATION.NEXT' | translate }}" previousLabel="{{ 'PAGINATION.PREVIOUS' | translate }}" (pageChange)="selectedPage = $event; onPageChange()"></pagination-controls>
+                      </td>
+                      
+                    </tr>
+  
+                    <!-- Invite Employee "Header" -->
+                    <tr>
+  
+                      <!-- Invite Employee Button -->
+                      <td class="pb-3 pl-4"  colspan="3" [ngClass]="{ 'pt-3': !employees || !employees.length }">
+                        <button class="btn btn-primary" data-target="#cpy-employees-modal-new-employee" data-toggle="modal" id="cpy-employees-invite-employee-button" type="button">{{ 'EMPLOYEES.INVITE_EMP_TITLE' | translate }}</button>
+                      </td>
+  
+                      <!-- Send Vouchers Button -->
+                      <td class="pb-3 pr-4 text-right" colspan="3" [ngClass]="{' pt-3': !employees || !employees.length }">
+                        <button class="btn btn-primary" id="cpy-employees-send-voucher-button" type="button" (click)="onSubmitSendVouchers()" [disabled]="!selectedEmployees.size">{{ 'EMPLOYEES.SEND_VOUCHER_BUTTON' | translate }}</button>
+                      </td>
+                      
+                    </tr>
+  
+                  </tfoot>
+  
+                </table>
+  
+              </div>
+              <!-- </form> -->
+  
+        </div>
+      </div>
+  
+    </div>
+  
+  </section>
+  
+  <!-- New Employee Bootstrap Modal -->
+  <div class="fade modal" data-refresh="true" id="cpy-employees-modal-new-employee" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header" id="cpy-employees-modal-new-employee-header" style="background-color: #2c61f1; color: white;">
+  
+          <h4 class="modal-title" id="cpy-employees-modal-new-employee-header-title">
+            {{ "EMPLOYEES.INVITE_EMP_TITLE" | translate }}
+          </h4>
+  
+          <button class="btn btn-default" data-dismiss="modal" id="cpy-employees-modal-new-employee-header-button" type="button">
+            X
+          </button>
+  
+        </div>
+  
+        <form class="container-fluid form-group" (ngSubmit)="onSubmitInviteForm()">
+  
+        <!-- Modal Body -->
+        <div class="modal-body" id="cpy-employees-modal-new-employee-body">
+          
+          <div class="container-fluid form-group">
+            
+            <!-- New Employee First Name Input -->
+            <label class="mb-0" for="cpy-employees-modal-new-employee-first-name"><b>{{ 'EMPLOYEES.FIRST_NAME' | translate }}</b></label>
+            <input 
+              class="form-control" 
+              data-toggle="tooltip" 
+              data-placement="top" 
+              id="cpy-employees-modal-new-employee-first-name" 
+              name="empFirstName" 
+              placeholder="{{ 'EMPLOYEES.FIRST_NAME' | translate }}" 
+              title="{{ 'EMPLOYEES.TOOLTIPS.INSERT_FIRST_NAME' | translate }}" 
+              type="text" 
+              (input)="checkEmpFirstName()" 
+              [(ngModel)]="empFirstName" 
+              required
+            />
+  
+            <!-- New Employee Last Name Input -->
+            <label class="mb-0 mt-3" for="cpy-employees-modal-new-employee-last-name"><b>{{ 'EMPLOYEES.LAST_NAME' | translate }}</b></label>
+            <input 
+              class="form-control" 
+              data-toggle="tooltip" 
+              data-placement="top" 
+              id="cpy-employees-modal-new-employee-last-name" 
+              name="empLastName" 
+              placeholder="{{ 'EMPLOYEES.LAST_NAME' | translate }}" 
+              title="{{ 'EMPLOYEES.TOOLTIPS.INSERT_LAST_NAME' | translate }}" 
+              type="text" 
+              (input)="checkEmpLastName()" 
+              [(ngModel)]="empLastName" 
+              required
+            />
+  
+            <!-- New Employee Matricola Input -->
+            <label class="mb-0 mt-3" for="cpy-employees-modal-new-employee-matricola"><b>{{ 'EMPLOYEES.SERIAL_NUMBER' | translate }}</b></label>
+            <input 
+              class="form-control" 
+              data-toggle="tooltip" 
+              data-placement="top" 
+              id="cpy-employees-modal-new-employee-matricola"
+              name="empMatricola" 
+              placeholder="{{ 'EMPLOYEES.SERIAL_NUMBER' | translate }}" 
+              title="{{ 'EMPLOYEES.TOOLTIPS.INSERT_SERIAL_NUMBER' | translate }}" 
+              type="text" 
+              (input)="checkEmpMatricola()" 
+              [(ngModel)]="empMatricola" 
+              required
+          />
+  
+            <!-- New Employee Email Input -->
+            <label class="mb-0 mt-3" for="cpy-employees-modal-new-employee-email"><b>{{ 'EMPLOYEES.EMAIL' | translate }}</b></label>
+            <input 
+              class="form-control" 
+              data-toggle="tooltip" 
+              data-placement="top" 
+              id="cpy-employees-modal-new-employee-email"
+              name="empEmail" 
+              placeholder="{{ 'EMPLOYEES.EMAIL' | translate }}" 
+              title="{{ 'EMPLOYEES.TOOLTIPS.INSERT_EMAIL' | translate }}" 
+              type="email" 
+              (input)="checkEmpEmail()" 
+              [(ngModel)]="empEmail" 
+              required
+            />
+  
+          </div>
+  
+        </div>
+  
+        <!-- Modal Footer -->
+        <div class="justify-content-between modal-footer" id="cpy-employees-modal-new-employee-footer">
+  
+          <!-- Cancel New Employee Button -->
+          <button class="btn btn-secondary" data-dismiss="modal" id="cpy-employees-modal-new-employee-footer-cancel-button" type="button">
+            {{ 'BUTTONS.GENERICS.CANCEL' | translate }}
+          </button>
+  
+          <!-- Invite Employee Submit Button -->
+          <button class="btn btn-primary" id="cpy-employees-invite-employee-button" type="submit" [disabled]="tableError" *ngIf="inviteOk">
+            {{ "EMPLOYEES.INVITE_BUTTON" | translate }}
+          </button>
+  
+          <!-- Loading New Employee Button -->
+          <button class="btn btn-primary" type="submit" disabled *ngIf="!inviteOk">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {{ "SIGNUP.MODAL.LOADING_BUTTON" | translate }}
+          </button>
+  
+        </div>
+  
+        </form>
+  
+      </div>
+    </div>
+  
+  </div>
+  

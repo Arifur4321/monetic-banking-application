@@ -1,0 +1,313 @@
+#mrc-dashboard-header {
+  color: white;
+  overflow: hidden;
+}
+
+/* Border Images */
+#top-image-dashboard {
+  z-index: 1;
+}
+
+#mrc-overview {
+  margin-top: -38vh;
+}
+
+#mrc-overview-title {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+}
+
+.mrc-go-section {
+  float: right;
+}
+
+.content-wrap {
+  width: 100%;
+  background: #ededed;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5vw 5vh;
+
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+.mrc-ow-content-wrap-tables {
+  width: 100%;
+  background: #ededed;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+#mrc-ow-content-wrap-table1 {
+  margin-bottom: 1.5vh;
+}
+
+#mrc-ow-content-wrap-table2 {
+  margin-top: 1.5vh;
+}
+
+.mrc-profile-text-title {
+  font-family: "GraphikSemibold";
+  margin: 1rem 0rem 0rem;
+}
+
+.mrc-profile-text-subtitle {
+  font-family: "GraphikLight";
+}
+
+#mrc-ow-profile-go-btn {
+  margin-top: -3vh;
+  margin-right: -1vw;
+}
+
+/* Tables Stuff */
+.mrc-overview-table-div {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  display: table;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+table * {
+  position: relative;
+}
+
+table thead tr {
+  background: #a8dbff;
+}
+
+table tbody tr {
+  height: 50px;
+}
+table tbody tr:last-child {
+  border: 0;
+}
+
+.mrc-overview td,
+th {
+  padding-left: 8px;
+}
+
+.mrc-overview-table-head {
+  font-family: "GraphikMedium";
+  font-size: 24px;
+  color: #2c61f1;
+  line-height: 1.2;
+  font-weight: unset;
+  height: 10vh;
+}
+
+.mrc-overview-table-subhead {
+  font-family: "GraphikMedium";
+  font-size: 18px;
+  color: #2c61f1;
+  line-height: 1.2;
+  font-weight: unset;
+  height: 3vh;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+tbody tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+/* --- MEDIA QUERIES */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+  
+  }
+
+  @media screen and (min-height: 901px) {
+    #mrc-overview {
+      margin-top: -33vh;
+    }
+  }
+
+  #mrc-ow-wrap-profile {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10vh;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #mrc-overview {
+    margin-top: -48vh;
+  }
+
+  #mrc-ow-wrap-profile {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5vh;
+  }
+
+  .mrc-ow-content-wrap-tables {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 3vh;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #mrc-overview {
+    margin-top: -25vh;
+  }
+
+  #mrc-ow-wrap-profile {
+    margin-left: 27%;
+    margin-right: 27%;
+  }
+
+  .mrc-ow-content-wrap-tables {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 3vh;
+  }
+
+  #mrc-ow-profile-go-btn {
+    margin-top: -1vh;
+    margin-right: -1vw;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #mrc-overview {
+    margin: -50vh 0 3vh;
+  }
+
+  #mrc-ow-wrap-profile {
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
+  .mrc-ow-content-wrap-tables {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 3vh;
+  }
+
+  #mrc-ow-profile-go-btn {
+    margin-top: -3vh;
+    margin-right: -1vw;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #mrc-overview {
+    margin: -70vh 0 3vh;
+  }
+
+  #mrc-ow-wrap-profile {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  #mrc-ow-profile-go-btn {
+    margin-top: -1vh;
+    margin-right: -1vw;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #mrc-ow-wrap-profile {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  #top-image-dashboard {
+    width: 500%;
+  }
+
+  #mrc-overview {
+    margin-top: -14rem;
+  }
+
+  #mrc-ow-profile-go-btn {
+    margin-top: -1vh;
+    margin-right: -1vw;
+  }
+
+  .mrc-ow-content-wrap-tables {
+    overflow-x: scroll;
+  }
+
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+
+@media screen and (min-height: 1131px) {
+  .mrc-overview-table-head {
+    height: 7vh;
+  }
+}
+
+@media screen and (max-height: 1130px) and (min-height: 901px) {
+
+}
+
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) and (min-height: 380px) {
+
+}
+
+@media screen and (max-height: 379px) {
+}

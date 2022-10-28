@@ -1,0 +1,49 @@
+<section id="emp-login-section">
+  <!-- Website Border Images -->
+  <img src="./assets/images/vouchain_loginTop.png" id="top-image-login" class="img-fluid" />
+  <img src="./assets/images/vouchain_loginBottom.png" id="bottom-image-login" class="img-fluid" />
+
+   <div id="emp-login-header">
+    <a href="{{ homepage }}">
+      <img id="imgEmpLogoInvitCode" class="img-fluid" src="./assets/images/monethic logo.PNG" />
+    </a>
+  </div>
+  <!-- Main Website Content -->
+  <div class="emp-login-container">
+    <div class="emp-login-wrap">
+
+      <!-- Form -->
+      <form class="text-center" (ngSubmit)="isValideCode(invitationCode)" ngNativeValidate>
+        <div style="margin-bottom: 2rem;">
+          <a id="emp-login-anchor">{{ "INV_CODE.INVITATION_CODE" | translate }}</a>
+        </div>
+        <div class="form-group">
+          
+          <!-- Input Invitation Code -->
+          <input type="text" class="form-control" placeholder="{{ 'INV_CODE.INVITATION_CODE' | translate }}"
+            [(ngModel)]="invitationCode" [ngModelOptions]="{ standalone: true }" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">{{ "INV_CODE.SEND" | translate }}</button>
+
+        <!-- Go To Homepage Link -->
+        <div class="btn btn-block link-homepage">
+          <p>
+            Torna alla <a href="{{ homepage }}">Homepage</a>.
+          </p>
+        </div>
+
+        <!-- Errors Alert -->
+        <div class="alert alert-danger" id="emp-incorrect-invitation-code" role="alert" *ngIf="errorNotMatch">
+          {{ "ERRORS.INCORRECT_INVITATION_CODE" | translate }}
+        </div>
+        <div class="alert alert-danger" id="emp-invitation-code-error" role="alert" *ngIf="errorGeneric">     
+          {{ "ERRORS.GENERIC" | translate }}
+        </div>
+        <div class="alert alert-danger" id="emp-invitation-code-error-ut" role="alert" *ngIf="errorUsed">     
+          {{ "ERRORS.ALREADY_USED_INV_CODE" | translate }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+</section>

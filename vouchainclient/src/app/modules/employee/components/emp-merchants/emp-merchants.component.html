@@ -1,0 +1,133 @@
+
+<!-- Arifur  main  content --> 
+<section id="emp-merchants-header">
+<!-- Top Border Image -->
+    <img class="float-right img-fluid" id="emp-merchants-top-image"
+        src="" />
+</section>
+<!-- Main Website Content -->
+<section id="emp-merchants-section">
+
+    <!-- Section Title
+    <h1 class="text-center" id="emp-merchants-title">
+          
+        <b>{{ 'EMPLOYEES.AFFILIATES' | translate }}</b>
+    
+    </h1>
+ --> 
+    <!-- Main Section Content -->
+    
+    <app-emp-submenu> </app-emp-submenu>
+
+    <div class="container-fluid" id="emp-container">
+      
+       
+        <!-- Merchants Table Wrapper and Container -->
+        <div class="emp-merchants-content-wrap-tables" id="emp-merchants-wrap-table">
+            
+           
+
+            <div class="emp-merchants-container-table table-striped">
+
+                <div class="w-100">
+
+                    <!-- Merchants Table -->
+                    
+                    <table  class="table table-borderedless" >
+
+                        <!-- Merchants Table Head -->
+                        <thead>
+                            <!-- Employees Table Head -->
+                            <tr class="emp-merchants-table-head">
+
+                                <!-- Employees Table Dark Icon -->
+                                <th class="text-center" style="width: 7.5rem; background-color: white;   ">
+                                    <img src="./assets/images/icons/merchant_dark_icon.png"
+                                        style="width: 4rem; margin: 1rem;" />
+                                </th>
+                                <!-- Employees Table Title -->
+                                <th colspan="6"  style="background-color: white ;  color : black "  >{{ 'EMPLOYEES.AFFILIATE_LIST' | translate }}</th>
+
+                            </tr>
+
+                            <!-- Employees Table Subhead -->
+                            <tr class="emp-merchants-table-subhead">
+
+                                <!-- Employees Table Check-All Checkbox -->
+                                <th class="pl-4 text-center" style="width: 5%;">
+
+                                </th>
+                                <th style="width: 18%">{{ 'EMPLOYEES.NOMINATIVE' | translate }}</th>
+                                <th style="width: 18%">{{ "OVERVIEW.PROFILE.R_SOCIALE" | translate }}</th>
+                                <th style="width: 18%">{{ "OVERVIEW.PROFILE.ADDRESS" | translate }}</th>
+                                <th style="width: 18%">{{ "SIGNUP.CITY" | translate }}</th>
+                                <th style="width: 10%">{{ "SIGNUP.PROVINCE" | translate }}</th>
+                                <th style="width: 10%">{{ "SIGNUP.CAP" | translate }}</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Merchants Table Body -->
+                        <tbody>
+
+                            <!-- Loading Table Row -->
+                            <tr *ngIf="tableLoading">
+                                <td class="text-center" colspan="6" style="height: 10rem;">
+                                    <div class="spinner-border text-primary" role="status"
+                                        style="height: 4rem; width: 4rem;"></div>
+                                </td>
+                            </tr>
+
+                            <!-- Empty Table Row -->
+                            <tr *ngIf="tableEmpty">
+                                <td class="text-center" colspan="6" style="height: 10rem;">
+                                    <h1>{{ msgTableBody }}</h1>
+                                </td>
+                            </tr>
+
+                            <!-- Merchants Table Row(s) -->
+                            <tr
+                                *ngFor="let merchant of merchants | paginate: { itemsPerPage: 5, currentPage: selectedPage }">
+                                <td class="text-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="height: 1.25rem; width: 1.25rem;"
+                                            type="radio" name="exampleRadios" id="exampleRadios1"
+                                            value="{{ merchant.usrId }}"
+                                            (change)="onChangeMerchantCheckbox($event, merchant);onClickRadioButton()">
+                                    </div>
+
+                                </td>
+                                <td>{{ merchant.mrcFirstNameReq}} {{ merchant.mrcLastNameReq}}</td>
+                                <td>{{ merchant.mrcRagioneSociale }}</td>
+                                <td>{{ merchant.mrcAddress }}</td>
+                                <td>{{ merchant.mrcCity }}</td>
+                                <td>{{ merchant.mrcProv }}</td>
+                                <td>{{ merchant.mrcZip }}</td>
+                            </tr>
+                        </tbody>
+
+                        <!-- Merchants Table Footer -->
+                        <tfoot>
+                            <td colspan="7" id="emp-merchants-pagination">
+                                <!-- Pagination -->
+                                <pagination-controls class="pt-3 vouchainPagination" maxSize="5" nextLabel="Successivo"
+                                    previousLabel="Precedente" (pageChange)="selectedPage = $event;">
+                                </pagination-controls>
+                            </td>
+                        </tfoot>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="row mb-4 justify-content-end">
+                <button class="btn btn-primary mr-5" id="btn-send-voucher" type="button" [routerLink]="['/employee/empDashboard/vouchers']"
+                    [state]="{mrcSelected: selectedMerchants}" disabled>{{ 'EMPLOYEES.SEND_VOUCHER_BUTTON' | translate }}</button>
+
+            </div>
+        </div>
+    </div>
+
+ 
+
+</section>
+

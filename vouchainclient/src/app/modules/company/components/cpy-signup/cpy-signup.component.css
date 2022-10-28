@@ -1,0 +1,419 @@
+/* Main Section */
+#cpy-signup-section {
+  background-color: #2c61f1;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  width: 100%;
+}
+
+/* Border Images */
+#cpy-signup-top-image {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+#cpy-signup-bottom-image {
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  z-index: -1;
+}
+
+/* VouChain Logo */
+#cpy-signup-cpy-logo {
+  width: 15%;
+}
+
+/* Header Text */
+#cpy-signup-header {
+  margin-left: 8%;
+  padding-top: 3vh;
+  position: absolute;
+}
+
+/* Login Page Link */
+#cpy-signup-anchor-login {
+  font-size: 1.5rem;
+}
+
+/* Signup Page Link */
+#cpy-signup-anchor-signup {
+  font-family: "GraphikMedium";
+  font-size: 1.5rem;
+}
+
+/* Signup Page Link */
+#cpy-signup-anchor-login {
+  color: #575756;
+  font-size: 1.5rem;
+}
+
+#cpy-signup-anchor-login:hover {
+  color: #2c61f1;
+  text-decoration: none;
+}
+
+#cpy-signup-anchor-login:visited {
+  color: #575756;
+}
+
+#cpy-signup-anchor-pipe {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+/* --- FORM --- */
+.cpy-signup-form-label {
+  color: #2c61f1;
+  font-family: "GraphikSemibold";
+}
+
+.inner .form-row .form-holder {
+  margin-bottom: 0.5rem;
+  padding: 0 10px;
+  position: relative;
+  width: 100%;
+}
+
+.inner .form-row .form-row-inner {
+  position: relative;
+}
+
+.inner .form-row .form-holder fieldset {
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 2px solid #e5e5e5;
+}
+
+.inner .form-row .form-holder legend {
+  color: #2c61f1;
+  font-family: "GraphikSemibold";
+  font-size: 1rem;
+  margin-bottom: 0;
+  margin-left: 20px;
+  position: relative;
+  width: auto;
+}
+
+.inner .form-row .form-holder input,
+.inner .form-row .form-holder select {
+  -moz-appearance: unset;
+  -moz-border-radius: 4px;
+  -moz-box-sizing: border-box;
+  -moz-outline: none;
+  -ms-appearance: unset;
+  -ms-border-radius: 4px;
+  -ms-box-sizing: border-box;
+  -ms-outline: none;
+  -o-appearance: unset;
+  -o-border-radius: 4px;
+  -o-box-sizing: border-box;
+  -o-outline: none;
+  -webkit-appearance: unset;
+  -webkit-border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -webkit-outline: none;
+  appearance: unset;
+  border-radius: 4px;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 46px;
+  margin-top: -11px;
+  outline: none;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.inner .form-row .form-holder input {
+  color: #333;
+  font-size: 1rem;
+}
+
+.inner .form-row .form-holder .input-border {
+  border: 2px solid #e5e5e5;
+  margin-top: 8px;
+  padding: 11px 20px;
+}
+
+.inner .form-row.form-row-date .form-holder select {
+  float: left;
+  margin-right: 15px;
+  width: 20.6%;
+}
+
+/* Nav link */
+.nav-tabs a {
+  color: #575756;
+}
+
+.nav-tabs .nav-link.active {
+  color: #2c61f1;
+}
+
+.link-homepage {
+  font-size: 0.9rem;
+  padding: 0rem;
+}
+
+/* Form Container */
+.cpy-signup-container {
+  align-items: flex-start;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8rem;
+  padding: 15px;
+  width: 100%;
+}
+
+/* Form Wrap */
+.cpy-signup-wrap {
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 5.25rem 5rem 3rem;
+  width: 700px;
+}
+
+/* Error Alert Messages */
+.cpy-signup-error-alert {
+  color: red;
+  font-size: 0.7rem;
+}
+
+/* Info Alert Messages */
+.cpy-signup-info-alert {
+  color: #2c61f1;
+  font-size: 0.7rem;
+}
+
+/* Bootstrap form-group class */
+.form-group {
+  margin-bottom: 0rem;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* --- NEW MEDIA QUERIES --- */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  @media screen and (max-height: 1000px) {
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #cpy-signup-header {
+    margin-top: 0%;
+  }
+
+  .cpy-signup-container {
+    margin-top: 10%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #cpy-signup-section {
+    overflow-y: hidden;
+  }
+
+  .cpy-signup-wrap {
+    padding: 2.25rem 3rem 1.25rem;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #cpy-signup-header {
+    margin-left: 6rem;
+    margin-top: 2%;
+  }
+
+  .cpy-signup-container {
+    margin-top: 18%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .inner .form-holder input {
+    width: 100%;
+  }
+
+  .cpy-signup-wrap {
+    margin-top: 5%;
+    padding: 3.25rem 3rem 2.75rem;
+  }
+
+  #cpy-signup-nav-tabs-content {
+    margin: 0 3rem;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #cpy-signup-header {
+    margin-left: 4rem;
+    margin-top: 2%;
+  }
+
+  .cpy-signup-container {
+    margin-top: 14%;
+  }
+
+  #cpy-signup-section {
+    margin-top: -5vh;
+    overflow: scroll;
+  }
+
+  .cpy-signup-wrap {
+    margin-top: 0%;
+    padding: 2.25rem 3rem 1.75rem;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .inner .form-holder input {
+    width: 100%;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #cpy-signup-header {
+    margin-left: 2rem;
+    margin-top: 2%;
+  }
+
+  /* Form Container */
+  .cpy-signup-container {
+    min-height: 120vh;
+    margin-top: 16%;
+  }
+
+  /* Form Wrap */
+  .cpy-signup-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  #cpy-signup-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .inner .form-holder input {
+    width: 100%;
+  }
+
+  #cpy-signup-cpy-logo {
+    width: 40%;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #cpy-signup-header {
+    margin-left: 0.1rem;
+    margin-top: 14%;
+  }
+
+  #cpy-signup-cpy-logo {
+    width: 50%;
+  }
+
+  /* Form Container */
+  .cpy-signup-container {
+    min-height: 120vh;
+    margin-top: 45%;
+  }
+
+  /* Form Wrap */
+  .cpy-signup-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  .inner .form-holder input {
+    width: 80vw;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .inner .form-holder fieldset {
+    padding: 0;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) {
+}
+
+@media screen and (min-height: 1250px) {
+  .cpy-signup-container {
+    margin-top: 30%;
+  }
+
+  #cpy-signup-header {
+    margin-left: 5%;
+    margin-top: 8%;
+  }
+}

@@ -1,0 +1,44 @@
+<section id="cpy-upcon-section">
+  <!-- Website Border Images -->
+  <img src="./assets/images/vouchain_loginTop.png" id="cpy-upcon-top-image" class="img-fluid"/>
+  <img src="./assets/images/vouchain_loginBottom.png" id="cpy-upcon-bottom-image" class="img-fluid"/>
+
+  <div id="cpy-upcon-header">
+
+    <!-- Website Section Title/Logo -->
+    <a href="{{ homepage }}">
+      <img class="img-fluid" id="cpy-upcon-cpy-logo" src="./assets/images/cpyNavbar_logoBianco.png"/>
+    </a>
+
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="cpy-upcon-container">
+    <div class="cpy-upcon-wrap">
+
+      <form id="file-upload-form" class="cpy-upcon-form" enctype='multipart/form-data' (ngSubmit)="onUploadClick()">
+        <!-- Gestire il tipo di file -->
+        <input id="fileUpload" type="file" #fileUpload name="fileUpload" value="fileName" (change)="onFileSelect()" accept=".pdf, .p7m"/>
+
+        <label for="fileUpload" id="file-drag">
+          <div id="start">
+            <i class="fa fa-upload" aria-hidden="true"></i>
+            <div innerHTML="{{ msgUpload }}"></div>
+            <span id="fileUpload-btn" class="btn btn-primary">{{ 'CPY.UPLOAD_CONTRACT.SELECT_FILE' | translate }}</span>
+          </div>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">
+          Upload
+        </button>
+      </form>
+
+      <p class="mt-2 mb-0 text-center">{{ 'RECOVERY_PASS.BACK_TO' | translate }} <a routerLink="/company" routerLinkActive="active">{{ 'BUTTON.LOGIN' | translate }}</a>.</p>
+      
+      <p class="mb-0 text-center">Torna alla <a href="{{ homepage }}">Homepage</a>.</p>
+
+      <div *ngIf="notSelectedFile" id="cpy-upcon-err-msg" class="alert alert-danger text-center" role="alert">{{ 'ERRORS.ERROR_UPLOAD_CONTRACT' | translate }}</div>
+      <div *ngIf="ctrNoValid" id="cpy-upcon-err-msg" class="alert alert-danger text-center" role="alert">{{ 'ERRORS.ERROR_UPLOAD_CONTRACT_NOT_VALID' | translate }}</div>
+      <div *ngIf="errorGeneric" id="cpy-upcon-err-msg" class="alert alert-danger text-center" role="alert">{{ 'ERRORS.GENERIC' | translate }}</div>
+    </div>
+  </div>
+</section>

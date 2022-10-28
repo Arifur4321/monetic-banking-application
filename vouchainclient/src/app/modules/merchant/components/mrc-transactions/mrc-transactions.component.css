@@ -1,0 +1,403 @@
+/* Header Section */
+#mrc-transactions-header {
+  color: white;
+  overflow: hidden;
+}
+
+/* Border Images */
+#mrc-transactions-top-image {
+  z-index: 1;
+}
+
+/* Main Section */
+#mrc-transactions-section {
+  margin: -35vh 0 3rem;
+}
+
+/* Section Title */
+#mrc-transactions-title {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+  margin-bottom: 2rem;
+}
+
+#mrc-transactions-container {
+  padding-left: 20vw;
+  padding-right: 20vw;
+}
+
+/* vvv TRANSACTIONS TABLE vvv */
+
+#mrc-transactions-table-icon {
+  margin: 1rem;
+}
+
+#mrc-transactions-table-reload-button {
+  color: #2d2e83;
+  font-size: 1.5rem;
+}
+
+/* Table Wrapper */
+.mrc-transactions-content-wrap-tables {
+  background: #a8dbff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+
+  box-shadow: 3.4px 3.4px 3.4px 0px rgba(87, 87, 86, 0.6);
+}
+
+/* Table Container */
+.mrc-transactions-container-table {
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+}
+
+/* Table Header */
+.mrc-transactions-table-head th {
+  color: #2d2e83;
+  font-family: "GraphikMedium";
+  font-size: 1.5vw;
+  font-weight: unset;
+  height: 60px;
+  line-height: 1.2;
+}
+
+/* Table Subheader */
+.mrc-transactions-table-subhead th {
+  color: #2c61f1;
+  font-family: "GraphikMedium";
+  font-size: 1vw;
+  font-weight: unset;
+  line-height: 1.2;
+  padding-bottom: 0.5rem;
+}
+
+/* Table Checkboxes (⚠ Bootstrap Class ⚠) */
+.form-check-input {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+/* Table Generic */
+table {
+  background: white;
+  border-collapse: collapse;
+  border-spacing: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Table Elements Positions */
+table * {
+  position: relative;
+}
+
+/* Table Cells */
+table td,
+table th {
+  padding-left: 8px;
+  text-align: left;
+}
+
+/* Table Header Rows */
+table thead tr {
+  background: #a8dbff;
+}
+
+/* Table Body Rows */
+table tbody tr {
+  height: 50px;
+}
+
+/* Last Table Body Row */
+table tbody tr:last-child {
+  border: 0;
+}
+
+/* Table Body Rows */
+tbody tr {
+  color: #808080;
+  font-family: "GraphikSemibold";
+  font-size: 1rem;
+  font-weight: unset;
+  line-height: 1.2;
+}
+
+/* Even Table Body Rows */
+tbody tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+/* Table Footer Rows */
+table tfoot tr {
+  height: 60px;
+  background: #a8dbff;
+}
+
+tfoot tr {
+  font-family: "GraphikSemibold";
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* ^^^ TRANSACTIONS TABLE ^^^ */
+
+/* vvv MEDIA QUERIES vvv */
+
+/* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+  */
+@media (min-width: 1441px) {
+  @media screen and (max-height: 900px) {
+    /* Table Header */
+    .mrc-transactions-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .mrc-transactions-table-subhead th {
+      font-size: 1.3vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1.3vw;
+    }
+  }
+}
+
+/* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+  */
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) {
+    /* Table Header */
+    .mrc-transactions-table-head th {
+      font-size: 1.6vw;
+    }
+
+    /* Table Subheader */
+    .mrc-transactions-table-subhead th {
+      font-size: 1.2vw;
+    }
+
+    /* Table Body Rows */
+    tbody tr {
+      font-size: 1vw;
+    }
+  }
+}
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #mrc-transactions-section {
+    margin: -45vh 0 3rem;
+  }
+
+  #mrc-transactions-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .mrc-transactions-table-head th {
+    font-size: 1.6vw;
+  }
+
+  /* Table Subheader */
+  .mrc-transactions-table-subhead th {
+    font-size: 1.3vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.3vw;
+  }
+}
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #mrc-transactions-section {
+    margin: -20vh 0 3rem;
+  }
+
+  #mrc-transactions-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .mrc-transactions-table-head th {
+    font-size: 2.4vw;
+  }
+
+  /* Table Subheader */
+  .mrc-transactions-table-subhead th {
+    font-size: 1.8vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.5vw;
+  }
+
+  ejs-daterangepicker {
+    width: 40vw;
+  }
+}
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #mrc-transactions-section {
+    margin: -45vh 0 3rem;
+  }
+
+  #mrc-transactions-container {
+    padding-left: 12vw;
+    padding-right: 12vw;
+  }
+
+  /* Table Header */
+  .mrc-transactions-table-head th {
+    font-size: 2.2vw;
+  }
+
+  /* Table Subheader */
+  .mrc-transactions-table-subhead th {
+    font-size: 1.6vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 1.6vw;
+  }
+
+  ejs-daterangepicker {
+    width: 40vw;
+  }
+}
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+@media (min-width: 481px) and (max-width: 767px) {
+  #mrc-transactions-section {
+    margin: -70vh 0 3rem;
+  }
+
+  #mrc-transactions-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  /* Table Header */
+  .mrc-transactions-table-head th {
+    font-size: 3vw;
+  }
+
+  /* Table Subheader */
+  .mrc-transactions-table-subhead th {
+    font-size: 2.3vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 2.3vw;
+  }
+
+  #mrc-transactions-invite-employee-title {
+    font-size: 2.7vw;
+  }
+
+  ejs-daterangepicker {
+    width: 50vw;
+  }
+}
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+@media (min-width: 320px) and (max-width: 480px) {
+  #mrc-wallet-section {
+    margin: -35vh 0 3rem;
+  }
+
+  /* Table Header */
+  .mrc-transactions-table-head th {
+    font-size: 4.9vw;
+  }
+
+  /* Table Subheader */
+  .mrc-transactions-table-subhead th {
+    font-size: 4vw;
+  }
+
+  /* Table Body Rows */
+  tbody tr {
+    font-size: 4vw;
+  }
+
+  #mrc-transactions-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  #mrc-transactions-invite-employee-title {
+    font-size: 3.5vw;
+  }
+
+  #mrc-transactions-invite-employee-button .form-control::placeholder {
+    font-size: 3vw;
+  }
+
+  #mrc-transactions-table-icon {
+    width: 18%;
+  }
+
+  ejs-daterangepicker {
+    width: 70%;
+  }
+}
+
+/* 
+    ##Device = Between desktop and laptop
+    ##Screen = height < 900px
+  */
+@media screen and (max-height: 900px) and (min-height: 700px) {
+}
+
+@media screen and (max-height: 699px) {
+}
+
+@media screen and (max-width: 576px) {
+}
+
+/* ^^^ MEDIA QUERIES ^^^ */

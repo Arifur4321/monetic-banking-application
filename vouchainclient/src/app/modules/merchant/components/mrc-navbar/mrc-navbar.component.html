@@ -1,0 +1,81 @@
+<div id="mrc-navbar" class="navbar navbar-expand-lg navbar-dark">
+
+  <!-- Vouchain icon -->
+  <div class="col-lg-4" id="mrc-navbar-display">
+
+    <!-- Logo -->
+    <a id="mrc-brand" class="navbar-brand col-sx-10" routerLink="/merchant/mrcDashboard">
+      <img id="imgMrcLogo" class="img-fluid" src="./assets/images/mrcNavbar_logoBianco.png" />
+    </a>
+
+    <!-- Button menu small screen -->
+    <button class="navbar-toggler float-right col-sx-2" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: center;">
+
+    <!-- Menu Navbar -->
+    <div class="col-xl-6 col-lg-8">
+      <ul class="navbar-nav justify-content-center" style="display: -webkit-inline-box">
+
+        <!-- Wallet -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/merchant/mrcDashboard/mrcWallet" routerLinkActive="active-link">Wallet</a>
+        </li>
+
+        <!-- Orders -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/merchant/mrcDashboard/mrcInvoice" routerLinkActive="active-link">Ordini</a>
+        </li>
+
+        <!-- Transaction history -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/merchant/mrcDashboard/transactions" routerLinkActive="active-link">{{ 'NAVBAR.HISTORY_TRANSACTIONS' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Show Profile -->
+    <div class="col-xl-3 col-lg-1"></div>
+    <div class="col-xl-3">
+
+      <ul class="navbar-nav mr-auto">
+
+        <li class="dropdown nav-item">
+
+          <!-- Button image section -->
+          <a id="mrc-navbar-profile" class="btn btn-default dropdown-toggle thumbnail text-white"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            
+            <!-- Image profile -->
+            <img id="imgMrcProfile" class="img-circle img-fluid" src="./assets/images/mrc_icon.png" />
+            <span class="caret text-white">{{
+            "NAVBAR.PROFILE" | translate
+          }}</span>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+            <!-- Modify Profile -->
+            <a class="dropdown-item mrc-dropdown-item"
+              routerLink="/merchant/mrcDashboard/modifyProfile">{{ "NAVBAR.SHOW" | translate }}</a>
+
+            <!-- Change Password -->
+            <a class="dropdown-item mrc-dropdown-item" routerLink="/changePsw"
+              [state]="{ profile: 'merchant' }">{{ "NAVBAR.MODIFY" | translate }}</a>
+
+            <div class="dropdown-divider"></div>
+
+            <!-- Logout -->
+            <a class="dropdown-item mrc-dropdown-item" (click)="logout()">Logout</a>
+          </div>
+
+        </li>
+      </ul>
+    </div> <!-- End column -->
+  </div> <!-- End menu collapse -->
+</div>

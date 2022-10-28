@@ -1,0 +1,744 @@
+<section id="mrc-signup-section">
+
+  <!-- Website Border Images -->
+  <img src="./assets/images/vouchain_loginTop.png" id="mrc-signup-top-image" class="img-fluid" />
+  <img src="./assets/images/vouchain_loginBottom.png" id="mrc-signup-bottom-image" class="img-fluid" />
+
+  <!-- Website Title Header -->
+  <div id="mrc-signup-header">
+    <a href="{{homepage}}">
+      <img id="imgMrcLogoSignup" class="img-fluid" src="./assets/images/monethic logo.PNG" />
+    </a>
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="mrc-signup-container">
+    <div class="mrc-signup-wrap">
+
+      <!-- Login | Signup Links -->
+      <div class="text-center" style="margin-bottom: 2rem;">
+        <a id="mrc-signup-anchor-login" routerLink="/merchant/mrcLogin">{{ 'SIGNUP.LOGIN_LINK' | translate }}</a>
+        <span id="mrc-signup-anchor-pipe"> | </span>
+        <a id="mrc-signup-anchor-signup">{{ 'SIGNUP.SIGNUP_LABEL' | translate }}</a>
+      </div>
+
+      <!-- Signup Form -->
+      <form (ngSubmit)="onFormSubmit()" autocomplete="off" ngNativeValidate>
+
+        <!-- Riga con tutti i tab -->
+        <div class="row">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                aria-controls="nav-home" aria-selected="true">1. {{ 'SIGNUP.TAB_COMPANY' | translate }}</a>
+              <a class="nav-item nav-link disabled" id="nav-headOffice-tab" data-toggle="tab" href="#nav-headOffice"
+                role="tab" aria-controls="nav-profile" aria-selected="false">2.
+                {{ 'SIGNUP.TAB_OFFICE' | translate }}</a>
+              <a class="nav-item nav-link disabled" id="nav-office-tab" data-toggle="tab" href="#nav-office" role="tab"
+                aria-controls="nav-profile" aria-selected="false">3.
+                Ufficio</a>
+              <a class="nav-item nav-link disabled" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                role="tab" aria-controls="nav-contact" aria-selected="false">4.
+                {{ 'SIGNUP.TAB_CONTACTS' | translate }}</a>
+              <a class="nav-item nav-link disabled" id="nav-bank-tab" data-toggle="tab" href="#nav-bank" role="tab"
+                aria-controls="nav-contact" aria-selected="false">5. {{ 'SIGNUP.BANK' | translate }}</a>
+            </div>
+          </nav>
+        </div>
+
+        <!-- Tab Content Container -->
+        <div class="tab-content" id="pills-tabContent" style="margin-top: 1rem;">
+
+          <!-- First TAB Autenticazione Form Inputs -->
+          <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="pills-home-tab">
+
+            <div class="row">
+              <div class="col-sm-6">
+
+                <!-- Email Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.EMAIL' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="email" placeholder=""
+                        title="{{ 'SIGNUP.TOOLTIPS.EMAIL' | translate }}" type="email" [(ngModel)]="email"
+                        (input)="checkEmail()" [ngClass]="{ 'is-valid': (email && emailOk), 'is-invalid': !emailOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="emailOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!emailOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.EMAIL' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Password Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.PASSWORD' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="password"
+                        placeholder="" title="{{ 'SIGNUP.TOOLTIPS.PASSWORD' | translate }}" type="password"
+                        [(ngModel)]="password" (input)="checkPassword()" (change)="checkPasswordRetype()"
+                        [ngClass]="{ 'is-valid': (password && passwordOk), 'is-invalid': !passwordOk }" required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="passwordOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!passwordOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.PASSWORD' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+
+                <!-- Retype Password Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.PASSWORD_RETYPE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="passwordRetype"
+                        placeholder="" title="{{ 'SIGNUP.TOOLTIPS.PASSWORD_RETYPE' | translate }}" type="password"
+                        [(ngModel)]="passwordRetype" (input)="checkPasswordRetype()"
+                        [ngClass]="{ 'is-valid': (passwordRetype && passwordRetypeOk), 'is-invalid': !passwordRetypeOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="passwordRetypeOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!passwordRetypeOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.PASSWORD_RETYPE' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-6">
+
+                <!-- Partita IVA Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.P_IVA' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="pIva"
+                        title="{{ 'SIGNUP.TOOLTIPS.P_IVA' | translate }}" type="text" [(ngModel)]="pIva"
+                        (input)="checkPIVA()" (input)="checkPIVA()"
+                        [ngClass]="{ 'is-valid': (pIva && pIvaOk), 'is-invalid': !pIvaOk }" required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="pIvaOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!pIvaOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Codice Fiscale Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.C_FISCALE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="codFis"
+                        title="{{ 'SIGNUP.TOOLTIPS.C_FISCALE' | translate }}" type="text" [(ngModel)]="codFis"
+                        (input)="checkCodFis()"
+                        [ngClass]="{ 'is-valid': (codFis && codFisOk), 'is-invalid': !codFisOk }" required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="codFisOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!codFisOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Ragione Sociale Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.R_SOCIALE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="ragSociale"
+                        title="{{ 'SIGNUP.TOOLTIPS.R_SOCIALE' | translate }}" type="text" [(ngModel)]="ragSociale"
+                        (input)="checkRagSociale()"
+                        [ngClass]="{ 'is-valid': (ragSociale && ragSocialeOk), 'is-invalid': !ragSocialeOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="ragSocialeOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!ragSocialeOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div> <!-- End second internal column -->
+            </div> <!-- End internal row -->
+
+            <div class="row justify-content-center" style="margin-bottom: 1rem;">
+              <div class="col-sm-4">
+
+              </div>
+              <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4">
+                <!-- Go forward button -->
+                <button class="btn btn-block btn-secondary m-1" type="button" (click)="goForwardTab()"
+                  id="mrc-signup-button-profile">Avanti&nbsp;
+                  <fa-icon [icon]="faArrowRight"></fa-icon>
+                </button>
+              </div>
+
+            </div>
+          </div> <!-- End first tab -->
+
+
+          <!-- Second TAB Sedi Form Inputs -->
+          <div class="tab-pane fade" id="nav-headOffice" role="tabpanel" aria-labelledby="pills-profile-tab"
+            style="margin-top: 1rem;">
+
+            <div class="row">
+              <div class="col-sm-6">
+
+                <!-- Address Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.ADDRESS' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="address"
+                        title="{{ 'SIGNUP.TOOLTIPS.ADDRESS' | translate }}" type="text" [(ngModel)]="address"
+                        (input)="checkAddress()"
+                        [ngClass]="{ 'is-valid': (address && addressOk), 'is-invalid': !addressOk }" required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="addressOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!addressOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Province Selection -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.PROVINCE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" list="provinces"
+                        name="province" title="{{ 'SIGNUP.TOOLTIPS.PROVINCE' | translate }}" [(ngModel)]="province"
+                        (change)="checkSelectedProvince()" (input)="checkProv()" (focus)="getProvinces()" id="mrc-signup-select-prov"
+                        [ngClass]="{ 'is-valid': (province && provOk), 'is-invalid': !provOk }">
+
+                      <datalist id="provinces">
+                        <option value="" selected>
+                        <option value="{{ prov.name }}, {{ prov.cod }}" *ngFor="let prov of provinces">
+                      </datalist>
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="provOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!provOk">
+                      <fa-icon [icon]="faInfoCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+
+                <!-- City Selection -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" list="cities" name="city"
+                        (input)="checkCity()" (focus)="getCitiesByProvince()"
+                        title="{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}" [(ngModel)]="city" [disabled]="cityOkInfo"
+                        id="mrc-signup-select-city" [ngClass]="{ 'is-valid': (city && cityOk), 'is-invalid': !cityOk }">
+
+                      <datalist id="cities">
+                        <option value="" selected>
+                        <option [value]="city.name" *ngFor="let city of cities">
+                      </datalist>
+                    </fieldset>
+                    <label class="mrc-signup-info-alert" *ngIf="!cityOkInfo && cityOk">&nbsp;</label>
+                    <label class="mrc-signup-info-alert" id="mrc-city-req" *ngIf="cityOkInfo">
+                      <fa-icon [icon]="faInfoCircle"></fa-icon> {{ 'ERRORS.CITY_BYPROV' | translate}}
+                    </label>
+                    <label class="mrc-signup-error-alert" *ngIf="!cityOk">
+                      <fa-icon [icon]="faInfoCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div> <!-- End first internal column -->
+
+              <div class="col-sm-6">
+
+                <!-- CAP Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.CAP' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="cap"
+                        title="{{ 'SIGNUP.TOOLTIPS.CAP' | translate }}" type="text" [(ngModel)]="cap"
+                        (input)="checkCap()" [ngClass]="{ 'is-valid': (cap && capOk), 'is-invalid': !capOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="capOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!capOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.CAP' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Telephone -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.PHONE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="telephone"
+                        title="{{ 'SIGNUP.TOOLTIPS.PHONE' | translate }}" type="text" [(ngModel)]="telephone"
+                        (input)="checkPhone()"
+                        [ngClass]="{ 'is-valid': (telephone && telephoneOk), 'is-invalid': !telephoneOk }" required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="telephoneOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!telephoneOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div> <!-- End second internal column -->
+            </div> <!-- End internal row -->
+
+
+            <div class="row justify-content-center" style="margin-bottom: 1rem;">
+              <div class="col-sm-4">
+                <!-- Go back button -->
+                <button class="btn btn-block btn-primary m-1" type="button" (click)="goBackwardTab()">
+                  <fa-icon [icon]="faArrowLeft"></fa-icon>&nbsp;Indietro
+                </button>
+              </div>
+              <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4">
+                <!-- Go forward button -->
+                <button class="btn btn-block btn-secondary m-1" type="button" (click)="goForwardTab()"
+                  id="mrc-signup-button-headOffice">Avanti&nbsp;
+                  <fa-icon [icon]="faArrowRight"></fa-icon>
+                </button>
+              </div>
+            </div>
+
+          </div> <!-- End second tab -->
+
+          <!-- Third TAB Office Form Inputs -->
+          <div class="tab-pane fade" id="nav-office" role="tabpanel" aria-labelledby="pills-profile-tab"
+            style="margin-top: 1rem;">
+
+            <div class="row">
+              <div class="col-sm-6">
+
+                <!-- Checkbox -->
+                <div class="inner">
+                  <div class="form-check ml-2">
+                    <input class="form-check-input" type="checkbox" value="checkbox" (click)="onCheckboxSelected()"
+                      id="mrc-signup-checkbox-office" checked>
+                    <label class="form-check-label" for="mrc-signup-checkbox-office">Rimuovi se diverso dalla
+                      sede</label>
+                  </div>
+                  <label class="mrc-signup-error-alert">&nbsp;</label>
+                </div>
+
+                <!-- Office Name Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.OFFICE_NAME' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="officeName"
+                        (input)="checkOfficeName()" title="{{ 'SIGNUP.TOOLTIPS.OFFICE_NAME' | translate }}" type="text"
+                        [(ngModel)]="officeName" id="mrc-signup-office-name"
+                        [ngClass]="{ 'is-valid': (officeName && officeNameOk), 'is-invalid': !officeNameOk }" />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="officeNameOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!officeNameOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Address Office -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.ADDRESS' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="addressOffice"
+                        title="{{ 'SIGNUP.TOOLTIPS.ADDRESS' | translate }}" type="text" [(ngModel)]="addressOffice"
+                        (input)="checkAddressOffice()" id="mrc-signup-office-address"
+                        [ngClass]="{ 'is-valid': (addressOffice && addressOfficeOk), 'is-invalid': !addressOfficeOk }" />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="addressOfficeOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!addressOfficeOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div> <!-- End first internal column -->
+
+              <div class="col-sm-6">
+
+                <!-- Province Office -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.PROVINCE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" list="provincesOffice"
+                        name="provOffice" title="{{ 'SIGNUP.TOOLTIPS.PROVINCE' | translate }}" [(ngModel)]="provOffice"
+                        (focus)="getProvincesOffice()" (change)="checkSelectedProvinceOffice()" (input)="checkProvOffice()"
+                        id="mrc-signup-office-province"
+                        [ngClass]="{ 'is-valid': (provOffice && provOfficeOk), 'is-invalid': !provOfficeOk }">
+                      <datalist id="provincesOffice">
+                        <option value="{{ provOffice }}" label="{{ provOffice }}" *ngIf="!provOffice" selected>
+                        <option value="" *ngIf="provOffice">
+                        <option value="{{ prov.name }}, {{ prov.cod }}" *ngFor="let prov of provincesOffice">
+                      </datalist>
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="provOfficeOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!provOfficeOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+
+                <!-- City Office -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" list="citiesOffice"
+                        name="cityOffice" (input)="checkCityOffice()" (focus)="getCitiesByProvinceOffice()"
+                        title="{{ 'SIGNUP.TOOLTIPS.CITY' | translate }}" [(ngModel)]="cityOffice"
+                         id="mrc-signup-office-city" [ngClass]="{ 'is-valid': (cityOffice && cityOfficeOk), 'is-invalid': !cityOfficeOk }" disabled>
+
+                      <datalist id="citiesOffice">
+                        <option value="{{ cityOffice }}" label="{{ cityOffice }}" *ngIf="!cityOffice" selected>
+                          <option value="" *ngIf="cityOffice">
+                        <option [value]="city.name" *ngFor="let city of citiesOffice">
+                      </datalist>
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="!cityOfficeInfoOk && cityOfficeOk">&nbsp;</label>
+                    <label class="mrc-signup-info-alert" id="mrc-city-req-office" *ngIf="cityOfficeInfoOk">
+                      <fa-icon [icon]="faInfoCircle"></fa-icon> {{ 'ERRORS.CITY_BYPROV' | translate}}
+                    </label>
+                    <label class="mrc-signup-error-alert" *ngIf="!cityOfficeOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Telephone -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.PHONE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="phoneNoOffice"
+                        title="{{ 'SIGNUP.TOOLTIPS.PHONE' | translate }}" type="text" [(ngModel)]="phoneNoOffice"
+                        (input)="checkPhoneNoOffice()" id="mrc-signup-office-telephone"
+                        [ngClass]="{ 'is-valid': (phoneNoOffice && phoneNoOfficeOk), 'is-invalid': !phoneNoOfficeOk }" />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="phoneNoOfficeOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!phoneNoOfficeOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div> <!-- End second internal column -->
+            </div>
+
+        
+            <div class="row justify-content-center" style="margin-bottom: 1rem;">
+              <div class="col-sm-4">
+                <!-- Go back button -->
+                <button class="btn btn-block btn-primary m-1" type="button" (click)="goBackwardTab()">
+                  <fa-icon [icon]="faArrowLeft"></fa-icon>&nbsp;Indietro
+                </button>
+              </div>
+              <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4">
+                <!-- Go forward button -->
+                <button class="btn btn-block btn-primary m-1" type="button" (click)="goForwardTab()"
+                  id="mrc-signup-button-office">Avanti&nbsp;
+                  <fa-icon [icon]="faArrowRight"></fa-icon>
+                </button>
+              </div>
+            </div>
+
+          </div> <!-- End third tab -->
+
+          <!-- Fourth TAB Referente Form Inputs -->
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="pills-messages-tab"
+            style="margin-top: 1rem;">
+
+            <div class="row">
+              <div class="col-sm-6">
+
+                <!-- First Name Req Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.REQ_NAME' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="firstNameReq"
+                        title="{{ 'SIGNUP.TOOLTIPS.REQ_NAME' | translate }}" type="text" (input)="checkFirstNameReq()"
+                        [(ngModel)]="firstNameReq"
+                        [ngClass]="{ 'is-valid': (firstNameReq && firstNameReqOk), 'is-invalid': !firstNameReqOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="firstNameReqOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!firstNameReqOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Last Name req Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.REQ_LASTNAME' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="lastNameReq"
+                        title="{{ 'SIGNUP.TOOLTIPS.REQ_LASTNAME' | translate }}" type="text"
+                        (input)="checkLastNameReq()" [(ngModel)]="lastNameReq"
+                        [ngClass]="{ 'is-valid': (lastNameReq && lastNameReqOk), 'is-invalid': !lastNameReqOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="lastNameReqOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!lastNameReqOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Role req Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.REQ_ROLE' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="roleReq"
+                        title="{{ 'SIGNUP.TOOLTIPS.REQ_ROLE' | translate }}" type="text" [(ngModel)]="roleReq"
+                        (input)="checkRoleReq()"
+                        [ngClass]="{ 'is-valid': (roleReq && roleReqOk), 'is-invalid': !roleReqOk }" required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="roleReqOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!roleReqOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div> <!-- End first internal column -->
+
+              <div class="col-sm-6">
+
+                <!-- First Name Ref Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.FIRST_NAME_REF' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="firstNameRef"
+                        title="{{ 'SIGNUP.TOOLTIPS.FIRST_NAME_REF' | translate }}" type="text"
+                        (input)="checkFirstNameRef()" [(ngModel)]="firstNameRef"
+                        [ngClass]="{ 'is-valid': (firstNameRef && firstNameRefOk), 'is-invalid': !firstNameRefOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="firstNameRefOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!firstNameRefOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Last Name Ref Input -->
+                <div class="inner">
+                  <div class="form-holder">
+                    <fieldset>
+                      <legend>{{ 'SIGNUP.LAST_NAME_REF' | translate }}</legend>
+                      <input class="form-control" data-toggle="tooltip" data-placement="top" name="lastNameRef"
+                        title="{{ 'SIGNUP.TOOLTIPS.LAST_NAME_REF' | translate }}" type="text"
+                        (input)="checkLastNameRef()" [(ngModel)]="lastNameRef"
+                        [ngClass]="{ 'is-valid': (lastNameRef && lastNameRefOk), 'is-invalid': !lastNameRefOk }"
+                        required />
+                    </fieldset>
+                    <label class="mrc-signup-error-alert" *ngIf="lastNameRefOk">&nbsp;</label>
+                    <label class="mrc-signup-error-alert" *ngIf="!lastNameRefOk">
+                      <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                    </label>
+                  </div>
+                </div>
+
+              </div> <!-- End second internal column -->
+            </div> <!-- End internal row -->
+
+            
+            <div class="row justify-content-center" style="margin-bottom: 1rem;">
+              <div class="col-sm-4">
+                <!-- Go back button -->
+                <button class="btn btn-block btn-primary m-1" type="button" (click)="goBackwardTab()">
+                  <fa-icon [icon]="faArrowLeft"></fa-icon>&nbsp;Indietro
+                </button>
+              </div>
+              <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4">
+                <!-- Go forward button -->
+                <button class="btn btn-block btn-secondary m-1" type="button" (click)="goForwardTab()"
+                  id="mrc-signup-button-contact">Avanti&nbsp;
+                  <fa-icon [icon]="faArrowRight"></fa-icon>
+                </button>
+              </div>
+            </div>
+
+          </div> <!-- End fourth tab -->
+
+
+          <!-- Fifth TAB Contatti Form Inputs -->
+          <div class="tab-pane fade" id="nav-bank" role="tabpanel" aria-labelledby="pills-settings-tab"
+            style="margin-top: 1rem;">
+
+            <!-- IBAN -->
+            <div class="inner">
+              <div class="form-holder">
+                <fieldset>
+                  <legend>IBAN</legend>
+                  <input class="form-control" data-toggle="tooltip" data-placement="top" name="iban"
+                    title="{{ 'SIGNUP.TOOLTIPS.IBAN' | translate }}" type="text" (input)="checkIBAN()"
+                    [(ngModel)]="iban" [ngClass]="{ 'is-valid': (iban && ibanOk), 'is-invalid': !ibanOk }" required />
+                </fieldset>
+                <label class="mrc-signup-error-alert" *ngIf="ibanOk">&nbsp;</label>
+                <label class="mrc-signup-error-alert" *ngIf="!ibanOk">
+                  <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.IBAN' | translate}}
+                </label>
+              </div>
+            </div>
+
+            <!-- BANCA -->
+            <div class="inner">
+              <div class="form-holder">
+                <fieldset>
+                  <legend>{{ 'SIGNUP.BANK' | translate }}</legend>
+                  <input class="form-control" data-toggle="tooltip" data-placement="top" name="bank"
+                    title="{{ 'SIGNUP.TOOLTIPS.BANK' | translate }}" type="text" (input)="checkBank()"
+                    [(ngModel)]="bank" [ngClass]="{ 'is-valid': (bank && bankOk), 'is-invalid': !bankOk }" required />
+                </fieldset>
+                <label class="mrc-signup-error-alert" *ngIf="bankOk">&nbsp;</label>
+                <label class="mrc-signup-error-alert" *ngIf="!bankOk">
+                  <fa-icon [icon]="faExclamationCircle"></fa-icon> {{ 'ERRORS.REQUIRED' | translate}}
+                </label>
+              </div>
+            </div>
+
+            <!-- Terms & Conditions -->
+            <div class="row" style="margin-bottom: 1rem; margin-left:10px">
+
+              <!-- Terms & Conditions Checkbox -->
+              <div class="form-check">
+                <input class="form-check-input" id="termsCheckbox" type="checkbox" (change)="onInputFieldsBank()"
+                  required />
+                <label class="form-check-label" for="termsCheckbox"
+                  style="font-size: 0.8rem;">{{ 'SIGNUP.T&C_LABEL' | translate }} <a data-toggle="modal"
+                    data-target="#modalTermsAndCond" href="#terms-and-conditions">{{ 'SIGNUP.T&C_LINK' | translate }}</a>.</label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="row justify-content-center">
+              <div class="col-sm-4">
+                <!-- Go back button -->
+                <button class="btn btn-block btn-primary m-1" type="button" (click)="goBackwardTab()">
+                  <fa-icon [icon]="faArrowLeft"></fa-icon>&nbsp;Indietro
+                </button>
+              </div>
+              <div class="col-sm-4"></div>
+              <!-- Submit button -->
+              <div class="col-sm-4"><button class="btn btn-block btn-secondary m-1" id="mrc-signup-button-submit"
+                  type="submit">{{ 'SIGNUP.SIGNUP_LABEL' | translate }}</button></div>
+            </div>
+          </div> <!-- End fifth tab -->
+
+          <!-- Home button -->
+          <div class="btn btn-block link-homepage">
+            <p>Torna alla <a href="{{ homepage }}">Homepage</a>.</p>
+          </div>
+          
+        </div><!-- End tab content -->
+      </form>
+    </div> <!-- End wrap -->
+  </div> <!-- End container -->
+</section>
+
+<!-- Terms & Conditions Bootstrap Modal -->
+<div class="modal fade" data-refresh="true" id="modalTermsAndCond" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{ 'SIGNUP.MODAL.T&C_TITLE' | translate }}</h4>
+        <button class="btn btn-default" data-dismiss="modal" type="button">X</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="modalBody">
+
+        <!-- TODO: Inserire Termini e Condizioni veritiere -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla metus
+          enim, ullamcorper sed lorem quis, euismod mollis nisl. Nullam sapien
+          est, porttitor molestie feugiat sed, hendrerit vitae tortor.
+          Suspendisse non elit fringilla, porta orci sit amet, mattis erat.
+          Integer in posuere augue. Ut in porta quam. Aliquam lobortis congue
+          leo ut pellentesque. Etiam eget elementum erat. Phasellus id ultrices
+          neque, in lacinia sapien. Donec risus quam, viverra non tempor vel,
+          molestie at magna. Praesent imperdiet a tellus sed efficitur. Sed eu
+          est a massa tempor dapibus. Vestibulum ante ipsum primis in faucibus
+          orci luctus et ultrices posuere cubilia curae; Praesent posuere
+          viverra nunc, at posuere lacus vehicula in. Proin ut pretium leo, vel
+          semper lacus. Donec tortor velit, ullamcorper eu ex a, scelerisque
+          rutrum sapien.
+        </p>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal"
+          type="button">{{ 'SIGNUP.MODAL.CLOSE' | translate }}</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Confirm Signup Bootstrap Modal -->
+<div class="modal fade" data-refresh="true" id="modalConfirmSignup" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" style="background-color:#2c61f1; color:white">
+        <h4 class="modal-title">{{ 'SIGNUP.MODAL.RESPONSE_TITLE' | translate }}</h4>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="mrc-signup-modal-confirm-body">
+        <p *ngIf="!msgSignupBodyShow">
+          {{ 'SIGNUP.MODAL.RESPONSE_BODY_WAIT' | translate }}
+        </p>
+        <p *ngIf="msgSignupBodyShow" innerHtml="{{ msgSignupBody }}">
+        </p>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <!-- Go login button -->
+        <button id="btn-modal-close" class="btn btn-primary" (click)="goLogin()" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {{ msgSignupButton }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

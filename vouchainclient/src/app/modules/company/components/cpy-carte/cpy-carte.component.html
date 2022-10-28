@@ -1,0 +1,275 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section id="cpy-employees-header">
+
+    <!-- Top Border Image -->
+    <img class="float-right img-fluid" id="cpy-employees-top-image" src=" "/>
+  
+  </section>
+  
+  <!-- Main Website Content -->
+  <section id="cpy-employees-section">
+  
+  <!--
+   submenu bar 
+      <app-cpy-submenu> </app-cpy-submenu>
+  -->
+
+
+ 
+   
+    <div  class="container-fluid">
+
+        <div  class="row" id="wholerow" >
+    
+           <div class="col-lg-8 col-xl-8 col-md-8 col-sm-8">
+            <h2  style="float: left;margin-top: 10vh; margin-left: 8vh;"  id="carteheader">  Carte</h2>
+                 <!-- search box starts here -->
+                 <div class="form-group row" style="margin-top: 20vh; width: 60%; margin-left: 20px;" id="searchdiv" >
+                  <label for="search"  class=" col-form-label"  style="text-align: right;"> <i class="fa fa-search">   </i>  </label>
+                  <div class="col-sm-10"> 
+                      <input  type="text" class="form-control" id="search" style="background-color: whitesmoke;"/>
+                    
+                  </div>
+                 
+
+              </div>
+
+                <!-- crea card button for opening pop up  -->
+                <button class="btn btn-default" data-target="#cpy-employees-modal-new-employee"  id="searchbutton"
+                data-toggle="modal" id="cpy-employees-invite-employee-button" type="button"  style="float: right; background-color: #09DCD5 ; margin-left: 20vh;  margin-top: -8vh; color: white;">
+                  <i class="fa fa-plus" ></i>  Crea carta </button>  
+
+              <button class="btn btn-default" type="button" style="background-color: whitesmoke; margin-left: 8vh;">  la mia carte   </button>
+              <button class="btn btn-default" type="button" style="background-color: whitesmoke; margin-left: 5px; ">  Stato Carta </button>
+       
+
+              <!-- drop dwon button  start here -->
+
+              <div class="btn-group">
+                <button type="button" style="background-color: whitesmoke; margin-left: 5px; " class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tipologia di carta
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Carta Virtuale</a>
+                  <a class="dropdown-item" href="#">Carta one fisica</a>
+                 
+                </div>
+              </div>
+
+           </div>
+           <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4">
+
+              <img src="./assets/images/07-All-Mobile-Banking.png" alt=""   id="imgleftside" >
+
+          </div>
+
+        </div>
+
+        <div class="row">
+              <!-- Table start here   -->
+               
+                        
+              <table class="table" id="tablepanel">
+                <thead>
+                  <tr>
+                    <td>  <i class="fa fa-credit-card" style="font-size: 60px; color: #8F00FF;" aria-hidden="true"></i>     <!--<img src="./assets/images/icons/credit_card.png" alt="" style="width: 70px;height: 60px;">-->   </td>
+                     <td > </td>
+                     <td style="font-size: 5vh;"> Carte </td>
+                     <td > </td>
+                     <td> </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td> Titolare della carta:</td>
+                    <td>Carta: </td>
+                    <td>Tipologia di Carta </td>
+                     <td>Limite di Pagamento</td>
+                     <td>Stato</td>
+                  </tr>
+
+                  <tr>
+                    <td> Marco Mugavero </td>
+                    <td>FH06 0067 0987 9098</td>
+                    <td> Carta Virtuale </td>
+                    <td>   1.000 EUR </td>
+                    <td style="width: 12%"><div class="checkbox checkbox-danger"><i class="fa fa-circle" aria-hidden="true" style="color: orange;"></i> 
+                      <label style="padding-left: 10px;"> Da Attivare  </label></div></td>                   
+                  </tr>
+                  <tr>
+                    <td> Federico Grilli  </td>
+                    <td>TA06 0067 6789 9098</td>
+                    <td> Carta One fisica</td>
+                    <td>   1.200 EUR </td>
+                    <td style="width: 12%"><div class="checkbox checkbox-danger"> <i class="fa fa-circle" aria-hidden="true" style="color: red;"></i>
+                        <label style="padding-left: 10px;"> Non Attiva  </label></div></td>
+                  </tr>
+                  <tr>
+                    <td> Arifur Rahman </td>
+                    <td>GA09 0067 0987 8765</td>
+                    <td> Carta Virtuale </td>
+                    <td>    1.600 EUR </td>
+                    <td style="width: 12%"><div class="checkbox checkbox-danger"> <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+                      <label style="padding-left: 10px;">  Attiva  </label> </div></td>
+                  </tr>
+                  <tr>
+                    <td> Cristian Rei </td>
+                    <td>TU09 0067 0987 9098</td>
+                    <td> Carta Virtuale </td>
+                    <td>  2.500 EUR </td>
+                    <td style="width: 12%"><div class="checkbox checkbox-danger"> 
+                      <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+                      <label style="padding-left: 10px;">  Attiva  </label> </div></td>
+                  </tr>
+                  <tr>
+                    <td> Fabrizio Carifur </td>
+                    <td>IT06 0067 0987 9098</td>
+                    <td> Carta One fisica</td>
+                    <td>  2.000 EUR </td>
+                    <td style="width: 12%"><div class="checkbox checkbox-danger"> 
+                      <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+                      <label style="padding-left: 10px;">  Attiva  </label>
+                      </div></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--table finished here-->
+        </div>
+
+      </div>
+  </section>
+  <!-- New Employee Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="cpy-employees-modal-new-employee" role="dialog" style="border-radius: 20px 20px 20px 20px ;">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="border-radius: 20px 20px 20px 20px">
+
+      <!-- Modal Header -->
+      <div class="modal-header" id="cpy-employees-modal-new-employee-header" style="background-color: #8F00FF; color: white; border-radius: 20px 20px 20px 20px;">
+
+        <h4 class="modal-title" id="cpy-employees-modal-new-employee-header-title">
+          <i class="fa fa-credit-card" aria-hidden="true" style="font-size: 30px;"></i> Crea Nuova Carta 
+        </h4>
+
+        <button class="btn btn-default" data-dismiss="modal" style="background-color: white;" id="cpy-employees-modal-new-employee-header-button" type="button">
+          X
+        </button>
+
+      </div>
+
+      <form class="container-fluid form-group" (ngSubmit)="onSubmitInviteForm()">
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="cpy-employees-modal-new-employee-body">
+        
+        <div class="container-fluid form-group">
+          
+          <!-- New Employee First Name Input -->
+          <label class="mb-0" for="cpy-employees-modal-new-employee-first-name"><b>Titolare Della Carta</b></label>
+          <input 
+            class="form-control" 
+            data-toggle="tooltip" 
+            data-placement="top" 
+            id="cpy-employees-modal-new-employee-first-name" 
+            name="empFirstName" 
+            placeholder="Titolare Della Carta" 
+            title="{{ 'EMPLOYEES.TOOLTIPS.INSERT_FIRST_NAME' | translate }}" 
+            type="text" 
+            (input)="checkEmpFirstName()" 
+            [(ngModel)]="empFirstName" 
+            required
+            style="border-radius: 10px;"
+    
+          />
+          <!-- New Employee Last Name Input -->
+          <label class="mb-0 mt-3" for="cpy-employees-modal-new-employee-last-name"><b>Carta Number</b></label>
+          <input 
+            class="form-control" 
+            data-toggle="tooltip" 
+            data-placement="top" 
+            id="cpy-employees-modal-new-employee-last-name" 
+            name="empLastName" 
+            placeholder="Carta Number" 
+            title="{{ 'EMPLOYEES.TOOLTIPS.INSERT_LAST_NAME' | translate }}" 
+            type="text" 
+            (input)="checkEmpLastName()" 
+            [(ngModel)]="empLastName" 
+            style="border-radius: 10px;"
+            required
+          />
+
+          <!-- New Employee Matricola Input -->
+          <label class="mb-0 mt-3" for="cpy-employees-modal-new-employee-matricola"><b>Limite di Pagamento</b></label>
+          <input 
+            class="form-control" 
+            data-toggle="tooltip" 
+            data-placement="top" 
+            id="cpy-employees-modal-new-employee-matricola"
+            name="empMatricola" 
+            placeholder="Limite di Pagamento" 
+            title="Limite Di Pagamento" 
+            type="text" 
+            (input)="checkEmpMatricola()" 
+            [(ngModel)]="empMatricola" 
+            style="border-radius: 10px;"
+            required
+        />
+
+          <!-- New Employee Email Input -->
+          <label class="mb-0 mt-3" for="cpy-employees-modal-new-employee-email"><b>  Stato  </b></label>
+          <input 
+            class="form-control" 
+            data-toggle="tooltip" 
+            data-placement="top" 
+            id="cpy-employees-modal-new-employee-email"
+            name="empEmail" 
+            placeholder="Stato " 
+            title="{{ 'EMPLOYEES.TOOLTIPS.INSERT_EMAIL' | translate }}" 
+            type="email" 
+            (input)="checkEmpEmail()" 
+            [(ngModel)]="empEmail" 
+            style="border-radius: 10px;"
+            required
+          />
+
+        </div>
+
+      </div>
+
+      <!-- Modal Footer option -->
+      <div class="justify-content-between modal-footer"  id="cpy-employees-modal-new-employee-footer" >
+
+        <!-- Cancel New Employee Button -->
+        <button class="btn btn-secondary" data-dismiss="modal"  style="background: #09DCD5; border-color: white; color: white; " id="cpy-employees-modal-new-employee-footer-cancel-button" type="button">
+          {{ 'BUTTONS.GENERICS.CANCEL' | translate }}
+        </button>
+
+        <!-- Invite Employee Submit Button -->
+        <button class="btn btn-default" style="background: #09DCD5; color: white;" id="cpy-employees-invite-employee-button" type="submit" [disabled]="tableError" *ngIf="inviteOk">
+          Crea
+        </button>
+
+        <!-- Loading New Employee Button -->
+        <button class="btn btn-primary" type="submit"    disabled *ngIf="!inviteOk">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {{ "SIGNUP.MODAL.LOADING_BUTTON" | translate }}
+        </button>
+
+      </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
+  
+  
+
+
+
+
+    
+    
+    

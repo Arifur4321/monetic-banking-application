@@ -1,0 +1,561 @@
+/* Main Section background-color: #c71585 ;
+ */
+#emp-login-section {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+/* Border Images */
+#top-image-login {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#bottom-image-login {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+.link-homepage {
+  font-size: 0.9rem;
+  padding: 0rem;
+}
+
+/* Header Text */
+#emp-login-header {
+   
+  margin-bottom: 500px;
+  padding-top:0vh;
+  position: absolute;
+  margin-left: 31.6%;
+  width: 120.3vh;
+
+}
+
+#emp-title-vouchain {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+}
+
+#emp-title-vouchain a {
+  color: inherit;
+}
+
+#emp-title-vouchain a:hover {
+  text-decoration: none;
+}
+
+/* logo */
+#imgEmpLogoLogin{
+  width: 360px;
+ height: 105px;
+ border-radius: 15px 15px 0px 0px;
+  
+}
+
+#button_entra{
+
+  background-color: #993399;
+}
+
+/* Login Page Link */
+#emp-login-anchor {
+  font-size: 1.5rem;
+  font-family: "GraphikMedium";
+}
+
+/* Signup Page Link */
+#emp-signup-anchor {
+  font-size: 1.5rem;
+  color: #575756;
+}
+
+#emp-signup-anchor:hover {
+  color: #2c61f1;
+  text-decoration: none;
+}
+
+#emp-signup-anchor:visited {
+  color: #575756;
+}
+
+#emp-anchor-pipe {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+/* FORM */
+
+.emp-login-container {
+  align-items: center;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 122vh;
+  padding: 22px;
+  width: 96%; 
+  position: fixed;
+}
+
+.emp-login-wrap {
+  width: 360px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 4.5rem 5rem 4.75rem;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+
+ 
+}
+
+#errorDescription {
+  font-family: "GraphikSemibold";
+  height: 3rem;
+  margin-bottom: -3rem;
+}
+
+
+/* --- MEDIA QUERIES --- */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) { }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1024px) and (max-width: 1280px) {
+  img {
+    width: 50%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  #emp-login-header {
+    margin-top: 10%;
+    width: 160vh;
+  }
+
+  .emp-login-container {
+    margin-top: 10%;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  #emp-login-header {
+    margin-top: 4%;
+    width: 158vh;
+  }
+
+  .emp-login-container {
+    margin-top: 15%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #emp-login-section{
+    overflow: scroll;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 600px) and (max-width: 767px) {
+  #emp-login-header {
+    margin-left: 2rem;
+    margin-top: 2%;
+    width: 160vh;
+  }
+
+  .emp-login-container {
+    margin-top: 11%;
+  }
+
+  #emp-login-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #imgEmpLogoLogin {
+    width: 440px;
+    height: 100px;
+    border-radius: 30px 30px 30px 30px;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  #emp-login-header {
+    margin-left: 2rem;
+    margin-top: 4%;
+    width: 160vh;
+  }
+
+  .emp-login-container {
+    margin-top: 10%;
+  }
+
+  #emp-login-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #imgEmpLogoLogin {
+    width: 440px;
+    height: 100px;
+    border-radius: 30px 30px 30px 30px;
+  }
+
+  .emp-login-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+*/
+@media screen and (max-height: 900px) and (min-height: 700px) { }
+
+@media screen and (max-height: 699px) { }
+
+
+
+/*
+ Arifur Testing code starts from here 
+
+section {
+
+	animation-name: backgroundColorPalette  ;
+	animation-duration: 25s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear; 
+  background-size: 100%;
+    position: relative;
+  transition: left 2s;
+  -webkit-transition: left 2s;
+  -moz-transition : left 2s;
+  -o-transition: left 2s; 
+}
+
+@keyframes backgroundColorPalette {
+	0% {
+    background-image: url(/assets/images/workspace-macbook-team-colleague.jpg);
+    
+  }
+	25% {
+		background-image: url(/assets/images/emp_background.jpg);
+   
+	}
+	50% {
+    background-image: url(/assets/images/sc1.jpg);
+	}
+	75% {
+    background-image: url(/assets/images/sc3.jfif);
+	}
+	100% {
+    background-image: url(/assets/images/sc1.jpg);
+	}
+}
+
+
+
+.slider-container{
+   width:800px;
+   height: 600px;
+   margin-left: auto;
+   margin-right: auto;
+   overflow: hidden;
+   text-align: center;
+}
+
+.image-container{
+
+  width: 2400px;
+  height:600px;
+  position: relative;
+  transition: left 2s;
+  -webkit-transition: left 2s;
+  -moz-transition : left 2s;
+  -o-transition: left 2s; 
+}
+.slider-image{
+  float: left ;
+  margin: 0px;
+  padding: 0px; 
+
+}
+
+
+*/
+
+/* background image animation code */
+.cb-slideshow,
+.cb-slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+}
+.cb-slideshow:after { 
+    content: '';
+    background: transparent url(/assets/images/pattern.png) repeat top left; 
+}
+.cb-slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+	-webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+    -moz-animation: imageAnimation 36s linear infinite 0s;
+    -o-animation: imageAnimation 36s linear infinite 0s;
+    -ms-animation: imageAnimation 36s linear infinite 0s;
+    animation: imageAnimation 36s linear infinite 0s; 
+}
+.cb-slideshow li div { 
+    z-index: 1000;
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    -webkit-animation: titleAnimation 36s linear infinite 0s;
+    -moz-animation: titleAnimation 36s linear infinite 0s;
+    -o-animation: titleAnimation 36s linear infinite 0s;
+    -ms-animation: titleAnimation 36s linear infinite 0s;
+    animation: titleAnimation 36s linear infinite 0s; 
+}
+.cb-slideshow li div h3 { 
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    font-size: 240px;
+    padding: 0;
+    line-height: 200px; 
+}
+.cb-slideshow li:nth-child(1) span { 
+    background-image: url(/assets/images/bank2.jpg) 
+}
+.cb-slideshow li:nth-child(2) span { 
+    background-image: url(/assets/images/bank1.jpg);
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; 
+}
+.cb-slideshow li:nth-child(3) span { 
+    background-image: url(/assets/images/3.jpeg);
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; 
+}
+.cb-slideshow li:nth-child(4) span { 
+    background-image: url(/assets/images/bank1.jpg);
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; 
+}
+.cb-slideshow li:nth-child(5) span { 
+    background-image: url(/assets/images/bank2.jpg);
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; 
+}
+.cb-slideshow li:nth-child(6) span { 
+    background-image: url(/assets/images/bank3.jpg);
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s; 
+}
+.cb-slideshow li:nth-child(2) div { 
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; 
+}
+.cb-slideshow li:nth-child(3) div { 
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; 
+}
+.cb-slideshow li:nth-child(4) div { 
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; 
+}
+.cb-slideshow li:nth-child(5) div { 
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; 
+}
+.cb-slideshow li:nth-child(6) div { 
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s; 
+}
+/* Animation for the slideshow images */
+@-webkit-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -webkit-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -webkit-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -moz-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -moz-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -o-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -o-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -ms-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -ms-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes imageAnimation { 
+    0% { opacity: 0;
+    animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+/* Animation for the title */
+@-webkit-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+/* Show at least something when animations not supported */
+.no-cssanimations .cb-slideshow li span{
+	opacity: 1;
+}
+
+@media screen and (max-width: 1140px) { 
+    .cb-slideshow li div h3 { font-size: 140px }
+}
+@media screen and (max-width: 600px) { 
+    .cb-slideshow li div h3 { font-size: 80px }
+}

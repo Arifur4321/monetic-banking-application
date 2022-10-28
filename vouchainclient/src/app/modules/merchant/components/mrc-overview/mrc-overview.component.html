@@ -1,0 +1,241 @@
+<section id="mrc-dashboard-header">
+    <img src="./assets/images/vouchain_dashboard_top_prova04.png" id="top-image-dashboard"
+        class="img-fluid float-right" />
+</section>
+<section id="mrc-overview">
+
+    <!-- Title -->
+    <h1 class="text-center text-white" id="mrc-overview-title"><b>{{ 'OVERVIEW.EVIDENCE' | translate }}</b></h1>
+    
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Profile column -->
+            <div class="col-xl-4 p-3">
+                <div class="row h-100">
+                    <div id="mrc-ow-wrap-profile" class="content-wrap my-auto text-center">
+                        <div class="row justify-content-end" id="mrc-ow-profile-go-btn">
+
+                            <!-- Go profile icon -->
+                            <a routerLink="/merchant/mrcDashboard/modifyProfile"><img
+                                    src="./assets/images/icons/profilo_go_icon.png"></a>
+
+                        </div>
+
+                        <!-- Profile icon -->
+                        <div class="row">
+                            <img src="./assets/images/icons/profilo_icon3.png" class="img-fluid mx-auto">
+                        </div>
+
+                        <!-- First name and last name field -->
+                        <div class="mrc-profile-text-title">{{ 'OVERVIEW.PROFILE.FIRST_NAME' | translate }}
+                            {{ 'OVERVIEW.PROFILE.LAST_NAME' | translate }} {{ 'SIGNUP.TAB_REF' | translate }} </div>
+                        <div class="mrc-profile-text-subtitle">{{this.mrcDto.mrcFirstNameRef}}
+                            {{this.mrcDto.mrcLastNameRef}}</div>
+
+                        <!-- Ragione sociale field -->
+                        <div class="mrc-profile-text-title">{{ 'OVERVIEW.PROFILE.R_SOCIALE' | translate }}</div>
+                        <div class="mrc-profile-text-subtitle">{{this.mrcDto.mrcRagioneSociale}}</div>
+
+                        <!-- Partita IVA field -->
+                        <div class="mrc-profile-text-title">{{ 'OVERVIEW.PROFILE.PIVA' | translate }}</div>
+                        <div class="mrc-profile-text-subtitle">{{this.mrcDto.mrcPartitaIva}}</div>
+
+                        <!-- Codice fiscale field -->
+                        <div class="mrc-profile-text-title">{{ 'OVERVIEW.PROFILE.CODFIS' | translate }}</div>
+                        <div class="mrc-profile-text-subtitle">{{this.mrcDto.mrcCodiceFiscale}}</div>
+
+                    </div>
+                </div>
+            </div> <!-- End profile column -->
+
+            <!-- Info tables column -->
+            <div class="col-xl-8 p-3">
+                <div class="row">
+
+                    <div class="mrc-ow-content-wrap-tables" id="mrc-ow-content-wrap-table1">
+                        <div class="mrc-overview-table-div">
+
+                            <table class="table-responsive">
+                                <thead>
+
+                                    <!-- Table wallet head -->
+                                    <tr class="mrc-overview-table-head">
+
+                                        <!-- Wallet icon -->
+                                        <th class="pl-4" scope="col" style="width: 15%;"><img
+                                                src="./assets/images/icons/wallet_icon.png"></th>
+
+                                        <!-- Wallet title -->
+                                        <th scope="col" style="color: #2d2e83; width: 25%;">
+                                            {{ 'OVERVIEW.WALLET.YOUR_WALLET' | translate }}</th>
+                                        <th scope="col" style="width: 12%;"></th>
+
+                                        <!-- Total wallet -->
+                                        <th colspan="2" scope="col" style="color: #2d2e83;">Totale:
+                                            {{ totalImports | currency: "EUR":"symbol":"":"it-IT" }}</th>
+
+                                        <!-- Go wallet link -->
+                                        <th scope="col" style="width: 10%;">
+                                            <a routerLink="/merchant/mrcDashboard/mrcWallet"><img
+                                                    src="./assets/images/icons/profilo_go_icon.png"></a>
+                                        </th>
+                                    </tr>
+
+                                    <!-- Table wallet subhead -->
+                                    <tr class="mrc-overview-table-subhead">
+
+                                        <th class="pl-4" colspan="2" scope="col">
+                                            {{ 'OVERVIEW.WALLET.VOUCHER' | translate }}</th>
+                                        <th class="text-right" scope="col">{{ 'OVERVIEW.WALLET.AMOUNT' | translate }}
+                                        </th>
+                                        <th class="text-right" scope="col" style="width: 14%;">
+                                            {{ 'OVERVIEW.WALLET.EXPIRE' | translate }}</th>
+                                        <th class="text-right" scope="col" style="width: 12%;">
+                                            {{ 'OVERVIEW.WALLET.QUANTITY' | translate }}</th>
+                                        <th scope="col"></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loading Table Row -->
+                                    <tr *ngIf="activeTableLoading">
+                                        <td class="text-center" colspan="6" style="height: 10rem;">
+                                            <div class="spinner-border text-primary" role="status"
+                                                style="height: 4rem; width: 4rem;"></div>
+                                            <h3>{{ 'MERCHANTS.LOADING_YOUR_WALLET' | translate }}</h3>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Empty Table Row -->
+                                    <tr *ngIf="activeTableEmpty">
+                                        <td class="text-center" colspan="6" style="height: 10rem;">
+                                            <h1>{{ activeTableBodyMessage }}</h1>
+                                        </td>
+                                    </tr>
+
+                                    <tr *ngFor="let voucher of activeVouchers">
+
+                                        <!-- Voucher name -->
+                                        <td class="pl-4" colspan="2" scope="row">
+                                            {{ validatorService.readableVoucherName(voucher.vchName) }}</td>
+
+                                        <!-- Voucher value -->
+                                        <td class="numericPagination">
+                                            {{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}</td>
+
+                                        <!-- Voucher end date -->
+                                        <td class="numericPagination">{{ voucher.vchEndDate | date:"dd/MM/yyyy" }}</td>
+
+                                        <!-- Voucher quantity -->
+                                        <td class="numericPagination">{{ voucher.vchQuantity }}</td>
+                                        <td></td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div> <!-- End wrap -->
+                    
+                </div> <!-- End table wallet row -->
+
+                <div class="row">
+
+                    <div class="mrc-ow-content-wrap-tables" id="mrc-ow-content-wrap-table2">
+                        <div class="mrc-overview-table-div table-responsive">
+
+                            <table>
+                                <thead>
+                                    <!-- Table history head -->
+                                    <tr class="mrc-overview-table-head">
+
+                                        <!-- History icon -->
+                                        <th class="pl-4" scope="col" style="width: 15%;"><img
+                                                src="./assets/images/icons/storico_icon2.png"></th>
+
+                                        <!-- History title -->
+                                        <th scope="col" style="color: #2d2e83; width: 60%;">
+                                            {{ 'OVERVIEW.TRANSACTION.TRANSACTION_HISTORY' | translate }}
+                                        </th>
+
+                                        <th scope="col" style="width: 5%;"></th>
+                                        <th scope="col" style="width: 10%;"></th>
+
+                                        <!-- Go history icon -->
+                                        <th scope="col" style="width: 10%;"><a
+                                                routerLink="/merchant/mrcDashboard/transactions"><img
+                                                    src="./assets/images/icons/profilo_go_icon.png"></a></th>
+                                    </tr>
+                                    <!-- Table history subhead -->
+                                    <tr class="mrc-overview-table-subhead">
+
+                                        <th class="pr-3 text-right" scope="col">
+                                            {{ 'OVERVIEW.TRANSACTION.DATE' | translate }}</th>
+                                        <th class="pl-3" scope="col">
+                                            {{ 'OVERVIEW.TRANSACTION.DESCRIPTION' | translate }}</th>
+                                        <th class="pr-3 text-right" colspan="2" scope="col">
+                                            {{ 'OVERVIEW.WALLET.AMOUNT' | translate }}</th>
+                                        <th scope="col"></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <!-- Loading Table Row -->
+                                    <tr *ngIf="transactionsTableLoading">
+                                        <td class="text-center" colspan="5" style="height: 10rem;">
+                                            <div class="mb-3 spinner-border text-primary" role="status"
+                                                style="height: 4rem; width: 4rem;"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Empty Table Row -->
+                                    <tr *ngIf="transactionsTableEmpty">
+                                        <td class="text-center" colspan="5" style="height: 10rem;">
+                                            <h1>{{ transactionsTableBodyMessage }}</h1>
+                                        </td>
+                                    </tr>
+
+                                    <tr *ngFor="let transaction of transactions">
+
+                                        <!-- Transaction Date -->
+                                        <td class="numericPagination px-0">
+                                            {{ transaction.trcDate }}
+                                        </td>
+
+                                        <!--  Transaction Type Full Description -->
+                                        <td class="pl-3" *ngIf="transaction.trcType === 'SPS'">
+                                            {{ getTrcTypeFullDescription(transaction.trcType) }}
+                                            {{ transaction.usrIdDaString }}
+                                        </td>
+
+                                        <!--  Transaction Type Full Description -->
+                                        <td class="pl-3" *ngIf="transaction.trcType === 'RED'">
+                                            {{ getTrcTypeFullDescription(transaction.trcType) }}
+                                        </td>
+
+                                        <!-- Transaction Value -->
+                                        <td class="numericPagination pr-3" colspan="2">
+                                            {{ transaction.trcValue | currency: "EUR":"symbol":"":"it-IT" }}
+                                        </td>
+
+                                        <!-- Transaction Details Icon -->
+                                        <td></td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div> <!-- End table history row -->
+
+            </div> <!-- End info tables row -->
+        </div> <!-- General row -->
+    </div> <!-- Container -->
+    
+</section>

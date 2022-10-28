@@ -1,0 +1,475 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://applepay.cdn-apple.com/jsapi/v1/apple-pay-sdk.js"></script>
+
+<script type="text/javascript">
+  src="https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js">
+</script>
+
+<div id="error-message"></div>
+                
+                <script>
+                (function() {
+                  var stripe = Stripe('pk_test_51J7KvtDT2lXpdv5sKinjIBj8nDoGMQx0Op2fgyuGTjG9lYA2ZrVa6xrU6FFhArqCSsUKJKu7xr3kSPTqj6UI46NT00BqaITYg3');
+                
+                  var checkoutButton = document.getElementById('checkout-button-price_1J7L5iDT2lXpdv5svwISEAbp');
+                  checkoutButton.addEventListener('click', function () {
+                    /*
+                     * When the customer clicks on the button, redirect
+                     * them to Checkout.
+                     */
+                    stripe.redirectToCheckout({
+                      lineItems: [{price: 'price_1J7L5iDT2lXpdv5svwISEAbp', quantity: 1}],
+                      mode: 'payment',
+                      /*
+                       * Do not rely on the redirect to the successUrl for fulfilling
+                       * purchases, customers may not always reach the success_url after
+                       * a successful payment.
+                       * Instead use one of the strategies described in
+                       * https://stripe.com/docs/payments/checkout/fulfill-orders
+                       */
+                      successUrl: 'https://example.com/success',
+                      cancelUrl: 'https://example.com/canceled',
+                    })
+                    .then(function (result) {
+                      if (result.error) {
+                        /*
+                         * If `redirectToCheckout` fails due to a browser or network
+                         * error, display the localized error message to your customer.
+                         */
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                      }
+                    });
+                  });
+                })();
+                </script>
+
+<!-- Visa Checkout button javascript function finished  here   -->
+<section id="cpy-employees-header">
+  <!-- Top Border Image -->
+  <img class="float-right img-fluid" id="cpy-employees-top-image" src=" "/>
+</section>
+
+<!-- Main Website Content -->
+<section id="cpy-employees-section">
+    <!-- submenu bar
+      <app-cpy-submenu> </app-cpy-submenu>
+    -->
+         <div  class="container-fluid">
+          <div class="row">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6" id="firstleftbox">
+                  <h2 style="font-size: 20px;" > {{this.cpyDto.cpyFirstNameRef}}  </h2>
+                  <h2 style="font-size: 20px;" >{{this.cpyDto.cpyLastNameRef}}</h2>
+
+                    <h5 style="font-size: 21px; "> Saldo Disponibile </h5> 
+                      
+                      <button type="text" class="btn btn-default btn-sm"  (click)="toogleTag()"   *ngIf="showMeicon"  id="mostrabutton"  >
+                       <img id="eyesicon" class="img-fluid" 
+                        style="font-size: 20px; cursor:pointer !important; margin-top: -3px;"   
+                        src="./assets/images/icons/eyesico.png" />                   
+                        Mostra dati
+                     </button> 
+                     <button type="text" class="btn btn-default btn-sm"  (click)="toogleTag()"   *ngIf="showMe"  id="nascondibutton"  >
+                      <img id="eyesicon" class="img-fluid" 
+                      style="font-size: 20px; cursor:pointer !important; margin-top: -3px;"   
+                      src="./assets/images/icons/eyesico.png" />
+                      Nascondi dati
+                   </button> 
+                   <div  *ngIf="showMe"   (click)="toogleTag()" id="importvaluebutton" >  2.716,25 €   </div>
+                
+                </div>
+                
+                <div class=" col-lg-5 col-xl-5 col-md-5 col-sm-5 " style="margin-top: 120px;" >
+       
+                    <button class="btn btn-default" type="button" [disabled]="tableEmpty || tableLoading"
+                    (click)="exportTransactions()" id="scaricabutton"
+                     >
+                    Scarica il tuo estrato conto  </button>
+                   <!--
+                     <button class="btn btn-primary" type="button" [disabled]="tableEmpty || tableLoading"
+                     (click)="exportTransactions()">
+                     {{ 'TRANSACTION.EXPORT_HISTORICAL' | translate }}
+                   </button>
+                   -->
+                    <button class="btn btn-default"  data-target="#cpy-employees-modal-new-employee"
+                    data-toggle="modal" id="cpy-employees-invite-employee-button" id="bonificobutton" > Fai un Bonifico </button>
+                </div>
+        </div>
+
+        <div  class="row" >
+         
+            <div  class="col-lg-7 col-xl-7 col-md-7 col-sm-7" id="secondleftbox">
+                  <h4>Conto Principale</h4> 
+                 
+                  <p style="margin-top: 15px;"> IBAN 28202828220202 </p>
+
+                  <h4 style="margin-top: 30px;" > {{ totalActiveImport | currency: "EUR":"symbol":"":"it-IT" }}  </h4>
+
+                  <div  class="row" style="margin-top: 30px;">
+
+                    <i class="fa fa-credit-card" style="font-size:24px; margin-left: 60px;" ></i>
+                    <i class="fa fa-paper-plane" style="font-size:24px; margin-left: 20px;"></i>
+                    <i class="fa fa-archive" style="font-size:24px; margin-left: 20px;"></i>
+                    <i class="fa fa-home" style="font-size:24px; margin-left: 20px;"></i>
+                  </div>
+            </div>
+
+            <!-- chat box example starts here   -->
+            <div  class="col-lg-4 col-xl-4 col-md-4 col-sm-4" style="max-height:50vh;" >
+              <img src="./assets/images/contopage.png" alt="" id="rightsideimage" >
+                <a (click)="openForm()" >
+
+                   <img  id="chatboxicon"   src="./assets/images/chatboxicon.png" alt="">  
+                </a>                 
+          <!-- chat box pop up start here   -->
+           <div class="chat-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              <h1 >Chat Box</h1>
+          
+               
+              <div class="container">
+                <img src="./assets/images/icons/marco.png" alt="Avatar" style="width:100%;">
+                <p>Hello. How are you today?</p>
+                <span class="time-right">11:00</span>
+              </div>
+              
+              <div class="container darker">
+                <img src="./assets/images/icons/marco.png" alt="Avatar" class="right" style="width:100%;">
+                <p>Hey! I'm fine. Thanks for asking!</p>
+                <span class="time-left">11:01</span>
+              </div>
+              
+              <label for="msg"><b>Message</b></label>
+                 <textarea placeholder="Type message.." name="msg" required></textarea>
+              <button type="submit" class="btn btn-primary" style="width: 50%; ">Send</button>           
+              <button type="button" class="btn btn-danger" style="width: 50%; background-color: red;" (click)="closeForm()">Close</button>
+            </form>
+            </div>
+            </div>
+            <!-- chat box finished here 
+            <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+            -->
+        </div>
+
+        <div class="container-fluid"   id="secondcontainer">
+        </div>
+     </div>
+</section>
+
+<!-- Fai un bonifico pop up -->
+  <!-- New Employee Bootstrap Modal -->
+  <div class="modal fade " data-refresh="true" id="cpy-employees-modal-new-employee" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-xl"   >
+      <!-- Modal content-->
+      <div class="modal-content " style="border-radius: 20px 20px 20px 20px">
+        <!-- Modal Header -->
+        <div class="modal-header" id="cpy-employees-modal-new-employee-header" style="background-color: #8F00FF; color: white; height: 70px; border-radius: 20px 20px 20px 20px;">
+          <img src="./assets/images/icons/wallet_icon.png" alt="Admin" class="rounded-circle p-1 bg-default" width="60" style="background-color: white; margin-top: -8px;">
+          <h4 class="modal-title" id="cpy-employees-modal-new-employee-header-title" >
+            BONIFICO 
+          </h4>
+            
+          <button class="btn btn-default" data-dismiss="modal" id="cpy-employees-modal-new-employee-header-button" type="button" style="background-color: white;">
+            X
+          </button>
+  
+        </div>
+           <div  class="row">
+                  
+                <div class= "col-lg-6"  >
+                  <form action="" style="margin-left: 10px;" id="form1">
+                    <h4 style="margin-top: 20px; margin-left: 50px;   "><i class="fa fa-money " style="color: #09DCD5" ></i>  Importo   </h4>
+                    <input  type="text" id="Importo" name="Importo"  required placeholder="Inserire Importo" #importo style=" margin-left: 75px;  width: 340px; height: 40px; border: none; margin-top: 3px;
+                    border:solid 1px #ccc;
+                    border-radius: 10px"><br>
+ 
+
+                    <h4 style="margin-top: 20px; margin-left: 50px; "> <i class="fa fa-pencil" style="color: #09DCD5" ></i> Casuale   </h4>
+                    <input type="text" id="Casuale" name="Casuale" required placeholder="Inserire Casuale"  #casuale  style=" margin-left: 75px; width: 340px;height: 40px; border: none;margin-top: 3px;
+                    border:solid 1px #ccc;
+                    border-radius: 10px "><br>
+                   
+                   <h4 style="margin-top: 2vh; margin-left: 50px; ">  <i class="fa fa-user " style="color: #09DCD5"></i>  Intestatario </h4>
+                    <input type="text" id="Intestato"  name="Intestato" required placeholder="Inserire Intestatario " style=" margin-left: 75px; width: 340px;height: 40px ;border: none; margin-top: 3px;
+                    border:solid 1px #ccc;
+                    border-radius: 10px"><br>
+                    
+                  </form>                   
+                </div>
+                 
+                <div class= "col-lg-6" >
+         <h4 style="margin-top: 20px; margin-left: 150px; ">  RUBRICA  </h4>
+         <!--
+             <table   class="table" style="margin-left: 60px; overflow: scroll;  
+              border:solid 1px gray;
+              border-radius: 80px;">
+            <thead>
+            </thead>      
+            <tbody>
+                <tr *ngIf="tableLoading">
+                <td class="" colspan="6" style="height: 10rem;">
+                  <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+                </td>
+              </tr>
+              <tr *ngIf="tableEmpty">
+                <td class="text-center" colspan="6" style="height: 10rem; color: #696969 ;  font-family: GraphikRegular ; "  >
+                  <h1>{{ msgTableBody }}</h1>
+                </td>
+              </tr>
+              <tr *ngFor="let employee of employees | paginate: { itemsPerPage: 3, currentPage: selectedPage }">
+                <td style="font-family: GraphikRegular;">{{ employee.empFirstName }}  
+                   </td>
+              
+              </tr>
+            </tbody>     
+            <tfoot>
+            </tfoot>
+          </table>
+          -->  
+                   <table class="table" >
+                    <thead>
+                      <tr>                
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> 1 </td>
+                        <td>Marco</td>
+                        <td>Mugavero</td>
+                       
+                      </tr>
+                      <tr>
+                        <td> 2 </td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        
+                      </tr>
+                      <tr>
+                        <td> 3 </td>
+                        <td>Fabrizio</td>
+                        <td>Carifur</td>
+                      
+                      </tr>
+                      <tr>
+                        <td> 4 </td>
+                        <td>Marco</td>
+                        <td>loretuci</td>
+                      
+                      </tr>
+                       
+                    </tbody>
+                  </table>
+
+                </div>
+                            
+              </div>
+              <!-- modal footer  starts  here -->
+              <div class="modal-footer" style="height: 65px; margin-top: 8px;" >
+
+
+                <!-- apple pay starts here  -->
+                <div id="payment-request-button" > 
+                   
+                
+                </div>
+
+
+                <!--Visa Checkout button here      -->
+                                <img alt="Visa Checkout" class="v-button" role="button"   
+                  src="https://sandbox.secure.checkout.visa.com/wallet-services-web/xo/button.png"/>  
+                <script type="text/javascript"
+                src="https://sandbox-assets.secure.checkout.visa.com/
+                checkout-widget/resources/js/integration/v1/sdk.js">
+                </script>
+                <!-- Conferma Button here  for testing   -->
+                 <script src="https://js.stripe.com/v3">
+                
+                </script>
+                <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding i
+                to call payment(importo.value)  ,  visatransactionapikey(), sepaTransfer();
+
+                 class="btn btn-default"  data-target="#cpy-employees-modal-new-employee-payment"
+                    data-toggle="modal" id="cpy-employees-invite-employee-button"
+
+                -->
+
+              
+
+                <button
+                  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;cursor:pointer"
+                  (click)="visatransactionapikey()"
+                  >
+                >
+                <a href=""></a>
+                  Checkout
+                </button>
+
+               
+
+                
+              </div>
+      </div>
+    </div>
+  </div>
+    
+    
+
+<!--sepa debit form testing
+
+
+
+
+  <form action="/form" method="post" id="setup-form">
+    <div class="form-row inline">
+      <div class="col">
+        <label for="accountholder-name">
+          Name
+        </label>
+        <input
+          id="accountholder-name"
+          name="accountholder-name"
+          placeholder="Jenny Rosen"
+          required
+        />
+      </div>
+  
+      <div class="col">
+        <label for="email">
+          Email Address
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="jenny.rosen@example.com"
+          required
+        />
+      </div>
+    </div>
+  
+    <div class="form-row">
+ 
+      <label for="iban-element">
+        IBAN
+      </label>
+      <div id="iban-element">
+    
+      </div>
+    </div>
+  
+  
+    <button id="submit-button" data-secret="{CLIENT_SECRET}">
+      Set up SEPA Direct Debit
+    </button>
+  
+  
+    <div id="mandate-acceptance">
+      By providing your payment information and confirming this payment, you
+      authorise (A) Rocket Rides and Stripe, our payment service provider
+      and/or PPRO, its local service provider, to send instructions to your
+      bank to debit your account and (B) your bank to debit your account in
+      accordance with those instructions. As part of your rights, you are
+      entitled to a refund from your bank under the terms and conditions of
+      your agreement with your bank. A refund must be claimed within 8 weeks
+      starting from the date on which your account was debited. Your rights
+      are explained in a statement that you can obtain from your bank. You
+      agree to receive notifications for future debits up to 2 days before
+      they occur.
+    </div>
+    
+    <div id="error-message" role="alert"></div>
+  </form>
+
+-->  
+
+
+
+
+
+
+<!-- sepa payment pop up  -->
+  <div class="modal fade " data-refresh="true" id="cpy-employees-modal-new-employee-payment" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-xl"    >
+    
+          
+
+    <div class="sr-root">
+      <div class="sr-main">
+        <form id="payment-form" class="sr-payment-form">
+          <div class="sr-combo-inputs-row">
+            <div class="col">
+              <label for="name">
+                Name
+              </label>
+              <input id="name" name="name" placeholder="Jenny Rosen" required />
+            </div>
+            <div class="col">
+              <label for="email">
+                Email Address
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="jenny.rosen@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <label for="email">
+              Address
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="name"
+              placeholder=""
+              required
+            />
+          </div>
+
+          <div class="sr-combo-inputs-row">
+            <div class="col">
+              <label for="iban-element">
+                IBAN
+              </label>
+              <div id="iban-element">
+                <!-- A Stripe Element will be inserted here. -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Used to display form errors. -->
+          <div id="error-message" class="sr-field-error" role="alert"></div>
+
+          <!-- Display mandate acceptance text. -->
+          <div class="col" id="mandate-acceptance">
+                Your Money Transfer will be done in few days successfully
+                (Commented by ARIFUR)
+          </div>
+
+          <button id="confirm-mandate">
+            <div disabled class="spinner hidden" id="spinner"></div>
+            <span id="button-text"
+              >Confirm mandate and initiate debit for
+              <span id="order-amount"></span
+            ></span>
+          </button>
+        </form>
+        <div class="sr-result hidden">
+          <p>Payment processing<br /></p>
+          <pre>
+            <code></code>
+          </pre>
+        </div>
+      </div>
+    </div>
+ 
+
+      </div>
+    </div>
+  
+    

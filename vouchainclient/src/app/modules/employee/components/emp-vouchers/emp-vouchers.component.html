@@ -1,0 +1,421 @@
+<section id="emp-vouchers-header">
+
+  <!-- Top Border Image -->
+  <img class="float-right img-fluid" id="emp-vouchers-top-image"
+    src="./assets/images/vouchain_dashboard_top_prova04.png" />
+
+</section>
+
+<!-- Main Website Content -->
+<section id="emp-vouchers-section">
+
+  <!-- Section Title -->
+  <h1 id="emp-vouchers-title" class="text-center">
+    <b>{{ 'EMPLOYEES.VOUCHER_ALLOCATIONS' | translate }}</b>
+  </h1>
+
+  <!-- Main Section Content -->
+  <div class="container-fluid" id="emp-vouchers-container">
+
+
+    <!-- Vouchers Table Wrapper and Container -->
+    <div class="emp-vouchers-content-wrap-tables">
+      <div class="emp-vouchers-container-table table-responsive">
+
+        <!-- Vouchers Table -->
+        <table id="emp-invoice-vouchers">
+
+          <!-- Vouchers Table Header -->
+          <thead>
+
+            <!-- Vouchers Table Head -->
+            <tr class="emp-vouchers-table-head">
+
+              <!-- Vouchers Table Icon -->
+              <th colspan="1" class="text-center">
+                <img src="./assets/images/icons/voucher_icon.png" id="idEmpVoucherIcon" />
+              </th>
+
+              <!-- Vouchers Table Title -->
+              <th colspan="3">{{ 'EMPLOYEES.VOUCHERS_AVAILABLE_IN_THE_WALLET' | translate }}</th>
+
+              <!-- Selected Employees Button -->
+              <th class="text-right" colspan="2">
+                <button class="btn btn-primary mr-4" id="btn-affiliato" (click)="onClickShowSelectedMerchants()">
+                  <fa-icon [icon]="fasInfoCircle"></fa-icon> {{ 'EMPLOYEES.SELECTED_AFFILIATE' | translate }}
+                </button>
+              </th>
+
+            </tr>
+
+            <!-- Vouchers Table Subhead -->
+            <tr class="emp-vouchers-table-subhead">
+
+              <th style="width: 10%;"></th>
+
+              <!-- Vouchers Table Name Column -->
+              <th style="width: 30%;">{{ 'OVERVIEW.WALLET.VOUCHER' | translate }}</th>
+
+              <!-- Vouchers Table Value Column -->
+              <th class="text-center" style="width: 10%;">{{ 'TABLES.VOUCHERS.VALUE' | translate }}</th>
+
+              <!-- Vouchers Table Expire Date Column -->
+              <th class="text-center" style="width: 10%;">{{ 'OVERVIEW.WALLET.EXPIRE' | translate }}</th>
+
+              <!-- Vouchers Table Quantity Column -->
+              <th style="width: 25%;">{{ 'OVERVIEW.WALLET.QUANTITY' | translate }} /
+                {{ 'EMPLOYEES.AVAILABLE' | translate }}</th>
+
+
+              <!-- Vouchers Table Import Column -->
+              <th class="text-center" style="width: 15%;">{{ 'OVERVIEW.WALLET.AMOUNT' | translate }}</th>
+
+
+
+            </tr> <!-- End table subhead -->
+
+          </thead> <!-- End table header -->
+
+          <!-- Vouchers Table Body -->
+          <tbody>
+
+            <!-- Loading Table Row -->
+            <tr *ngIf="tableLoading">
+              <td class="text-center" colspan="6" style="height: 10rem;">
+                <div class="spinner-border text-primary" role="status" style="height: 4rem; width: 4rem;"></div>
+              </td>
+            </tr>
+
+            <!-- Empty Table Row -->
+            <tr *ngIf="tableVouchersAvailableEmpty">
+              <td class="text-center" colspan="6" style="height: 10rem;">
+                <h1>{{ msgTableBody }}</h1>
+              </td>
+            </tr>
+
+            <!-- Vouchers Table Row(s) -->
+            <tr
+              *ngFor="let voucher of empVouchers | paginate: { itemsPerPage: 5, currentPage: selectedPageVoucherAvailable}; let i = index ">
+
+              <!-- Checkbox -->
+              <td><input class="form-check-input" id="voucher-checkbox-{{ i }}"
+                  style="height: 1.25rem; width: 1.25rem; margin: auto" type="checkbox" value="{{ voucher.vchValue }}"
+                  (click)="onSingleVoucherSelected(voucher.vchName)">
+              </td>
+
+              <!-- Name -->
+              <td class="text-left"><input value="{{voucher.vchName}}" hidden>
+                {{validator.readableVoucherName(voucher.vchName)}}</td>
+
+              <!-- Value -->
+              <td class="text-righ numericPagination"><input value="{{ voucher.vchValue }}"
+                  hidden>{{parseFloatStringValue(voucher.vchValue) | currency: "EUR":"symbol":"":"it-IT" }}</td>
+
+              <!-- End Date -->
+              <td class="text-left">{{ voucher.vchEndDate | date:"dd/MM/y" }}</td>
+
+              <!-- Quantity Selector -->
+              <td class="text-left">
+                <input class="form-control pr-0 d-inline emp-input-qselector" id="emp-invoice-modal-qselector"
+                  max="{{ voucher.vchQuantity }}" min="1" type="number" value="0"
+                  (change)="getQuantitySelected($event, voucher.vchName, voucher.vchValue, voucher.vchQuantity)"
+                  disabled />
+                /{{voucher.vchQuantity}}
+              </td>
+
+              <!-- Import -->
+              <td class="text-center">
+                {{ quantitySelectedToMultiply(voucher.vchName, voucher.vchValue) * voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}
+              </td>
+
+            </tr> <!-- End Table Row -->
+
+
+          </tbody>
+
+          <!-- Vouchers Table Footer -->
+          <tfoot>
+
+
+            <tr>
+              <!-- Spacing Cell -->
+              <td colspan="4"></td>
+              <td colspan="1" style="text-align: right;">{{ 'EMPLOYEES.TOTAL' | translate }}:</td>
+              <!-- Vochers Total Import -->
+              <td colspan="1" class="text-center">
+                <b>{{ vouSelectedTotalPreview | currency: "EUR":"symbol":"":"it-IT" }}</b>
+              </td>
+            </tr>
+
+              <!-- Pagination Controls -->
+            <tr>
+              <td colspan="6">
+                <pagination-controls class="pt-3 vouchainPagination text-center" maxSize="5" nextLabel="Successivo"
+                  previousLabel="Precedente" (pageChange)="selectedPageVoucherAvailable = $event; onPageChange()">
+                </pagination-controls>
+              </td>
+            </tr>
+
+            <tr>
+
+              <!-- Extra Info -->
+              <td class="text-center" colspan="3" style="font-size: 0.7rem;">
+                <!--  * Quantità massima disponibile presente nel tuo wallet. -->
+              </td>
+
+              <!-- Voucher Allocation Button -->
+              <td class="text-right" colspan="3">
+                <button class="btn btn-primary mr-4" id="btn-alloca-voucher" type="button"
+                  (click)="onClickVoucherAllocation()" [disabled]="!empVouchersInPage.length">
+                  {{ 'TABLES.VOUCHERS.ALLOCATE_VOUCHERS' | translate }}
+                </button>
+              </td>
+
+            </tr>
+
+          </tfoot>
+
+        </table> <!-- End Table -->
+
+      </div>
+    </div> <!-- End wrap -->
+
+  </div> <!-- End container -->
+
+</section> <!-- End section -->
+
+<!-- Voucher Allocation Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="emp-vouchers-modal-allocation" data-backdrop="static"
+  data-keyboard="false" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header text-white" id="emp-vouchers-modal-allocation-header"
+        [ngStyle]="{'background-color':okMsg ? '#0fb94a' : '#2c61f1'}"
+        [ngStyle]="{'background-color':errorMsg ? '#e7362d' : '#2c61f1'}">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title" id="emp-vouchers-modal-allocation-header-title" *ngIf="!errorMsg && !okMsg">
+          {{ 'MODALS.HEADER.VOUCHERS.GENERIC.SUMMARY_TITLE' | translate }}
+        </h4>
+
+        <h4 class="modal-title" id="emp-vouchers-modal-allocation-header-title" *ngIf="errorMsg || okMsg">
+          {{ 'EMPLOYEES.OUTCOME_OF_THE_OPERATION' | translate }}
+        </h4>
+
+        <!-- Modal Header Button -->
+        <button id="emp-vouchers-alloc-btn-x" class="btn btn-default" data-dismiss="modal" type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="emp-vouchers-modal-allocation-body" *ngIf="!errorMsg && !okMsg">
+
+        <!-- Modal Body Text -->
+        <p>
+          {{ 'EMPLOYEES.DATA_REVISION_NOTICE' | translate }}
+        </p>
+
+        <!-- Order Summary Title -->
+        <div class="text-center">
+          <h4 style="color: #2d2e83; font-family: GraphikSemibold;">
+            {{ 'MODALS.BODY.VOUCHERS.GENERIC.SELECTED_VOUCHERS' | translate }}
+          </h4>
+        </div>
+
+        <!-- Order Summary Table -->
+        <div class="emp-vouchers-content-wrap-tables" id="emp-vouchers-wrap-table">
+          <div class="emp-vouchers-container-table table-responsive" style="overflow-x:auto;">
+
+            <table>
+
+              <thead>
+
+                <!-- Order Summary Table Headers -->
+                <tr class="emp-vouchers-table-subhead" style="height: 2.5rem;">
+                  <th style="font-size: 1.15rem; width: 33%;">{{ 'OVERVIEW.WALLET.VOUCHER' | translate }}</th>
+                  <th class="text-right" style="font-size: 1.15rem;">{{ 'TABLES.VOUCHERS.VALUE' | translate }}</th>
+                  <th class="text-right" style="font-size: 1.15rem;">{{ 'OVERVIEW.WALLET.EXPIRE' | translate }}</th>
+                  <th class="text-right" style="font-size: 1.15rem;">{{ 'OVERVIEW.WALLET.QUANTITY' | translate }}</th>
+                  <th class="text-right" style="font-size: 1.15rem;">{{ 'OVERVIEW.WALLET.AMOUNT' | translate }}</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <!-- Order Summary Table Body -->
+                <tr *ngFor="let voucher of empVouchersSelectedToRedeem">
+                  <td>{{ validator.readableVoucherName(voucher.vchName) }}</td>
+                  <td class="numericPagination">{{ voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}</td>
+                  <td class="numericPagination">{{ voucher.vchEndDate }}</td>
+                  <td class="numericPagination">{{ voucher.vchQuantity }}</td>
+                  <td class="numericPagination">
+                    {{ voucher.vchQuantity * voucher.vchValue | currency: "EUR":"symbol":"":"it-IT" }}
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Modal Alert -->
+
+      <!-- Errors Alerts -->
+      <div class="modal-body" id="emp-vouchers-error" *ngIf="errorMsg">
+        <div style="font-family: 'GraphikSemibold';" class="text-center" id="emp-vouchers-error-description">
+          {{ 'EMPLOYEES.AN_ERROR_OCCURRED_SUBMITTING_THE_FORM' | translate }}
+        </div>
+      </div>
+
+      <!-- Success Alerts -->
+      <div class="modal-body" id="emp-vouchers-success" *ngIf="okMsg">
+        <div style="font-family: 'GraphikSemibold';" class="text-center" id="emp-vouchers-success-description">
+          {{ 'EMPLOYEES.ORDER_SUCCESSFULLY_MADE' | translate }}
+        </div>
+      </div>
+
+
+
+
+      <!-- Modal Footer -->
+      <div class="modal-footer" *ngIf="!errorMsg && !okMsg">
+
+        <!-- Order Summary Total Import -->
+        <p style="font-family: 'GraphikSemibold'; font-size: 1.15rem;">
+          {{ 'EMPLOYEES.TOTAL_AMOUNT' | translate }}:
+          {{ vouSelectedTotalPreview | currency: "EUR":"symbol":"":"it-IT" }}
+        </p>
+
+
+        <!-- Loading Purchase Button -->
+
+        <button class="btn btn-secondary" data-dismiss="modal" id="modal-canc-footer-button"
+          type="button">{{ 'BUTTONS.GENERICS.CANCEL' | translate }}</button>
+
+           <button class="btn btn-primary" type="submit" disabled *ngIf="!allocationOk">
+          <span class="spinner-border spinner-border-sm" role="status"></span> {{ "BUTTONS.LOADING" | translate }}
+          </button>
+
+        <!-- Confirm Purchase Button -->
+        <button class="btn btn-primary" id="modal-test-footer-button" type="button" (click)="onClickConfirmAllocation()"
+          *ngIf="allocationOk">
+          {{ 'BUTTONS.GENERICS.CONFIRM' | translate }}
+        </button>
+
+      </div>
+
+      <!-- Modal footer close -->
+      <div class="modal-footer d-block" *ngIf="errorMsg || okMsg">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-secondary" id="emp-invoice-close-modal" type="button" (click)="closeModal()">
+            {{ "MODALS.FOOTER.CLOSE_BUTTON" | translate }}
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Selected Merchants Bootstrap Modal -->
+<div class="fade modal" data-refresh="true" id="emp-vouchers-modal-merchants" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" id="emp-vouchers-modal-merchants-header"
+        style="background-color: #2c61f1; color: white;">
+
+        <!-- Modal Header Title -->
+        <h4 class="modal-title" id="emp-vouchers-modal-merchants-header-title">
+          {{ 'EMPLOYEES.LIST_OF_SELECTED_AFFILIATES' | translate }}
+        </h4>
+
+        <!-- Modal Header Button -->
+        <button class="btn btn-default" data-dismiss="modal" type="button">
+          X
+        </button>
+
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" id="emp-vouchers-modal-merchants-body">
+
+        <!-- Modal Body Text -->
+        <p>
+          {{ 'EMPLOYEES.DATA_REVISION_NOTICE' | translate }}
+        </p>
+
+        <!-- Selected Employees Title -->
+        <div class="text-center">
+          <h4 style="color: #2d2e83; font-family: GraphikSemibold;">
+            {{ 'EMPLOYEES.SELECTED_AFFILIATE' | translate }}
+          </h4>
+        </div>
+
+        <!-- Selected Employees Table -->
+        <div class="emp-vouchers-content-wrap-tables" id="emp-vouchers-wrap-table">
+          <div class="emp-vouchers-container-table table-responsive">
+
+            <table>
+
+              <thead>
+
+                <!-- Selected Employees Table Headers -->
+                <tr class="emp-vouchers-table-subhead" style="height: 2.5rem;">
+                  <th style="font-size: 1.15rem;">{{ 'EMPLOYEES.NOMINATIVE' | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ "OVERVIEW.PROFILE.R_SOCIALE" | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ "OVERVIEW.PROFILE.ADDRESS" | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ "SIGNUP.CITY" | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ "SIGNUP.PROVINCE" | translate }}</th>
+                  <th style="font-size: 1.15rem;">{{ "SIGNUP.CAP" | translate }}</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <!-- Selected Employees Table Body -->
+                <tr *ngFor="let merchant of selectedMerchants">
+                  <td>{{ merchant.mrcFirstNameReq}} {{ merchant.mrcLastNameReq}}</td>
+                  <td>{{ merchant.mrcRagioneSociale }}</td>
+                  <td>{{ merchant.mrcAddress }}</td>
+                  <td>{{ merchant.mrcCity }}</td>
+                  <td>{{ merchant.mrcProv }}</td>
+                  <td>{{ merchant.mrcZip }}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" id="modal-test-footer-button"
+          type="button">{{ 'EMPLOYEES.MODAL.INVITE_CLOSE' | translate }}</button>
+      </div>
+
+    </div>
+  </div>
+</div>

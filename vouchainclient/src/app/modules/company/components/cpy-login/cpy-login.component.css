@@ -1,0 +1,569 @@
+/* Main Section */
+#cpy-login-section {
+  background-color: white;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+
+/* Border Images */
+#cpy-login-top-image {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: -1;
+}
+.mt-2, .my-2 {
+   margin-top: 1.5rem!important; 
+}
+#cpy-login-bottom-image {
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  z-index: -1;
+}
+
+.link-homepage {
+  font-size: 0.9rem;
+  padding: 0rem;
+}
+
+/* logo */
+#imgCpyLogoLogin {
+  width: 20%;
+  opacity: 0.5;
+}
+/* table form id */
+
+
+/* Header Text */
+#cpy-login-header {
+  margin: auto;
+  padding-top: 3vh;
+  position: absolute;
+  margin-left: 8%;
+}
+
+/* VouChain Title */
+#cpy-login-title-vouchain {
+  color: #ffffff;
+  font-family: "GraphikSemibold";
+  margin-top: 18%;
+}
+
+/* VouChain Title Link */
+#cpy-login-title-vouchain a {
+  color: inherit;
+}
+
+#cpy-login-title-vouchain a:hover {
+  text-decoration: none;
+}
+
+/* Login Page Link */
+#cpy-login-anchor-login {
+  font-family: "GraphikMedium";
+  font-size: 1.5rem;
+}
+
+/* Login/Signup Pipe */
+#cpy-login-anchor-pipe {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+/* Signup Page Link */
+#cpy-login-anchor-signup {
+  color: #575756;
+  font-size: 1.5rem;
+}
+
+#cpy-login-anchor-signup:hover {
+  color: #2c61f1;
+  text-decoration: none;
+}
+
+#cpy-login-anchor-signup:visited {
+  color: #575756;
+}
+
+/* vvv LOGIN FORM vvv */
+
+/* Error Alert */
+#cpy-login-error-description {
+  font-family: "GraphikSemibold";
+  height: 3rem;
+  margin-bottom: -3rem;
+}
+
+#cpy-login-error-description-generic {
+  font-family: "GraphikSemibold";
+  height: 3rem;
+  margin-bottom: -3rem;
+}
+
+/* Form Container */
+.cpy-login-container {
+  align-items: center;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+  margin-top: 8vh;
+  
+}
+
+.cpy-login-wrap {
+  width: 380px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 4.5rem 5rem 4.75rem;
+  height: 430px;
+  margin-left: -100vh;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+ 
+#imgmanlogo {
+
+  height: 75%;
+  margin-top: 25vh;
+  width: 80%;
+  margin-left: 18vh;
+ 
+  border-radius: 20px;
+  
+}
+
+/*  bigger screen height 950px and 1400px  */
+@media  screen and  (min-height: 950px)  {
+  @media  screen and  (min-width: 1400px)  {
+        
+    #loginform {
+      width: 480px;
+      height: 1100px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 4.5rem 5rem 4.75rem;
+      height: 430px;
+      margin-left: -100vh;
+      box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    }
+
+  }
+}     
+
+
+/* small size screen  */
+
+@media  screen and  (max-width: 500px)  {
+
+
+   
+} 
+
+/*  small screen size lower than height 900px and width 1200px  */
+
+@media  screen and  (max-height: 900px)  {
+  @media  screen and  (max-width: 1200px)  {
+       
+    #imgmanlogo {
+      height: 30%;
+      margin-top: 25vh;
+      width: 30%;
+      margin-left: 8vh; 
+      border-radius: 20px;   
+    }
+
+
+    #loginform {
+      width: 480px;
+      height: 900px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 4.5rem 5rem 4.75rem;
+      height: 430px;
+      margin-left: -100vh;
+      box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    }
+  }
+}  
+  
+
+/* --- MEDIA QUERIES --- */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+ 
+@media (min-width: 1281px) {
+  @media screen and (max-height: 900px) { }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+ 
+@media (min-width: 1024px) and (max-width: 1280px) {
+  img {
+    width: 50%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px  
+ 
+@media (min-width: 768px) and (max-width: 1023px) {
+  #cpy-login-header {
+    margin-top: 5%;
+  }
+
+  .cpy-login-container {
+    margin-top: 5%;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+ 
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  #cpy-login-header {
+    margin-top: 4%;
+  }
+
+  .cpy-login-container {
+    margin-top: 15%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #cpy-login-section{
+    overflow: scroll;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+ 
+@media (min-width: 481px) and (max-width: 767px) {
+  #cpy-login-header {
+    margin-left: 2rem;
+    margin-top: 2%;
+  }
+
+  .cpy-login-container {
+    margin-top: 11%;
+  }
+
+  #cpy-login-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #imgCpyLogoLogin {
+    width: 40%;
+    opacity: 0.5;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #cpy-login-header {
+    margin-left: 2rem;
+    margin-top: 4%;
+  }
+
+  .cpy-login-container {
+    margin-top: 10%;
+  }
+
+  #cpy-login-section {
+    overflow: scroll;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  #imgCpyLogoLogin {
+    width: 50%;
+    opacity: 0.5;
+  }
+
+  .cpy-login-wrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+}
+
+/* 
+  ##Device = Between desktop and laptop
+  ##Screen = height < 900px
+ 
+@media screen and (max-height: 900px) and (min-height: 700px) { }
+
+@media screen and (max-height: 699px) { }
+
+
+/* background animation  starts here 
+
+.cb-slideshow,
+.cb-slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+}
+.cb-slideshow:after { 
+    content: '';
+    background: transparent url(/assets/images/pattern.png) repeat top left; 
+}
+.cb-slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+	-webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+    -moz-animation: imageAnimation 36s linear infinite 0s;
+    -o-animation: imageAnimation 36s linear infinite 0s;
+    -ms-animation: imageAnimation 36s linear infinite 0s;
+    animation: imageAnimation 36s linear infinite 0s; 
+}
+.cb-slideshow li div { 
+    z-index: 1000;
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+    -webkit-animation: titleAnimation 36s linear infinite 0s;
+    -moz-animation: titleAnimation 36s linear infinite 0s;
+    -o-animation: titleAnimation 36s linear infinite 0s;
+    -ms-animation: titleAnimation 36s linear infinite 0s;
+    animation: titleAnimation 36s linear infinite 0s; 
+}
+.cb-slideshow li div h3 { 
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    font-size: 240px;
+    padding: 0;
+    line-height: 200px; 
+}
+.cb-slideshow li:nth-child(1) span { 
+    background-image: url(/assets/images/bank2.jpg) 
+}
+.cb-slideshow li:nth-child(2) span { 
+    background-image: url(/assets/images/bank1.jpg);
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; 
+}
+.cb-slideshow li:nth-child(3) span { 
+    background-image: url(/assets/images/3.jpeg);
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; 
+}
+.cb-slideshow li:nth-child(4) span { 
+    background-image: url(/assets/images/bank1.jpg);
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; 
+}
+.cb-slideshow li:nth-child(5) span { 
+    background-image: url(/assets/images/bank2.jpg);
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; 
+}
+.cb-slideshow li:nth-child(6) span { 
+    background-image: url(/assets/images/bank3.jpg);
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s; 
+}
+.cb-slideshow li:nth-child(2) div { 
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; 
+}
+.cb-slideshow li:nth-child(3) div { 
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; 
+}
+.cb-slideshow li:nth-child(4) div { 
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; 
+}
+.cb-slideshow li:nth-child(5) div { 
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; 
+}
+.cb-slideshow li:nth-child(6) div { 
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s; 
+}
+/* Animation for the slideshow images */
+@-webkit-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -webkit-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -webkit-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -moz-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -moz-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -o-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -o-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -ms-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -ms-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes imageAnimation { 
+    0% { opacity: 0;
+    animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+/* Animation for the title */
+@-webkit-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+/* Show at least something when animations not supported 
+.no-cssanimations .cb-slideshow li span{
+	opacity: 1;
+}
+
+@media screen and (max-width: 1140px) { 
+    .cb-slideshow li div h3 { font-size: 140px }
+}
+@media screen and (max-width: 600px) { 
+    .cb-slideshow li div h3 { font-size: 80px }
+}
+*/

@@ -1,0 +1,308 @@
+#emp-navbar {
+  
+  color:  black;
+  height: 7.2vh;
+  font-size: 1.7vw;   
+  width: 45%;
+  z-index: 999;
+  position : fixed ;
+  border-radius: 0px 0px 50px 50px;
+  background-color: white;
+  margin-left: 135px;
+  box-shadow: 1px 1px 1px 1px blueviolet;
+ 
+}
+
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+#movimentiicon{
+
+  width: 25px;
+  height: 25px;
+  margin-left: 6px;
+ 
+}
+
+#movement{
+ width: 25px;
+ height: 25px;
+ margin-left: 6px;
+
+}
+
+#carte{
+  width: 25px;
+  height: 25px;
+}
+
+#paper{
+  
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
+}
+
+#plus{
+  width: 18px;
+  height: 18px;
+
+}
+
+#altro{
+  
+  font-family: Helvetica,sans-serif;
+  color: gray;  
+  
+    font-size: 23px;
+  }
+
+  #contobutton{
+ margin-left: 26px;
+ border-radius: 50px;
+
+  }
+
+  #movimentimenu{
+    border-radius: 50px;
+  }
+
+  #cartebutton{
+    border-radius: 50px;
+  }
+ 
+  #bonificibutton{
+    border-radius: 50px;
+  }
+ 
+/*  for big desktop width 1900 px   */
+
+@media  screen and  (min-width: 1900px)  { 
+
+   #contobutton{
+
+    margin-left: 85px;
+   }
+
+}
+
+/* for hover color change  
+
+#contobutton:active{
+  background-color: gray;
+
+  }
+  #contobutton:visited{
+  background-color: gray;
+
+  }
+
+  #contobutton:hover {
+    color: gray;
+  }
+
+  
+
+  #movimentibutton:active{
+    background-color: gray;
+ 
+    }
+    #movimentibutton:visited{
+    background-color: gray;
+ 
+    }
+  
+    #movimentibutton:hover {
+      color: gray;
+    }
+
+    
+  
+    #cartebutton:active{
+      background-color: gray;
+      font-family: Google Sans;
+      }
+      #cartebutton:visited{
+      background-color: gray;
+      font-family: Google Sans;
+      }
+    
+      #cartebutton:hover {
+        color: gray;
+      }
+
+      
+
+      #bonificibutton:active{
+        background-color: gray;
+        font-family: Google Sans;
+        }
+        #bonificibutton:visited{
+        background-color: gray;
+        font-family: Google Sans;
+        }
+      
+        #bonificibutton:hover {
+          color: gray;
+        }
+
+             
+
+   
+        #richiesebutton:active{
+          background-color: gray;
+          font-family: Google Sans;
+          }
+          #richiesebutton:visited{
+          background-color: gray;
+          font-family: Google Sans;
+          }
+        
+          #richiesebutton:hover {
+            color: gray;
+          }  
+        
+             
+
+          #Altrobutton:active{
+            background-color: gray;
+            font-family: Google Sans;
+            }
+            #Altrobutton:visited{
+            background-color: gray;
+            font-family: Google Sans;
+            }
+          
+            #Altrobutton:hover {
+              color: gray;
+            }  
+
+*/
+            
+
+
+/*  
+@media screen and (max-width: 768px) {
+  #emp-navbar {
+    background-color: #2d2e83;
+    font-size: 1rem;
+    height: unset;
+    padding: 1rem 0;
+  }
+
+  #emp-navbar-profile {
+    font-size: 1rem;
+  }
+
+  #emp-brand {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  #emp-navbar-display {
+    display: flex;
+  }
+
+  #navbarSupportedContent {
+    background-color: #2d2e83;
+  }
+
+  .dropdown-menu {
+    background-color: #2d2e83;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    margin-bottom: 0.5rem;
+  }
+
+  .emp-dropdown-item {
+    color: #ffffff !important;
+  }
+
+  .dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .navbar {
+    padding: unset;
+  }
+
+  .navbar a {
+    margin-right: 0.3rem;
+   }
+
+
+  .active-link {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1280px) {
+  #emp-navbar {
+    font-size: 1.4vw;
+  }
+
+  #imgEmpProfile {
+    width: 30%;
+  }
+
+  #imgEmpLogo {
+    width: 40%;
+    opacity: 0.5;
+  }
+
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  #emp-navbar {
+    background-color: #2d2e83;
+    font-size: 1.3rem;
+    height: unset;
+    padding: 1rem 0;
+  }
+
+  #imgEmpLogo {
+    width: 30%;
+    opacity: 0.5;
+  }
+
+  #emp-brand {
+    font-size: 1.7rem;
+    margin-right: -5rem;
+  }
+
+  #imgEmpProfile {
+    width: 70%;
+  }
+
+  #navbarSupportedContent {
+    background-color: #2d2e83;
+  }
+
+  .dropdown-menu {
+    background-color: #2d2e83;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    margin-bottom: 0.5rem;
+  }
+
+  .emp-dropdown-item {
+    color: #ffffff !important;
+  }
+
+  .dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .navbar {
+    padding: unset;
+  }
+}
+
+*/
